@@ -1,0 +1,881 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Latest Government Jobs</title>
+  <meta name="description" content="Latest Government Jobs - Find today’s newest Sarkari Naukri, online forms, notifications, eligibility, admit cards & results. Daily updated govt vacancies.">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/">
+  <meta name="author" content="WifiResult Editorial Team">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/">
+  <meta property="og:title" content="Latest Government Jobs">
+  <meta property="og:description" content="Latest Government Jobs - Find today’s newest Sarkari Naukri, online forms, notifications, eligibility, admit cards & results. Daily updated govt vacancies.">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:type" content="image/png">
+
+  <meta property="article:published_time" content="{% now 'c' %}">
+  <meta property="article:modified_time" content="{% now 'c' %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/">
+  <meta name="twitter:title" content="Latest Government Jobs">
+  <meta name="twitter:description" content="Latest Government Jobs - Find today’s newest Sarkari Naukri, online forms, notifications, eligibility, admit cards & results. Daily updated govt vacancies.">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+      {"@type":"ListItem","position":2,"name":"Latest Govt Jobs","item":"{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/"}
+    ]
+  }
+  </script>
+
+  <!--WebPage + CollectionPage-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":["WebPage","CollectionPage"],
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/#webpage",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/",
+    "name":"Latest Government Jobs",
+    "headline":"Latest Government Jobs New Sarkari Vacancies – SSC, UPSC, Railway, Banking & More",
+    "description":"Latest Government Jobs - Find today’s newest Sarkari Naukri, online forms, notifications, eligibility, admit cards & results. Daily updated govt vacancies.",
+    "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+    "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+      "width":512,
+      "height":512
+    },
+    "inLanguage":"en",
+    "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/latest-government-jobs/#breadcrumb"}
+  }
+  </script>
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Latest Government Jobs",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* ===== Page Background Wrapper ===== */
+  .jobs-page-wrap {
+    background: radial-gradient(circle at top left, #eff6ff 0, #eef2ff 40%, #ecfdf5 75%, #fefce8 100%);
+    padding-bottom: 22px;
+  }
+
+  /* ===== Breadcrumb – pill + modern ===== */
+  .jobs-breadcrumb {
+    padding: 10px 0;
+  }
+  .jobs-breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 13px;
+  }
+  .jobs-breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .jobs-breadcrumb span {
+    color: #6b7280;
+  }
+  .jobs-breadcrumb .crumb-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #111827;
+    color: #f9fafb;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== Hero Section ===== */
+  .jobs-hero {
+    padding: 18px 0 18px;
+  }
+  .jobs-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
+    gap: 24px;
+    align-items: center;
+  }
+  .jobs-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.9);
+    color: #e5e7eb;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+  .jobs-hero-badge span.icon {
+    font-size: 14px;
+  }
+  .jobs-hero-title {
+    margin-top: 10px;
+    font-size: 26px;
+    line-height: 1.25;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .jobs-hero-title span.sub {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  .jobs-hero-sub {
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 580px;
+    color: #374151;
+  }
+  .jobs-hero-meta {
+    margin-top: 12px;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #0f766e;
+  }
+  .jobs-hero-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .jobs-hero-actions {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .jobs-hero-btn-primary {
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(90deg, #22c55e, #14b8a6);
+    color: #022c22;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 24px rgba(16,185,129,0.4);
+  }
+  .jobs-hero-btn-primary:hover {
+    filter: brightness(1.05);
+  }
+  .jobs-hero-btn-ghost {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid #0f766e;
+    color: #064e3b;
+    background: rgba(240,253,250,0.9);
+    font-size: 13px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .jobs-hero-btn-ghost:hover {
+    background: #ccfbf1;
+  }
+
+  .jobs-hero-card {
+    background: linear-gradient(145deg, #0f172a 0, #111827 40%, #1e293b 100%);
+    border-radius: 16px;
+    padding: 14px 16px 14px;
+    color: #e5e7eb;
+    box-shadow: 0 18px 40px rgba(15,23,42,0.75);
+  }
+  .jobs-hero-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .jobs-hero-card p {
+    font-size: 12px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .jobs-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .jobs-hero-tag {
+    font-size: 11px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    border: 1px dashed rgba(249,250,251,0.6);
+  }
+
+  @media (max-width: 992px) {
+    .jobs-hero-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== Main Content Layout ===== */
+  .main-content {
+    padding: 10px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 320px;
+  }
+  .sidebar {
+    width: 310px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* ===== Section Heading ===== */
+  .jobs-section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .jobs-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+  }
+  .jobs-section-title span.icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    color: #f9fafb;
+  }
+  .jobs-section-subtext {
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  /* ===== Job List Cards ===== */
+  .job-listing-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+    border: 1px solid #e5e7eb;
+  }
+  .job-listing-header {
+    background: linear-gradient(90deg, #22c55e, #16a34a, #15803d);
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    justify-content: space-between;
+  }
+  .job-listing-header small {
+    font-size: 11px;
+    opacity: 0.9;
+  }
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .job-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    gap: 8px 16px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease, transform 0.08s ease;
+    align-items: center;
+  }
+  .job-item:last-child {
+    border-bottom: none;
+  }
+  .job-item:hover {
+    background-color: #ecfdf5;
+    transform: translateY(-1px);
+  }
+
+  .job-main {
+    min-width: 0;
+  }
+  .job-title {
+    color: #111827;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .job-title:hover {
+    color: #047857;
+  }
+  .job-meta {
+    font-size: 11px;
+    color: #6b7280;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .job-badge {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .job-date {
+    color: #4b5563;
+    font-size: 11px;
+  }
+
+  .job-right {
+    text-align: right;
+  }
+  .job-cta-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    color: #065f46;
+    gap: 4px;
+  }
+  .job-cta-pill:hover {
+    background: #bbf7d0;
+    border-color: #16a34a;
+  }
+  .job-right small {
+    display: block;
+    font-size: 10px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .job-item {
+      grid-template-columns: 1fr;
+      align-items: flex-start;
+    }
+    .job-right {
+      text-align: left;
+    }
+  }
+
+  /* ===== Pagination (outside UL) ===== */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 12px;
+  }
+  .pagination-inner {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.15);
+  }
+  .page-btn {
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .page-btn:hover {
+    background: #e5e7eb;
+  }
+  .page-current {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #22c55e, #3b82f6);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ===== Sidebar Widgets ===== */
+  .trending-topics {
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+    margin-bottom: 18px;
+    border: 1px solid #e5e7eb;
+  }
+  .trending-header {
+    background: linear-gradient(90deg, #1d4ed8, #2563eb, #22c55e);
+    color: white;
+    padding: 10px 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .trending-header i {
+    font-size: 14px;
+  }
+  .trending-list {
+    padding: 10px 14px 12px;
+  }
+  .trending-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .trending-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 15px;
+    font-weight: 700;
+    color: #22c55e;
+    margin-right: 8px;
+    min-width: 22px;
+  }
+  .trending-content {
+    flex: 1;
+  }
+  .trending-content a {
+    color: #111827;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 13px;
+  }
+  .trending-content a:hover {
+    color: #2563eb;
+  }
+  .trending-meta {
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  @media (max-width: 992px) {
+    .trending-topics.mobile-bottom {
+      order: 99;
+      margin-top: 20px;
+    }
+  }
+
+  /* ===== Website Info Section (हल्का colour change) ===== */
+  .website-info {
+    background: linear-gradient(135deg, #f9fafb 0, #e0f2fe 35%, #dcfce7 70%, #fef3c7 100%);
+    padding: 20px 0 26px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #111827;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 800;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 3px;
+    background: linear-gradient(90deg, #22c55e, #2563eb);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(255,255,255,0.96);
+    padding: 18px 18px 16px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(148,163,184,0.4);
+    transition: transform 0.22s ease;
+    border: 1px solid rgba(148,163,184,0.5);
+  }
+  .info-point:hover {
+    transform: translateY(-4px);
+  }
+  .info-point h3 {
+    color: #15803d;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 16px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .jobs-hero-title {
+      font-size: 20px;
+    }
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<div class="jobs-page-wrap">
+
+  <!-- Breadcrumb -->
+  <div class="jobs-breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>›</span>
+      <span class="crumb-pill">
+        <span>📰</span> Latest Government Jobs
+      </span>
+    </div>
+  </div>
+
+  <!-- Hero Section (replaces old marquee) -->
+  <section class="jobs-hero">
+    <div class="container jobs-hero-inner">
+      <div>
+        <h1 class="jobs-hero-title">
+          Latest Government Jobs
+          <span class="sub">New Sarkari Vacancies – SSC, UPSC, Railway, Banking & More</span>
+        </h1>
+        <p class="jobs-hero-sub">
+          इस पेज पर आपको पूरे भारत की <strong>तमाम नई सरकारी भर्तियाँ</strong> एक ही जगह पर मिलेंगी – 
+          Central Govt, State Govt, Railways, Banks, Defence, Police, PSUs और अन्य departments की 
+          latest vacancy details, eligibility, dates और apply online links के साथ।
+        </p>
+        <div class="jobs-hero-meta">
+          <span>📅 Updated: {% now "d M Y" %}</span>
+          <span>📌 Total Active Jobs: {{ page_obj.paginator.count|default:"0" }}</span>
+        </div>
+        <div class="jobs-hero-actions">
+          <a href="#jobs-list-section" class="jobs-hero-btn-primary">
+            View Latest Govt Jobs
+            <span>↓</span>
+          </a>
+          <a href="/latest-jobs/" class="jobs-hero-btn-ghost">
+            Go to Main Jobs Page
+          </a>
+        </div>
+      </div>
+
+      <div class="jobs-hero-card">
+        <h3>ℹ️ All India Govt Jobs – One Place, Zero Confusion</h3>
+        <p>
+          अलग-अलग वेबसाइट्स पर घूमने की बजाय, WifiResult पर आप central + state 
+          दोनों तरह की सरकारी नौकरियों की list category-wise और date-wise देख सकते हैं। 
+          हर post में <strong>notification link, important dates, eligibility</strong> और 
+          <strong>official apply online</strong> button clearly दिया जाता है।
+        </p>
+        <div class="jobs-hero-tags">
+          <a href="{% url 'resultbharat' %}" class="text-decoration-none text-white"> <span class="jobs-hero-tag">Result Bharat</span></a>
+          <a href="{% url 'freejobalert' %}" class="text-decoration-none text-white"> <span class="jobs-hero-tag">Free Job Alert</span></a>
+          <a href="{% url 'tenthjob' %}" class="text-decoration-none text-white"> <span class="jobs-hero-tag">10th</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content container" id="jobs-list-section">
+    <div class="content-area">
+
+      <div class="jobs-section-header">
+        <div class="jobs-section-title">
+          <span class="icon">📋</span>
+          <span>Latest Govt Job</span>
+        </div>
+        <div class="jobs-section-subtext">
+          Recently announced vacancies from SSC, UPSC, Railways, Banks, Police & State departments.
+        </div>
+      </div>
+
+      <!-- Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <span>Latest Government Job Notifications</span>
+          <small>New Vacancies • Online Forms • Last Dates</small>
+        </div>
+        <ul class="job-list-compact p-0">
+
+          {% for job in page_obj %}
+            <li class="job-item">
+              <div class="job-main">
+                <a href="/latest-jobs/{{ job.slug }}" class="job-title">
+                  {{ job.title }}
+                </a>
+                <div class="job-meta">
+                  <span class="job-badge">Govt Job</span>
+                  <span class="job-date">📅 {{ job.published_date|date:"d M, Y" }}</span>
+                </div>
+              </div>
+              <div class="job-right">
+                <a href="/latest-jobs/{{ job.slug }}" class="job-cta-pill">
+                  View Details
+                  <span>➜</span>
+                </a>
+                <small>Apply details & vacancy info inside</small>
+              </div>
+            </li>
+          {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई Government Jobs listing उपलब्ध नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई vacancies आएंगी, इस पेज पर तुरंत update कर दी जाएंगी।
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if page_obj.paginator.num_pages > 1 %}
+        <div class="pagination-wrapper">
+          <div class="pagination-inner">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">← Previous</a>
+            {% endif %}
+
+            <span class="page-current">
+              Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="page-btn">Next →</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Trending Topics Box (static content, नया look) -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+          
+ {% with latest_results|length as result_count %}
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+
+        </div>
+      </div>
+      
+      <!-- Quick Alerts (static ही, बस look बदला) -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+          
+              {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+            <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section (colourful version) -->
+  <section class="website-info">
+    <div class="container">
+      <h2>Latest Government Jobs – Latest Sarkari Naukri Updates</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>Latest Job Notifications</h3>
+          <p>At <strong>wifiresult.com</strong>, you will find the most recent and authentic government job notifications published by UPSC, SSC, IBPS, Railway Recruitment Boards, Defence Forces, Police Departments, and various State Governments. We provide daily updates so you never miss an important opportunity.</p>
+        </div>
+        <div class="info-point">
+          <h3>Exam Dates & Admit Cards</h3>
+          <p>Stay updated with upcoming <strong>Sarkari Exam Dates</strong>, admit card releases, and important schedules. Whether it’s SSC CGL, Railway NTPC, IBPS Clerk, or UPSC Civil Services, we provide timely alerts and direct download links for admit cards and timetables.</p>
+        </div>
+        <div class="info-point">
+          <h3>Syllabus & Answer Keys</h3>
+          <p>Our job page also covers complete exam <strong>syllabus PDFs, previous year papers</strong>, and official answer keys released after exams. This helps candidates prepare effectively with the right resources and strategies.</p>
+        </div>
+        <div class="info-point">
+          <h3>For Freshers & Experienced</h3>
+          <p>We list jobs suitable for <strong>10th pass, 12th pass, graduates, diploma holders, engineers, MBAs, and experienced professionals</strong>. No matter your qualification, you can easily explore the opportunities that fit your profile.</p>
+        </div>
+        <div class="info-point">
+          <h3>One Stop Sarkari Naukri Portal</h3>
+          <p><strong>wifiresult.com</strong> is your one-stop destination for <strong>Latest Government Jobs 2025</strong>. From notifications to results, admit cards, cutoffs, and merit lists, we ensure you have all the information in one place without the need to visit multiple portals.</p>
+        </div>
+      </div>
+      <p class="bottom-text">
+        Our mission is to help millions of aspirants achieve their dream of securing a <strong>Government Job (Sarkari Naukri)</strong>. Bookmark this page to get daily updates on <strong>Central Government Jobs, State Government Vacancies, Railway Jobs, Bank Jobs, Teaching Jobs, Defence Recruitment</strong>, and more.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+{% endblock content %}

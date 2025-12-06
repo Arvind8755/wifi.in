@@ -1,0 +1,886 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Today Govt Job News, Sarkari Updates 2026 – WiFiResult Blog</title>
+<meta name="description" content="WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/blog/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/blog/">
+<meta property="og:title" content="Today Govt Job News, Sarkari Updates 2026 – WiFiResult Blog">
+<meta property="og:description" content="WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/blog/">
+<meta name="twitter:title" content="Today Govt Job News, Sarkari Updates 2026 – WiFiResult Blog">
+<meta name="twitter:description" content="WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/blog/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"{{ request.scheme }}://{{ request.get_host }}/blog/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/blog/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/blog/",
+  "name":"Today Govt Job News, Sarkari Updates 2026 – WiFiResult Blog",
+  "headline":"Blog: Latest Govt Job News, Sarkari Results & Recruitment Updates",
+  "description":"WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/blog/#breadcrumb"}
+}
+</script>
+
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Today Govt Job News, Sarkari Updates 2026 – WiFiResult Blog",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root {
+    --primary: #0d6efd;
+    --border: #e9ecef;
+    --light: #f8f9fa;
+  }
+
+  .breadcrumb {
+    background: #f8f9fa;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .breaking-news {
+    background: #fff3f3;
+    border: 1px solid #ffdede;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  .breaking-news .icon { margin-right: 8px; }
+  .breaking-news .headline {
+    display: inline;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .page-wrap { padding: 18px 0; }
+
+  .news-card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ✅ Grid Layout */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  @media (min-width: 576px) { .news-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 768px) { .news-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1200px) { .news-grid { grid-template-columns: repeat(6, 1fr); } }
+
+  /* ✅ Clickable Card */
+  .post-link {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+    z-index: 0;
+  }
+
+  .post-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary);
+  }
+
+  .thumb-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #eee;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .post-link:hover .thumb { transform: scale(1.05); }
+
+  .post-body {
+    padding: 10px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .post-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #222;
+    margin: 0 0 8px;
+  }
+
+  .post-meta {
+    font-size: 12px;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ✅ Pagination */
+  .pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .pagination a,
+  .pagination span {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    text-decoration: none;
+    color: #222;
+  }
+  .pagination .current {
+    background: var(--light);
+    font-weight: 600;
+  }
+  .pagination .disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Modern Blog Info Blocks - Neon Edge + Soft Glass Style */
+  .edu-info-wrap{
+    padding:20px 0 30px;
+  }
+
+  .edu-highlight{
+    background:#ffffff;
+    border-radius:14px;
+    padding:20px 18px;
+    margin:18px 0;
+    box-shadow:0 12px 25px rgba(0,0,0,0.08);
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(6px);
+  }
+
+  /* Neon rainbow border */
+  .edu-highlight:before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    padding:2px;
+    background:linear-gradient(
+      90deg,
+      #0061ff,
+      #60efff,
+      #ff6ec4,
+      #ffc65c
+    );
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+  }
+
+  .edu-highlight h4{
+    margin:0 0 10px;
+    font-size:1.15rem;
+    font-weight:600;
+    color:#003a78;
+  }
+
+  .edu-highlight p{
+    margin:0;
+    color:#333;
+    line-height:1.55;
+    font-size:0.95rem;
+  }
+
+  .edu-disclaimer{
+    font-size:0.88rem;
+    color:#374151;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a>
+    <span style="margin:0 8px;color:#6c757d">&gt;</span>
+    <span>Latest Sarkari News</span>
+  </div>
+</div>
+
+<div class="breaking-news">
+  <div class="container">
+    <span class="icon">📢</span>
+    <h1 class="headline">Latest Govt Job News, Sarkari Results & Recruitment Updates</h1>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="container">
+    <div class="news-card">
+      <div class="news-grid">
+        {% for it in items %}
+          <a href="{{ it.url }}" class="post-link" itemscope itemtype="https://schema.org/NewsArticle">
+            <div class="thumb-wrap">
+              <img
+                class="thumb"
+                loading="lazy"
+                src="{{ it.thumb }}"
+                alt="{{ it.alt|default:it.title }}"
+                onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png';"
+                itemprop="image">
+            </div>
+            <div class="post-body">
+              <h2 class="post-title" itemprop="headline">{{ it.title }}</h2>
+              <div class="post-meta">
+                <i class="far fa-clock" aria-hidden="true"></i>
+                <time itemprop="datePublished" datetime="{{ it.dt_iso|default:'' }}">{{ it.dt_display|default:"" }}</time>
+              </div>
+            </div>
+          </a>
+        {% empty %}
+          <div class="post-link">
+            <div class="thumb-wrap">
+              <img class="thumb" src="https://via.placeholder.com/400x300.png?text=News" alt="No news">
+            </div>
+            <div class="post-body">
+              <h2 class="post-title">No news found.</h2>
+              <div class="post-meta">Please check back later.</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if page_obj.has_other_pages %}
+      <div class="pagination" aria-label="Pagination">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" rel="prev">&laquo; Prev</a>
+        {% else %}
+          <span class="disabled">&laquo; Prev</span>
+        {% endif %}
+
+        <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" rel="next">Next &raquo;</a>
+        {% else %}
+          <span class="disabled">Next &raquo;</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Blog Info Blocks about WifiResult Blog (page information at bottom) -->
+<section class="edu-info-wrap px-3">
+  
+  <div class="edu-highlight">
+    <h4>WifiResult Blog पर क्या मिलता है?</h4>
+    <p>
+      <strong>WifiResult Blog</strong> पर आपको <strong>Latest Govt Job News, Sarkari Result Updates, Admit Card Alerts,
+      Syllabus Changes, Exam Pattern</strong> और detailed <strong>Recruitment Guides</strong> एक ही जगह मिलते हैं।
+      हर पोस्ट को simple Hindi+English mix भाषा में लिखा जाता है ताकि 10th/12th pass से लेकर graduate तक
+      हर candidate आसानी से समझ सके।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Why Readers Love WifiResult Blog?</h4>
+    <p>
+      Fast &amp; Accurate updates, <strong>official notification पर आधारित content</strong>, neat categorization
+      और mobile-first reading experience – यही वजह है कि कई students और job seekers रोज़ाना WifiResult Blog visit करते हैं।
+      हम कोशिश करते हैं कि हर article में <strong>eligibility, important dates, application process, syllabus, exam pattern,
+      preparation tips</strong> जैसी जानकारी साफ़-साफ़ दी जाए।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Popular Blog Categories</h4>
+    <p>
+      Govt Job Updates • Exam News • Result Analysis • Admit Card Alerts • Career Tips • Syllabus Breakdown
+      • Cutoff Insights • Preparation Guides • Trending Govt Schemes &amp; Education Policies.
+      <br>
+      Agar aap <strong>beginner हैं</strong> ya competitive exams में पहले से तैयारी कर रहे हैं, दोनों के लिए यहां helpful
+      content regularly publish किया जाता है।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Important Notice &amp; Disclaimer (WifiResult Blog)</h4>
+    <p class="edu-disclaimer">
+      WifiResult (<strong>wifiresult.com</strong>) किसी भी सरकारी विभाग, आयोग या परीक्षा संस्था की
+      <strong>official website नहीं</strong> है. Blog पर दी गई जानकारी <strong>official notifications, प्रेस रिलीज़,
+      exam authorities की वेबसाइट</strong> और अन्य विश्वसनीय स्रोतों पर आधारित होती है।
+    </p>
+    <p class="edu-disclaimer">
+      किसी भी <strong>form को भरने, fees जमा करने, exam city चुनने या documents upload करने</strong> से पहले
+      हमेशा संबंधित विभाग की <strong>official website और official PDF</strong> को ध्यान से पढ़ें।
+      WifiResult पर दिखाया गया data informational purpose के लिए है, final decision हमेशा
+      official स्रोतों के आधार पर ही लें।
+    </p>
+    <p class="edu-disclaimer">
+      अगर आपको किसी article में <strong>गलत / पुरानी / अधूरी जानकारी</strong> दिखे तो आप contact page या comment के
+      जरिए हमें बता सकते हैं ताकि हम content को जल्दी से जल्दी update कर सकें.
+      <br>
+      🔖 <strong>Tip:</strong> Agar aap रोज़ाना govt exam news पढ़ते हैं तो इस <strong>WifiResult Blog</strong> को 
+      bookmark कर लें – ताकि आपको <strong>Latest Govt Job News, Sarkari Result &amp; Exam Updates</strong> के लिए 
+      बार-बार नई साइट search न करनी पड़े।
+    </p>
+  </div>
+
+</section>
+
+{% endblock content %}
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latest Govt Job News & Updates 2025 – WifiResult Blog</title>
+<meta name="description" content="WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.">
+<meta name="keywords" content="latest govt job blog, sarkari result blog, govt job updates 2025, sarkari vacancy blog,government exam news, latest sarkari news, wifiresult blog, sarkari naukri blog 2025, exam notification blog, employment news blog">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/blog/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/blog/">
+<meta property="og:title" content="Latest Govt Job News & Updates 2025 – WifiResult Blog">
+<meta property="og:description" content="WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/blog/">
+<meta name="twitter:title" content="Latest Govt Job News & Updates 2025 – WifiResult Blog">
+<meta name="twitter:description" content="WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/blog/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"{{ request.scheme }}://{{ request.get_host }}/blog/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/blog/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/blog/",
+  "name":"Latest Govt Job News & Updates 2025 – WifiResult Blog",
+  "headline":"Blog: Latest Govt Job News, Sarkari Results & Recruitment Updates",
+  "description":"WifiResult Blog par paayein Latest Govt Jobs, Sarkari Result, Admit Card, Syllabus aur Exam Updates. Rozana fresh recruitment news aur guides yahin milti hain.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/blog/#breadcrumb"}
+}
+</script>
+
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Latest Govt Job News & Updates 2025 – WifiResult Blog",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root {
+    --primary: #0d6efd;
+    --border: #e9ecef;
+    --light: #f8f9fa;
+  }
+
+  .breadcrumb {
+    background: #f8f9fa;
+    padding: 12px 0;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .breaking-news {
+    background: #fff3f3;
+    border: 1px solid #ffdede;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  .breaking-news .icon { margin-right: 8px; }
+  .breaking-news .headline {
+    display: inline;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .page-wrap { padding: 18px 0; }
+
+  .news-card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ✅ Grid Layout */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  @media (min-width: 576px) { .news-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 768px) { .news-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1200px) { .news-grid { grid-template-columns: repeat(6, 1fr); } }
+
+  /* ✅ Clickable Card */
+  .post-link {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+    z-index: 0;
+  }
+
+  .post-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary);
+  }
+
+  .thumb-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #eee;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .post-link:hover .thumb { transform: scale(1.05); }
+
+  .post-body {
+    padding: 10px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .post-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #222;
+    margin: 0 0 8px;
+  }
+
+  .post-meta {
+    font-size: 12px;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ✅ Pagination */
+  .pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .pagination a,
+  .pagination span {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    text-decoration: none;
+    color: #222;
+  }
+  .pagination .current {
+    background: var(--light);
+    font-weight: 600;
+  }
+  .pagination .disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a>
+    <span style="margin:0 8px;color:#6c757d">&gt;</span>
+    <span>Latest Sarkari News</span>
+  </div>
+</div>
+
+<div class="breaking-news">
+  <div class="container">
+    <span class="icon">📢</span>
+    <h1 class="headline">Latest Govt Job News, Sarkari Results & Recruitment Updates</h1>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="container">
+    <div class="news-card">
+      <div class="news-grid">
+        {% for it in items %}
+          <a href="{{ it.url }}" class="post-link" itemscope itemtype="https://schema.org/NewsArticle">
+            <div class="thumb-wrap">
+              <img
+                class="thumb"
+                loading="lazy"
+                src="{{ it.thumb }}"
+                alt="{{ it.alt|default:it.title }}"
+                onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png';"
+                itemprop="image">
+            </div>
+            <div class="post-body">
+              <h2 class="post-title" itemprop="headline">{{ it.title }}</h2>
+              <div class="post-meta">
+                <i class="far fa-clock" aria-hidden="true"></i>
+                <time itemprop="datePublished" datetime="{{ it.dt_iso|default:'' }}">{{ it.dt_display|default:"" }}</time>
+              </div>
+            </div>
+          </a>
+        {% empty %}
+          <div class="post-link">
+            <div class="thumb-wrap">
+              <img class="thumb" src="https://via.placeholder.com/400x300.png?text=News" alt="No news">
+            </div>
+            <div class="post-body">
+              <h2 class="post-title">No news found.</h2>
+              <div class="post-meta">Please check back later.</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if page_obj.has_other_pages %}
+      <div class="pagination" aria-label="Pagination">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" rel="prev">&laquo; Prev</a>
+        {% else %}
+          <span class="disabled">&laquo; Prev</span>
+        {% endif %}
+
+        <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" rel="next">Next &raquo;</a>
+        {% else %}
+          <span class="disabled">Next &raquo;</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Blog Info Blocks -->
+<section class="edu-info-wrap px-3">
+  
+  <div class="edu-highlight">
+    <h4>What You’ll Find on WifiResult Blog?</h4>
+    <p>
+      Latest Govt Job News, Sarkari Result Updates, Admit Cards, Syllabus Changes, Exam Tips 
+      और Recruitment Insights — सब yahi मिलेंगे. हर पोस्ट को simple language और 
+      useful details के साथ समझाया गया है।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Why Readers Love WifiResult Blog?</h4>
+    <p>
+      Fast & Accurate updates, verified official sources, neat categorization और mobile-first reading 
+      experience. हम हर article को fresh info के साथ update रखते हैं ताकि आपको सबसे reliable जानकारी मिले।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Popular Blog Categories</h4>
+    <p>
+      Govt Job Updates • Exam News • Result Analysis • Admit Card Alerts • Career Tips • Syllabus 
+      Breakdown • Cutoff Insights • Preparation Guides • Trending Topics.
+    </p>
+  </div>
+
+</section>
+
+<style>
+/* Modern Blog Info Blocks - Neon Edge + Soft Glass Style */
+.edu-info-wrap{
+  padding:20px 0 30px;
+}
+
+.edu-highlight{
+  background:#ffffff;
+  border-radius:14px;
+  padding:20px 18px;
+  margin:18px 0;
+  box-shadow:0 12px 25px rgba(0,0,0,0.08);
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(6px);
+}
+
+/* Neon rainbow border */
+.edu-highlight:before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  padding:2px;
+  background:linear-gradient(
+    90deg,
+    #0061ff,
+    #60efff,
+    #ff6ec4,
+    #ffc65c
+  );
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+}
+
+.edu-highlight h4{
+  margin:0 0 10px;
+  font-size:1.15rem;
+  font-weight:600;
+  color:#003a78;
+}
+
+.edu-highlight p{
+  margin:0;
+  color:#333;
+  line-height:1.55;
+  font-size:0.95rem;
+}
+</style>
+
+{% endblock content %} {% endcomment %}

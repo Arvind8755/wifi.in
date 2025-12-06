@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Today Sarkari News | Latest Government Updates & Notifications </title>
+<meta name="description" content="Today Sarkari News: Get latest government updates, new notifications, recruitment alerts, exam news, policy changes & official announcements. Stay updated daily on WifiResult.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/today-news/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/today-news/">
+<meta property="og:title" content="Today Sarkari News | Latest Government Updates & Notifications ">
+<meta property="og:description" content="Today Sarkari News: Get latest government updates, new notifications, recruitment alerts, exam news, policy changes & official announcements. Stay updated daily on WifiResult.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/today-news/">
+<meta name="twitter:title" content="Today Sarkari News | Latest Government Updates & Notifications ">
+<meta name="twitter:description" content="Today Sarkari News: Get latest government updates, new notifications, recruitment alerts, exam news, policy changes & official announcements. Stay updated daily on WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/today-news/#breadcrumb",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Today News",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/today-news/"
+    }
+  ]
+}
+</script>
+
+<!---WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/today-news/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/today-news/",
+  "name": "Today Sarkari News | Latest Government Updates & Notifications ",
+  "headline": "Today Sarkari News – Latest Government Updates, Notifications & Daily Alerts",
+  "description": "Today Sarkari News: Get latest government updates, new notifications, recruitment alerts, exam news, policy changes & official announcements. Stay updated daily on WifiResult.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "inLanguage": "en",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/today-news/#breadcrumb" }
+}
+</script>
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+  "name": "Today Sarkari News 2025 | Latest Government Updates & Notifications – WifiResult",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": {{ latest_posts|length }},
+  "itemListElement": [
+    {% for post in latest_posts %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "item": {
+        "@type": "BlogPosting",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "headline": "{{ post.title|escapejs }}",
+        "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+        "datePublished": "{{ post.published_date|date:'c' }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ post.author|striptags|escapejs }}"
+        }{% if post.image %}
+        , "image": {
+          "@type": "ImageObject",
+          "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+          "width": {{ post.image.width }},
+          "height": {{ post.image.height }}
+        }{% endif %},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+        }
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+{% endblock seo %}
+
+{% block style %}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  /* small custom overrides to keep visual identity */
+  .accent { background: linear-gradient(90deg,#0ea5e9, #0d6efd); }
+  .card-shadow { box-shadow: 0 10px 30px rgba(2,6,23,0.06); }
+  .ticker { -webkit-marquee: linear; overflow: hidden; }
+
+  /* Info blocks for Today News */
+  .edu-info-wrap{
+    padding:20px 0 30px;
+  }
+
+  .edu-highlight{
+    background:#ffffff;
+    border-radius:14px;
+    padding:20px 18px;
+    margin:18px 0;
+    box-shadow:0 12px 25px rgba(0,0,0,0.08);
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(6px);
+  }
+
+  .edu-highlight:before{
+    content:'';position:absolute;inset:0;border-radius:14px;padding:2px;
+    background:linear-gradient(90deg,#0061ff,#60efff,#ff6ec4,#ffc65c);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+  }
+
+  .edu-highlight h4{
+    margin:0 0 10px;
+    font-size:1.1rem;
+    font-weight:600;
+    color:#003a78;
+  }
+
+  .edu-highlight p{
+    margin:0;
+    color:#333;
+    line-height:1.6;
+    font-size:0.94rem;
+  }
+
+  .edu-disclaimer{
+    font-size:0.86rem;
+    color:#374151;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<header class="bg-white border-b">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <img src="{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-logo.png' %}" alt="WifiResult" class="h-10 w-10 object-contain">
+      <div>
+        <h1 class="text-lg font-semibold" style="font-size:12px;">Today Sarkari News – Latest Government Updates, Notifications & Daily Alerts</h1>
+        <p class="text-xs text-gray-500">Daily Govt Jobs & Urgent Alerts</p>
+      </div>
+    </a>
+    <form method="get" action="/search/" class="hidden md:flex items-center w-1/3">
+      <input name="q" type="search" placeholder="Search jobs, admit cards, results..." value="{{ request.GET.q|default:'' }}" class="w-full px-3 py-2 border rounded-l-md focus:outline-none" />
+      <button class="px-3 py-2 bg-blue-600 text-white rounded-r-md">Search</button>
+    </form>
+  </div>
+</header>
+
+<main class="container mx-auto px-4 py-6">
+  <!-- Top strip: Today's date -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-white accent">TODAY</span>
+      <div class="text-sm text-gray-600">{% now "d M, Y" %}</div>
+    </div>
+  </div>
+
+  <section class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <!-- Main column: Today's list -->
+    <div class="lg:col-span-3 space-y-6">
+
+      <!-- Filters row -->
+      <div class="flex flex-wrap gap-2 items-center">
+        <form method="get" action="" class="flex gap-2 items-center">
+          <select name="type" class="px-3 py-2 border rounded text-sm">
+            <option value="">All types</option>
+            <option value="admit">Admit Card</option>
+            <option value="result">Result</option>
+            <option value="vacancy">Vacancy</option>
+          </select>
+          <select name="dept" class="px-3 py-2 border rounded text-sm">
+            <option value="">All departments</option>
+            <option value="ssc">SSC</option>
+            <option value="upsc">UPSC</option>
+            <option value="railway">Railway</option>
+          </select>
+          <button type="submit" class="px-3 py-2 bg-blue-600 text-white rounded text-sm">Apply</button>
+        </form>
+      </div>
+
+      <!-- Featured / Today highlight -->
+      {% if featured %}
+      <div class="bg-white rounded-lg overflow-hidden card-shadow">
+        <div class="md:flex">
+          <div class="md:w-1/3">
+            <img src="{{ featured.thumb }}" alt="{{ featured.title }}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-logo.png' %}'">
+          </div>
+          <div class="p-4 md:w-2/3">
+            <h2 class="text-xl font-semibold">{{ featured.title }}</h2>
+            <p class="text-sm text-gray-600 mt-2">{{ featured.excerpt|default:featured.title }}</p>
+            <div class="mt-4 flex items-center gap-3 text-xs text-gray-500">
+              <time datetime="{{ featured.dt_iso }}">{{ featured.dt_display }}</time>
+              <span>•</span>
+              <span>{{ featured.source|default:'WifiResult' }}</span>
+            </div>
+            <a href="{{ featured.url }}" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded">Read full</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Today's feed grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {% for it in items %}
+        <article class="bg-white border rounded-lg overflow-hidden card-shadow flex">
+          <a href="{{ it.url }}" class="w-1/3 block">
+            <img src="{{ it.thumb }}" alt="{{ it.title }}" class="w-full h-full object-cover h-28" onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-logo.png' %}'">
+          </a>
+          <div class="p-3 w-2/3 flex flex-col justify-between">
+            <div>
+              <h3 class="text-sm font-semibold leading-5">
+                <a href="{{ it.url }}" class="hover:text-blue-600">{{ it.title|truncatechars:100 }}</a>
+              </h3>
+              <p class="text-xs text-gray-500 mt-1">{{ it.excerpt|default:'' }}</p>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400 mt-2">
+              <div><time datetime="{{ it.dt_iso }}">{{ it.dt_display }}</time></div>
+              <div class="text-right">
+                <span class="px-2 py-1 text-xs border rounded">{{ it.category|default:'Update' }}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        {% empty %}
+          <div class="col-span-full p-6 bg-white border rounded">No news found for today.</div>
+        {% endfor %}
+      </div>
+
+      <!-- Load more / Pagination -->
+      <div class="mt-4 flex justify-center">
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 border rounded bg-white">Load more</a>
+        {% endif %}
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="lg:col-span-1 space-y-4">
+      <div class="bg-white p-4 rounded border card-shadow">
+        <h4 class="text-sm font-semibold mb-2">Subscribe</h4>
+        <p class="text-xs text-gray-500 mb-2">Get urgent job alerts for today.</p>
+        <form action="/subscriber/" method="post">
+          {% csrf_token %}
+          <input name="email" type="email" required placeholder="Enter email" class="w-full px-3 py-2 border rounded mb-2 text-sm">
+          <button class="w-full py-2 rounded bg-blue-600 text-white text-sm">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="bg-white p-4 rounded border card-shadow">
+        <h4 class="text-sm font-semibold mb-2">Categories</h4>
+        <div class="flex flex-col gap-2 text-sm">
+          <a href="{% url 'admitcard' %}" class="hover:text-blue-600">Admit Cards</a>
+          <a href="{% url 'result' %}" class="hover:text-blue-600">Results</a>
+          <a href="{% url 'vacancy' %}" class="hover:text-blue-600">Vacancies</a>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded border card-shadow">
+        <h4 class="text-sm font-semibold mb-2">Quick Links</h4>
+        <ul class="text-sm space-y-1 text-gray-600">
+          <li><a href="{% url 'admitcard' %}" class="hover:text-blue-600">Admit Cards</a></li>
+          <li><a href="{% url 'result' %}" class="hover:text-blue-600">Results</a></li>
+          <li><a href="{% url 'answerkey' %}" class="hover:text-blue-600">Answer Keys</a></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Today Sarkari News Info Blocks -->
+  <section class="edu-info-wrap">
+
+    <div class="edu-highlight">
+      <h4>What is “Today Sarkari News” on WifiResult?</h4>
+      <p>
+        इस page पर आज के दिन से जुड़ी <strong>सभी महत्वपूर्ण सरकारी खबरें, notifications, भर्ती alerts, exam updates, 
+        result highlights और policy changes</strong> एक जगह पर दिखाए जाते हैं।  
+        यानी अगर आप जानना चाहते हैं कि <strong>aaj क्या नया आया है</strong> – तो यह page आपका <strong>daily Sarkari dashboard</strong> है।
+      </p>
+    </div>
+
+    <div class="edu-highlight">
+      <h4>How to use Today Sarkari News page effectively?</h4>
+      <p>
+        • ऊपर दिए गए <strong>filters (type, department)</strong> की मदद से आप सिर्फ <strong>Admit Card, Result या Vacancy</strong> type की आज की news देख सकते हैं।  
+        <br>• “SSC / UPSC / Railway” जैसे department filter से आप अपने पसंदीदा विभाग की only Today updates देख सकते हैं।  
+        <br>• हर card पर दिख रहा <strong>date & category tag</strong> आपको जल्दी समझने में मदद करता है कि यह  
+        <strong>aaj का admit card है, result है या नई vacancy</strong>।  
+        <br>• अगर आप किसी news की पूरी detail, eligibility या official PDF देखना चाहते हैं तो  
+        उसके title पर click करके <strong>full article</strong> open करें।
+      </p>
+    </div>
+
+    <div class="edu-highlight">
+      <h4>Why bookmark Today Sarkari News page?</h4>
+      <p>
+        Govt job preparation, entrance exams या admission process के दौरान 
+        <strong>daily updates miss होना बहुत common है</strong>.  
+        यह page आपके लिए <strong>“आज क्या नया आया?”</strong> का सबसे आसान जवाब है।  
+        <br><br>
+        यदि आप इसे bookmark कर लेते हैं, तो रोज़ सिर्फ <strong>कुछ seconds में आज के सभी Sarkari updates</strong> 
+        की एक quick snapshot देख सकते हैं – फिर details के लिए उसी समय या बाद में articles open कर सकते हैं।
+      </p>
+    </div>
+
+    <div class="edu-highlight">
+      <h4>Important Notice & Disclaimer – Today News</h4>
+      <p class="edu-disclaimer">
+        WifiResult (<strong>wifiresult.com</strong>) किसी भी Government Organization, Ministry, Department या Board की 
+        <strong>official website नहीं</strong> है।  
+        यहां दिखाए गए सभी <strong>today Sarkari news, notifications, results, admit cards और vacancies</strong>  
+        केवल <strong>information / awareness</strong> के लिए हैं, जो आमतौर पर संबंधित department की  
+        <strong>official websites, public notices व official PDFs</strong> पर आधारित होते हैं।
+      </p>
+      <p class="edu-disclaimer">
+        किसी भी सरकारी निर्णय, आवेदन, fee payment, document verification, counselling, joining या legal step से पहले  
+        हमेशा संबंधित department / commission / university की <strong>official website</strong> पर उपलब्ध  
+        latest notification, corrigendum, result PDF और guidelines को ज़रूर पढ़ें।  
+        Final और मान्य जानकारी वही होगी जो <strong>official portal</strong> पर प्रकाशित की गई हो।
+      </p>
+      <p class="edu-disclaimer">
+        यदि इस page पर आपको कोई <strong>गलत, पुरानी या mis-typed जानकारी</strong> दिखती है तो  
+        कृपया WifiResult के <strong>Contact / Feedback</strong> section से हमें सूचित करें,  
+        ताकि हम उसे तुरंत सही या remove कर सकें।  
+        <br><br>
+        🔖 <strong>Tip:</strong> अगर आप रोज़ “Today Sarkari News” देखते हैं,  
+        तो इस <strong>/today-news/</strong> page को home screen / bookmark कर लें –  
+        इससे आपके लिए <strong>daily govt updates, exams, results और notifications</strong> follow करना बहुत आसान हो जाएगा।
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+{% endblock content %}

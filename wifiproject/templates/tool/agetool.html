@@ -1,0 +1,1002 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Age Calculator – Calculate Age from Date of Birth Online</title>
+<meta name="description" content="Free Age Calculator to find your exact age from date of birth. Calculate age in years, months, days, minutes and seconds instantly. Fast, accurate & mobile-friendly tool.">
+<meta name="keywords" content="age calculator, calculate age, date of birth calculator, age in years months days, online age tool">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/age-calculator/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/age-calculator/">
+<meta property="og:title" content="Age Calculator – Calculate Age from Date of Birth Online">
+<meta property="og:description" content="Free Age Calculator to find your exact age from date of birth. Calculate age in years, months, days, minutes and seconds instantly. Fast, accurate & mobile-friendly tool.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/age-calculator/">
+<meta name="twitter:title" content="Age Calculator – Calculate Age from Date of Birth Online">
+<meta name="twitter:description" content="Free Age Calculator to find your exact age from date of birth. Calculate age in years, months, days, minutes and seconds instantly. Fast, accurate & mobile-friendly tool.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#">Home</a>
+      <span>&gt;</span>
+      <span>Latest Jobs</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Age Calculator – Calculate Exact Age from Date of Birth</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> Latest Jobs
+        </div>
+        
+        <!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>उम्र कैलकुलेटर (Age Calculator) — wifiresult</title>
+  <meta name="description" content="DOB और As on तारीख से Years, Months, Days में उम्र निकालेँ। Eligibility (Min/Max age), शेयर/कॉपी, और PNG Screenshot डाउनलोड।" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    :root {
+      /* Vibrant palette */
+      --bg1: #fdf2f8;  /* pink-50 */
+      --bg2: #eff6ff;  /* blue-50 */
+      --bg3: #f0fdf4;  /* green-50 */
+      --card: #ffffff;
+      --text: #0f172a; /* slate-900 */
+      --muted: #64748b; /* slate-500 */
+      --primary1: #7c3aed; /* violet-600 */
+      --primary2: #06b6d4; /* cyan-500 */
+      --accent1: #f59e0b; /* amber-500 */
+      --accent2: #ef4444; /* red-500 */
+      --accent3: #22c55e; /* green-500 */
+      --ring: rgba(124,58,237,.25);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2) 50%, var(--bg3));
+      background-attachment: fixed;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 16px 56px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    h1 {
+      font-size: clamp(22px, 3vw, 32px); margin: 0 0 10px;
+      background: linear-gradient(90deg, var(--primary1), var(--primary2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      letter-spacing: .3px;
+    }
+
+    /* Card with subtle frosted look */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.95));
+      border: 1px solid rgba(124,58,237,.15);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(124,58,237,.12), 0 2px 10px rgba(2,132,199,.06);
+      padding: 18px;
+      backdrop-filter: saturate(120%) blur(3px);
+    }
+
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+    label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+
+    input[type="date"], input[type="number"], input[type="text"] {
+      width: 100%;
+      border: 1px solid rgba(2,132,199,.25);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 15px; outline: none;
+      background: linear-gradient(180deg, #ffffff, #fcfcff);
+      transition: box-shadow .2s ease, transform .08s ease, border-color .2s ease;
+    }
+    input:hover {
+      box-shadow: 0 0 0 3px rgba(6,182,212,.12);
+    }
+    input:focus {
+      border-color: var(--primary1);
+      box-shadow: 0 0 0 6px var(--ring), 0 8px 20px rgba(124,58,237,.12);
+      transform: translateY(-1px);
+    }
+
+    .btn {
+      appearance: none; border: none; background: #fff; padding: 11px 16px;
+      font-size: 14px; border-radius: 14px; cursor: pointer;
+      transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+      box-shadow: 0 1px 0 rgba(2,6,23,.06), 0 6px 18px rgba(2,6,23,.06);
+      border: 1px solid rgba(2,6,23,.06);
+    }
+    .btn:hover { box-shadow: 0 8px 22px rgba(2,6,23,.10); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--primary1), var(--primary2));
+      color: #fff; border: 1px solid rgba(255,255,255,.2);
+      text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    }
+
+    .muted { color: var(--muted); font-size: 12px; }
+
+    /* Eligibility badges */
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing:.2px; }
+    .pill.ok { background: linear-gradient(90deg, #dcfce7, #bbf7d0); color: #065f46; border: 1px solid rgba(34,197,94,.35); }
+    .dot.ok { width: 9px; height: 9px; background: var(--accent3); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 2px rgba(34,197,94,.25); }
+    .pill.no { background: linear-gradient(90deg, #fee2e2, #fecaca); color: #7f1d1d; border: 1px solid rgba(239,68,68,.35); }
+    .dot.no { width: 9px; height: 9px; background: var(--accent2); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 2px rgba(239,68,68,.25); }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+    /* Fancy buttons for toolbar */
+    #copyResult { background: linear-gradient(90deg, #fef3c7, #fde68a); border-color: rgba(245,158,11,.35); }
+    #copyLink { background: linear-gradient(90deg, #e0e7ff, #c7d2fe); border-color: rgba(99,102,241,.35); }
+    #downloadPng { background: linear-gradient(90deg, #cffafe, #a5f3fc); border-color: rgba(6,182,212,.35); }
+
+    footer { text-align: center; margin-top: 26px; color: White; font-size: 12px; }
+
+    /* Switch button spice */
+    .switch .btn {
+      background: linear-gradient(90deg, #fee2e2, #fce7f3);
+    }
+  </style>
+  <script type="application/ld+json" id="jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "उम्र कैलकुलेटर (Age Calculator)",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="row" style="margin-bottom:10px">
+      <h1 id="title">उम्र कैलकुलेटर (Age Calculator)</h1>
+      <div class="switch">
+        <span class="muted">EN</span>
+        <button id="langToggle" class="btn">EN</button>
+      </div>
+    </div>
+
+    <form id="ageForm" class="card">
+      <div class="grid">
+        <div>
+          <label id="dobLabel">जन्म तिथि (DOB)</label>
+          <input id="dob" type="date" required />
+        </div>
+        <div style="align-self:end; display:flex; gap:8px; align-items:center;">
+          <input id="asonToggle" type="checkbox" />
+          <label for="asonToggle" id="asonToggleLabel" style="cursor:pointer; user-select:none">"As on" तिथि सेट करें</label>
+        </div>
+        <div class="span2" id="asonWrap" style="display:none; grid-column: 1 / -1;">
+          <label id="asonLabel">कट-ऑफ तिथि (As on Date)</label>
+          <input id="ason" type="date" />
+        </div>
+        <div>
+          <label id="minLabel">न्यूनतम आयु (वर्ष)</label>
+          <input id="minAge" type="number" min="0" inputmode="numeric" placeholder="18" />
+        </div>
+        <div>
+          <label id="maxLabel">अधिकतम आयु (वर्ष)</label>
+          <input id="maxAge" type="number" min="0" inputmode="numeric" placeholder="27" />
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:12px;">
+        <button class="btn primary" id="calcBtn" type="submit">कैलकुलेट</button>
+        <button class="btn" id="resetBtn" type="button">रीसेट</button>
+      </div>
+    </form>
+
+    <div id="resultCard" class="card" style="margin-top:14px; display:none;" aria-live="polite">
+      <div class="grid">
+        <div>
+          <div class="muted">DOB</div>
+          <div id="outDob" style="font-weight:600"></div>
+        </div>
+        <div>
+          <div class="muted" id="outAsonLabel">कट-ऑफ तिथि (As on)</div>
+          <div id="outAson" style="font-weight:600"></div>
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <div class="muted" id="exactAgeLabel">सटीक आयु</div>
+          <div id="exactAge" style="font-weight:800; font-size:20px;"></div>
+        </div>
+        <div>
+          <div class="muted" id="nbLabel">अगले जन्मदिन तक</div>
+          <div id="nbValue" style="font-weight:600"></div>
+        </div>
+        <div id="eligWrap" style="display:none;">
+          <div class="muted" id="eligLabel">पात्रता स्थिति</div>
+          <div id="eligBadge" class="pill"></div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <button class="btn" id="copyResult">रिज़ल्ट कॉपी करें</button>
+        <button class="btn" id="copyLink">शेयर लिंक कॉपी करें</button>
+        <button class="btn" id="downloadPng">स्क्रीनशॉट डाउनलोड (PNG)</button>
+      </div>
+    </div>
+
+    <footer>© <span id="year"></span> wifiresult — Free Age Calculator Tool</footer>
+  </div>
+
+<script>
+(function(){
+  const $ = (sel) => document.querySelector(sel);
+  const dobEl = $('#dob');
+  const asonToggle = $('#asonToggle');
+  const asonWrap = $('#asonWrap');
+  const asonEl = $('#ason');
+  const minEl = $('#minAge');
+  const maxEl = $('#maxAge');
+  const resultCard = $('#resultCard');
+  const outDob = $('#outDob');
+  const outAson = $('#outAson');
+  const exactAge = $('#exactAge');
+  const nbValue = $('#nbValue');
+  const eligWrap = $('#eligWrap');
+  const eligBadge = $('#eligBadge');
+  const yearNow = new Date().getFullYear();
+  $('#year').textContent = yearNow;
+
+  const langToggle = $('#langToggle');
+  const ui = {
+    hi: {
+      title: 'उम्र कैलकुलेटर (Age Calculator)',
+      dobLabel: 'जन्म तिथि (DOB)',
+      asonToggle: '"As on" तिथि सेट करें',
+      asonLabel: 'कट-ऑफ तिथि (As on Date)',
+      min: 'न्यूनतम आयु (वर्ष)',
+      max: 'अधिकतम आयु (वर्ष)',
+      calc: 'कैलकुलेट',
+      reset: 'रीसेट',
+      exact: 'सटीक आयु',
+      nb: 'अगले जन्मदिन तक',
+      elig: 'पात्रता स्थिति',
+      eligible: 'पात्र',
+      notEligible: 'अपात्र',
+      copyRes: 'रिज़ल्ट कॉपी करें',
+      copyLink: 'शेयर लिंक कॉपी करें',
+      dl: 'स्क्रीनशॉट डाउनलोड (PNG)',
+      errDob: 'कृपया सही DOB चुनें',
+      errFuture: 'DOB भविष्य की तारीख नहीं हो सकती',
+      errAson: 'As on तिथि DOB से पहले नहीं हो सकती',
+      months: 'माह', days: 'दिन'
+    },
+    en: {
+      title: 'Age Calculator',
+      dobLabel: 'Date of Birth (DOB)',
+      asonToggle: "Set 'As on' date",
+      asonLabel: 'Cut-off Date (As on)',
+      min: 'Minimum Age (Years)',
+      max: 'Maximum Age (Years)',
+      calc: 'Calculate',
+      reset: 'Reset',
+      exact: 'Exact Age',
+      nb: 'Time to Next Birthday',
+      elig: 'Eligibility Status',
+      eligible: 'Eligible',
+      notEligible: 'Not Eligible',
+      copyRes: 'Copy Result',
+      copyLink: 'Copy Share Link',
+      dl: 'Download Screenshot (PNG)',
+      errDob: 'Please select a valid DOB',
+      errFuture: 'DOB cannot be in the future',
+      errAson: 'As on date cannot be before DOB',
+      months: 'Months', days: 'Days'
+    }
+  };
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function toInputDate(d){ return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+  function parseInputDate(v){ if(!v) return null; const [y,m,d] = v.split('-').map(Number); if(!y||!m||!d) return null; return new Date(y, m-1, d); }
+  function daysInMonth(y, m){ return new Date(y, m+1, 0).getDate(); }
+  function diffYMD(from, to){ let y=to.getFullYear()-from.getFullYear(); let m=to.getMonth()-from.getMonth(); let d=to.getDate()-from.getDate(); if(d<0){ const pm=(to.getMonth()-1+12)%12; const py=pm===11?to.getFullYear()-1:to.getFullYear(); d+=daysInMonth(py, pm); m-=1;} if(m<0){ m+=12; y-=1;} return {years:y, months:m, days:d}; }
+  function compareAge(age, cmpY){ if(age.years>cmpY) return 1; if(age.years<cmpY) return -1; if(age.months>0||age.days>0) return 1; return 0; }
+  function nextBirthday(dob, ason){ const y=ason.getFullYear(); let t=new Date(y, dob.getMonth(), dob.getDate()); if(t<ason) t=new Date(y+1, dob.getMonth(), dob.getDate()); if(dob.getMonth()===1 && dob.getDate()===29 && t.getMonth()!==1){ t=new Date(t.getFullYear(),1,28);} return diffYMD(ason, t); }
+
+  function setQP(params){ const url = new URL(location.href); Object.entries(params).forEach(([k,v])=>{ if(v==null||v==='') url.searchParams.delete(k); else url.searchParams.set(k,v);}); history.replaceState({},'',url); }
+  function getQP(name){ return new URL(location.href).searchParams.get(name); }
+
+  const state = { lang: getQP('lang') || 'hi' };
+
+  function syncLang(){ const L = ui[state.lang]; document.getElementById('title').textContent = L.title; document.getElementById('dobLabel').textContent=L.dobLabel; document.getElementById('asonToggleLabel').textContent=L.asonToggle; document.getElementById('asonLabel').textContent=L.asonLabel; document.getElementById('minLabel').textContent=L.min; document.getElementById('maxLabel').textContent=L.max; document.getElementById('calcBtn').textContent=L.calc; document.getElementById('resetBtn').textContent=L.reset; document.getElementById('exactAgeLabel').textContent=L.exact; document.getElementById('nbLabel').textContent=L.nb; document.getElementById('eligLabel').textContent=L.elig; document.getElementById('copyResult').textContent=L.copyRes; document.getElementById('copyLink').textContent=L.copyLink; document.getElementById('downloadPng').textContent=L.dl; document.getElementById('outAsonLabel').textContent=L.asonLabel; langToggle.textContent = state.lang==='hi' ? 'EN' : 'हिंदी'; const ld = document.getElementById('jsonld'); try { const json = JSON.parse(ld.textContent); json.name = L.title; ld.textContent = JSON.stringify(json);}catch(e){}
+  }
+
+  langToggle.addEventListener('click', function(){ state.lang = state.lang==='hi' ? 'en' : 'hi'; setQP({lang: state.lang}); syncLang(); });
+
+  const today = new Date(); asonEl.value = toInputDate(today);
+
+  // Load query params if present
+  (function initFromQP(){ const qdob = getQP('dob'); if(qdob) dobEl.value = qdob; const qAson = getQP('ason'); if(qAson){ asonToggle.checked = true; asonWrap.style.display='block'; asonEl.value = qAson; } const qMin = getQP('min'); if(qMin) minEl.value = qMin; const qMax = getQP('max'); if(qMax) maxEl.value = qMax; const qLang = getQP('lang'); if(qLang) state.lang=qLang; syncLang(); if(qdob){ calculate(); }
+  })();
+
+  asonToggle.addEventListener('change', () => { asonWrap.style.display = asonToggle.checked ? 'block' : 'none'; if(!asonToggle.checked) setQP({ ason: null }); });
+
+  $('#ageForm').addEventListener('submit', function(ev){ ev.preventDefault(); calculate(); });
+  $('#resetBtn').addEventListener('click', function(){ dobEl.value=''; asonToggle.checked=false; asonWrap.style.display='none'; asonEl.value=toInputDate(new Date()); minEl.value=''; maxEl.value=''; resultCard.style.display='none'; setQP({ dob:null, ason:null, min:null, max:null }); });
+
+  function formatAge(age){ const L=ui[state.lang]; return `${age.years} ${state.lang==='hi'?'वर्ष':'Years'} ${age.months} ${L.months} ${age.days} ${L.days}`; }
+
+  function calculate(){ const L = ui[state.lang]; const dob = parseInputDate(dobEl.value); if(!dob){ alert(L.errDob); return; } const ason = asonToggle.checked ? parseInputDate(asonEl.value) : new Date(); if(!ason){ alert(L.errAson); return; } if(dob > ason){ alert(L.errFuture); return; }
+    // Persist params for sharable URL
+    setQP({ dob: dobEl.value, ason: asonToggle.checked? asonEl.value : null, min: minEl.value, max: maxEl.value, lang: state.lang });
+    const age = diffYMD(dob, ason); const nb = nextBirthday(dob, ason);
+    outDob.textContent = toInputDate(dob); outAson.textContent = toInputDate(ason); exactAge.textContent = formatAge(age); nbValue.textContent = `${nb.months} ${ui[state.lang].months} ${nb.days} ${ui[state.lang].days}`;
+
+    // Eligibility
+    const minV = minEl.value ? parseInt(minEl.value,10) : null; const maxV = maxEl.value ? parseInt(maxEl.value,10) : null; if(minV!=null || maxV!=null){ let ok = true; if(minV!=null && compareAge(age, minV)===-1) ok=false; if(maxV!=null && compareAge(age, maxV)===1) ok=false; eligWrap.style.display='block'; eligBadge.className='pill '+(ok?'ok':'no'); eligBadge.innerHTML = `<span class="dot ${ok?'ok':'no'}"></span> ${ok?L.eligible:L.notEligible}`; } else { eligWrap.style.display='none'; }
+
+    resultCard.style.display='block';
+  }
+
+  // Share: copy text result
+  $('#copyResult').addEventListener('click', async function(){ const L=ui[state.lang]; if(resultCard.style.display==='none') return; const lines = [ `${L.exact}: ${exactAge.textContent}`, `DOB: ${outDob.textContent}`, `${ui[state.lang].asonLabel}: ${outAson.textContent}` ]; if(eligWrap.style.display!=='none'){ lines.push(`${L.elig}: ${eligBadge.textContent.trim()}`); } lines.push(`${L.nb}: ${nbValue.textContent}`,'via wifiresult'); try{ await navigator.clipboard.writeText(lines.join('\n')); this.textContent = (state.lang==='hi'?'कॉपी हो गया!':'Copied!'); setTimeout(()=> this.textContent=L.copyRes, 1400);}catch(e){ alert(state.lang==='hi'?'कॉपी नहीं हो सका':'Copy failed'); }
+  });
+
+  // Share: copy permalink
+  $('#copyLink').addEventListener('click', async function(){ const L=ui[state.lang]; try{ await navigator.clipboard.writeText(location.href); this.textContent = (state.lang==='hi'?'लिंक कॉपी!':'Link Copied!'); setTimeout(()=> this.textContent=L.copyLink, 1400);}catch(e){ alert(state.lang==='hi'?'लिंक कॉपी नहीं हो सका':'Failed to copy link'); }
+  });
+
+  // Download PNG screenshot
+  $('#downloadPng').addEventListener('click', async function(){ const L=ui[state.lang]; try{ const node = document.getElementById('resultCard'); const canvas = await html2canvas(node, {useCORS:true, backgroundColor:'#ffffff'}); const data = canvas.toDataURL('image/png'); const a = document.createElement('a'); a.href = data; a.download = `age-calculator-${Date.now()}.png`; a.click(); }catch(e){ alert(state.lang==='hi'?'स्क्रीनशॉट नहीं बन सका':'Screenshot failed'); }
+  });
+})();
+</script>
+</body>
+</html>
+
+          
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+          <div class="trending-item">
+            <div class="trending-number">1</div>
+            <div class="trending-content">
+              <a href="#">IBPS Clerk Recruitment 2023</a>
+             <div class="trending-meta">2 hours ago</div>
+            </div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-number">2</div>
+            <div class="trending-content">
+              <a href="#">SSC CGL Notification 2023</a>
+           <div class="trending-meta">2 hours ago</div>
+            </div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-number">3</div>
+            <div class="trending-content">
+              <a href="#">Railway Group D Recruitment</a>
+            <div class="trending-meta">2 hours ago</div>
+            </div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-number">4</div>
+            <div class="trending-content">
+              <a href="#">UP Police Constable 2023</a>
+             <div class="trending-meta">2 hours ago</div>
+            </div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-number">5</div>
+            <div class="trending-content">
+              <a href="#">Indian Army Technical Entry</a>
+             <div class="trending-meta">2 hours ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+          <div class="trending-item">
+            <div class="trending-content">
+              <a href="#">SSC CHSL Admit Card 2023 Released</a>
+              <div class="trending-meta">2 hours ago</div>
+            </div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-content">
+              <a href="#">IBPS PO Result Declared</a>
+              <div class="trending-meta">1 day ago</div>
+            </div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-content">
+              <a href="#">Railway NTPC Phase 4 Schedule</a>
+              <div class="trending-meta">2 days ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Website Information Section -->
+<section class="website-info" aria-labelledby="tool-info-title">
+  <div class="container">
+    <h2 id="tool-info-title">Age Calculator — How This Tool Works</h2>
+
+    <div class="info-content">
+
+      <div class="info-point">
+        <h3>Purpose</h3>
+        <p>
+          This Age Calculator instantly calculates your exact age from any Date of Birth (DOB) — 
+          in <strong>years, months, and days</strong>.  
+          You can also set an "As on" (cut-off) date to check age according to any recruitment or eligibility requirement.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Key Features</h3>
+        <ul>
+          <li>Get accurate age in Years, Months, and Days by simply entering DOB.</li>
+          <li>Select an “As on” date to check age eligibility according to cut-off dates (e.g., last date of application).</li>
+          <li>Enter Minimum / Maximum age to instantly know eligibility (Eligible / Not Eligible).</li>
+          <li>Copy on-page results, copy shareable link, or download PNG screenshot.</li>
+          <li>URL automatically saves query parameters (dob, ason, min, max, lang) — making the result easily shareable.</li>
+          <li>Both Hindi and English UI available — switch anytime using the language toggle.</li>
+        </ul>
+      </div>
+
+      <div class="info-point">
+        <h3>How the Calculation Works</h3>
+        <p>
+          Calculations are done through direct JavaScript date arithmetic — the difference between DOB and the “As on” date 
+          is computed in years, months, and days.
+        </p>
+        <p>
+          <strong>Logic (brief):</strong>
+          <ol>
+            <li>First, calculate the difference in years between the two dates.</li>
+            <li>If months/days turn negative, adjustment is done by adding days of the previous month.</li>
+            <li>Leap-year cases (29 Feb) are handled correctly — if the current year has no Feb 29, Feb 28 is used.</li>
+          </ol>
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>How Eligibility Check Works</h3>
+        <p>If you enter Minimum or Maximum age fields, the tool evaluates eligibility as follows:</p>
+        <ul>
+          <li><strong>Minimum age</strong> — if your age is less than the minimum, you’ll see “Not Eligible” (Example: min=18).</li>
+          <li><strong>Maximum age</strong> — if your age exceeds the maximum, you’ll see “Not Eligible” (Example: max=27).</li>
+          <li>If your age falls within the range, an “Eligible” badge appears.</li>
+        </ul>
+      </div>
+
+      <div class="info-point">
+        <h3>Sharing & Permalink</h3>
+        <p>
+          The tool automatically updates URL query parameters  
+          (e.g., 
+          <code>?dob=1997-06-15&amp;ason=2025-12-03&amp;min=18&amp;max=27&amp;lang=hi</code>)  
+          so you can directly share the result link with anyone.  
+          This keeps the tool SEO-friendly and easily shareable.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Accessibility & Privacy</h3>
+        <p>
+          All calculations happen entirely in the browser — your DOB is never sent to the server.  
+          No cookies or local storage are used (except URL parameters).  
+          This approach ensures privacy and provides fast, real-time processing.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>SEO & Structured Data</h3>
+        <p>
+          The page includes <code>SoftwareApplication</code> JSON-LD so search engines can properly understand the tool.  
+          Meta tags, Open Graph, and Twitter Card are already configured — ensure that 
+          <code>og:url</code> and <code>canonical</code> point to the correct domain.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Tips</h3>
+        <ul>
+          <li>While checking eligibility for any recruitment, use the exact “As on” date mentioned in the official notice.</li>
+          <li>Enter DOB using the browser calendar or YYYY-MM-DD format (useful for sharing via URL).</li>
+          <li>You can save the result by taking a screenshot of the result section for future reference.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  {% endblock content %}
+  

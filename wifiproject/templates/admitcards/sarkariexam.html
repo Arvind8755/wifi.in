@@ -1,0 +1,895 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sarkari Exam</title>
+  <meta name="description" content="Sarkari Exam : Latest govt job exams, admit card & Sarkari Result updates. All state & central exams at WifiResult.com.">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/">
+  <meta name="author" content="WifiResult Editorial Team">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/">
+  <meta property="og:title" content="Sarkari Exam">
+  <meta property="og:description" content="Sarkari Exam : Latest govt job exams, admit card & Sarkari Result updates. All state & central exams at WifiResult.com.">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:type" content="image/png">
+
+  <meta property="article:published_time" content="{% now 'c' %}">
+  <meta property="article:modified_time" content="{% now 'c' %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/">
+  <meta name="twitter:title" content="Sarkari Exam">
+  <meta name="twitter:description" content="Sarkari Exam : Latest govt job exams, admit card & Sarkari Result updates. All state & central exams at WifiResult.com.">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="6 minutes" />
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+      {"@type":"ListItem","position":2,"name":"Sarkari Exams","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/"}
+    ]
+  }
+  </script>
+
+  <!-- WebPage + CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":["WebPage","CollectionPage"],
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/#webpage",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/",
+    "name":"Sarkari Exam",
+    "headline":"Sarkari Exam – Latest Government Job Exams, Online Form",
+    "description":"Sarkari Exam : Latest govt job exams, admit card & Sarkari Result updates. All state & central exams at WifiResult.com.",
+    "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+    "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+      "width":512,
+      "height":512
+    },
+    "inLanguage":"en",
+    "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-exam/#breadcrumb"}
+  }
+  </script>
+
+
+ <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Sarkari Exam",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Page background */
+  body {
+    background: radial-gradient(circle at top left, #eef2ff 0, #f9fafb 45%, #ffffff 100%);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 14px 0;
+    background: linear-gradient(90deg, #312e81, #4c1d95);
+    margin-bottom: 0;
+    color: #fefefe;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .breadcrumb a {
+    color: #e0e7ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 8px;
+    color: #c7d2fe;
+  }
+  .breadcrumb-current {
+    font-weight: 600;
+  }
+
+  /* Sarkari exam headline strip (modern marquee style) */
+  .exam-strip-wrap {
+    background: linear-gradient(90deg, #eef2ff, #f9fafb);
+    border-bottom: 1px solid #e0e7ff;
+  }
+  .exam-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    overflow: hidden;
+  }
+  .exam-strip-icon {
+    font-size: 20px;
+  }
+  .exam-strip-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    font-weight: 700;
+    color: #3730a3;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #c7d2fe;
+    white-space: nowrap;
+  }
+  .exam-strip-marquee {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+  .exam-strip-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: se-scroll 18s linear infinite;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  @keyframes se-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Main Content Layout */
+  .main-content {
+    padding: 18px 0 12px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 310px;
+  }
+  .sidebar {
+    width: 320px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Section title chip */
+  .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    background: rgba(76, 29, 149, 0.09);
+    color: #4c1d95;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .section-title i {
+    font-size: 16px;
+  }
+
+  /* Main Sarkari Exam listing card */
+  .exam-card {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.10);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+  }
+  .exam-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: radial-gradient(circle at top left, #4c1d95, #6d28d9);
+    color: #fefefe;
+  }
+  .exam-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .exam-card-header-left i {
+    font-size: 18px;
+  }
+  .exam-card-header-tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+  }
+  .job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    gap: 12px;
+    transition: background-color .25s ease, transform .12s ease;
+  }
+  .job-item:first-child {
+    border-top: none;
+  }
+  .job-item:hover {
+    background-color: #f5f3ff;
+    transform: translateY(-1px);
+  }
+  .job-title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .job-title {
+    flex: 1;
+    color: #0b1120;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .job-title:hover {
+    color: #4c1d95;
+  }
+  .job-meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: #6b7280;
+  }
+  .job-date {
+    color: #4c1d95;
+    font-size: 13px;
+    min-width: 110px;
+    text-align: right;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .job-item {
+      padding: 12px 14px;
+      align-items: flex-start;
+    }
+    .job-date {
+      font-size: 12px;
+      text-align: left;
+      min-width: auto;
+    }
+  }
+
+  .view-all {
+    display: block;
+    text-align: center;
+    padding: 11px 10px;
+    background: #f3e8ff;
+    color: #1f2933;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    border-top: 1px solid #e2e8f0;
+    transition: background-color .25s ease;
+  }
+  .view-all i {
+    font-size: 13px;
+    margin-left: 4px;
+  }
+  .view-all:hover {
+    background-color: #e9d5ff;
+  }
+
+  /* Sidebar cards */
+  .sidebar-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    margin-bottom: 20px;
+  }
+  .sidebar-card-header {
+    background: linear-gradient(90deg, #1e293b, #4c1d95);
+    color: #f9fafb;
+    padding: 12px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .sidebar-card-header i {
+    font-size: 16px;
+  }
+  .sidebar-card-body {
+    padding: 12px 16px 4px 16px;
+  }
+
+  .trending-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    gap: 10px;
+  }
+  .trending-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 17px;
+    font-weight: 700;
+    color: #6b7280;
+    min-width: 24px;
+  }
+  .trending-item:nth-child(-n+3) .trending-number {
+    color: #7c3aed;
+  }
+  .trending-content {
+    flex: 1;
+  }
+  .trending-content a {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .trending-content a:hover {
+    color: #4c1d95;
+  }
+  .trending-meta {
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  @media (max-width: 992px) {
+    .sidebar-card.mobile-bottom {
+      order: 99;
+      margin-top: 24px;
+    }
+  }
+
+  /* Website Information Section (Sarkari Exam Page) */
+  .website-info {
+    background: radial-gradient(circle at top left, #111827 0, #020617 38%, #020617 100%);
+    padding: 32px 0 38px 0;
+    margin: 12px 0 0 0;
+    border-radius: 14px 14px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .website-info::before {
+    content: '';
+    position: absolute;
+    inset: -80px;
+    background:
+      radial-gradient(circle at top left, rgba(129, 140, 248, 0.4), transparent 55%),
+      radial-gradient(circle at top right, rgba(244, 114, 182, 0.25), transparent 55%),
+      radial-gradient(circle at bottom, rgba(52, 211, 153, 0.20), transparent 55%);
+    opacity: .9;
+    pointer-events: none;
+  }
+  .website-info-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .website-info h2 {
+    color: #e5e7eb;
+    text-align: center;
+    margin-bottom: 26px;
+    font-size: 26px;
+    position: relative;
+    padding-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: .01em;
+  }
+  .website-info h2 span {
+    color: #a5b4fc;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #a855f7, #38bdf8);
+  }
+
+  .info-subtext {
+    max-width: 780px;
+    margin: 0 auto 22px auto;
+    text-align: center;
+    font-size: 14px;
+    color: #d1d5db;
+    line-height: 1.7;
+  }
+  .info-subtext strong {
+    color: #e5e7eb;
+  }
+
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 18px 16px;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .info-point::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.25), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .info-point:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+    border-color: rgba(196, 181, 253, 0.9);
+    background: rgba(15, 23, 42, 0.98);
+  }
+  .info-point:hover::after {
+    opacity: 1;
+  }
+
+  .info-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    background: rgba(76, 29, 149, 0.25);
+    color: #e9d5ff;
+    margin-bottom: 7px;
+  }
+  .info-tag i {
+    font-size: 11px;
+  }
+
+  .info-point h3 {
+    color: #e5e7eb;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  .info-point p {
+    color: #d1d5db;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+
+  .website-info-bottom-note {
+    margin-top: 22px;
+    text-align: center;
+    color: #d1d5db;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+  .website-info-bottom-note strong {
+    color: #f9fafb;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+    .info-subtext {
+      font-size: 13px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span class="breadcrumb-current">Latest Sarkari Exams</span>
+    </div>
+  </div>
+
+  <!-- Sarkari Exam highlight strip -->
+  <div class="exam-strip-wrap">
+    <div class="container">
+      <div class="exam-strip">
+        <div class="exam-strip-icon">📢</div>
+        <div class="exam-strip-label">Sarkari Exam Hub</div>
+        <div class="exam-strip-marquee">
+          <div class="exam-strip-text">
+          <h1 style="font-size:17px;">Sarkari Exam – Latest Government Job Exams, Online Form</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+
+      <div class="section-title">
+        <i class="fas fa-book"></i>
+        Latest Sarkari Exam Notifications & Updates
+      </div>
+
+      <!-- New Sarkari Exam Listing Box -->
+      <div class="exam-card">
+        <div class="exam-card-header">
+          <div class="exam-card-header-left">
+            <i class="fas fa-bell"></i>
+            <span>Newest Sarkari Exam Articles</span>
+          </div>
+       
+        </div>
+
+        <ul class="job-list-compact p-0">
+          {% for admitcard in page_obj %}
+            <li class="job-item">
+              <div class="job-title-box">
+                <a href="/admit-card/{{admitcard.slug}}" class="job-title">{{admitcard.title}}</a>
+                <span class="job-meta-label">Notification / Exam Update</span>
+              </div>
+              <span class="job-date">{{ admitcard.published_date|date:"d M, Y"}}</span>
+            </li>
+          {% endfor %}
+           <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+        </ul>
+
+        {# <a href="/sarkari-exam/all/" class="view-all">View All Sarkari Exam Articles <i class="fas fa-arrow-right"></i></a> #}
+      </div>
+
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="sidebar-card mobile-bottom">
+        <div class="sidebar-card-header">
+          <i class="fas fa-fire"></i>
+          <span>Trending Job & Exam Topics</span>
+        </div>
+        <div class="sidebar-card-body">
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter }}</div>
+                <div class="trending-content">
+                  <a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a>
+                  <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for result in latest_results %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+                <div class="trending-content">
+                  <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+                  <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+      
+      <!-- Quick Alerts -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">
+          <i class="fas fa-bell"></i>
+          <span>Quick Govt Updates</span>
+        </div>
+        <div class="sidebar-card-body">
+          {% for govtupdate in latest_govtupdates %}
+            <div class="trending-item">
+              <div class="trending-number">{{ forloop.counter }}</div>
+              <div class="trending-content">
+                <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+                <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section (Sarkari Exam Page) -->
+  <section class="website-info" id="sarkariexam-info">
+    <div class="container website-info-inner">
+      <h2>Sarkari Exam / सरकारी परीक्षा – <span>Notification, Form, Syllabus & Result Guide</span></h2>
+
+      <p class="info-subtext">
+        On this <strong>Sarkari Exam</strong> page of WifiResult.com, you will get complete details of
+        <strong>Government Recruitment Exams</strong> – जैसे कि <strong>Notification, Eligibility, Age Limit, Syllabus,
+        Exam Pattern, Online Form, Exam Date, Admit Card और Result</strong> – सब कुछ एक ही जगह पर हिंदी और English में.
+      </p>
+
+      <div class="info-content">
+        <!-- Central & State Exams -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-university"></i> All Major Boards
+          </div>
+          <h3>Central & State Level Sarkari Exams</h3>
+          <p>
+            यहां पर आप <strong>SSC, UPSC, Railway, Bank, Police, Defence, State PSC, Teacher, Engineering, Clerk</strong>
+            और अन्य सभी प्रमुख सरकारी परीक्षाओं की जानकारी एक जगह पर देख सकते हैं. हर exam article में board का नाम,
+            post का नाम और vacancy details साफ-साफ लिखे रहते हैं.
+          </p>
+        </div>
+
+        <!-- Notification Details -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-file-alt"></i> Official Notification
+          </div>
+          <h3>Official Notification & Short Highlights</h3>
+          <p>
+            हर Sarkari Exam post में हम <strong>official notification PDF</strong> की लिंक देते हैं और उसके साथ
+            <strong>short highlights</strong> – जैसे कि important dates, total vacancies, exam name, advertisement number
+            और department – ताकि आपको लंबी PDF पढ़े बिना main points समझ में आ जाएं.
+          </p>
+        </div>
+
+        <!-- Eligibility & Age -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-id-card"></i> Eligibility / योग्यता
+          </div>
+          <h3>Eligibility, Age Limit & Reservation</h3>
+          <p>
+            Exam article में हम <strong>educational qualification, age limit, age relaxation (SC / ST / OBC / EWS / PH)</strong>
+            और required documents clearly लिखते हैं. इससे आप तुरंत check कर सकते हैं कि आप particular exam के लिए eligible हैं या नहीं.
+          </p>
+        </div>
+
+        <!-- Syllabus & Exam Pattern -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-list-ol"></i> Syllabus & Pattern
+          </div>
+          <h3>Syllabus, Exam Pattern & Selection Process</h3>
+          <p>
+            अधिकांश Sarkari Exams के लिए हम <strong>stage-wise selection process</strong> (Pre, Mains, Skill Test, PET/PST,
+            Interview) के साथ <strong>exam pattern</strong> (questions, marks, subjects, time) और short syllabus detail भी शामिल करते हैं,
+            ताकि आपकी तैयारी सही दिशा में हो सके.
+          </p>
+        </div>
+
+        <!-- Online Form Guide -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-mouse-pointer"></i> Apply Online
+          </div>
+          <h3>Online Form भरने की Step-by-Step प्रक्रिया</h3>
+          <p>
+            Exam notification के साथ हम <strong>How to Apply / आवेदन कैसे करें</strong> section में पूरी process बताते हैं –
+            रजिस्ट्रेशन से लेकर final submit तक. इसमें photo / signature size, document upload, preview check और print out के tips शामिल होते हैं.
+          </p>
+        </div>
+
+        <!-- Fees & Correction -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-rupee-sign"></i> Fees & Correction
+          </div>
+          <h3>Application Fees, Payment Mode & Correction</h3>
+          <p>
+            प्रत्येक Sarkari Exam post में <strong>category-wise fees</strong>, payment method (online / offline chal<span>lan</span>),
+            last date of fee payment और यदि उपलब्ध हो तो <strong>correction window</strong> details भी दी जाती हैं,
+            ताकि form भरते समय कोई गलती न हो.
+          </p>
+        </div>
+
+        <!-- Hindi + English Coverage -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-language"></i> Hindi + English
+          </div>
+          <h3>Hindi & English में आसान Exam Information</h3>
+          <p>
+            WifiResult का लक्ष्य है कि student को <strong>सरल भाषा</strong> में जानकारी मिले. इसलिए हम important sections को
+            <strong>Hindi और English दोनों में</strong> explain करते हैं – जैसे कि eligibility, exam date, important
+            instructions आदि.
+          </p>
+        </div>
+
+        <!-- Exam Level & Competition -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-chart-line"></i> Exam Level
+          </div>
+          <h3>Exam Level, Difficulty & Competition Info</h3>
+          <p>
+            जहां भी संभव हो, हम exam के <strong>difficulty level, competition level, attempts limit और exam frequency
+            (yearly / bi-yearly)</strong> जैसी जानकारी भी जोड़ते हैं, ताकि आप समझ सकें कि किस exam पर कितना focus करना है.
+          </p>
+        </div>
+
+        <!-- Result & Cutoff -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-trophy"></i> Result & Cut Off
+          </div>
+          <h3>Result, Cut Off & Merit List Updates</h3>
+          <p>
+            Exam complete होने के बाद हम इसी category में <strong>result, cut off, score card और merit list</strong> के links भी update करते हैं.
+            इस तरह एक ही जगह से complete exam journey – notification से लेकर result तक – track की जा सकती है.
+          </p>
+        </div>
+
+        <!-- Preparation tips -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-lightbulb"></i> Preparation Tips
+          </div>
+          <h3>Basic Preparation & Strategy Pointers</h3>
+          <p>
+            कुछ exams के लिए हम short <strong>preparation tips</strong> भी देते हैं – जैसे कि previous year papers solve करना,
+            syllabus mapping, revision schedule और mock tests का सही use – ताकि आप time को smart तरीके से manage कर सकें.
+          </p>
+        </div>
+
+        <!-- Authenticity & Disclaimer -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-shield-alt"></i> Authentic Source
+          </div>
+          <h3>Data Source & Important Disclaimer</h3>
+          <p>
+            सभी updates <strong>official websites, government portals और exam conducting bodies</strong> से लिये जाते हैं.
+            फिर भी final decision के लिए हमेशा <strong>original notification PDF और official website</strong> को ही मानक मानें.
+            WifiResult केवल जानकारी उपलब्ध कराने वाला portal है, कोई सरकारी संस्था नहीं.
+          </p>
+        </div>
+      </div>
+
+      <p class="website-info-bottom-note">
+        Sarkari Exam से जुड़ी किसी भी जानकारी को cross-check करने के लिए हमेशा <strong>official website</strong> अवश्य खोलें.
+        WifiResult.com आपकी सुविधा के लिए सभी <strong>notification, form, exam date, admit card और result links</strong> को एक जगह पर प्रस्तुत करता है,
+        ताकि आपकी तैयारी और आवेदन प्रक्रिया आसान हो सके.
+      </p>
+    </div>
+  </section>
+
+{% endblock content %}

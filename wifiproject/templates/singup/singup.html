@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+
+
+
+    {% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Create Account | Sign Up on WifiResult</title>
+<meta name="description" content="Join WifiResult to get instant notifications about latest government jobs, results, admit cards and exam updates. Create your free account now and never miss any Sarkari update.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/signup/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/signup/">
+<meta property="og:title" content="Create Account | Sign Up on WifiResult">
+<meta property="og:description" content="Join WifiResult to get instant notifications about latest government jobs, results, admit cards and exam updates. Create your free account now and never miss any Sarkari update.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/signup/">
+<meta name="twitter:title" content="Create Account | Sign Up on WifiResult">
+<meta name="twitter:description" content="Join WifiResult to get instant notifications about latest government jobs, results, admit cards and exam updates. Create your free account now and never miss any Sarkari update.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/signup/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Sign Up", "item": "{{ request.scheme }}://{{ request.get_host }}/signup/" }
+  ]
+}
+</script>
+
+<!--WebPage Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/signup/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/signup/",
+  "name": "Create Account | Sign Up on WifiResult",
+  "headline": "Sign Up – Create Your WifiResult Account for Job Alerts & Updates",
+  "description": "Join WifiResult to get instant notifications about latest government jobs, results, admit cards and exam updates. Create your free account now and never miss any Sarkari update.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "RegisterAction",
+    "target": "{{ request.scheme }}://{{ request.get_host }}/signup/",
+    "name": "Sign Up on WifiResult",
+    "description": "Join WifiResult to get instant notifications about latest government jobs, results, admit cards and exam updates. Create your free account now and never miss any Sarkari update.",
+    "actionStatus": "https://schema.org/PotentialActionStatus"
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/signup/#breadcrumb" }
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/signup/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why should I sign up on WifiResult?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By signing up, you can get instant email or dashboard notifications for latest government jobs, results, and admit cards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is signing up free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Creating an account on WifiResult is completely free and requires only a valid email or phone number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my data be safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your data is securely stored and never shared with any third party as per our Privacy Policy."
+      }
+    }
+  ]
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+
+<style>
+
+.breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* central card */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+
+    /* REGISTER form styles (center column only) */
+    .signup-wrap{
+      max-width:560px;
+      margin:0 auto;
+    }
+    .glass{
+      background: rgba(255,255,255,0.13);
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(8,7,16,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+    }
+    .signup-form{
+      padding:28px 22px;
+    }
+    .signup-form h3{
+      font-size:28px;
+      font-weight:700;
+      line-height:1.2;
+      text-align:center;
+      color:#111;
+      margin-bottom:6px;
+    }
+    .signup-sub{
+      text-align:center;
+      color:#555;
+      font-size:14px;
+      margin-bottom:14px;
+    }
+    .sg-group{margin-bottom:12px}
+    .sg-label{display:block;font-weight:600;margin-bottom:6px;color:#333}
+    .sg-input{
+      width:100%;height:44px;border-radius:8px;padding:0 12px;
+      border:1.5px solid var(--border);background:#fff;font-size:15px;outline:none;
+    }
+    .sg-input:focus{border-color:var(--secondary)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--success),#0f6e3f);color:#fff;border:none;padding:12px 18px;border-radius:8px;cursor:pointer;font-weight:600}
+    .btn:hover{filter:brightness(1.05)}
+    .note{font-size:12px;color:#6c757d;margin-top:8px}
+
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+   <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="{% url 'home' %}" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Signup</span>
+    </div>
+  </div>
+
+  {% comment %} <!-- Breadcrumb के नीचे Breaking News Marquee (same) -->
+  <div class="breaking-newss">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <span class="icon"><i class="fas fa-bullhorn"></i></span>
+      <span class="headline">
+        Create your account to get instant job alerts & updates!
+      </span>
+    </marquee>
+  </div> {% endcomment %}
+
+  <style>
+    .breaking-newss {
+      background: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 8px 0;
+      border: 1px solid #f5c6cb;
+      margin-bottom: 15px;
+    }
+    .breaking-newss .icon { margin-right: 10px; font-size: 20px; }
+    .breaking-news .headline { font-family: 'Arial', sans-serif; }
+  </style>
+
+  <!-- Optional breaking line (same) -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-info-circle"></i></strong> &nbsp;Create your wifiresult.com account to receive personalised job notifications, admit cards & results.
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (REGISTER) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Register main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+
+
+       <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt Updated</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Sarkari Yojna</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: CLEAN SIGNUP FORM (in the middle column) -->
+    <section class="content-area" aria-label="Register form">
+      <div class="editorial-card">
+        <div class="page-title">
+          <i class="fas fa-user-plus" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="register-heading">Create Your Account</h1>
+        </div>
+        <p class="muted" style="margin-bottom:12px">
+          Sign up to get job alerts, admit card notifications and result updates directly in your inbox.
+        </p>
+
+        <div class="signup-wrap glass">
+          <form class="signup-form" action="" method="post" novalidate>
+            {% csrf_token %}
+
+            {% if messages %}
+              {% for message in messages %}
+                <div style="background:rgb(226, 108, 108); padding: 10px; color: white; margin-bottom: 10px; text-align:center; border-radius:5px;">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+
+            <h3 style="color:#dc3545;;">WiFiResult.com Signup Here</h3>
+            <div class="signup-sub">It’s quick and easy.</div>
+
+            <div class="sg-group">
+              <label class="sg-label" for="username">Username</label>
+              <input class="sg-input" type="text" placeholder="Username" name="username" id="username" required>
+            </div>
+
+            <div class="sg-group">
+              <label class="sg-label" for="email">Email</label>
+              <input class="sg-input" type="email" placeholder="Email" name="email" id="email" required>
+            </div>
+
+            <div class="sg-group">
+              <label class="sg-label" for="password1">Password</label>
+              <input class="sg-input" type="password" placeholder="Password" id="password1" name="password1" required>
+            </div>
+
+            <div class="sg-group">
+              <label class="sg-label" for="password2">Confirm Password</label>
+              <input class="sg-input" type="password" placeholder="Confirm Password" id="password2" name="password2" required>
+            </div>
+
+            <button class="btn" type="submit"><i class="fas fa-user-check"></i> Signup</button>
+            
+           <p class="note" >Already have an account? <a href="{% url 'login' %}" style="color:var(--secondary);text-decoration:none;font-size:16px;">Login</a></p> 
+      
+          </form>
+        </div>
+
+        <p class="muted note">By creating an account, you consent to receive important service & job alert emails. You can unsubscribe anytime.</p>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+       <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admitcard/{{ admitcard.slug }}">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

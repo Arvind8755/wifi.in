@@ -1,0 +1,889 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block seo %} 
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latest News | Government, Exam Updates – WifiResult</title>
+<meta name="description" content="Latest News 2026: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/latest-news/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-news/">
+<meta property="og:title" content="Latest News | Government, Exam Updates – WifiResult">
+<meta property="og:description" content="Latest News 2026: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-news/">
+<meta name="twitter:title" content="Latest News | Government, Exam Updates – WifiResult">
+<meta name="twitter:description" content="Latest News 2026: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/latest-news/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Latest News","item":"{{ request.scheme }}://{{ request.get_host }}/latest-news/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/latest-news/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/latest-news/",
+  "name":"Latest News | Government, Exam Updates – WifiResult",
+  "headline":"Latest News 2026 – Government, Education & Daily Updates",
+  "description":"Latest News 2026: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/latest-news/#breadcrumb"}
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Latest News | Government, Exam Updates – WifiResult",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+    <style>
+ .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:18px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    .news-card{background:#fff;padding:18px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .news-list{list-style:none;margin:0;padding:0}
+    .news-item{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+    .news-item:last-child{border-bottom:none}
+    .news-thumb{width:90px;height:70px;border-radius:8px;object-fit:cover;background:#eee}
+    .news-title{font-weight:600;font-size:16px;line-height:1.4}
+    .news-title a{text-decoration:none;color:#222}
+    .news-meta{font-size:12px;color:#6c757d;margin-top:4px}
+    @media(max-width:576px){ .news-item{grid-template-columns:70px 1fr} .news-thumb{width:70px;height:54px} }
+
+    .pagination{display:flex;gap:8px;justify-content:center;margin-top:16px}
+    .pagination a, .pagination span{padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:#fff;text-decoration:none;color:#222}
+    .pagination .current{background:var(--light);font-weight:600}
+
+
+
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+    /* Info blocks */
+    .edu-info-wrap{
+      padding:20px 0 30px;
+    }
+
+    .edu-highlight{
+      background:#ffffff;
+      border-radius:14px;
+      padding:20px 18px;
+      margin:18px 0;
+      box-shadow:0 12px 25px rgba(0,0,0,0.08);
+      position:relative;
+      overflow:hidden;
+      backdrop-filter:blur(6px);
+    }
+
+    /* Neon rainbow border */
+    .edu-highlight:before{
+      content:'';position:absolute;inset:0;border-radius:14px;padding:2px;
+      background:linear-gradient(90deg,#0061ff,#60efff,#ff6ec4,#ffc65c);
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+    }
+
+    .edu-highlight h4{
+      margin:0 0 10px;
+      font-size:1.15rem;
+      font-weight:600;
+      color:#003a78;
+    }
+
+    .edu-highlight p{
+      margin:0;
+      color:#333;
+      line-height:1.55;
+      font-size:0.95rem;
+    }
+
+    .edu-disclaimer{
+      font-size:0.88rem;
+      color:#374151;
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+ 
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/" style="color:#0d6efd;text-decoration:none">Home</a>
+      <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Latest News</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest News 2026 – Government, Education & Daily Updates</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;}
+</style>
+
+  <!-- Main Grid: left-sidebar | news list | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Latest news main area">
+    <!-- Left Sidebar -->
+     <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+      <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="latest-govtupdates-card">
+        <h4><i class="fas fa-bell"></i> GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt Updates</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="/admission/">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="/answer-key/">Answer Key</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="/syllabus/">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="/sarkari-yojana/">Sarkari Yojana</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="/scholarship/">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+   <!-- Center: Latest News List -->
+<section class="content-area" aria-label="Latest news list">
+  <div class="news-card">
+    <ul class="news-list">
+      {% for it in items %}
+      <li class="news-item">
+        <img class="news-thumb"
+             src="{{ it.thumb }}"
+             alt="{{ it.alt|default:it.title }}"
+             onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png';">
+        <div>
+          <div class="news-title">
+            <a href="{{ it.url }}">{{ it.title }}</a>
+          </div>
+          <div class="news-meta">
+            <i class="far fa-clock"></i>
+            {{ it.dt_display|default:"" }} 
+            &nbsp;•&nbsp;
+            <i class="far fa-folder"></i>
+            {{ it.type }}
+          </div>
+        </div>
+      </li>
+      {% empty %}
+      
+      <li class="news-item">
+        <img class="news-thumb"
+             src="https://via.placeholder.com/160x120.png?text=News"
+             alt="No news">
+        <div>
+          <div class="news-title">No news found.</div>
+          <div class="news-meta">Please check back later.</div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% if page_obj.has_other_pages %}
+    <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">&laquo; Prev</a>
+      {% else %}
+        <span class="disabled">&laquo; Prev</span>
+      {% endif %}
+
+      <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+      {% else %}
+        <span class="disabled">Next &raquo;</span>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+
+    <!-- Right Sidebar -->
+      <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="latest-admit-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMIT CARDS</h4>
+        <ul class="sidebar-list">
+          {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+
+    
+  </main>
+ <!-- Latest News Info Blocks -->
+<section class="edu-info-wrap px-3">
+
+  <div class="edu-highlight">
+    <h4>What’s Inside Latest News Zone?</h4>
+    <p>
+      <strong>Latest News</strong> section पर आपको रोज़ाना <strong>Government Updates, Education News,
+      Exam Announcements, Recruitment Notifications, Policy Changes</strong> और अन्य महत्वपूर्ण  
+      official circulars एक ही जगह पर मिलते हैं। Yahan पर दिखाई जाने वाली news विशेष रूप से  
+      <strong>govt job aspirants, students, teachers और competitive exam</strong> की तैयारी करने वाले candidates को ध्यान में रखकर तैयार की जाती है,
+      ताकि आपको अलग-अलग websites search नहीं करनी पड़े।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>How to Use the Latest News Page?</h4>
+    <p>
+      अगर आप SSC, UPSC, Railway, Banking, Police, Teaching, State PSC या किसी भी competitive exam की तैयारी कर रहे हैं,
+      तो यह <strong>Latest News 2025</strong> page आपके लिए एक daily reference hub की तरह काम कर सकता है:
+      <br>• जब भी कोई <strong>नई govt notification</strong> या circular आता है – उसकी short highlight पहले यहीं दिखती है।  
+      <br>• Detailed जानकारी के लिए आप news headline पर click करके full article या official notice पर जा सकते हैं।  
+      <br>• Sidebars में दिए गए <strong>Jobs by Qualification, Govt Updates, Latest Result & Admit Cards</strong> से आप तुरंत related pages पर navigate कर सकते हैं।
+      <br><br>
+      इस तरह आप एक ही जगह से <strong>news + jobs + results + admit cards</strong> सब manage कर सकते हैं।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Why Users Prefer WifiResult for News?</h4>
+    <p>
+      WifiResult पर publish की जाने वाली Latest News में हम priority देते हैं <strong>speed + accuracy</strong> को।  
+      जानकारी को publish करने से पहले हम उसे संबंधित <strong>official portals, departments, commissions,
+      boards या ministries</strong> से verify करने की कोशिश करते हैं, ताकि आपको fake या outdated news न मिले।
+      <br><br>
+      साथ ही news को हम <strong>short, exam-oriented और easy Hindi+English mixed language</strong> में लिखते हैं,
+      जिससे हर level का student और job seeker notice का सार जल्दी समझ सके – बिना पूरा लंबा PDF पढ़े।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Popular News Categories on WifiResult</h4>
+    <p>
+      Latest Sarkari News • Govt Notifications • Policy & Rule Updates • Recruitment Announcements •  
+      Exam News & Calendar Updates • Education & Board News • Sarkari Yojana & Schemes •  
+      Scholarship Alerts • Syllabus / Pattern Changes • Budget & Departmental Announcements.
+      <br>
+      अगर आप चाहते हैं कि <strong>कोई भी बड़ी सरकारी सूचना miss न हो</strong>, तो इस  
+      <strong>Latest News</strong> page को bookmark करके रोज़ check करना आपके लिए काफी useful होगा।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Important Notice & Disclaimer – Latest News (WifiResult)</h4>
+    <p class="edu-disclaimer">
+      WifiResult (<strong>wifiresult.com</strong>) किसी भी Ministry, Department, आयोग, Board या Government body की
+      <strong>official website नहीं</strong> है। यहां दिखाई गई Latest News और updates केवल <strong>information purpose</strong> के लिए हैं,
+      जो सामान्यतः संबंधित <strong>official website, notification PDF, प्रेस नोट या विश्वसनीय public sources</strong> से आधारित होते हैं।
+    </p>
+    <p class="edu-disclaimer">
+      किसी भी <strong>job के लिए apply करने, form भरने, fees जमा करने, scheme का लाभ लेने,
+      legal decision लेने या exam में appear होने</strong से पहले हमेशा concerned department/board/commission की  
+      <strong>official website पर दी गई latest सूचना, official notification PDF और corrigendum</strong अवश्य पढ़ें।
+      अंतिम और मान्य जानकारी वही मानी जाएगी जो <strong>सरकारी portal</strong> पर उपलब्ध हो।
+    </p>
+    <p class="edu-disclaimer">
+      यदि इस page पर आपको कोई <strong>गलत, पुरानी या confusing जानकारी</strong दिखे,
+      तो कृपया WifiResult के <strong>Contact / Feedback</strong section के माध्यम से हमें inform करें,
+      ताकि हम content को जल्द से जल्द review और update कर सकें।  
+      <br><br>
+      🔖 <strong>Tip:</strong> यदि आप रोज़ाना government / exam / education updates dekhte हैं,
+      तो इस <strong>/latest-news/</strong> page को bookmark कर लें – इससे आपका time बचेगा और आपको  
+      verified updates एक click में मिलेंगे।
+    </p>
+  </div>
+
+</section>
+
+
+  {% endblock content %}
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latest News 2025 | Government, Education & Exam Updates – WifiResult</title>
+<meta name="description" content="Latest News 2025: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.">
+<meta name="keywords" content="latest news 2025, govt latest news, government news updates, education news today, exam news and alerts, sarkari notifications,breaking govt news, new government rules, recruitment news 2025, daily latest news updates">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/latest-news/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-news/">
+<meta property="og:title" content="Latest News 2025 | Government, Education & Exam Updates – WifiResult">
+<meta property="og:description" content="Latest News 2025: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-news/">
+<meta name="twitter:title" content="Latest News 2025 | Government, Education & Exam Updates – WifiResult">
+<meta name="twitter:description" content="Latest News 2025: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/latest-news/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Latest News","item":"{{ request.scheme }}://{{ request.get_host }}/latest-news/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/latest-news/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/latest-news/",
+  "name":"Latest News 2025 | Government, Education & Exam Updates – WifiResult",
+  "headline":"Latest News 2025 – Government, Education & Daily Updates",
+  "description":"Latest News 2025: Get real-time govt updates, education news, exam alerts, recruitment notifications, policy changes, and official announcements on WifiResult.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/latest-news/#breadcrumb"}
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Latest News 2025 | Government, Education & Exam Updates – WifiResult",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+    <style>
+ .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:18px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    .news-card{background:#fff;padding:18px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .news-list{list-style:none;margin:0;padding:0}
+    .news-item{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+    .news-item:last-child{border-bottom:none}
+    .news-thumb{width:90px;height:70px;border-radius:8px;object-fit:cover;background:#eee}
+    .news-title{font-weight:600;font-size:16px;line-height:1.4}
+    .news-title a{text-decoration:none;color:#222}
+    .news-meta{font-size:12px;color:#6c757d;margin-top:4px}
+    @media(max-width:576px){ .news-item{grid-template-columns:70px 1fr} .news-thumb{width:70px;height:54px} }
+
+    .pagination{display:flex;gap:8px;justify-content:center;margin-top:16px}
+    .pagination a, .pagination span{padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:#fff;text-decoration:none;color:#222}
+    .pagination .current{background:var(--light);font-weight:600}
+
+
+
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+ 
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/" style="color:#0d6efd;text-decoration:none">Home</a>
+      <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Latest News</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest News 2025 – Government, Education & Daily Updates</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Main Grid: left-sidebar | news list | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Latest news main area">
+    <!-- Left Sidebar -->
+     <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+
+
+       <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt Updated</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Sarkari Yojna</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+   <!-- Center: Latest News List -->
+<section class="content-area" aria-label="Latest news list">
+  <div class="news-card">
+    <ul class="news-list">
+      {% for it in items %}
+      <li class="news-item">
+        <img class="news-thumb"
+             src="{{ it.thumb }}"
+             alt="{{ it.alt|default:it.title }}"
+             onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png';">
+        <div>
+          <div class="news-title">
+            <a href="{{ it.url }}">{{ it.title }}</a>
+          </div>
+          <div class="news-meta">
+            <i class="far fa-clock"></i>
+            {{ it.dt_display|default:"" }} 
+            &nbsp;•&nbsp;
+            <i class="far fa-folder"></i>
+            {{ it.type }}
+          </div>
+        </div>
+      </li>
+      {% empty %}
+      
+      <li class="news-item">
+        <img class="news-thumb"
+             src="https://via.placeholder.com/160x120.png?text=News"
+             alt="No news">
+        <div>
+          <div class="news-title">No news found.</div>
+          <div class="news-meta">Please check back later.</div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% if page_obj.has_other_pages %}
+    <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">&laquo; Prev</a>
+      {% else %}
+        <span class="disabled">&laquo; Prev</span>
+      {% endif %}
+
+      <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+      {% else %}
+        <span class="disabled">Next &raquo;</span>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+
+    <!-- Right Sidebar -->
+      <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admitcard/{{ admitcard.slug }}">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+
+    
+  </main>
+ <!-- Latest News Info Blocks -->
+<section class="edu-info-wrap px-3">
+
+  <div class="edu-highlight">
+    <h4>What’s Inside Latest News Zone?</h4>
+    <p>
+      Sarkari News, Government Updates, Policy Changes, Exam Announcements, Recruitment Alerts और 
+      Daily Official Notifications — सब कुछ एक ही जगह पर. सबसे तेज़ और verified govt news 
+      WifiResult पर real-time में मिलती है।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Why Users Prefer WifiResult for News?</h4>
+    <p>
+      हम केवल official sources से news publish करते हैं ताकि आपको फेक या outdated जानकारी न मिले।  
+      Fast updates, clean categories और mobile-friendly reading experience WifiResult को 
+      Sarkari News के लिए सबसे भरोसेमंद बनाता है।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Popular News Categories</h4>
+    <p>
+      Latest Sarkari News • Govt Notifications • Policy Updates • Recruitment Announcements •  
+      Exam News • Education News • Scheme Updates • Budget & Departmental News.
+    </p>
+  </div>
+
+</section>
+
+<style>
+/* Modern Latest News Info Blocks - Neon Edge + Soft Glass Style */
+.edu-info-wrap{
+  padding:20px 0 30px;
+}
+
+.edu-highlight{
+  background:#ffffff;
+  border-radius:14px;
+  padding:20px 18px;
+  margin:18px 0;
+  box-shadow:0 12px 25px rgba(0,0,0,0.08);
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(6px);
+}
+
+/* Neon rainbow border */
+.edu-highlight:before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  padding:2px;
+  background:linear-gradient(
+    90deg,
+    #0061ff,
+    #60efff,
+    #ff6ec4,
+    #ffc65c
+  );
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+}
+
+.edu-highlight h4{
+  margin:0 0 10px;
+  font-size:1.15rem;
+  font-weight:600;
+  color:#003a78;
+}
+
+.edu-highlight p{
+  margin:0;
+  color:#333;
+  line-height:1.55;
+  font-size:0.95rem;
+}
+</style>
+
+  {% endblock content %}
+   {% endcomment %}

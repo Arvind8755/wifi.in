@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+
+ <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Resizer & Exporter — WifiResult Tool</title>
+  <meta name="description" content="Resize images, change format (PNG, JPG, WEBP), set quality and target file size (KB), preserve aspect ratio, and download/export." />
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+
+ <style>
+    :root{
+      --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:#0f172a}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    h1{margin:0 0 12px;font-size:20px}
+    .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=file]{display:block}
+    .controls{display:grid;gap:10px}
+    .row{display:flex;gap:8px;align-items:center}
+    input[type=number], select, input[type=text]{padding:10px;border-radius:10px;border:1px solid #e6eef7;width:100%}
+    button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+    .btn-ghost{background:#fff;border:1px solid #e6eef7;color:#0f172a}
+    .preview{display:flex;flex-direction:column;gap:10px;align-items:center}
+    img#previewImg{max-width:100%;border-radius:8px;border:1px solid #e6eef7}
+    .meta{font-size:13px;color:var(--muted)}
+    .small{font-size:12px;color:var(--muted)}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+    .progress{height:8px;background:#e6eef7;border-radius:8px;overflow:hidden}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%}
+    .help{font-size:12px;color:var(--muted)}
+    .preset{display:flex;gap:6px;flex-wrap:wrap}
+    .preset button{background:#f3f4f6;color:#111;padding:6px 8px;border-radius:8px;border:1px solid #e6eef7}
+    .toggle{display:inline-flex;align-items:center;gap:8px}
+  </style>
+
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+<div class="wrap">
+    <h1>Image Resizer & Exporter</h1>
+    <div class="card grid">
+      <div>
+        <div class="card" style="padding:12px">
+          <label>Upload Image</label>
+          <input id="fileInput" type="file" accept="image/*" />
+          <div style="margin-top:10px" class="small">Supported: PNG, JPEG, WEBP, HEIC (if browser supports). Max ~30MB recommended.</div>
+
+          <hr style="margin:12px 0" />
+
+          <div class="controls">
+            <div>
+              <label>Resize Mode</label>
+              <select id="resizeMode">
+                <option value="contain">Contain (fit within)</option>
+                <option value="cover">Cover (fill & crop)</option>
+                <option value="stretch">Stretch (ignore aspect)</option>
+                <option value="percentage">Scale by %</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div style="flex:1">
+                <label>Width (px)</label>
+                <input id="outWidth" type="number" min="1" placeholder="Auto" />
+              </div>
+              <div style="width:120px">
+                <label>Height (px)</label>
+                <input id="outHeight" type="number" min="1" placeholder="Auto" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div style="flex:1">
+                <label>Scale % (for percentage mode)</label>
+                <input id="scalePercent" type="number" min="1" max="1000" placeholder="100" />
+              </div>
+              <div style="width:160px">
+                <label class="toggle"><input id="keepAspect" type="checkbox" checked /> Keep aspect ratio</label>
+              </div>
+            </div>
+
+            <div>
+              <label>Output Format</label>
+              <select id="format">
+                <option value="image/png">PNG</option>
+                <option value="image/jpeg">JPG</option>
+                <option value="image/webp">WEBP</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div style="flex:1">
+                <label>Quality (for JPG/WEBP) — 0.1 to 1</label>
+                <input id="quality" type="number" step="0.05" min="0.1" max="1" value="0.92" />
+              </div>
+              <div style="width:160px">
+                <label>Background (PNG)</label>
+                <input id="bgColor" type="text" placeholder="transparent or #ffffff" />
+              </div>
+            </div>
+
+            <div>
+              <label>Target file size (KB) — optional</label>
+              <div class="row">
+                <input id="targetKb" type="number" min="1" placeholder="e.g., 200" />
+                <button id="applyTarget" class="btn-ghost">Apply</button>
+              </div>
+              <div class="help">If set, exporter will attempt iterative quality/scale adjustments to meet size.</div>
+            </div>
+
+            <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:8px">
+              <div class="preset">
+                <label class="small">Presets:</label>
+                <button data-w="1920" data-h="1080">1920×1080</button>
+                <button data-w="1280" data-h="720">1280×720</button>
+                <button data-w="1024" data-h="768">1024×768</button>
+                <button data-w="800" data-h="800">800×800</button>
+              </div>
+              <div>
+                <label class="small">Filename</label>
+                <input id="outName" type="text" placeholder="resized-image" />
+              </div>
+            </div>
+
+            <div style="margin-top:8px;display:flex;gap:8px;">
+              <button id="previewBtn">Preview</button>
+              <button id="downloadBtn">Download Export</button>
+              <button id="copyBlobBtn" class="btn-ghost">Copy Image to Clipboard</button>
+            </div>
+
+            <div style="margin-top:8px">
+              <div class="progress" aria-hidden>
+                <i id="progressBar"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <label>Tips & Notes</label>
+          <ul class="small">
+            <li>Target KB is approximate — browser compression and format affect results.</li>
+            <li>WEBP gives best compression in most cases. JPG is widely compatible.</li>
+            <li>PNG with transparency will generally be larger than JPG/webp.</li>
+            <li>Use Cover mode to produce images that exactly fill specified dimensions (cropping may occur).</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="card preview">
+          <div style="width:100%">
+            <label>Preview</label>
+            <div style="border:1px dashed #e6eef7;padding:8px;border-radius:8px;min-height:180px;display:flex;align-items:center;justify-content:center">
+              <img id="previewImg" alt="Preview" src="" style="display:none" />
+              <div id="placeholder" class="meta">No image loaded</div>
+            </div>
+          </div>
+
+          <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px">
+            <div class="meta">Original: <span id="origSize">—</span> • <span id="origDim">—</span></div>
+            <div class="meta">Export: <span id="outSize">—</span> • <span id="outDim">—</span></div>
+            <div class="meta">Estimated time: <span id="estTime">—</span></div>
+            <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+              <button id="downloadPreview" class="btn-ghost">Download Preview</button>
+              <button id="resetBtnSide" class="btn-ghost">Reset</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Image Resizer & Exporter</div>
+  </div>
+
+  <script>
+  (function(){
+    const fileInput = document.getElementById('fileInput');
+    const previewImg = document.getElementById('previewImg');
+    const placeholder = document.getElementById('placeholder');
+    const origSize = document.getElementById('origSize');
+    const origDim = document.getElementById('origDim');
+    const outSize = document.getElementById('outSize');
+    const outDim = document.getElementById('outDim');
+    const progressBar = document.getElementById('progressBar');
+    const previewBtn = document.getElementById('previewBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const downloadPreview = document.getElementById('downloadPreview');
+    const copyBlobBtn = document.getElementById('copyBlobBtn');
+    const resetBtnSide = document.getElementById('resetBtnSide');
+
+    const outWidth = document.getElementById('outWidth');
+    const outHeight = document.getElementById('outHeight');
+    const scalePercent = document.getElementById('scalePercent');
+    const resizeMode = document.getElementById('resizeMode');
+    const keepAspect = document.getElementById('keepAspect');
+    const format = document.getElementById('format');
+    const quality = document.getElementById('quality');
+    const bgColor = document.getElementById('bgColor');
+    const targetKb = document.getElementById('targetKb');
+    const applyTarget = document.getElementById('applyTarget');
+    const outName = document.getElementById('outName');
+
+    const presets = document.querySelectorAll('.preset button');
+    presets.forEach(b=>b.addEventListener('click',()=>{ outWidth.value=b.dataset.w; outHeight.value=b.dataset.h; }));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let originalImage = null; // Image object
+    let originalBlob = null;
+    let lastExportBlob = null;
+
+    function setProgress(p){ progressBar.style.width = (p*100)+'%'; }
+
+    fileInput.addEventListener('change', async (e)=>{
+      const f = e.target.files && e.target.files[0];
+      if(!f) return resetAll();
+      if(!f.type.startsWith('image/')){ alert('Please upload an image file'); return; }
+      originalBlob = f;
+      const url = URL.createObjectURL(f);
+      const img = new Image();
+      img.onload = ()=>{
+        originalImage = img;
+        previewImg.src = url; previewImg.style.display='block'; placeholder.style.display='none';
+        origSize.textContent = formatBytes(f.size); origDim.textContent = img.width+'×'+img.height;
+        outSize.textContent='—'; outDim.textContent='—'; lastExportBlob=null; setProgress(0);
+        // auto suggest width/height
+        outName.value = (outName.value||f.name.replace(/\.[^/.]+$/,'')+'-resized');
+      };
+      img.onerror = ()=>{ alert('Failed to load image'); URL.revokeObjectURL(url); }
+      img.src = url;
+    });
+
+    function formatBytes(n){ if(n==null) return '—'; if(n<1024) return n+' B'; if(n<1024*1024) return (n/1024).toFixed(1)+' KB'; return (n/1024/1024).toFixed(2)+' MB'; }
+
+    function canvasToBlob(canvas, mime, q){ return new Promise((res)=> canvas.toBlob(b=>res(b), mime, q)); }
+
+    function calculateTarget(sx, sy, mode, srcW, srcH, outW, outH){
+      // returns {w,h, sx,sy, sw, sh} where sx/sy/sw/sh used for cropping source when mode=='cover'
+      if(mode==='percentage'){
+        const scale = (sx||100)/100; return {w:Math.max(1,Math.round(srcW*scale)), h:Math.max(1,Math.round(srcH*scale)), sx:0, sy:0, sw:srcW, sh:srcH};
+      }
+      if(mode==='stretch'){
+        const w = outW || srcW; const h = outH || srcH; return {w,h,sx:0,sy:0,sw:srcW,sh:srcH};
+      }
+      // contain or cover
+      const targetW = outW || srcW; const targetH = outH || srcH;
+      const srcRatio = srcW/srcH; const tgtRatio = targetW/targetH;
+      if(mode==='contain'){
+        let w = targetW; let h = Math.round(w/srcRatio); if(h>targetH){ h=targetH; w=Math.round(h*srcRatio);} if(keepAspect.checked){ return {w,h,sx:0,sy:0,sw:srcW,sh:srcH}; } else { return {w:targetW,h:targetH,sx:0,sy:0,sw:srcW,sh:srcH}; }
+      }
+      if(mode==='cover'){
+        // need to crop source to fill target
+        if(srcRatio>tgtRatio){ // source wider -> crop sides
+          const sw = Math.round(srcH * tgtRatio); const sh = srcH; const sx = Math.round((srcW - sw)/2); return {w:targetW,h:targetH,sx,sy:0,sw,sh};
+        } else { const sw = srcW; const sh = Math.round(srcW / tgtRatio); const sy = Math.round((srcH - sh)/2); return {w:targetW,h:targetH,sx:0,sy,sw,sh}; }
+      }
+      return {w:outW||srcW,h:outH||srcH,sx:0,sy:0,sw:srcW,sh:srcH};
+    }
+
+    async function exportImage(options){
+      if(!originalImage) return null;
+      setProgress(0.05);
+      const srcW = originalImage.width; const srcH = originalImage.height;
+      let desiredW = options.width?parseInt(options.width,10):null;
+      let desiredH = options.height?parseInt(options.height,10):null;
+      const mode = options.mode;
+      if(mode==='percentage' && options.scale){ desiredW = Math.round(srcW * (options.scale/100)); desiredH = Math.round(srcH * (options.scale/100)); }
+      // fallback: if only width given and keepAspect -> compute height
+      if(desiredW && !desiredH && keepAspect.checked){ desiredH = Math.round(desiredW * srcH / srcW); }
+      if(desiredH && !desiredW && keepAspect.checked){ desiredW = Math.round(desiredH * srcW / srcH); }
+
+      // Determine canvas dimensions and crop
+      const calc = calculateTarget(options.scale, options.scale, mode, srcW, srcH, desiredW, desiredH);
+      const canvas = document.createElement('canvas'); canvas.width = calc.w; canvas.height = calc.h; const ctx = canvas.getContext('2d');
+      // background
+      if(options.format==='image/png' && options.bg){ if(options.bg.toLowerCase()==='transparent' || options.bg===''){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+      } else { ctx.fillStyle = options.bg; ctx.fillRect(0,0,canvas.width,canvas.height); }
+      }
+      setProgress(0.25);
+      // draw image
+      ctx.drawImage(originalImage, calc.sx||0, calc.sy||0, calc.sw||srcW, calc.sh||srcH, 0, 0, calc.w, calc.h);
+      setProgress(0.5);
+      const blob = await canvasToBlob(canvas, options.format, options.quality);
+      setProgress(0.8);
+      return {blob, width:canvas.width, height:canvas.height};
+    }
+
+    async function tryExportWithTargetKb(baseOptions, targetKbVal){
+      // strategy: try quality loop; if not enough, reduce dimensions by 90% each iteration and retry
+      let options = Object.assign({}, baseOptions);
+      let q = parseFloat(options.quality)||0.92; let tries=0; let scaleFactor = 1;
+      let result = null; let lastGood=null;
+      while(tries<12){
+        options.quality = Math.max(0.05, q);
+        // adjust desired sizes by scaleFactor
+        if(baseOptions.scaleBase){ options.scale = baseOptions.scaleBase * scaleFactor; }
+        const out = await exportImage(options);
+        if(!out || !out.blob) return null;
+        const sizeKb = out.blob.size/1024;
+        if(sizeKb <= targetKbVal){ lastGood = out; break; }
+        // reduce quality first
+        if(q>0.25){ q -= 0.12; }
+        else { scaleFactor *= 0.9; if(baseOptions.scaleBase) baseOptions.scaleBase *= 0.9; else if(baseOptions.width) baseOptions.width = Math.round(baseOptions.width*0.9); if(baseOptions.height) baseOptions.height = Math.round(baseOptions.height*0.9); }
+        tries++; setProgress(Math.min(0.95, 0.5 + tries/12*0.45));
+      }
+      setProgress(1);
+      return lastGood;
+    }
+
+    function readOptions(){
+      return {
+        mode: resizeMode.value,
+        width: outWidth.value?parseInt(outWidth.value,10):null,
+        height: outHeight.value?parseInt(outHeight.value,10):null,
+        scale: scalePercent.value?parseFloat(scalePercent.value):null,
+        quality: parseFloat(quality.value) || 0.92,
+        format: format.value,
+        bg: bgColor.value.trim(),
+        name: outName.value || 'resized-image'
+      };
+    }
+
+    previewBtn.addEventListener('click', async ()=>{
+      if(!originalImage) { alert('Please upload an image'); return; }
+      setProgress(0);
+      const opts = readOptions();
+      // allow percentage mode to use scaleBase so we can adjust later
+      if(opts.mode==='percentage' && !opts.scale) opts.scale = 100;
+      if(opts.mode==='percentage') opts.scaleBase = opts.scale;
+      const tKb = targetKb.value?parseInt(targetKb.value,10):null;
+      let out;
+      if(tKb){ out = await tryExportWithTargetKb(opts, tKb); }
+      else { out = await exportImage(opts); }
+      if(!out){ alert('Export failed'); setProgress(0); return; }
+      lastExportBlob = out.blob;
+      outSize.textContent = formatBytes(out.blob.size); outDim.textContent = out.width+'×'+out.height; estTime.textContent = 'instant';
+      // preview
+      const url = URL.createObjectURL(out.blob); previewImg.src = url; previewImg.style.display='block'; placeholder.style.display='none';
+      setProgress(1); setTimeout(()=>setProgress(0),800);
+    });
+
+    downloadBtn.addEventListener('click', async ()=>{
+      if(!originalImage) { alert('Please upload an image'); return; }
+      setProgress(0);
+      const opts = readOptions();
+      if(opts.mode==='percentage' && !opts.scale) opts.scale = 100; if(opts.mode==='percentage') opts.scaleBase = opts.scale;
+      const tKb = targetKb.value?parseInt(targetKb.value,10):null;
+      let out;
+      if(tKb){ out = await tryExportWithTargetKb(opts, tKb); }
+      else { out = await exportImage(opts); }
+      if(!out){ alert('Export failed'); setProgress(0); return; }
+      lastExportBlob = out.blob; outSize.textContent = formatBytes(out.blob.size); outDim.textContent = out.width+'×'+out.height; setProgress(1);
+      const a = document.createElement('a'); a.href = URL.createObjectURL(out.blob); a.download = (opts.name || 'resized') + (opts.format==='image/png'?'.png': opts.format==='image/jpeg'?'.jpg':'.webp'); a.click();
+      setTimeout(()=>setProgress(0),600);
+    });
+
+    downloadPreview.addEventListener('click', ()=>{
+      if(!lastExportBlob){ alert('No preview available. Click Preview first.'); return; }
+      const opts = readOptions(); const a = document.createElement('a'); a.href = URL.createObjectURL(lastExportBlob); a.download = (opts.name||'resized') + (opts.format==='image/png'?'.png': opts.format==='image/jpeg'?'.jpg':'.webp'); a.click();
+    });
+
+    copyBlobBtn.addEventListener('click', async ()=>{
+      if(!lastExportBlob){ alert('No exported image to copy. Click Preview or Download first.'); return; }
+      try{
+        await navigator.clipboard.write([new ClipboardItem({[lastExportBlob.type]: lastExportBlob})]);
+        alert('Image copied to clipboard');
+      }catch(e){ alert('Copy to clipboard failed — your browser may not support it.'); }
+    });
+
+    resetBtnSide.addEventListener('click', resetAll);
+
+    function resetAll(){ fileInput.value=''; previewImg.src=''; previewImg.style.display='none'; placeholder.style.display='block'; originalImage=null; originalBlob=null; lastExportBlob=null; origSize.textContent='—'; origDim.textContent='—'; outSize.textContent='—'; outDim.textContent='—'; setProgress(0); }
+
+    // small safety: revoke object URLs when navigating
+    window.addEventListener('unload', ()=>{ try{ URL.revokeObjectURL(previewImg.src); }catch(e){} });
+
+  })();
+  </script>
+
+
+  {% endblock content %}

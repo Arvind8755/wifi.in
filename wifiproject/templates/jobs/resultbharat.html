@@ -1,0 +1,694 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Result Bharat</title>
+<meta name="description" content="Browse Result Bharat for all latest Government job notifications, Sarkari exam results and admit cards in one place.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/result-bharat/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/result-bharat/">
+<meta property="og:title" content="Result Bharat">
+<meta property="og:description" content="Browse Result Bharat for all latest Government job notifications, Sarkari exam results and admit cards in one place.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/result-bharat/">
+<meta name="twitter:title" content="Result Bharat">
+<meta name="twitter:description" content="Browse Result Bharat for all latest Government job notifications, Sarkari exam results and admit cards in one place.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Result Bharat","item":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/",
+  "name":"Result Bharat",
+  "headline":"Result Bharat: Latest Govt Jobs, Sarkari Results & Admit Cards",
+  "description":"Browse Result Bharat for all latest Government job notifications, Sarkari exam results and admit cards in one place.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/images/result-bharat-og.jpg",
+    "width":1200,
+    "height":630
+  },
+  "inLanguage":"en",
+  "hasPart": [
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#jobs-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#results-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#admitcards-list"}
+  ],
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#breadcrumb"}
+}
+</script>
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Result Bharat",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+<!--FAQPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is Result Bharat on WifiResult?",
+      "acceptedAnswer":{"@type":"Answer","text":"Result Bharat is a unified page where you can find the latest Government job notifications, exam results and admit cards at one place."}
+    },
+    {
+      "@type":"Question",
+      "name":"Are these updates official?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. All posts are based on official notifications/portals. We include direct source and apply/download links."}
+    },
+    {
+      "@type":"Question",
+      "name":"How frequently is Result Bharat updated?",
+      "acceptedAnswer":{"@type":"Answer","text":"Multiple times daily whenever new job notifications, results or admit cards are released by authorities."}
+    }
+  ]
+}
+</script>
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    --br-primary:#0d47a1;
+    --br-danger:#e53935;
+    --br-amber:#ffb300;
+    --br-navy:#062b6f;
+    --br-bg:#f7f9ff;
+  }
+
+  .header-top, header, .nav-container, .main-nav{background:linear-gradient(90deg,var(--br-primary), var(--br-danger)) !important;}
+  .main-nav a, .header-top a{color:#fff !important}
+  footer, .site-footer{background:linear-gradient(180deg,var(--br-navy), #081a3a) !important; color:#dbe4ff}
+  body{background:var(--br-bg)}
+
+  .logo-text p {
+    color: white;
+  }
+
+  .hero-br{position:relative;color:#fff;border-radius:16px;overflow:hidden;margin:10px 0 16px;background:linear-gradient(135deg,var(--br-primary),var(--br-danger));}
+  .hero-br .overlay{position:absolute;inset:0;background:radial-gradient(120px 120px at 12% 18%, rgba(255,255,255,.18), transparent 60%),radial-gradient(180px 180px at 82% 10%, rgba(255,255,255,.14), transparent 60%)}
+  .hero-br .wrap{position:relative;z-index:1;padding:24px 0}
+  .hero-br h1{margin:0 0 6px;font-weight:900}
+  .hero-br p{margin:0;color:#f1f5ff}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:#111}
+  .section-pill{padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,#fff4e0);border:1px solid #ffe0a3}
+  .title-accent{background:linear-gradient(90deg,var(--br-primary),var(--br-danger));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,#fff,#f8fbff);border-bottom:2px solid #e3f2fd;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--br-primary),var(--br-amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #e3e3e3}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--br-primary)}
+
+  /* Footer info section for /result-bharat/ */
+  .rb-footer-info{
+    margin: 10px 0 20px;
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+    background: linear-gradient(145deg,#0d47a1,#081a3a);
+    color:#e3edff;
+    box-shadow:0 16px 32px rgba(6,27,69,.45);
+  }
+  .rb-footer-info h2{
+    font-size:20px;
+    margin:0 0 8px;
+    font-weight:800;
+    letter-spacing:.3px;
+  }
+  .rb-footer-info h3{
+    font-size:15px;
+    margin:14px 0 6px;
+    font-weight:700;
+    color:#ffeb99;
+  }
+  .rb-footer-info p{
+    margin:4px 0 6px;
+    line-height:1.6;
+    font-size:13px;
+  }
+  .rb-footer-grid{
+    display:grid;
+    grid-template-columns:2fr 2fr;
+    gap:14px;
+    margin-top:8px;
+  }
+  .rb-footer-info ul{
+    margin:0;
+    padding-left:18px;
+    font-size:13px;
+    line-height:1.6;
+  }
+  .rb-footer-tagline{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid rgba(255,255,255,.18);
+    font-size:12px;
+    opacity:.9;
+  }
+  .rb-footer-disclaimer{
+    font-size:12px;
+    margin-top:6px;
+    opacity:.9;
+  }
+  .rb-highlight{
+    font-weight:700;
+    color:#ffe082;
+  }
+
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(3,1fr);gap:2px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:11px}
+
+    .rb-footer-grid{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .rb-footer-info{
+      padding:14px 10px 12px;
+      border-radius:12px;
+    }
+    .rb-footer-info h2{
+      font-size:17px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Result Bharat</span>
+    </div>
+  </div>
+
+<section class="hero-br">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <h1>Result Bharat: Latest Govt Jobs, Sarkari Results & Admit Cards</h1>
+    <p>तेज़ और भरोसेमंद सरकारी परीक्षा परिणाम एवं भर्तियाँ — official links के साथ।</p>
+    <div class="chips">
+     <a href="{% url 'fast' %}" class="text-white text-decoration-none"> <span class="chip">Fast Results</span></a> 
+    <a href="{% url 'wifiresultonline' %}" class="text-white text-decoration-none">  <span class="chip">Verified Links</span></a> 
+    <a href="/" class="text-white text-decoration-none">  <span class="chip">Daily Updates</span></a> 
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title">
+    <span class="section-pill">Editor’s Picks</span>
+    <span class="title-accent">Bharat Result Updates</span>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>Latest Jobs</span></div>
+      <div class="card-body">
+        <ul class="job-list" id="jobs-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Latest Results</span></div>
+      <div class="card-body">
+        <ul class="job-list" id="results-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Admit Cards</span></div>
+      <div class="card-body">
+        <ul class="job-list" id="admitcards-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {# ---- PAGE FOOTER INFORMATION BLOCK (above global footer) ---- #}
+  <section class="rb-footer-info">
+    <h2>Result Bharat on WifiResult – आपका भरोसेमंद Sarkari Result साथी</h2>
+    <p>
+      <span class="rb-highlight">Result Bharat</span> सेक्शन पर हम भारत भर की 
+      <strong>नवीनतम सरकारी नौकरियाँ, परीक्षा परिणाम, एडमिट कार्ड और महत्वपूर्ण नोटिफिकेशन</strong> 
+      एक ही जगह पर दिखाने की कोशिश करते हैं। यहां दी गई हर अपडेट को 
+      official स्रोत (जैसे आयोग, बोर्ड, विश्वविद्यालय, बैंक आदि की वेबसाइट) से verify करके ही पब्लिश किया जाता है।
+    </p>
+
+    <div class="rb-footer-grid">
+      <div>
+        <h3>इस पेज पर आपको क्या मिलेगा?</h3>
+        <ul>
+          <li>Latest <strong>Sarkari Result / Bharat Result</strong> updates in one place.</li>
+          <li>Central &amp; State level Govt Jobs की जानकारी — eligibility, age limit, fees आदि के साथ।</li>
+          <li>Admit Card download links with official website reference.</li>
+          <li>Result, Answer Key, Cut Off और अन्य exam updates की short &amp; clear जानकारी।</li>
+          <li>Mobile-friendly experience ताकि आप कभी भी, कहीं से भी updates देख सकें।</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Important Notice &amp; Disclaimer</h3>
+        <p>
+          WifiResult किसी भी सरकारी विभाग, आयोग या परीक्षा संस्था का आधिकारिक पोर्टल नहीं है। 
+          हम एक <strong>informational वेबसाइट</strong> हैं जो public domain में उपलब्ध 
+          official notifications के आधार पर content तैयार करती है।
+        </p>
+        <ul>
+          <li>हमेशा आवेदन करने से पहले <strong>official notification PDF</strong> ध्यान से पढ़ें।</li>
+          <li>Form भरने, फीस जमा करने या किसी भी निर्णय से पहले 
+              संबंधित विभाग की आधिकारिक वेबसाइट visit करें।</li>
+          <li>किसी भी टाइपिंग/त्रुटि के लिए वेबसाइट जिम्मेदार नहीं होगी; final जानकारी always official site से ही मानें।</li>
+        </ul>
+        <p class="rb-footer-disclaimer">
+          If you find any outdated or incorrect information on this page, आप हमें contact section के माध्यम से सूचित कर सकते हैं, 
+          ताकि हम उसे जल्द से जल्द update कर सकें।
+        </p>
+      </div>
+    </div>
+
+    <p class="rb-footer-tagline">
+      🔔 Tip: Result Bharat पेज को bookmark कर लें — ताकि आपको <span class="rb-highlight">Sarkari Result, Bharat Result, 
+      Latest Govt Jobs &amp; Admit Card</span> updates के लिए अलग-अलग साइट्स पर भटकना न पड़े।
+    </p>
+  </section>
+
+</main>
+{% endblock content %}
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>wifiresult.com - Government Jobs, Results and Vacancy Notifications</title>
+<meta name="description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="keywords" content="Sarkari Result, WifiResult, Govt Jobs, Admit Card, Result, Answer Key, Sarkari Exam, Online Form, Latest Vacancy 2025, Government Jobs">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta http-equiv="Content-Language" content="en">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta property="og:title" content="wifiresult.com - Government Jobs, Results and Vacancy Notifications">
+<meta property="og:description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="twitter:title" content="wifiresult.com - Government Jobs, Results and Vacancy Notifications">
+<meta name="twitter:description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/logo/images/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="7 minutes" />
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Result Bharat","item":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/",
+  "name":"Result Bharat – Jobs, Results & Admit Cards 2025 – WifiResult",
+  "headline":"Result Bharat: Latest Govt Jobs, Sarkari Results & Admit Cards",
+  "description":"Browse Result Bharat for all latest Government job notifications, Sarkari exam results and admit cards in one place. Check eligibility, dates and official links on WifiResult.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/images/result-bharat-og.jpg",
+    "width":1200,
+    "height":630
+  },
+  "inLanguage":"en",
+  "hasPart": [
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#jobs-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#results-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#admitcards-list"}
+  ],
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#breadcrumb"}
+}
+</script>
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Latest Govt Job News & Updates 2025 – WifiResult Blog",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+<!--FAQPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is Result Bharat on WifiResult?",
+      "acceptedAnswer":{"@type":"Answer","text":"Result Bharat is a unified page where you can find the latest Government job notifications, exam results and admit cards at one place."}
+    },
+    {
+      "@type":"Question",
+      "name":"Are these updates official?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. All posts are based on official notifications/portals. We include direct source and apply/download links."}
+    },
+    {
+      "@type":"Question",
+      "name":"How frequently is Result Bharat updated?",
+      "acceptedAnswer":{"@type":"Answer","text":"Multiple times daily whenever new job notifications, results or admit cards are released by authorities."}
+    }
+  ]
+}
+</script>
+
+
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    --br-primary:#0d47a1;
+    --br-danger:#e53935;
+    --br-amber:#ffb300;
+    --br-navy:#062b6f;
+    --br-bg:#f7f9ff;
+  }
+
+  .header-top, header, .nav-container, .main-nav{background:linear-gradient(90deg,var(--br-primary), var(--br-danger)) !important;}
+  .main-nav a, .header-top a{color:#fff !important}
+  footer, .site-footer{background:linear-gradient(180deg,var(--br-navy), #081a3a) !important; color:#dbe4ff}
+  body{background:var(--br-bg)}
+
+  .logo-text p {
+    color: white;
+}
+
+  .hero-br{position:relative;color:#fff;border-radius:16px;overflow:hidden;margin:10px 0 16px;background:linear-gradient(135deg,var(--br-primary),var(--br-danger));}
+  .hero-br .overlay{position:absolute;inset:0;background:radial-gradient(120px 120px at 12% 18%, rgba(255,255,255,.18), transparent 60%),radial-gradient(180px 180px at 82% 10%, rgba(255,255,255,.14), transparent 60%)}
+  .hero-br .wrap{position:relative;z-index:1;padding:24px 0}
+  .hero-br h1{margin:0 0 6px;font-weight:900}
+  .hero-br p{margin:0;color:#f1f5ff}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:#111}
+  .section-pill{padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,#fff4e0);border:1px solid #ffe0a3}
+  .title-accent{background:linear-gradient(90deg,var(--br-primary),var(--br-danger));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,#fff,#f8fbff);border-bottom:2px solid #e3f2fd;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--br-primary),var(--br-amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #e3e3e3}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--br-primary)}
+
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(3,1fr);gap:2px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:11px}
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Result Bharat</span>
+    </div>
+  </div>
+
+<section class="hero-br">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <h1>Bharat Result – Sarkari Results, Latest Jobs & Admit Cards</h1>
+    <p>तेज़ और भरोसेमंद सरकारी परीक्षा परिणाम एवं भर्तियाँ—official links के साथ।</p>
+    <div class="chips">
+      <span class="chip">Fast Results</span>
+      <span class="chip">Verified Links</span>
+      <span class="chip">Daily Updates</span>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title"><span class="section-pill">Editor’s Picks</span><span class="title-accent">Bharat Result Updates</span></div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>Latest Jobs</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Latest Results</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Admit Cards</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %} {% endcomment %}

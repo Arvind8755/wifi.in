@@ -1,0 +1,6 @@
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}   <!-- जरूरी: CKEditor scripts/styles -->
+  {{ form.as_p }}
+  <button type="submit">Publish</button>
+</form>

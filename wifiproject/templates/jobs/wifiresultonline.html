@@ -1,0 +1,833 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Wifi Result Online </title>
+<meta name="description"  content="Wifi Result Online: Sarkari Result 2025 check karein Online. Latest Govt Exam Results, Score Card & Cut Off Updates with fast alerts only on WifiResult.com.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/">
+<meta property="og:title" content="Wifi Result Online">
+<meta property="og:description" content="Wifi Result Online: Sarkari Result 2025 check karein Online. Latest Govt Exam Results, Score Card & Cut Off Updates with fast alerts only on WifiResult.com.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Online">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/">
+<meta name="twitter:title" content="Wifi Result Online ">
+<meta name="twitter:description" content="Wifi Result Online: Sarkari Result 2025 check karein Online. Latest Govt Exam Results, Score Card & Cut Off Updates with fast alerts only on WifiResult.com.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@wifiresult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/#breadcrumb",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "HOme",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"},
+      {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Wifi Result Online",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/"
+    }
+      ]
+}
+</script>
+
+<!-- WebPage + CollectionPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/",
+  "name": "Wifi Result Online",
+  "headline": "Wifi Result Online – Govt Exam Results 2026",
+  "description": "Wifi Result Online: Sarkari Result 2025 check karein Online. Latest Govt Exam Results, Score Card & Cut Off Updates with fast alerts only on WifiResult.com.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "inLanguage": "en",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/wifi-result-online/#breadcrumb" }
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Wifi Result Online ",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Hero / Top Section */
+  .hero-results {
+    background: radial-gradient(circle at top left, #dc3545 0, #7b1fa2 40%, #111827 100%);
+    color: #ffffff;
+    padding: 28px 0 22px;
+  }
+  .hero-results .container {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+    gap: 24px;
+    align-items: center;
+  }
+  .hero-heading {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.94;
+    margin-bottom: 14px;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .hero-badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    background: rgba(15,23,42,0.45);
+    backdrop-filter: blur(6px);
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .hero-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .hero-meta i {
+    font-size: 13px;
+  }
+  .hero-card {
+    background: rgba(15,23,42,0.85);
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid rgba(148,163,184,0.5);
+    box-shadow: 0 18px 45px rgba(15,23,42,0.65);
+  }
+  .hero-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-card-title i {
+    font-size: 18px;
+  }
+  .hero-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+    font-size: 13px;
+  }
+  .hero-card-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(55,65,81,0.8);
+  }
+  .hero-card-list li:last-child {
+    border-bottom: none;
+  }
+  .hero-card-list span.label {
+    opacity: 0.9;
+  }
+  .hero-card-list span.value {
+    font-weight: 600;
+  }
+  .hero-small-note {
+    font-size: 11px;
+    margin-top: 6px;
+    opacity: .8;
+  }
+
+  @media (max-width: 992px) {
+    .hero-results .container {
+      grid-template-columns: minmax(0,1fr);
+    }
+    .hero-heading {
+      font-size: 22px;
+    }
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 8px 0;
+    background-color: #f9fafb;
+    margin: 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .breadcrumb a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 8px;
+    color: #6b7280;
+  }
+
+  /* Breaking / Ticker */
+  .breaking-news {
+    background: #fff7ed;
+    color: #9a3412;
+    padding: 6px 0;
+    border-bottom: 1px solid #fed7aa;
+  }
+  .breaking-news .icon {
+    margin-right: 8px;
+  }
+  .breaking-news .headline {
+    display: inline;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  /* Layout */
+  .main-content {
+    padding: 18px 0 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 320px;
+  }
+  .sidebar {
+    width: 310px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Result Listing */
+  .result-listing-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+    border: 1px solid #e5e7eb;
+  }
+  .result-listing-header {
+    background: linear-gradient(90deg, #dc2626, #ea580c);
+    color: white;
+    padding: 14px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+  }
+  .result-listing-header i {
+    font-size: 18px;
+  }
+  .result-subtext {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: .95;
+  }
+  .result-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.25s ease, transform 0.1s ease;
+  }
+  .result-item:last-child {
+    border-bottom: none;
+  }
+  .result-item:hover {
+    background-color: #f9fafb;
+    transform: translateY(-1px);
+  }
+  .result-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .result-title {
+    flex: 1;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .result-title:hover {
+    color: #dc2626;
+  }
+  .result-meta-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+    color: #6b7280;
+  }
+  .result-tag {
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    border: 1px solid #fee2e2;
+    background: #fef2f2;
+    color: #991b1b;
+    font-weight: 500;
+  }
+  .result-date {
+    color: #6b7280;
+    font-size: 12px;
+    min-width: 100px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .result-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .result-date {
+      text-align: left;
+      min-width: auto;
+    }
+  }
+
+  /* Pagination */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0 8px;
+  }
+  .pagination-inner {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .pagination-inner a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f9fafb, #f3f4f6);
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all .25s ease;
+  }
+  .pagination-inner a:hover {
+    background: #e5e7eb;
+  }
+  .pagination-current {
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #4f46e5, #06b6d4);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13px;
+    box-shadow: 0 3px 10px rgba(79,70,229,0.35);
+  }
+
+  /* Sidebar Cards */
+  .side-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 16px rgba(15,23,42,0.06);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 18px;
+  }
+  .side-card-header {
+    background: #111827;
+    color: #f9fafb;
+    padding: 11px 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .side-card-header i {
+    font-size: 16px;
+  }
+  .side-card-body {
+    padding: 12px 14px 10px;
+  }
+  .side-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .side-list li {
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .side-list li:last-child {
+    border-bottom: none;
+  }
+  .side-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    font-size: 13px;
+    text-decoration: none;
+    color: #111827;
+  }
+  .side-list a span.label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .side-list a span.meta {
+    font-size: 11px;
+    color: #6b7280;
+  }
+  .side-list a:hover {
+    color: #dc2626;
+  }
+
+  /* Website Info (Bottom Content) */
+  .website-info {
+    background: linear-gradient(to right, #f9fafb, #eef2ff);
+    padding: 22px 0 26px;
+    margin: 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .website-info h2 {
+    color: #111827;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 22px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 700;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 82px;
+    height: 3px;
+    background-color: #dc2626;
+    border-radius: 999px;
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(15,23,42,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    font-size: 13px;
+  }
+  .info-point:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 22px rgba(15,23,42,0.08);
+  }
+  .info-point h3 {
+    color: #b91c1c;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  .website-info p.bottom-note {
+    margin-top: 18px;
+    text-align: center;
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a>
+    <span>&gt;</span>
+    <span>Wifi Result Online</span>
+  </div>
+</div>
+
+<!-- Hero Section (Wifi Result Online) -->
+<section class="hero-results">
+  <div class="container">
+    <div>
+      <div class="hero-heading">
+        Wifi Result Online – Latest Sarkari Results & Score Cards 2026
+      </div>
+      <p class="hero-sub">
+        सभी सरकारी परीक्षाओं के <strong>Result, Score Card, Merit List, Cut Off</strong> एक ही जगह।  
+        UPSC, SSC, Banking, Railway, Police, State PSC और अन्य Sarkari Exams के Result सबसे पहले देखें।
+      </p>
+      <div class="hero-badges">
+      <a href="{% url 'sarkariresult2024' %}" class="text-white text-decoration-none">  <span class="hero-badge">Live Result Updates</span></a>
+        <a href="/" class="text-white text-decoration-none"><span class="hero-badge">Official Direct Links</span></a>
+        <a href="{% url 'result' %}" class="text-white text-decoration-none"><span class="hero-badge">Score Card & Cut Off</span></a>
+        <a href="{% url 'fastjob' %}" class="text-white text-decoration-none"><span class="hero-badge">fast</span></a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="far fa-clock"></i> Updated: {% now "d M, Y" %}</span>
+        <span><i class="fas fa-bell"></i> New: Check recent declared Sarkari Results</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">
+        <i class="fas fa-clipboard-check"></i> Fast Access to Your Exam Result
+      </div>
+      <ul class="hero-card-list">
+        <li>
+          <a href="{% url 'psc_all_states' %}" class="text-decoration-none text-white"><span class="label">UPSC / State PSC</span></a>
+          <a href="{% url 'sarkariresult2024' %}" class="text-decoration-none text-white"><span class="value">Result, Merit List, Cut Off</span></a>
+        </li>
+        <li>
+          <a href="{% url 'allcategoryjobs' %}" class="text-decoration-none text-white"><span class="label">SSC / Railway / Bank</span></a>
+          <a href="{% url 'result' %}" class="text-decoration-none text-white"> <span class="value">Score Card & Normalization</span></a>
+        </li>
+        <li>
+         <a href="{% url 'boardresult' %}" class="text-decoration-none text-white"> <span class="label">Board / University</span></a>
+         <a href="{% url 'rojgarresult' %}" class="text-decoration-none text-white"> <span class="value">Marksheet Download Links</span></a>
+        </li>
+      </ul>
+      <div class="hero-small-note">
+        हमेशा Official वेबसाइट लिंक के साथ — Result जानकारी cross-check करना न भूलें।
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breaking News Ticker -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>
+    <h1 class="headline">Wifi Result Online – Govt Exam Results 2026</h1>
+  </marquee>
+</div>
+
+<!-- Main Content -->
+<main class="main-content container">
+  <div class="content-area">
+
+    <!-- Result Listing Box -->
+    <div class="result-listing-container">
+      <div class="result-listing-header">
+        <i class="fas fa-clipboard-check"></i>
+        <span>Latest Declared Results</span>
+        <span class="result-subtext">— Sarkari Exam Result & Score Card Updates</span>
+      </div>
+
+      <ul class="result-list-compact">
+        {% for result in page_obj %}
+        <li class="result-item">
+          <div class="result-main">
+            <a href="/results/{{ result.slug }}" class="result-title">
+              {{ result.title }}
+            </a>
+            <div class="result-meta-line">
+              <span class="result-tag">Result Out</span>
+              <span>Published on: {{ result.published_date|date:"d M, Y" }}</span>
+            </div>
+          </div>
+          <span class="result-date">
+            {{ result.published_date|date:"d M, Y" }}
+          </span>
+        </li>
+        {% empty %}
+        <li class="result-item">
+          <div class="result-main">
+            <span class="result-title">No results available right now.</span>
+            <div class="result-meta-line">
+              <span>Results will be updated as soon as official notices are released.</span>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <!-- Pagination -->
+      {% if page_obj.paginator.num_pages > 1 %}
+      <div class="pagination-wrapper">
+        <div class="pagination-inner">
+          {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}">← Previous</a>
+          {% endif %}
+          <span class="pagination-current">{{ page_obj.number }}</span>
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Next →</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Popular Result Categories -->
+    <div class="side-card">
+      <div class="side-card-header">
+        <i class="fas fa-fire"></i> Popular Result Categories
+      </div>
+      <div class="side-card-body">
+        <ul class="side-list">
+          {# इन URLs को अपनी साइट के actual URLs से replace कर लें #}
+          <li>
+            <a href="{% url 'psc_all_states' %}">
+              <span class="label"><i class="fas fa-university"></i> UPSC & State PSC Results</span>
+              <span class="meta">Civil Services, PCS, Other</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'railwayjob' %}">
+              <span class="label"><i class="fas fa-users"></i>Railway Results</span>
+              <span class="meta">SSC CGL, CHSL, RRB</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'bankjob' %}">
+              <span class="label"><i class="fas fa-landmark"></i> Banking & Insurance Results</span>
+              <span class="meta">IBPS, SBI, RBI</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'government_teacher_jobs' %}">
+              <span class="label"><i class="fas fa-chalkboard-teacher"></i> Teaching & TET Results</span>
+              <span class="meta">CTET, STET, TET</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'boardresult' %}">
+              <span class="label"><i class="fas fa-school"></i> Board Exam & University Results</span>
+              <span class="meta">10th, 12th, UG, PG</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Result Tools / Quick Links -->
+    <div class="side-card">
+      <div class="side-card-header">
+        <i class="fas fa-tools"></i> Result Tools & Quick Links
+      </div>
+      <div class="side-card-body">
+        <ul class="side-list">
+          <li>
+            <a href="{% url 'sarkariresult2025' %}">
+              <span class="label"><i class="fas fa-calculator"></i> Check Normalization / Cut Off</span>
+              <span class="meta">Expected & Official</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'answerkey' %}">
+              <span class="label"><i class="fas fa-file-alt"></i> Latest Answer Keys</span>
+              <span class="meta">Provisional & Final</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'resultbharat' %}">
+              <span class="label"><i class="fas fa-question-circle"></i> Result FAQ / Help</span>
+              <span class="meta">Login, Scorecard, Errors</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'freejobalert' %}">
+              <span class="label"><i class="fas fa-bell"></i> Result Alert Subscription</span>
+              <span class="meta">Telegram / Email</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- Bottom Info Section -->
+<section class="website-info">
+  <div class="container">
+    <h2>Wifi Result Online – Sarkari Exam Results, Score Card & Merit List Guide</h2>
+    <div class="info-content">
+      <div class="info-point">
+        <h3>सभी Sarkari Results एक जगह</h3>
+        <p><strong>wifiresult.com</strong> के Wifi Result Online पेज पर आप UPSC, SSC, Banking, Railway, Police, Defence, Teacher, State PSC और अन्य सरकारी परीक्षाओं के सभी Result एक ही जगह देख सकते हैं। हर पोस्ट में <strong>Exam Name, Result Date, Official Link</strong> साफ़ लिखा होता है।</p>
+      </div>
+      <div class="info-point">
+        <h3>Result / Score Card कैसे डाउनलोड करें</h3>
+        <p>हर Result article में step-by-step बताया जाता है कि <strong>Score Card, Marks, Merit List या Rank List</strong> कैसे डाउनलोड करें। Login details जैसे <strong>Registration Number, Roll Number, Date of Birth</strong> आदि की जानकारी भी दी जाती है।</p>
+      </div>
+      <div class="info-point">
+        <h3>Merit List, Cut Off और Selection Status</h3>
+        <p>हम अलग-अलग PDFs और Notice से <strong>Category-wise Cut Off, Selection List, Waiting List</strong> निकालकर आसान भाषा में समझाते हैं। जहां Normalization होता है, वहां उसका भी short explanation दिया जाता है।</p>
+      </div>
+      <div class="info-point">
+        <h3>Answer Key, OMR और Re-check Process</h3>
+        <p>Result आने से पहले या बाद में जारी होने वाली <strong>Provisional / Final Answer Key, OMR Sheet download link, Objection / Re-check form</strong> की जानकारी भी Wifi Result Online पेज पर मिलती है।</p>
+      </div>
+      <div class="info-point">
+        <h3>Next Step – Document Verification & Joining</h3>
+        <p>जिनका नाम list में आता है उनके लिए <strong>Document Verification (DV), Medical, Joining Letter, Training Schedule</strong> जैसी जानकारी official notice से लेकर आसान शब्दों में दी जाती है ताकि आप अगला कदम समय पर ले सकें।</p>
+      </div>
+      <div class="info-point">
+        <h3>Official Source से Cross-check जरूर करें</h3>
+        <p>हम हमेशा कोशिश करते हैं कि <strong>Result जानकारी तेज़ और सही</strong> हो, लेकिन final reference हमेशा <strong>Official Website / Official PDF</strong> ही होगी। हर post में direct official link दिया जाता है ताकि आप खुद भी verify कर सकें।</p>
+      </div>
+    </div>
+    <p class="bottom-note">
+      Wifi Result Online का मकसद है कि आप अपने सभी Sarkari Exam Results को जल्दी, सही और आराम से देख सकें –  
+      बिना अलग-अलग वेबसाइट पर भटकने के। Result देखते समय हमेशा official PDF और notice भी ज़रूर पढ़ें।
+    </p>
+  </div>
+</section>
+
+{% endblock content %}

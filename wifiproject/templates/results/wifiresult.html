@@ -1,0 +1,830 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Wifi Result – सरकारी रिजल्ट, Govt Exam Results Update</title>
+<meta name="description" content="Wifi Result : Latest Sarkari Result, Govt Exam Result, Score Card & Merit List Updates. Fast Result Alerts for SSC, Police & All India Exams at WifiResult.com.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/wifi-result/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/wifi-result/">
+<meta property="og:title" content="Wifi Result – सरकारी रिजल्ट, Govt Exam Results Update">
+<meta property="og:description" content="Wifi Result : Latest Sarkari Result, Govt Exam Result, Score Card & Merit List Updates. Fast Result Alerts for SSC, Police & All India Exams at WifiResult.com.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="WifiResult">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/wifi-result/">
+<meta name="twitter:title" content="Wifi Result – सरकारी रिजल्ट, Govt Exam Results Update">
+<meta name="twitter:description" content="Wifi Result : Latest Sarkari Result, Govt Exam Result, Score Card & Merit List Updates. Fast Result Alerts for SSC, Police & All India Exams at WifiResult.com.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@wifiresult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="7 minutes" />
+
+<!-- BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/wifi-result/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Wifi Result",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/wifi-result/"
+    }
+  ]
+}
+</script>
+
+<!-- WebPage + CollectionPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/wifi-result/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/wifi-result/",
+  "name": "Wifi Result – सरकारी रिजल्ट, Govt Exam Results Update",
+  "headline": "Wifi Result – Sarkari Results 2026",
+  "description": "Wifi Result : Latest Sarkari Result, Govt Exam Result, Score Card & Merit List Updates. Fast Result Alerts for SSC, Police & All India Exams at WifiResult.com.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "inLanguage": "en",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/wifi-result/#breadcrumb" }
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Wifi Result – सरकारी रिजल्ट, Govt Exam Results Update",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 14px 0;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 0;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .breadcrumb a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 8px;
+    color: #6b7280;
+  }
+
+  /* Hero / Top Section */
+  .wifi-hero {
+    background: radial-gradient(circle at top left, #fee2e2, #f9fafb 45%, #eff6ff 100%);
+    padding: 25px 0 20px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .wifi-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
+    gap: 25px;
+    align-items: center;
+  }
+  .wifi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(220, 38, 38, 0.08);
+    color: #b91c1c;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .wifi-badge span {
+    font-size: 14px;
+  }
+  .wifi-hero-title {
+    font-size: 26px;
+    line-height: 1.3;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  .wifi-hero-sub {
+    font-size: 14px;
+    color: #4b5563;
+    max-width: 640px;
+  }
+  .wifi-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .wifi-hero-tags span {
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px dashed #e5e7eb;
+    background: #ffffff;
+    color: #374151;
+  }
+  .wifi-hero-meta {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  .wifi-hero-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
+  }
+  .wifi-hero-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #111827;
+    font-weight: 700;
+  }
+  .wifi-hero-card p {
+    font-size: 13px;
+    color: #4b5563;
+    margin-bottom: 10px;
+  }
+  .wifi-hero-meta-list {
+    font-size: 12px;
+    color: #6b7280;
+    display: grid;
+    gap: 4px;
+  }
+  .wifi-hero-meta-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Main section */
+  .wifi-main {
+    padding: 20px 0 10px;
+  }
+  .wifi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .wifi-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  .wifi-card-header {
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #dc2626, #f97316);
+    color: #ffffff;
+  }
+  .wifi-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .wifi-card-header-left i {
+    font-size: 16px;
+  }
+  .wifi-card-header h2 {
+    font-size: 15px;
+    margin: 0;
+    font-weight: 700;
+  }
+  .wifi-card-header span {
+    font-size: 11px;
+    opacity: 0.9;
+  }
+  .wifi-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    flex: 1;
+  }
+  .wifi-item {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: background 0.25s ease;
+  }
+  .wifi-item:last-child {
+    border-bottom: none;
+  }
+  .wifi-item:hover {
+    background: #f9fafb;
+  }
+  .wifi-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+  }
+  .wifi-title:hover {
+    color: var(--primary);
+  }
+  .wifi-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #6b7280;
+  }
+  .wifi-tag-pill {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #fef2f2;
+    color: #b91c1c;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .wifi-date {
+    font-size: 11px;
+  }
+
+  .wifi-card-footer {
+    padding: 8px 12px 10px;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    background: #f9fafb;
+  }
+  .wifi-card-footer a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #1d4ed8;
+  }
+
+  /* Pagination inside Results card */
+  .wifi-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0 4px;
+  }
+  .wifi-pagination span.current-page {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #4f46e5, #06b6d4);
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(79,70,229,0.3);
+    font-size: 12px;
+  }
+  .wifi-pagination a {
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
+    font-weight: 600;
+    color: #111827;
+  }
+  .wifi-pagination a:hover {
+    background: #f3f4ff;
+  }
+
+  /* Second row: Updates + Tools */
+  .wifi-row-2 {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+    gap: 18px;
+  }
+
+  .wifi-updates-list .wifi-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wifi-updates-list .wifi-meta-row {
+    justify-content: flex-end;
+  }
+
+  .wifi-tools-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+  }
+  .wifi-tools-list li {
+    padding: 9px 14px;
+    border-bottom: 1px dashed #e5e7eb;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wifi-tools-list li:last-child {
+    border-bottom: none;
+  }
+  .wifi-tools-list a {
+    text-decoration: none;
+    color: #111827;
+    font-weight: 500;
+  }
+  .wifi-tools-list a:hover {
+    color: var(--primary);
+  }
+  .wifi-chip {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4f46e5;
+  }
+
+  /* Website Info Section */
+  .website-info {
+    background: linear-gradient(to right, #f8fafc, #e5e7eb);
+    padding: 22px 0 26px;
+    margin: 15px 0 0;
+    border-radius: 0;
+    box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.3);
+  }
+  .website-info h2 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 26px;
+    font-size: 24px;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .info-point {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  }
+  .info-point h3 {
+    color: #dc2626;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .wifi-hero-inner {
+      grid-template-columns: 1fr;
+    }
+    .wifi-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .wifi-row-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 768px) {
+    .wifi-grid {
+      grid-template-columns: 1fr;
+    }
+    .wifi-hero-title {
+      font-size: 20px;
+    }
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a>
+    <span>&gt;</span>
+    <span>Wifi Result</span>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="wifi-hero">
+  <div class="container wifi-hero-inner">
+    <div>
+      <div class="wifi-badge">
+        <span>📡</span> <span>Wifi Result Hub • Live Updates</span>
+      </div>
+      <h1 class="wifi-hero-title">Wifi Result – Sarkari Results 2026</h1>
+      <p class="wifi-hero-sub">
+        इस पेज पर आप एक ही जगह पर पा सकते हैं <strong>Latest Sarkari Result</strong>, 
+        <strong>Govt Exam Results</strong>, <strong>Admit Cards</strong>, 
+        <strong>Answer Keys</strong> और <strong>New Govt Job Notifications</strong> की curated list।
+      </p>
+
+      <div class="wifi-hero-meta">
+        Updated on {% now "d M Y" %} • Data sourced from official govt portals & exam boards.
+      </div>
+    </div>
+
+    <aside class="wifi-hero-card">
+      <h3>Today’s Highlight – Result & Admit Card Status</h3>
+      <p>Top trending updates from Results, Admit Cards और Govt Jobs category:</p>
+      <div class="wifi-hero-meta-list">
+        <span>✅ Latest Results: <strong>{{ page_obj.paginator.count }}</strong>+ updated</span>
+        <span>🎫 Admit Cards Live: <strong>{{ latest_admitcards|length }}</strong></span>
+        <span>📄 New Job Notices: <strong>{{ latest_jobs|length }}</strong></span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main class="wifi-main">
+  <div class="container">
+    <!-- First row: 3 main columns -->
+    <div class="wifi-grid">
+
+      <!-- Column 1: Latest Results -->
+      <section class="wifi-card" aria-label="Latest Sarkari Results">
+        <header class="wifi-card-header">
+          <div class="wifi-card-header-left">
+            <i class="fas fa-clipboard-check"></i>
+            <div>
+              <h2>Latest Sarkari Results</h2>
+              <span>Govt Exam Results & Score Cards</span>
+            </div>
+          </div>
+        </header>
+        <ul class="wifi-list">
+          {% for result in page_obj %}
+          <li class="wifi-item">
+            <a href="/results/{{ result.slug }}" class="wifi-title">
+              {{ result.title }}
+            </a>
+            <div class="wifi-meta-row">
+              <span class="wifi-tag-pill">Result</span>
+              <span class="wifi-date">{{ result.published_date|date:"d M, Y" }}</span>
+            </div>
+          </li>
+          {% empty %}
+          <li class="wifi-item">
+            <span class="wifi-title">No result available right now.</span>
+          </li>
+          {% endfor %}
+        </ul>
+
+        {% if page_obj.has_previous or page_obj.has_next %}
+        <div class="wifi-pagination">
+          {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}">← Previous</a>
+          {% endif %}
+          <span class="current-page">{{ page_obj.number }}</span>
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Next →</a>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        <footer class="wifi-card-footer">
+          <span>Result not found? Check official link in individual article.</span>
+          <a href="/results/">View all Results →</a>
+        </footer>
+      </section>
+
+      <!-- Column 2: Admit Cards -->
+      <section class="wifi-card" aria-label="Latest Admit Cards">
+        <header class="wifi-card-header" style="background: linear-gradient(90deg,#0ea5e9,#6366f1);">
+          <div class="wifi-card-header-left">
+            <i class="fas fa-id-card-alt"></i>
+            <div>
+              <h2>Admit Card / Hall Ticket</h2>
+              <span>Exam Entry Letter Download</span>
+            </div>
+          </div>
+        </header>
+        <ul class="wifi-list">
+          {% for admitcard in latest_admitcards %}
+          <li class="wifi-item">
+            <a href="/admit-card/{{ admitcard.slug }}" class="wifi-title">
+              {{ admitcard.title }}
+            </a>
+            <div class="wifi-meta-row">
+              <span class="wifi-tag-pill" style="background:#ecfeff;color:#0369a1;">Admit Card</span>
+              <span class="wifi-date">{{ admitcard.published_date|date:"d M, Y" }}</span>
+            </div>
+          </li>
+          {% empty %}
+          <li class="wifi-item">
+            <span class="wifi-title">No admit card update at the moment.</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <footer class="wifi-card-footer">
+          <span>Exam city, date & shift details inside each admit card post.</span>
+          <a href="/admit-card/">All Admit Cards →</a>
+        </footer>
+      </section>
+
+      <!-- Column 3: Latest Jobs -->
+      <section class="wifi-card" aria-label="Latest Govt Jobs">
+        <header class="wifi-card-header" style="background: linear-gradient(90deg,#16a34a,#22c55e);">
+          <div class="wifi-card-header-left">
+            <i class="fas fa-briefcase"></i>
+            <div>
+              <h2>Latest Govt Jobs</h2>
+              <span>New Vacancy Notifications</span>
+            </div>
+          </div>
+        </header>
+        <ul class="wifi-list">
+          {% for job in latest_jobs %}
+          <li class="wifi-item">
+            <a href="/latest-jobs/{{ job.slug }}" class="wifi-title">
+              {{ job.title }}
+            </a>
+            <div class="wifi-meta-row">
+              <span class="wifi-tag-pill" style="background:#ecfdf5;color:#166534;">Job</span>
+              <span class="wifi-date">{{ job.published_date|date:"d M, Y" }}</span>
+            </div>
+          </li>
+          {% empty %}
+          <li class="wifi-item">
+            <span class="wifi-title">No new job posts right now.</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <footer class="wifi-card-footer">
+          <span>Apply dates, eligibility, fees और syllabus हर पोस्ट में दिए गए हैं।</span>
+          <a href="/latest-jobs/">Browse all Jobs →</a>
+        </footer>
+      </section>
+
+    </div>
+
+    <!-- Second row: Govt Updates + Tools -->
+    <div class="wifi-row-2">
+
+      <!-- Govt Updates / Notifications -->
+      <section class="wifi-card" aria-label="Government Updates & Notices">
+        <header class="wifi-card-header" style="background: linear-gradient(90deg,#7c3aed,#a855f7);">
+          <div class="wifi-card-header-left">
+            <i class="fas fa-bullhorn"></i>
+            <div>
+              <h2>Government Updates & Notices</h2>
+              <span>Official circulars, rules, and policy updates</span>
+            </div>
+          </div>
+        </header>
+        <ul class="wifi-list wifi-updates-list">
+          {% for govtupdate in latest_govtupdates %}
+          <li class="wifi-item">
+            <div style="flex:1;">
+              <a href="/govt-updates/{{ govtupdate.slug }}" class="wifi-title">
+                {{ govtupdate.title }}
+              </a>
+            </div>
+            <div class="wifi-meta-row" style="min-width:100px;justify-content:flex-end;">
+              <span class="wifi-date">{{ govtupdate.published_date|date:"d M, Y" }}</span>
+            </div>
+          </li>
+          {% empty %}
+          <li class="wifi-item">
+            <span class="wifi-title">No latest govt update yet.</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <footer class="wifi-card-footer">
+          <span>Rules change, exam pattern notices, and govt circulars in one place.</span>
+          <a href="/govt-updates/">More Updates →</a>
+        </footer>
+      </section>
+
+      <!-- Tools & Quick Links -->
+      <aside class="wifi-card" aria-label="Exam Tools & Quick Links">
+        <header class="wifi-card-header" style="background: linear-gradient(90deg,#111827,#4b5563);">
+          <div class="wifi-card-header-left">
+            <i class="fas fa-tools"></i>
+            <div>
+              <h2>Quick Links</h2>
+              <span>Frequently visited result</span>
+            </div>
+          </div>
+        </header>
+        <ul class="wifi-tools-list">
+          <li>
+            <a href="{% url 'sarkariresult2024' %}">All Sarkari Results Page</a>
+            <span class="wifi-chip">Results Hub</span>
+          </li>
+          <li>
+            <a href="/answer-key/">Answer Key</a>
+            <span class="wifi-chip">Answer Key</span>
+          </li>
+          <li>
+            <a href="{% url 'sarkariresult2025' %}">Previous Year Cutoffs</a>
+            <span class="wifi-chip">Cutoff</span>
+          </li>
+          <li>
+            <a href="/syllabus/">Latest Exam Syllabus</a>
+            <span class="wifi-chip">Syllabus</span>
+          </li>
+          <li>
+            <a href="/state-government-jobs/">State-wise Govt Jobs</a>
+            <span class="wifi-chip">State Jobs</span>
+          </li>
+          <li>
+            <a href="/contact-us/">Report Result Issue</a>
+            <span class="wifi-chip">Support</span>
+          </li>
+        </ul>
+        <footer class="wifi-card-footer">
+          <span>Bookmark this Wifi Result page for all future exams.</span>
+        </footer>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- Website Information Section -->
+<section class="website-info">
+  <div class="container">
+    <h2>Wifi Result 2026 – Complete Guide for Sarkari Results & Scorecards</h2>
+    <div class="info-content">
+      <div class="info-point">
+        <h3>Result Announcements</h3>
+        <p>On <strong>wifiresult.com</strong> you will find official result announcements and scorecards released by UPSC, SSC, IBPS, RRBs, State Public Service Commissions and other recruiting bodies. Each result post clearly shows the <strong>exam name, phase/shift, result release date</strong> and a direct link to the official result PDF or portal.</p>
+      </div>
+      <div class="info-point">
+        <h3>How to Download Result / Scorecard</h3>
+        <p>Every result article includes step-by-step instructions to <strong>download scorecards, view merit lists, and check marks</strong>. We also highlight required details like <strong>roll number / registration no. and date of birth</strong> needed to access individual scorecards on the official portal.</p>
+      </div>
+      <div class="info-point">
+        <h3>Selection Lists & Merit/Rank Lists</h3>
+        <p>We publish consolidated merit lists and provisionally selected candidate lists when released. For multi-stage exams, we show separate lists for <strong>provisionally selected candidates, final merit lists, waitlists</strong> and state-/category-wise cutoffs.</p>
+      </div>
+      <div class="info-point">
+        <h3>Cutoffs, Normalization & Score Details</h3>
+        <p>Each result entry provides detailed information about <strong>category-wise cutoffs, sectional cutoffs, score normalization methodology</strong> (if applicable) and example calculations so candidates can understand how final scores were derived.</p>
+      </div>
+      <div class="info-point">
+        <h3>Answer Keys & OMR Sheets</h3>
+        <p>We link to official provisional and final answer keys, and when available we provide guidance on <strong>how to download OMR sheets</strong> and compare your responses to the official key to estimate your score before the result is declared.</p>
+      </div>
+      <div class="info-point">
+        <h3>Result Challenges & Rechecks</h3>
+        <p>If the recruiting body allows challenges, re-evaluation or rechecking, we list the <strong>process, fees, deadlines</strong> and exact portal links. We also explain typical timelines for grievance redressal and result updates after rechecks.</p>
+      </div>
+      <div class="info-point">
+        <h3>Scorecard Details & Certificate Downloads</h3>
+        <p>Scorecards often include <strong>subject-wise marks, qualifying status, registration details</strong> and certificate download links. We point out important fields to verify (name, DOB, category) and instructions for printing official scorecards.</p>
+      </div>
+      <div class="info-point">
+        <h3>Cutoff Trends & Previous Year Analysis</h3>
+        <p>To help you predict cutoffs, we publish <strong>previous-year cutoffs, category trends</strong> and short analysis for major exams — useful for estimating chances and planning next steps.</p>
+      </div>
+      <div class="info-point">
+        <h3>Merit vs Document Verification (DV) & Next Steps</h3>
+        <p>For candidates listed in merit, we list the typical <strong>Document Verification (DV) schedule, joining instructions, provisional offer letters</strong> and links to state/department-specific onboarding instructions.</p>
+      </div>
+      <div class="info-point">
+        <h3>Official Links & PDF Downloads</h3>
+        <p>Each result post includes direct official links: <strong>Result PDF, Scorecard portal, Answer Key</strong> and any official corrigendum. We always advise verifying the result on the employer’s official website.</p>
+      </div>
+      <div class="info-point">
+        <h3>FAQs & Troubleshooting</h3>
+        <p>Common issues answered: <em>What to do if my name/roll no. is missing? How to request re-evaluation? How to get duplicate scorecard?</em> Check the FAQs in each result article for tailored help.</p>
+      </div>
+      <div class="info-point">
+        <h3>Result Alerts & Subscription</h3>
+        <p>Subscribe to instant Email / Telegram / SMS alerts for result announcements and answer key updates. Use filters to subscribe only to categories you care about — Banking, Railways, Teaching, Defence, etc.</p>
+      </div>
+    </div>
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      We aim to deliver accurate, timely result updates so you can track your exam progress and next steps. For any discrepancy always cross-check with the official notification PDF linked on the result page.
+    </p>
+  </div>
+</section>
+
+{% endblock content %}

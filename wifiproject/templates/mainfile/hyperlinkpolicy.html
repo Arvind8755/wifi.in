@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>wifiresult.com - Hyperlink Policy</title>
+<meta name="description" content="WifiResult's Hyperlink (Linking) Policy explains how we treat links: editorial links, external linking, nofollow/ugc/sponsored usage, partner links, and how to request link removal or add a link to our site.">
+<meta name="keywords" content="Hyperlink Policy, Linking Policy, WifiResult, External Links, Nofollow, Sponsored Links, Link Removal">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta http-equiv="Content-Language" content="en">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/">
+<meta property="og:title" content="Hyperlink Policy – WifiResult">
+<meta property="og:description" content="WifiResult's Hyperlink Policy explains our approach to external links, editorial links, paid/sponsored links, and how to request link changes.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="WifiResult Logo – Hyperlink Policy">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/">
+<meta name="twitter:title" content="Hyperlink Policy – WifiResult">
+<meta name="twitter:description" content="WifiResult's Hyperlink Policy explains our approach to external links, editorial links, paid/sponsored links, and how to request link changes.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Hyperlink Policy", "item": "{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/" }
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/",
+  "name":"wifiresult.com - Hyperlink Policy",
+  "headline":"Hyperlink (Linking) Policy",
+  "description":"WifiResult's Hyperlink Policy explains our approach to external links, editorial links, paid/sponsored links, and how to request link changes.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#breadcrumb"},
+  "hasPart":[
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#jobs"},
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#results"},
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#admit-cards"},
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/hyperlink-policy/#govt-updates"}
+  ]
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+    <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* policy center */
+    .policy-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:18px}
+    .policy-section h3{color:var(--primary);margin-bottom:8px}
+    .policy-section p, .policy-section li{color:#333;margin-bottom:10px}
+    .policy-list{margin-left:18px}
+    .code-box{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px;border-radius:6px;font-family:monospace;font-size:14px;white-space:pre-wrap}
+
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile ordering (keep as before) */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Hyperlink Policy</span>
+    </div>
+  </div>
+
+  <!-- Breaking news (kept as before) -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-link"></i></strong> &nbsp;Read our Hyperlink Policy below. For link-related requests email us at <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (Hyperlink policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Hyperlink policy main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        {% comment %} <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div> {% endcomment %}
+
+    </aside>
+
+    <!-- Center: Hyperlink Policy Content -->
+    <section class="content-area" aria-label="Hyperlink Policy and procedures">
+      <div class="policy-card" role="region" aria-labelledby="hyperlink-heading">
+        <div class="page-title">
+          <i class="fas fa-link" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="hyperlink-heading">Hyperlink (Linking) Policy</h1>
+        </div>
+
+        <div class="policy-section">
+          <p><strong>Effective date:</strong> {% now "Y" %}-{% now "m" %}-{% now "d" %}</p>
+          <p>At WifiResult we provide links to external websites as a service to our readers. This Hyperlink Policy describes how we use links, types of links you may find on our site, our approach to paid/sponsored links, and how to request link removal or addition.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Editorial links</h3>
+          <p>Most links on WifiResult are editorial — added by our editorial team because they provide useful information, references, or official sources (for example: government notifications, admit card portals, official recruitment pages). Editorial links do not imply endorsement of linked sites or their content.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>External linking and accuracy</h3>
+          <p>We strive to link to reliable and official sources whenever possible. However, external sites change frequently; WifiResult is not responsible for the content, accuracy, or availability of external websites. When a linked page moves or is removed, the link on our site may become broken. If you find a broken or incorrect link, please notify us so we can update it.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Paid, sponsored, and affiliate links</h3>
+          <p>WifiResult may use paid or sponsored links and affiliate links in some parts of the site. We will clearly identify paid placements and sponsored content according to applicable disclosure guidelines. Affiliate links may help us earn a small commission at no extra cost to you.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Nofollow/ugc/sponsored link attributes</h3>
+          <p>When appropriate (for example paid links, user generated links, or untrusted third-party links), we may add rel="nofollow", rel="ugc" or rel="sponsored" attributes to hyperlinks to communicate link intent to search engines.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Deep linking and framing</h3>
+          <p>Deep linking (linking directly to an internal page of another site) is generally allowed when it points to public content. Framing or embedding another website's content within our site without permission is not allowed unless explicitly authorized by the content owner.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>How to request a link change or removal</h3>
+          <p>If you own a website and would like us to add, update or remove a link to your content, please email us with the following details:</p>
+          <ol class="policy-list">
+            <li>Your name and contact details (email and phone optional).</li>
+            <li>URL on WifiResult where the link appears (provide exact URL).</li>
+            <li>The link you want added/updated/removed and reason for the request.</li>
+            <li>Proof of ownership or authorization to request changes (if applicable).</li>
+          </ol>
+
+          <p>Send requests to: <strong>wifiresult3@gmail.com</strong> (subject: "Link request / removal"). We will review requests and respond as practicable. Note: We do not guarantee link changes and may decline requests at our discretion.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Links to WifiResult</h3>
+          <p>You may link to pages on WifiResult without prior permission, provided you do not misrepresent your relationship with WifiResult, use framing, or imply endorsement. If you wish to use our logo or reproduce site content, please contact us for permission.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Limitation of liability</h3>
+          <p>WifiResult is not responsible for losses or damages arising from use of or reliance on content available through external links. Links are provided for convenience and informational purposes only.</p>
+        </div>
+
+      </div>
+
+      <!-- Small footer-like note -->
+      <div style="margin-top:18px" class="policy-card">
+        <h4 style="color:var(--primary);margin-bottom:8px"><i class="fas fa-info-circle"></i> Contact about links</h4>
+        <p class="small">For link requests or issues, email: <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>. For general inquiries: <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>.</p>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+      <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admitcard/{{ admitcard.slug }}">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

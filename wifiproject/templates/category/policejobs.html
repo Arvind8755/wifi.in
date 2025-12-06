@@ -1,0 +1,731 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Police Jobs – Latest Constable, SI, ASI & Defence Vacancies</title>
+  <meta name="description" content="Police Jobs 2026: Latest recruitment for Constable, SI, ASI, Head Constable, Driver, Jail Warder & Defence posts in State Police, CAPF, BSF, CRPF, CISF, ITBP & other forces. Check eligibility, age limit & online application links.">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/police-jobs/">
+  <meta name="author" content="WifiResult Editorial Team">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/police-jobs/">
+  <meta property="og:title" content="Police Jobs – Latest Constable, SI, ASI & Defence Vacancies">
+  <meta property="og:description" content="Police Jobs 2026: Latest Constable, SI, ASI & Defence vacancies in State Police, CAPF & other forces. Check eligibility, age limit, syllabus & apply online links.">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta property="og:image:alt" content="Wifi Result – Latest Police & Defence Job Alerts">
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:type" content="image/png">
+
+  <meta property="article:published_time" content="{% now 'c' %}">
+  <meta property="article:modified_time" content="{% now 'c' %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/police-jobs/">
+  <meta name="twitter:title" content="Police Jobs – Latest Constable, SI, ASI & Defence Vacancies">
+  <meta name="twitter:description" content="Police Jobs 2025: State Police, CAPF, BSF, CRPF, CISF, ITBP & Defence vacancies with eligibility, age limit & online application links.">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+      { "@type": "ListItem", "position": 2, "name": "Police Jobs", "item": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/" }
+    ]
+  }
+  </script>
+
+  <!--WebPage + CollectionPage-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "CollectionPage"],
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/#webpage",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/",
+    "name": "Police Jobs – Latest Constable, SI, ASI & Defence Vacancies",
+    "headline": "Latest Police Jobs 2026 – Constable, SI, ASI & Defence Recruitment",
+    "description": "Police Jobs 2026: Constable, SI, ASI, Head Constable, Driver, Jail Warder & Defence vacancies in State Police, CAPF, BSF, CRPF, CISF, ITBP & other forces with eligibility & online application links.",
+    "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "inLanguage": "en",
+    "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/#breadcrumb" }
+  }
+  </script>
+
+  <!-- ItemList — Latest Police Jobs (based on latest_posts) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Police Jobs – Latest Constable, SI, ASI & Defence Vacancies",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "JobPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "title": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePosted": "{{ post.published_date|date:'c' }}",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "State Police / CAPF / Govt Of India"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %}
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* ===== New Police Theme Breadcrumb ===== */
+  .breadcrumb-police {
+    padding: 12px 0;
+    background: linear-gradient(90deg, #020617, #0f172a);
+    color: #e5e7eb;
+  }
+  .breadcrumb-police .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 14px;
+  }
+  .breadcrumb-police a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb-police a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb-police span.sep {
+    color: #6b7280;
+  }
+  .breadcrumb-police span.current {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  /* ===== Breaking / Highlight Bar ===== */
+  .breaking-news-police {
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+    color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 2px solid #0f172a;
+  }
+  .breaking-news-police .container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .breaking-news-police .icon {
+    font-size: 20px;
+  }
+  .breaking-news-police .headline {
+    font-family: 'Arial', sans-serif;
+    white-space: nowrap;
+  }
+  .breaking-news-police marquee {
+    width: 100%;
+  }
+
+  /* ===== Main Layout ===== */
+  .main-content-police {
+    padding: 18px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 320px;
+  }
+  .sidebar {
+    width: 310px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* ===== Section Header ===== */
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .section-heading span.icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+    color: #f9fafb;
+  }
+  .section-subtext {
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  /* ===== Police Job Listing Box (New Look) ===== */
+  .job-listing-container {
+    background: radial-gradient(circle at top left, #eff6ff 0, #ffffff 40%, #e0f2fe 100%);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(15,23,42,0.14);
+    border: 1px solid #e5e7eb;
+  }
+  .job-listing-header {
+    background: linear-gradient(90deg, #0f172a, #1d4ed8);
+    color: white;
+    padding: 11px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .job-listing-header i {
+    font-size: 15px;
+    color: #38bdf8;
+  }
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .job-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 8px 14px;
+    transition: background 0.2s ease, transform 0.06s ease;
+  }
+  .job-item:last-child {
+    border-bottom: none;
+  }
+  .job-item:nth-child(odd) {
+    background: rgba(248,250,252,0.9);
+  }
+  .job-item:nth-child(even) {
+    background: rgba(239,246,255,0.9);
+  }
+  .job-item:hover {
+    background: #dbeafe;
+    transform: translateY(-1px);
+  }
+
+  .job-main {
+    min-width: 0;
+  }
+  .job-title {
+    flex: 1;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .job-title:hover {
+    color: #1d4ed8;
+  }
+
+  .job-meta {
+    font-size: 11px;
+    color: #6b7280;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .badge-police {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .job-date {
+    color: #4b5563;
+  }
+
+  .job-right {
+    text-align: right;
+  }
+  .job-pill-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: 1px solid #cbd5f5;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    color: #0f172a;
+    gap: 4px;
+  }
+  .job-pill-link:hover {
+    background: #e0f2fe;
+    border-color: #1d4ed8;
+  }
+
+  @media (max-width: 768px) {
+    .job-item {
+      grid-template-columns: 1fr;
+      align-items: flex-start;
+    }
+    .job-right {
+      text-align: left;
+    }
+  }
+
+  /* ===== Pagination (New Chip Style) ===== */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 8px;
+  }
+  .pagination-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+  }
+  .page-btn {
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .page-btn:hover {
+    background: #e5e7eb;
+  }
+  .page-current {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ===== Sidebar Widgets ===== */
+  .trending-topics,
+  .quick-alerts {
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    margin-bottom: 18px;
+    border: 1px solid #e5e7eb;
+  }
+  .trending-header,
+  .quick-header {
+    background: linear-gradient(90deg, #020617, #1d4ed8);
+    color: white;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .trending-header i,
+  .quick-header i {
+    font-size: 14px;
+    color: #38bdf8;
+  }
+  .trending-list,
+  .quick-list {
+    padding: 10px 14px 12px;
+  }
+  .trending-item,
+  .quick-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border, #e5e7eb);
+  }
+  .trending-item:last-child,
+  .quick-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1d4ed8;
+    margin-right: 8px;
+    min-width: 22px;
+    text-align: center;
+  }
+  .trending-content,
+  .quick-content {
+    flex: 1;
+  }
+  .trending-content a,
+  .quick-content a {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .trending-content a:hover,
+  .quick-content a:hover {
+    color: #1d4ed8;
+  }
+  .trending-meta,
+  .quick-meta {
+    font-size: 11px;
+    color: #6c757d;
+  }
+
+  @media (max-width: 992px) {
+    .trending-topics.mobile-bottom {
+      order: 99;
+      margin-top: 20px;
+    }
+  }
+
+  /* ===== Info Section – Defence + Police Focus ===== */
+  .website-info {
+    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(255,255,255,0.96);
+    padding: 16px 18px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(148,163,184,0.4);
+    border: 1px solid rgba(148,163,184,0.5);
+    transition: transform 0.2s ease;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #1d4ed8;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+    <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span>Police Jobs</span> 
+    </div>
+  </div>
+
+  <!-- Breaking / Highlight Bar -->
+  <div class="breaking-news-police">
+    <div class="container">
+      <span class="icon">🚔</span>
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        <span class="headline">
+          <h1 style="font-size:18px;">Latest Police Jobs 2026 – Constable, SI, ASI & Defence Recruitment</h1>
+        </span>
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content-police container">
+    <div class="content-area">
+      
+      <div class="section-header">
+        <div class="section-heading">
+          <span class="icon">🛡️</span>
+          <span>Latest Police Job Updates 2026</span>
+        </div>
+        <div class="section-subtext">
+          State Police • CAPF • Jail Warder • Defence & Central Police Forces
+        </div>
+      </div>
+
+      <!-- New Police Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bullhorn"></i> Police Recruitment Notifications
+        </div>
+        <ul class="job-list-compact">
+          {% for post in page_obj %}
+            <li class="job-item">
+              <div class="job-main">
+                <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>
+                <div class="job-meta">
+                  <span class="badge-police">Police Job</span>
+                  <span class="job-date">📅 {{ post.published_date|date:"d M Y" }}</span>
+                </div>
+              </div>
+              <div class="job-right">
+                <a href="{% url 'job_detail' post.slug %}" class="job-pill-link">
+                  View Details
+                  <span>➜</span>
+                </a>
+              </div>
+            </li>
+          {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई Police Jobs लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई Police / Defence भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Pagination -->
+        {% if page_obj.paginator.num_pages > 1 %}
+        <div class="pagination-wrapper">
+          <div class="pagination-inner">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">← Previous</a>
+            {% endif %}
+
+            <span class="page-current">
+              Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="page-btn">Next →</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Trending Topics Box (Dynamic) -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Govt Jobs
+        </div>
+        <div class="trending-list">
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter }}</div>
+                <div class="trending-content">
+                  <a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a>
+                  <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+                <div class="trending-content">
+                  <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+                  <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+      
+      <!-- Quick Alerts (Dynamic Govt Updates) -->
+      <div class="quick-alerts">
+        <div class="quick-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="quick-list">
+          {% for govtupdate in latest_govtupdates %}
+            <div class="quick-item">
+              <div class="quick-content">
+                <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+                <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>Police Jobs & Defence Recruitment – Complete Information for Aspirants</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>State Police & District Level Recruitment</h3>
+          <p>हर राज्य अपनी <strong>Police Constable, Head Constable, Sub Inspector (SI)</strong> और अन्य पदों पर समय-समय पर भर्ती करता है। WifiResult पर आपको <strong>UP Police, Bihar Police, MP Police, Rajasthan Police</strong> और अन्य राज्यों की Police bharti की जानकारी एक ही जगह पर मिलती है।</p>
+        </div>
+        <div class="info-point">
+          <h3>CAPF, BSF, CRPF, CISF, ITBP & अन्य Forces</h3>
+          <p><strong>Central Armed Police Forces (CAPF)</strong> जैसे BSF, CRPF, CISF, ITBP, SSB आदि में भी Constable, SI, ASI और Tradesman की vacancies आती रहती हैं। हम official notification के साथ-साथ <strong>vacancy details, PET/PST criteria</strong> और exam pattern भी clear तरीके से बताते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>Eligibility, Age Limit & Physical Standards</h3>
+          <p>Police jobs में <strong>age limit, height, chest, running time, weight</strong> जैसे physical standards बहुत important होते हैं। हर vacancy के साथ हम minimum qualification, age relaxation और category-wise physical norms clearly mention करते हैं, ताकि आप पहले से plan कर सकें।</p>
+        </div>
+        <div class="info-point">
+          <h3>Exam Pattern, Syllabus & Previous Papers</h3>
+          <p>लिखित परीक्षा के लिए हम <strong>syllabus PDF, exam pattern</strong> और previous year papers के लिंक provide करते हैं। इससे Police Bharti की तैयारी करने वाले उम्मीदवारों को सही दिशा और सही level का idea मिलता है।</p>
+        </div>
+        <div class="info-point">
+          <h3>Admit Card, Answer Key & Result Updates</h3>
+          <p>Form भरने के बाद candidates को <strong>admit card, exam city, exam date, answer key, result और cutoff</strong> updates की जरूरत होती है। WifiResult पर हम इन सभी stages पर timely updates और direct links share करते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>Document Verification & Joining Process</h3>
+          <p>Police recruitment में Document Verification (DV) और medical test के लिए <strong>identity proof, caste certificate, domicile, character certificate, NCC / sports certificates</strong> जैसे documents जरूरी होते हैं। हम हर notification के साथ required documents और DV instructions भी समझाते हैं।</p>
+        </div>
+      </div>
+      <p class="bottom-text">
+        अगर आपका dream है <strong>Police या Defence में सरकारी नौकरी</strong>, तो इस Police Jobs पेज को bookmark कर लें। 
+        नई Constable, SI, ASI, Head Constable या CAPF भर्ती आते ही WifiResult पर सबसे पहले update मिलेगा।
+      </p>
+    </div>
+  </section>
+
+{% endblock content %}

@@ -1,0 +1,885 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sarkari Jobs | Latest Government Vacancies, Admit Cards, Results</title>
+<meta name="description" content="Sarkari Jobs 2026: Latest Government Vacancies, Admit Cards, Results, Answer Keys & Notifications. Fast, verified updates by WifiResult.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/">
+<meta name="author" content="WifiResult Editorial Team">
+<meta http-equiv="Content-Language" content="en-IN">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/">
+<meta property="og:title" content="Sarkari Jobs | Latest Government Vacancies, Admit Cards, Results">
+<meta property="og:description" content="Sarkari Jobs 2026: Latest Government Vacancies, Admit Cards, Results, Answer Keys & Notifications. Fast, verified updates by WifiResult.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Sarkari Jobs – Govt Job Updates">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/">
+<meta name="twitter:title" content="Sarkari Jobs | Latest Government Vacancies, Admit Cards, Results">
+<meta name="twitter:description" content="Sarkari Jobs 2026: Latest Government Vacancies, Admit Cards, Results, Answer Keys & Notifications. Fast, verified updates by WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult">
+<meta name="twitter:creator" content="@WifiResult">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Arvind Pal">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="6 minutes">
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Sarkari Jobs","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/",
+  "name":"Sarkari Jobs | Govt Jobs, Results, Admit Cards & Updates",
+  "headline":"Latest Sarkari Jobs: Jobs, Results, Admit Cards & Govt Updates",
+  "description":"Sarkari Jobs 2026: Latest Government Vacancies, Admit Cards, Results, Answer Keys & Notifications. Fast, verified updates by WifiResult.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#breadcrumb"}
+}
+</script>
+
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Sarkari Jobs | Latest Government Vacancies, Admit Cards, Results",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What does the Sarkari Jobs page include?",
+      "acceptedAnswer":{"@type":"Answer","text":"This page shows latest Government Jobs, Results, Admit Cards and Government Updates at one place with official links."}
+    },
+    {
+      "@type":"Question",
+      "name":"Do you verify the posts?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes, every listing is based on official notifications/portals and contains direct source links."}
+    }
+  ]
+}
+</script>
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* SarkariJob-inspired tri-colour vibe */
+  :root{
+    --sj-saffron:#ff8f00; /* saffron */
+    --sj-green:#2e7d32;   /* india green */
+    --sj-navy:#0b3d91;    /* navy */
+    --sj-cream:#fff8e1;   /* soft tint */
+  }
+
+  /* HERO */
+  .hero-sj{position:relative;color:#fff;border-radius:16px;overflow:hidden;margin:8px 0 14px;background:linear-gradient(135deg,var(--sj-saffron),var(--sj-navy));}
+  .hero-sj .overlay{position:absolute;inset:0;background:
+    radial-gradient(120px 120px at 10% 10%, rgba(255,255,255,.22), transparent 60%),
+    radial-gradient(160px 160px at 80% 0%, rgba(255,255,255,.15), transparent 60%),
+    linear-gradient(120deg, rgba(255,255,255,.12), transparent 40%)}
+  .hero-sj .wrap{position:relative;z-index:1;padding:24px 0}
+  .hero-sj h1{margin:0 0 6px;font-weight:900}
+  .hero-sj p{margin:0;color:#f8f9fa}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .pill{background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+  .pill:nth-child(1){border:2px solid var(--sj-saffron)}
+  .pill:nth-child(2){border:2px solid var(--sj-green)}
+  .pill:nth-child(3){border:2px solid var(--sj-navy)}
+
+
+  /* QUICK LINKS */
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+  .quick-link.ck-content a{color:red;text-decoration:none}
+  .quick-link.ck-content a:hover{text-decoration:underline}
+
+  /* SECTION TITLE */
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:#111}
+  .chip{padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,var(--sj-cream));border:1px solid #ffe0b2}
+  .title-accent{background:linear-gradient(90deg,var(--sj-green),var(--sj-navy));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* CARDS */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,var(--sj-cream),#fff);border-bottom:2px solid #e0e0e0;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--sj-saffron),var(--sj-green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #ececec}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--sj-navy)}
+
+  /* FORCE 2 CARDS PER ROW ON MOBILE */
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:12px}
+  }
+
+  /* INFO BLOCKS */
+  .info-wrap{padding:6px 0 20px}
+  .highlight{background:#fff;border-radius:12px;padding:16px;box-shadow:0 10px 24px rgba(16,24,40,.08);margin:16px 0;border:2px solid #e9f5ee}
+  .highlight h4{margin:0 0 8px;color:var(--sj-green)}
+
+  /* FAQ */
+  #faq{margin-top:10px}
+  .faq-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 12px 28px rgba(15,23,42,.10)}
+  .faq-list{list-style:none;margin:0;padding:0}
+  .faq-item{border-bottom:1px dashed #ececec;padding:12px 0}
+  .faq-item:last-child{border-bottom:0}
+  .question{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+  .question h3{font-size:16px;margin:0;color:#0f172a}
+  .toggle{width:32px;height:32px;border-radius:10px;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;background:#fff}
+  .answer{margin-top:8px;display:none;color:#374151}
+
+  @media (max-width:768px){.hero-sj h1{font-size:1.35rem}}
+
+  /* PAGE BOTTOM INFO SECTION – Sarkari Jobs (WifiResult) */
+  .sj-footer-info{
+    margin:16px 0 24px;
+    padding:18px 16px 16px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#fff8e1,#e8f5e9);
+    border:1px solid #ffe0b2;
+    box-shadow:0 16px 32px rgba(15,23,42,.08);
+    font-size:13px;
+  }
+  .sj-footer-info h2{
+    margin:0 0 8px;
+    font-size:20px;
+    font-weight:800;
+    color:#1f2933;
+  }
+  .sj-footer-info h3{
+    margin:12px 0 6px;
+    font-size:15px;
+    font-weight:700;
+    color:#2e7d32;
+  }
+  .sj-footer-info p{
+    margin:4px 0 6px;
+    line-height:1.6;
+    color:#374151;
+  }
+  .sj-footer-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1.4fr;
+    gap:16px;
+    margin-top:6px;
+  }
+  .sj-footer-info ul{
+    margin:0;
+    padding-left:18px;
+    line-height:1.6;
+  }
+  .sj-footer-tagline{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed rgba(0,0,0,.12);
+    font-size:12px;
+    color:#111827;
+  }
+  .sj-footer-disclaimer{
+    font-size:12px;
+    margin-top:6px;
+    color:#4b5563;
+  }
+  .sj-highlight{
+    font-weight:700;
+    color:#ff8f00;
+  }
+
+  @media (max-width:768px){
+    .sj-footer-grid{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .sj-footer-info{
+      padding:14px 12px;
+      border-radius:14px;
+    }
+    .sj-footer-info h2{
+      font-size:18px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Sarkari Jobs</span>
+    </div>
+  </div>
+
+<section class="hero-sj">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <h1>Sarkari Jobs – Latest Govt Vacancies, Admit Cards & Results</h1>
+    <p>सभी बड़े विभागों की नई भर्तियाँ और परीक्षा अपडेट्स—एक ही जगह।</p>
+    <div class="pill-row">
+      <a href="/" class="text-white text-decoration-none"><span class="pill">Verified Links</span></a> 
+      <a href="{% url 'blog' %}" class="text-white text-decoration-none"><span class="pill">Daily Updates</span></a> 
+     <a href="{% url 'fastjob' %}" class="text-white text-decoration-none"> <span class="pill">Mobile First</span></a> 
+    </div>
+
+    <div class="quick-links-container">
+      <div class="quick-links">
+        {% for boxname in boxnames %}
+          <div class="quick-link ck-content">{{ boxname.box1|safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title">
+    <span class="chip">Curated For You</span>
+    <span class="title-accent">Sarkari Jobs Updates</span>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>Latest Jobs</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Latest Results</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Admit Cards</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Govt Updates</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for govtupdate in govtupdates %}
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'govtupdates' %}">View All Govt Updates →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info blocks -->
+  <section class="info-wrap">
+    <div class="highlight">
+      <h4>Sarkari Jobs 2025 – क्या मिलेगा?</h4>
+      <p>Banking, Railways, Defence, SSC, UPSC और State PSCs – notification PDF, eligibility, dates, syllabus, admit cards और results एक ही पेज पर।</p>
+    </div>
+    <div class="highlight">
+      <h4>क्यों चुनें WifiResult?</h4>
+      <p>Fast + Accurate: official स्रोतों से verified links, साफ़ categorization और mobile-first UI.</p>
+    </div>
+    <div class="highlight">
+      <h4>Popular Sections</h4>
+      <p>12th Pass, Graduate Jobs, Bank Jobs, Railway, Defence, State Govt, Admit Cards, Answer Keys, Results.</p>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="faq-card">
+      <h2 id="faq-heading">Sarkari Jobs – FAQs</h2>
+      <ul class="faq-list" id="faq-list">
+        <li class="faq-item">
+          <div class="question" data-index="1" tabindex="0">
+            <h3>क्या यह आधिकारिक सरकारी वेबसाइट है?</h3>
+            <div class="toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="answer"><p>नहीं। यह WifiResult का सूचना पेज है। Apply करने और PDFs डाउनलोड करने के लिए हम official links देते हैं।</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="2" tabindex="0">
+            <h3>Official notifications कहाँ मिलेंगे?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>हर पोस्ट के <b>Important Links</b> सेक्शन में विभाग/बोर्ड के पोर्टल या PDF के direct links रहते हैं।</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="3" tabindex="0">
+            <h3>यह पेज कब अपडेट होता है?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>नए official notices, admit cards, answer keys या results आने पर इसे तुरंत अपडेट किया जाता है।</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAGE BOTTOM INFORMATION ABOUT THIS PAGE (WifiResult Sarkari Jobs) -->
+  <section class="sj-footer-info">
+    <h2>Sarkari Jobs – WifiResult पर आपका भरोसेमंद Govt Job Hub</h2>
+    <p>
+      <span class="sj-highlight">Sarkari Jobs</span> पेज पर हम कोशिश करते हैं कि 
+      <strong>सभी महत्वपूर्ण सरकारी भर्तियाँ, परीक्षा परिणाम, एडमिट कार्ड और सरकारी नोटिस</strong> 
+      आपको एक ही जगह, साफ़ और आसान भाषा में मिलें। यह पेज खास तौर पर उन candidates के लिए बनाया गया है 
+      जो रोज़ाना अलग-अलग websites पर घूमे बिना <strong>एक ही platform से अपडेट लेना चाहते हैं</strong>।
+    </p>
+
+    <div class="sj-footer-grid">
+      <div>
+        <h3>इस पेज पर आपको क्या-क्या मिलेगा?</h3>
+        <ul>
+          <li>Latest <strong>Sarkari Jobs / Govt Vacancies</strong> – पोस्ट नाम, विभाग, योग्यता, age limit, fees आदि के साथ।</li>
+          <li><strong>Admit Card</strong> updates – किस exam का admit card आया, direct download / official link के साथ।</li>
+          <li><strong>Results & Answer Keys</strong> – short info, result लिंक और official वेबसाइट reference के साथ।</li>
+          <li><strong>Govt Updates</strong> – eligibility changes, syllabus updates, exam calendar व अन्य official notices।</li>
+          <li>Mobile-friendly experience – ताकि आप <strong>फोन से भी आराम से</strong> सारी जानकारी देख सकें।</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Important Notice & Disclaimer</h3>
+        <p>
+          WifiResult (<strong>wifiresult.com</strong>) किसी भी सरकारी विभाग, आयोग या परीक्षा संस्था की 
+          <strong>official वेबसाइट नहीं</strong> है। हम एक informational portal हैं जो 
+          <strong>official notifications / websites</strong> के आधार पर content तैयार करते हैं।
+        </p>
+        <ul>
+          <li>किसी भी form को भरने या fees जमा करने से पहले हमेशा <strong>official notification PDF</strong> ध्यान से पढ़ें।</li>
+          <li>Final/सटीक जानकारी के लिए संबंधित विभाग/बोर्ड की <strong>official वेबसाइट</strong> को ही मानें।</li>
+          <li>किसी भी टाइपिंग गलती या देरी से अपडेट होने के लिए WifiResult जिम्मेदार नहीं होगा।</li>
+        </ul>
+        <p class="sj-footer-disclaimer">
+          यदि आपको इस पेज पर कोई information गलत, पुरानी या आधी-अधूरी दिखे, 
+          तो आप हमें contact section के ज़रिये बता सकते हैं ताकि हम उसे जल्दी से जल्दी update कर सकें।
+        </p>
+      </div>
+    </div>
+
+    <p class="sj-footer-tagline">
+      🔔 <strong>TIP:</strong> इस <span class="sj-highlight">Sarkari Jobs</span> पेज को bookmark कर लें – 
+      ताकि आपको Govt Jobs, Admit Cards, Results और Government Updates के लिए 
+      हर बार <strong>Google पर अलग-अलग वेबसाइट search न करनी पड़े</strong>।
+    </p>
+  </section>
+
+</main>
+
+<script>
+  (function(){
+    const items=document.querySelectorAll('.faq-item');
+    items.forEach(item=>{
+      const q=item.querySelector('.question');
+      const toggle=item.querySelector('.toggle');
+      const ans=item.querySelector('.answer');
+      q.addEventListener('click',()=>{
+        const isOpen=ans.style.display==='block';
+        document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
+        document.querySelectorAll('.faq-item .toggle').forEach(t=>t.textContent='+');
+        if(!isOpen){ans.style.display='block';toggle.textContent='−';}
+      });
+      q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+    });
+  })();
+</script>
+{% endblock content %}
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sarkari Jobs 2025 | Latest Government Vacancies, Admit Cards, Results – WifiResult</title>
+<meta name="description" content="Sarkari Jobs 2025: Latest Government Vacancies, Admit Cards, Results, Answer Keys & Notifications. Fast, verified updates by WifiResult.">
+<meta name="keywords" content="Sarkari Jobs, Sarkari Job, Government Jobs, Sarkari Naukri, Admit Card, Result, Answer Key, Online Form, Latest Vacancy 2025">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/">
+<meta name="author" content="WifiResult Editorial Team">
+<meta http-equiv="Content-Language" content="en-IN">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/">
+<meta property="og:title" content="Sarkari Jobs 2025 | Latest Govt Jobs & Results">
+<meta property="og:description" content="Sarkari Jobs page: Latest Govt Jobs, Admit Cards, Results & Answer Keys. Updated daily by WifiResult.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Sarkari Jobs – Govt Job Updates">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/">
+<meta name="twitter:title" content="Sarkari Jobs 2025 | Latest Govt Jobs & Results">
+<meta name="twitter:description" content="Sarkari Jobs page: Latest Govt Jobs, Admit Cards, Results & Answer Keys. Updated daily by WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult">
+<meta name="twitter:creator" content="@WifiResult">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Arvind Pal">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="6 minutes">
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Sarkari Jobs","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/",
+  "name":"Sarkari Jobs 2025 | Govt Jobs, Results, Admit Cards & Updates – WifiResult",
+  "headline":"Latest Sarkari Jobs: Jobs, Results, Admit Cards & Govt Updates",
+  "description":"One-stop page for latest Government Jobs, Results, Admit Cards and Government Updates. Check eligibility, dates and official links on WifiResult.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/images/sarkari-jobs-og.jpg",
+    "width":1200,
+    "height":630
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#breadcrumb"}
+}
+</script>
+
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Latest Govt Job News & Updates 2025 – WifiResult Blog",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-jobs/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What does the Sarkari Jobs page include?",
+      "acceptedAnswer":{"@type":"Answer","text":"This page shows latest Government Jobs, Results, Admit Cards and Government Updates at one place with official links."}
+    },
+    {
+      "@type":"Question",
+      "name":"Do you verify the posts?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes, every listing is based on official notifications/portals and contains direct source links."}
+    }
+  ]
+}
+</script>
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* SarkariJob-inspired tri-colour vibe */
+  :root{
+    --sj-saffron:#ff8f00; /* saffron */
+    --sj-green:#2e7d32;   /* india green */
+    --sj-navy:#0b3d91;    /* navy */
+    --sj-cream:#fff8e1;   /* soft tint */
+  }
+
+  /* HERO */
+  .hero-sj{position:relative;color:#fff;border-radius:16px;overflow:hidden;margin:8px 0 14px;background:linear-gradient(135deg,var(--sj-saffron),var(--sj-navy));}
+  .hero-sj .overlay{position:absolute;inset:0;background:
+    radial-gradient(120px 120px at 10% 10%, rgba(255,255,255,.22), transparent 60%),
+    radial-gradient(160px 160px at 80% 0%, rgba(255,255,255,.15), transparent 60%),
+    linear-gradient(120deg, rgba(255,255,255,.12), transparent 40%)}
+  .hero-sj .wrap{position:relative;z-index:1;padding:24px 0}
+  .hero-sj h1{margin:0 0 6px;font-weight:900}
+  .hero-sj p{margin:0;color:#f8f9fa}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .pill{background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+  .pill:nth-child(1){border:2px solid var(--sj-saffron)}
+  .pill:nth-child(2){border:2px solid var(--sj-green)}
+  .pill:nth-child(3){border:2px solid var(--sj-navy)}
+
+  /* QUICK LINKS */
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+  .quick-link.ck-content a{color:inherit;text-decoration:none}
+  .quick-link.ck-content a:hover{text-decoration:underline}
+
+  /* SECTION TITLE */
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:#111}
+  .chip{padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,var(--sj-cream));border:1px solid #ffe0b2}
+  .title-accent{background:linear-gradient(90deg,var(--sj-green),var(--sj-navy));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* CARDS */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,var(--sj-cream),#fff);border-bottom:2px solid #e0e0e0;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--sj-saffron),var(--sj-green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #ececec}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--sj-navy)}
+
+  /* FORCE 2 CARDS PER ROW ON MOBILE */
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:12px}
+  }
+
+  /* INFO BLOCKS */
+  .info-wrap{padding:6px 0 20px}
+  .highlight{background:#fff;border-radius:12px;padding:16px;box-shadow:0 10px 24px rgba(16,24,40,.08);margin:16px 0;border:2px solid #e9f5ee}
+  .highlight h4{margin:0 0 8px;color:var(--sj-green)}
+
+  /* FAQ */
+  #faq{margin-top:10px}
+  .faq-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 12px 28px rgba(15,23,42,.10)}
+  .faq-list{list-style:none;margin:0;padding:0}
+  .faq-item{border-bottom:1px dashed #ececec;padding:12px 0}
+  .faq-item:last-child{border-bottom:0}
+  .question{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+  .question h3{font-size:16px;margin:0;color:#0f172a}
+  .toggle{width:32px;height:32px;border-radius:10px;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;background:#fff}
+  .answer{margin-top:8px;display:none;color:#374151}
+
+  @media (max-width:768px){.hero-sj h1{font-size:1.35rem}}
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Result Bharat</span>
+    </div>
+  </div>
+
+<section class="hero-sj">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <h1>Sarkari Jobs – Latest Govt Vacancies, Admit Cards & Results</h1>
+    <p>सभी बड़े विभागों की नई भर्तियाँ और परीक्षा अपडेट्स—एक ही जगह।</p>
+    <div class="pill-row">
+      <span class="pill">Verified Links</span>
+      <span class="pill">Daily Updates</span>
+      <span class="pill">Mobile First</span>
+    </div>
+
+    <div class="quick-links-container">
+      <div class="quick-links">
+        {% for boxname in boxnames %}
+          <div class="quick-link ck-content">{{ boxname.box1|safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title"><span class="chip">Curated For You</span><span class="title-accent">Sarkari Jobs Updates</span></div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>Latest Jobs</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Latest Results</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Admit Cards</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Govt Updates</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for govtupdate in govtupdates %}
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'govtupdates' %}">View All Govt Updates →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info blocks -->
+  <section class="info-wrap">
+    <div class="highlight">
+      <h4>Sarkari Jobs 2025 – क्या मिलेगा?</h4>
+      <p>Banking, Railways, Defence, SSC, UPSC और State PSCs – notification PDF, eligibility, dates, syllabus, admit cards और results एक ही पेज पर।</p>
+    </div>
+    <div class="highlight">
+      <h4>क्यों चुनें WifiResult?</h4>
+      <p>Fast + Accurate: official स्रोतों से verified links, साफ़ categorization और mobile-first UI.</p>
+    </div>
+    <div class="highlight">
+      <h4>Popular Sections</h4>
+      <p>12th Pass, Graduate Jobs, Bank Jobs, Railway, Defence, State Govt, Admit Cards, Answer Keys, Results.</p>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="faq-card">
+      <h2 id="faq-heading">Sarkari Jobs – FAQs</h2>
+      <ul class="faq-list" id="faq-list">
+        <li class="faq-item">
+          <div class="question" data-index="1" tabindex="0">
+            <h3>क्या यह आधिकारिक सरकारी वेबसाइट है?</h3>
+            <div class="toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="answer"><p>नहीं। यह WifiResult का सूचना पेज है। Apply करने और PDFs डाउनलोड करने के लिए हम official links देते हैं।</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="2" tabindex="0">
+            <h3>Official notifications कहाँ मिलेंगे?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>हर पोस्ट के <b>Important Links</b> सेक्शन में विभाग/बोर्ड के पोर्टल या PDF के direct links रहते हैं।</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="3" tabindex="0">
+            <h3>यह पेज कब अपडेट होता है?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>नए official notices, admit cards, answer keys या results आने पर इसे तुरंत अपडेट किया जाता है।</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function(){
+    const items=document.querySelectorAll('.faq-item');
+    items.forEach(item=>{
+      const q=item.querySelector('.question');
+      const toggle=item.querySelector('.toggle');
+      const ans=item.querySelector('.answer');
+      q.addEventListener('click',()=>{
+        const isOpen=ans.style.display==='block';
+        document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
+        document.querySelectorAll('.faq-item .toggle').forEach(t=>t.textContent='+');
+        if(!isOpen){ans.style.display='block';toggle.textContent='−';}
+      });
+      q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+    });
+  })();
+</script>
+{% endblock content %}   {% endcomment %}

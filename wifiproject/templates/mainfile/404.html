@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>wifiresult.com - Government Jobs, Results and Vacancy Notifications</title>
+<meta name="description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="keywords" content="Sarkari Result, WifiResult, Govt Jobs, Admit Card, Result, Answer Key, Sarkari Exam, Online Form, Latest Vacancy 2025, Government Jobs">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta http-equiv="Content-Language" content="en">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta property="og:title" content="wifiresult.com - Government Jobs, Results and Vacancy Notifications">
+<meta property="og:description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="twitter:title" content="wifiresult.com - Government Jobs, Results and Vacancy Notifications">
+<meta name="twitter:description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/logo/images/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="7 minutes" />
+
+  <!-- Simple inline styles (Tailwind न हो तो भी ठीक) -->
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --muted:#9ca3af; --brand:#22d3ee; --text:#e5e7eb; }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto; background:linear-gradient(120deg,#0f172a,#111827); color:var(--text);}
+    .wrap{min-height:100dvh; display:grid; place-items:center; padding:24px;}
+    .card{max-width:720px; width:100%; background:rgba(17,24,39,.7); border:1px solid rgba(255,255,255,.08);
+          border-radius:20px; padding:28px; backdrop-filter: blur(10px); box-shadow:0 10px 30px rgba(0,0,0,.35);}
+    h1{font-size:42px; line-height:1.15; margin:0 0 6px}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .grid{display:grid; gap:14px}
+    @media (min-width:640px){ .grid{grid-template-columns:1fr 1fr} }
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.15);
+         text-decoration:none; color:var(--text)}
+    .btn:hover{border-color:rgba(255,255,255,.35)}
+    .search{display:flex; gap:8px; margin:16px 0 6px}
+    .search input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:#0b1220; color:var(--text)}
+    .search button{padding:12px 16px; border-radius:12px; border:0; background:var(--brand); color:#082f49; font-weight:700; cursor:pointer}
+    .pill{display:inline-block; padding:8px 12px; border-radius:999px; background:#0b1220; border:1px solid rgba(255,255,255,.12); font-size:14px}
+    ul{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+    li a{color:var(--text); text-decoration:none}
+    footer{margin-top:18px; color:var(--muted); font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+        <span class="pill">404</span>
+        <span class="pill">WifiResult</span>
+      </div>
+
+      <h1>Page Not Found</h1>
+      <p class="sub">Sorry! The page you’re looking for doesn’t exist or may have moved.</p>
+
+      <h2 style="margin:18px 0 8px; font-size:20px;">🔎 Search the site</h2>
+      <form class="search" action="/search/" method="get" role="search">
+        <input type="search" name="q" placeholder="Try: 'SSC CHSL 2025 Admit Card' " aria-label="Search" />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="grid" style="margin-top:16px;">
+        <section>
+          <h3 style="margin:8px 0 6px;">📚 Popular Sections</h3>
+          <ul>
+            {% for item in popular_links %}
+            <li>• <a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section>
+          <h3 style="margin:8px 0 6px;">🧭 Quick Links</h3>
+          <ul>
+            <li>• <a href="/">Home</a></li>
+            <li>• <a href="/latest-jobs/">Latest Jobs</a></li>
+            <li>• <a href="/admit-card/">Admit Cards</a></li>
+            <li>• <a href="/result/">Results</a></li>
+            <li>• <a href="/contact/">Contact</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <hr style="border:0; height:1px; background:rgba(255,255,255,.1); margin:18px 0" />
+
+      <h2 style="margin:0 0 6px; font-size:20px;">🇮🇳 Hindi (हिन्दी)</h2>
+      <p class="sub" style="margin-bottom:10px;">
+        माफ कीजिए! जो पेज आप ढूंढ रहे हैं वो नहीं मिला। हो सकता है URL बदला गया हो या पेज हटा दिया गया हो।
+        आप ऊपर दिए गए सर्च बॉक्स का उपयोग करें, या लोकप्रिय सेक्शन से चुनें।
+      </p>
+
+      <footer>
+        If you believe this is a mistake, please <a href="/contact/">contact us</a>.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

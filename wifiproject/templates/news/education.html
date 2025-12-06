@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Education News | Admissions, Exams & Results – WifiResult</title>
+<meta name="description" content="Education 2026: Get latest admissions, board results, entrance exams,  scholarship & university notifications. Stay updated with WifiResult Education News.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/education/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/education/">
+<meta property="og:title" content="Education News | Admissions, Exams & Results – WifiResult">
+<meta property="og:description" content="Education 2026: Get latest admissions, board results, entrance exams,  scholarship & university notifications. Stay updated with WifiResult Education News.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/education/">
+<meta name="twitter:title" content="Education News | Admissions, Exams & Results – WifiResult">
+<meta name="twitter:description" content="Education 2026: Get latest admissions, board results, entrance exams,  scholarship & university notifications. Stay updated with WifiResult Education News.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/education/#breadcrumb",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Education",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/education/"
+    }
+  ]
+}
+</script>
+
+<!---webpage + collection page-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/education/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/education/",
+  "name": "Education News | Admissions, Exams & Results – WifiResult",
+  "headline": "Latest Education News 2026 – Admissions, Results, Exams & Syllabus Updates",
+  "description": "Education 2026: Get latest admissions, board results, entrance exams,  scholarship & university notifications. Stay updated with WifiResult Education News.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "inLanguage": "en",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/education/#breadcrumb" }
+}
+</script>
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Education News | Admissions, Exams & Results – WifiResult",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+{% endblock seo %}
+
+{% block style %}
+<!-- Tailwind via CDN for quick styling (replace with a built Tailwind for production) -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  /* Small visual polish: custom card shadow and reduced image grayscale placeholder */
+  .card-shadow { box-shadow: 0 8px 30px rgba(15,23,42,0.06); }
+  .thumb-placeholder { background: linear-gradient(90deg,#f3f4f6,#e5e7eb); }
+
+  /* Modern Education Info Blocks - Neon Edge + Soft Glass Style */
+  .edu-info-wrap{
+    padding:20px 0 30px;
+  }
+
+  .edu-highlight{
+    background:#ffffff;
+    border-radius:14px;
+    padding:20px 18px;
+    margin:18px 0;
+    box-shadow:0 12px 25px rgba(0,0,0,0.08);
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(6px);
+  }
+
+  /* Neon rainbow border */
+  .edu-highlight:before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    padding:2px;
+    background:linear-gradient(
+      90deg,
+      #0061ff,
+      #60efff,
+      #ff6ec4,
+      #ffc65c
+    );
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+  }
+
+  .edu-highlight h4{
+    margin:0 0 10px;
+    font-size:1.15rem;
+    font-weight:600;
+    color:#003a78;
+  }
+
+  .edu-highlight p{
+    margin:0;
+    color:#333;
+    line-height:1.55;
+    font-size:0.95rem;
+  }
+
+  .edu-disclaimer{
+    font-size:0.88rem;
+    color:#374151;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<header class="bg-white border-b">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3">
+        <img src="{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-logo.png' %}" alt="WifiResult" class="h-10 w-10 object-contain">
+        <div>
+          <h1 class="text-lg font-semibold" style="font-size:10px; line-height:12px">Latest Education News 2026 – Admissions, Results, Exams & Syllabus Updates/h1>
+          <p class="text-xs text-gray-500">Govt Jobs • Results • Admit Cards</p>
+        </div>
+      </a>
+    </div>
+
+    <form method="get" action="/search/" class="hidden sm:flex items-center w-1/3">
+      <label for="q" class="sr-only">Search jobs</label>
+      <input id="q" name="q" type="search" placeholder="Search: SSC, UPSC, Admit Card..." value="{{ request.GET.q|default:'' }}" class="w-full px-3 py-2 border rounded-l-md focus:outline-none" />
+      <button class="px-3 py-2 bg-blue-600 text-white rounded-r-md">Search</button>
+    </form>
+
+    <div class="flex items-center gap-3">
+      <a href="{% url 'html_sitemap' %}" class="text-sm text-gray-700 hover:text-blue-600">Categories</a>
+      <a href="{% url 'contact' %}" class="text-sm text-gray-700 hover:text-blue-600">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main class="container mx-auto px-4 py-8">
+  <nav class="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
+    <a href="/" class="hover:underline">Home</a>
+    <span class="mx-2">/</span>
+    <span class="text-gray-700">Education</span>
+  </nav>
+
+  <section class="mb-6">
+    <div class="bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border card-shadow">
+      <div class="flex items-center gap-4">
+        <div class="flex-shrink-0 bg-white rounded-full p-3 border">
+          <i class="fa-solid fa-graduation-cap text-blue-600 text-xl"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold">Latest Education 2025 – Admissions, Results, Exams & Syllabus</h2>
+          <p class="text-sm text-gray-600">Daily curated notifications, admit cards, results and official links.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <!-- LEFT: Articles grid -->
+    <div class="lg:col-span-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for it in items %}
+        <article itemscope itemtype="https://schema.org/NewsArticle" class="bg-white rounded-lg overflow-hidden border card-shadow">
+          <a href="{{ it.url }}" class="block group">
+            <div class="w-full h-44 thumb-placeholder overflow-hidden">
+              <img loading="lazy" src="{{ it.thumb }}" alt="{{ it.alt|default:it.title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300" onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-logo.png' %}'">
+            </div>
+            <div class="p-3">
+              <h3 itemprop="headline" class="text-sm font-semibold leading-5 text-gray-800">{{ it.title|truncatechars:80 }}</h3>
+              <div class="mt-2 text-xs text-gray-500 flex items-center justify-between">
+                <time itemprop="datePublished" datetime="{{ it.dt_iso|default:'' }}">{{ it.dt_display|default:'' }}</time>
+                <span class="text-gray-400">•</span>
+                <span>{{ it.source|default:'WifiResult' }}</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        {% empty %}
+          <div class="col-span-full p-6 bg-white border rounded">No news found. Please check back later.</div>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if page_obj.has_other_pages %}
+      <nav class="mt-6 flex items-center justify-center gap-2" aria-label="Pagination">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-2 border rounded hover:bg-gray-50">&laquo; Prev</a>
+        {% else %}
+          <span class="px-3 py-2 border rounded text-gray-400">&laquo; Prev</span>
+        {% endif %}
+
+        <span class="px-3 py-2 border rounded bg-gray-100">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="px-3 py-2 border rounded hover:bg-gray-50">Next &raquo;</a>
+        {% else %}
+          <span class="px-3 py-2 border rounded text-gray-400">Next &raquo;</span>
+        {% endif %}
+      </nav>
+      {% endif %}
+
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <aside class="lg:col-span-1 space-y-4">
+      <div class="bg-white p-4 rounded border card-shadow">
+        <h4 class="text-sm font-semibold mb-2">Popular Searches</h4>
+        <div class="flex flex-wrap gap-2">
+          <a href="/search/?q=ssc" class="text-xs px-2 py-1 border rounded">SSC</a>
+          <a href="/search/?q=upsc" class="text-xs px-2 py-1 border rounded">UPSC</a>
+          <a href="/search/?q=ibps" class="text-xs px-2 py-1 border rounded">IBPS</a>
+          <a href="/search/?q=railway" class="text-xs px-2 py-1 border rounded">Railway</a>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded border card-shadow">
+        <h4 class="text-sm font-semibold mb-2">Newsletter</h4>
+        <p class="text-xs text-gray-500 mb-2">Get daily job alerts in your inbox.</p>
+        <form action="/subscriber/" method="post">
+          {% csrf_token %}
+          <input name="email" type="email" required placeholder="Enter email" class="w-full px-3 py-2 border rounded mb-2 text-sm">
+          <button class="w-full py-2 rounded bg-blue-600 text-white text-sm">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="bg-white p-4 rounded border card-shadow">
+        <h4 class="text-sm font-semibold mb-2">Quick Links</h4>
+        <ul class="text-sm space-y-1 text-gray-600">
+          <li><a href="/admit-card/" class="hover:text-blue-600">Admit Cards</a></li>
+          <li><a href="/results/" class="hover:text-blue-600">Results</a></li>
+          <li><a href="/answer-key/" class="hover:text-blue-600">Answer Keys</a></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+<!-- Education Info Blocks – page information & disclaimer -->
+<section class="edu-info-wrap">
+  <div class="edu-highlight">
+    <h4>WifiResult Education Zone पर क्या मिलेगा?</h4>
+    <p>
+      <strong>Education</strong> section में आपको <strong>Admissions, Entrance Exams, Board Results, University Notices,
+      Syllabus &amp; Exam Pattern, Scholarships</strong> और counselling से जुड़ी important जानकारी एक ही जगह मिलती है।
+      Class 10th/12th students से लेकर graduation, post graduation, professional courses और competitive entrance
+      exams वाले candidates — सब के लिए यहां पर useful education updates publish किए जाते हैं।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Why Students Trust WifiResult Education Updates?</h4>
+    <p>
+      Hum कोशिश करते हैं कि हर education news <strong>official notification, बोर्ड/यूनिवर्सिटी वेबसाइट या exam authority</strong>
+      के आधार पर दी जाए। Simple Hindi+English मिश्रित language में information दी जाती है ताकि हर student आराम से समझ सके।
+      <strong>Application dates, eligibility, exam pattern, syllabus change, result status, counselling schedule</strong> जैसी
+      details को short लेकिन clear points में समझाया जाता है।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Top Education Categories on WifiResult</h4>
+    <p>
+      Board Exams (CBSE, State Boards) • University Admissions • Entrance Exams (JEE, NEET, CUET, etc.) •
+      Syllabus &amp; Exam Pattern • Scholarships &amp; Fellowships • College/University Notices •
+      Academic Calendar &amp; Exam Date Sheets • Result &amp; Marksheet Updates • Counselling &amp; Seat Allotment.
+      <br>
+      Agar aap kisi bhi class ya entrance exam की तैयारी कर रहे हैं, to yeh section aapko
+      <strong>latest official education alerts</strong> के साथ updated रखेगा।
+    </p>
+  </div>
+
+  <div class="edu-highlight">
+    <h4>Important Notice &amp; Disclaimer – WifiResult Education</h4>
+    <p class="edu-disclaimer">
+      WifiResult (<strong>wifiresult.com</strong>) किसी भी शिक्षा बोर्ड, यूनिवर्सिटी, कॉलेज या exam conducting body
+      की <strong>official वेबसाइट नहीं</strong> है। यहां दी गई जानकारी <strong>official websites, press releases,
+      notifications, circulars</strong> और अन्य भरोसेमंद स्रोतों पर आधारित होती है, लेकिन फिर भी किसी भी decision
+      से पहले आपको हमेशा <strong>official portal</strong> पर details verify करनी चाहिए।
+    </p>
+    <p class="edu-disclaimer">
+      <strong>Admission form भरने, fees जमा करने, choice filling, counselling registration, exam city selection,
+      या किसी भी important academic decision</strong> से पहले संबंधित बोर्ड/यूनिवर्सिटी/संस्था की
+      <strong>official website और official PDF notice</strong> को ध्यान से पढ़ें। WifiResult पर दिखाया गया data
+      informational purpose के लिए है, final और legally मान्य जानकारी हमेशा official sources से ही मानी जाएगी।
+    </p>
+    <p class="edu-disclaimer">
+      अगर आपको Education section में <strong>गलत / पुरानी / अधूरी जानकारी</strong> दिखती है, तो आप contact page या
+      feedback के माध्यम से हमें inform कर सकते हैं, ताकि हम उसे जल्द से जल्द update कर सकें।
+      <br>
+      🔖 <strong>Tip:</strong> Agar आप नियमित रूप से admission, syllabus, result और exam news देखते हैं, तो इस
+      <strong>Education</strong> page को bookmark कर लें – taaki <strong>Latest Education News 2025</strong> के लिए
+      बार-बार नई वेबसाइट search न करनी पड़े।
+    </p>
+  </div>
+</section>
+
+</main>
+
+{% endblock content %}
+
+
+
+ 

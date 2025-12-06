@@ -1,0 +1,783 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bank Jobs | IBPS, SBI, RBI & All Bank Vacancies</title>
+<meta name="description" content="Bank Jobs 2026: Get latest IBPS, SBI, RBI, RRB, Clerk, PO, SO, Assistant & Manager vacancies. Find eligibility, exam dates & online application links.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/bank-jobs/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/bank-jobs/">
+<meta property="og:title" content="Bank Jobs | IBPS, SBI, RBI & All Bank Vacancies">
+<meta property="og:description" content="Bank Jobs 2026: Get latest IBPS, SBI, RBI, RRB, Clerk, PO, SO, Assistant & Manager vacancies. Find eligibility, exam dates & online application links.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/bank-jobs/">
+<meta name="twitter:title" content="Bank Jobs | IBPS, SBI, RBI & All Bank Vacancies">
+<meta name="twitter:description" content="Bank Jobs 2026: Get latest IBPS, SBI, RBI, RRB, Clerk, PO, SO, Assistant & Manager vacancies. Find eligibility, exam dates & online application links.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/bank-jobs/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Bank Jobs","item":"{{ request.scheme }}://{{ request.get_host }}/bank-jobs/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/bank-jobs/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/bank-jobs/",
+  "name":"Bank Jobs | IBPS, SBI, RBI & All Bank Vacancies",
+  "headline":"Latest Bank Jobs 2026 – IBPS, SBI, RBI, RRB Clerk & PO Vacancies",
+  "description":"Bank Jobs 2026: Get latest IBPS, SBI, RBI, RRB, Clerk, PO, SO, Assistant & Manager vacancies. Find eligibility, exam dates & online application links.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width":512,
+    "height":512
+  },
+  "inLanguage":"en",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/bank-jobs/#breadcrumb"}
+}
+</script>
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Bank Jobs | IBPS, SBI, RBI & All Bank Vacancies",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span>Bank Job Updates</span>
+    </div>
+  </div>
+  
+   <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest Bank Jobs 2026 – IBPS, SBI, RBI, RRB Clerk & PO Vacancies</h1>
+  </marquee>
+</div>
+
+<style>
+.breaking-news {
+  background: #f8d7da;
+   color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;
+}
+.breaking-news .icon {
+  margin-right: 8px;
+}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;
+}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> Latest Bank Job Updates 2025
+        </div>
+        <ul class="job-list-compact">
+
+            {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई Bank Job लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई Bank Job भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+        </ul>
+ 
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+        {% with latest_results|length as result_count %}
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+           {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+             </div>
+ {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Website Information Section (Bank Jobs Page) -->
+<section class="website-info">
+  <div class="container">
+    <h2>All Bank Jobs 2026 – Latest Banking Recruitment & Exam Updates</h2>
+
+    <div class="info-content">
+      <!-- Latest Bank Notifications -->
+      <div class="info-point">
+        <h3>Latest Bank Job Notifications</h3>
+        <p>
+          At <strong>wifiresult.com</strong>, you will find all the latest and authentic
+          <strong>Bank Recruitment Notifications</strong> published by
+          <strong>IBPS, SBI, RBI, NABARD, RRB (Gramin Banks), Private & Government Sector Banks</strong>.
+          हर पोस्ट में हम vacancy details, important dates, post name और official notification PDF links
+          clearly mention करते हैं, ताकि आपको सही और updated जानकारी मिले.
+        </p>
+      </div>
+
+      <!-- Types of Bank Jobs -->
+      <div class="info-point">
+        <h3>Clerk, PO, SO & Other Bank Posts</h3>
+        <p>
+          This page covers all major <strong>Banking Jobs</strong> like
+          <strong>Clerk, Probationary Officer (PO), Specialist Officer (SO),
+          Assistant, Officer Scale-I/II/III, Office Assistant, Manager, Assistant Manager</strong> आदि.
+          आप अपनी qualification और interest के अनुसार अलग-अलग bank exams को compare और choose कर सकते हैं.
+        </p>
+      </div>
+
+      <!-- Exam Dates & Admit Cards -->
+      <div class="info-point">
+        <h3>Exam Dates, Admit Cards & Results</h3>
+        <p>
+          Stay updated with <strong>Prelims & Mains exam dates, admit card releases,
+          exam center details, score card, cut-off और final result</strong>. हम हर bank exam के लिए
+          <strong>Prelims, Mains, Interview / Language Test</strong> के अलग-अलग stages की updates और
+          direct download links provide करते हैं.
+        </p>
+      </div>
+
+      <!-- Eligibility & Qualification -->
+      <div class="info-point">
+        <h3>Eligibility, Qualification & Age Limit</h3>
+        <p>
+          हर Bank job listing में हम <strong>educational qualification (Graduate / Post Graduate / Professional Degrees),
+          age limit, category-wise age relaxation (SC / ST / OBC / EWS / PH)</strong> clearly लिखते हैं.
+          इससे candidates आसानी से check कर सकते हैं कि वे particular bank exam या पोस्ट के लिए eligible हैं या नहीं.
+        </p>
+      </div>
+
+      <!-- Syllabus & Exam Pattern -->
+      <div class="info-point">
+        <h3>Syllabus, Pattern & Preparation Support</h3>
+        <p>
+          Bank exams के लिए हम <strong>section-wise syllabus (Quant, Reasoning, English, GA, Computer, Banking Awareness),
+          exam pattern, negative marking rules, time management tips</strong> और कभी-कभी
+          <strong>previous year paper links</strong> भी provide करते हैं, ताकि आपकी तैयारी proper दिशा में चल सके.
+        </p>
+      </div>
+
+      <!-- Govt + Private Banking Opportunities -->
+      <div class="info-point">
+        <h3>Government & Private Banking Opportunities</h3>
+        <p>
+          इस पेज पर न केवल <strong>Government / Public Sector Banks</strong> की, बल्कि
+          <strong>selected Private Banks & Financial Institutions</strong> की महत्वपूर्ण vacancies भी list की जाती हैं.
+          जहां भी possible हो, हम pay scale, job location और bond / service conditions की जानकारी भी जोड़ते हैं.
+        </p>
+      </div>
+
+      <!-- One Stop Bank Jobs Portal -->
+      <div class="info-point">
+        <h3>One Stop Bank Jobs & Exam Portal</h3>
+        <p>
+          <strong>wifiresult.com</strong> आपके लिए एक <strong>one stop Bank Jobs portal</strong> की तरह काम करता है,
+          जहां पर आपको <strong>notification, online form, exam date, admit card, answer key / response sheet,
+          cut off, result और final allotment</strong> की updates एक ही जगह पर मिलती हैं – बिना multiple websites पर जाने की ज़रूरत के.
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      यदि आप <strong>Banking Sector</strong> में career बनाना चाहते हैं, तो इस
+      <strong>Bank Jobs</strong> पेज को bookmark कर लें. यहां आपको रोज़ाना updates मिलेंगे
+      <strong>IBPS, SBI, RBI, NABARD, Regional Rural Banks</strong> और अन्य प्रमुख
+      <strong>Bank Jobs</strong> की vacancies, exam dates, admit cards और results के बारे में –
+      सब कुछ एक ही जगह, simple language में.
+    </p>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+  

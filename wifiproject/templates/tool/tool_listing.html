@@ -1,0 +1,137 @@
+
+{% extends "base.html" %}
+ 
+
+{% block seo %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PDF & Online Tools — WifiResult Tools Hub</title>
+<meta name="description" content="Free online PDF tools, compressors, resizers, page cutters and more — browser-based and private. Browse tools, search, and open any tool instantly.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+{% endblock seo %}
+
+{% block style %}
+<style>
+:root{--primary:#0ea5e9;--muted:#6b7280;--card-bg:#fff}
+.tools-wrap{max-width:1200px;margin:22px auto;padding:18px}
+.tools-header{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.tools-search{display:flex;gap:8px;align-items:center}
+.input{padding:10px;border-radius:8px;border:1px solid #e6e9ee;font-size:14px}
+.btn{padding:10px 14px;border-radius:8px;border:none;background:var(--primary);color:#fff;cursor:pointer}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.tool-card{background:var(--card-bg);border-radius:12px;padding:14px;box-shadow:0 8px 24px rgba(2,6,23,.06);display:flex;flex-direction:column;gap:10px}
+.tool-top{display:flex;gap:10px;align-items:center}
+.tool-icon{width:56px;height:56px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#f8fafc;font-weight:700;color:var(--muted);font-size:22px}
+.tool-title{font-size:16px;font-weight:700}
+.tool-desc{font-size:13px;color:var(--muted);flex:1}
+.tool-meta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.pill{background:#f1f5f9;padding:6px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
+.tools-footer{display:flex;justify-content:center;margin-top:20px}
+.pagination{display:flex;gap:6px}
+.page-link{padding:8px 10px;border-radius:8px;border:1px solid #e6e9ee;background:#fff}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+</style>
+{% endblock style %}
+
+{% block content %}
+<main class="tools-wrap">
+  <header class="tools-header">
+    <div>
+      <h1 style="margin:0">PDF & Online Tools Hub</h1>
+      <p class="small" style="margin:6px 0 0;color:var(--muted)">Browse free, browser-based utilities — PDF resizer, compressor, page cutter, image tools, converters and more.</p>
+    </div>
+
+    <div class="tools-search">
+      <form method="get" action="" style="display:flex;gap:8px;align-items:center">
+        <input name="q" class="input" placeholder="Search tools, e.g. 'pdf compress'" value="{{ request.GET.q|default_if_none:'' }}" />
+        <select name="category" class="input">
+          <option value="">All categories</option>
+          {% comment %} <option value="pdf" {% if request.GET.category=='pdf' %}selected{% endif %}>PDF</option>
+          <option value="image" {% if request.GET.category=='image' %}selected{% endif %}>Image</option>
+          <option value="text" {% if request.GET.category=='text' %}selected{% endif %}>Text</option> {% endcomment %}
+        </select>
+        <button class="btn">Search</button>
+      </form>
+    </div>
+  </header>
+
+  {% if tools %}
+  <section class="tools-grid" aria-live="polite">
+    {% for tool in tools %}
+    <article class="tool-card" role="article" aria-labelledby="tool-{{ tool.slug }}">
+      <div class="tool-top">
+        {% if tool.icon %}
+          <img src="{{ tool.icon }}" alt="{{ tool.title }}" class="tool-icon" style="object-fit:cover;" />
+        {% else %}
+          <div class="tool-icon">{{ tool.title|slice:":1"|upper }}</div>
+        {% endif %}
+        <div style="flex:1">
+          <a id="tool-{{ tool.slug }}" class="tool-title" href="{{ tool.get_absolute_url|default:tool.url|default:'#' }}">{{ tool.title }}</a>
+          <div class="tool-desc">{{ tool.short_description|default:tool.description|truncatechars:120 }}</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">{{ tool.category|default:'Utility' }}</span>
+        <span class="small">Updated {{ tool.updated_at|date:"M d, Y" }}</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="{{ tool.get_absolute_url|default:tool.url|default:'#' }}">Open</a>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+
+  {% if page_obj and page_obj.has_other_pages %}
+  <nav class="tools-footer" aria-label="Pagination">
+    <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">Previous</a>
+      {% endif %}
+
+      {% for p in page_obj.paginator.page_range %}
+        {% comment %} {% if page_obj.number == p %} {% endcomment %}
+          <span class="page-link" aria-current="page"><strong>{{ p }}</strong></span>
+        {% comment %} {% elif p <= 2 or p > page_obj.paginator.num_pages-2 or (p >= page_obj.number-2 and p <= page_obj.number+2) %} {% endcomment %}
+          <a class="page-link" href="?page={{ p }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">{{ p }}</a>
+        {% comment %} {% elif forloop.first %} {% endcomment %}
+          <span class="page-link">...</span>
+        {% comment %} {% endif %}   {% endcomment %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">Next</a>
+      {% endif %}
+    </div>
+  </nav>
+  {% endif %}
+
+  {% else %}
+    <div class="empty">
+      <h3>No tools found</h3>
+      <p class="small">Try a different search or check back later — we're adding new tools frequently.</p>
+    </div>
+  {% endif %}
+
+  <!-- JSON-LD Tool list (structured data) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "WifiResult Tools Hub",
+    "itemListElement": [
+      {% for tool in tools|slice:":10" %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ tool.get_absolute_url|default:tool.url|default:'#' }}",
+        "name": "{{ tool.title|escapejs }}",
+        "description": "{{ tool.short_description|default:tool.description|truncatechars:120|escapejs }}"
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+</main>
+{% endblock content %}

@@ -1,0 +1,1539 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>ITI Result – NCVT MIS, SCVT & Govt ITI Results</title>
+  <meta name="description" content=" ITI Result, NCVT MIS, SCVT, Government ITI. Download marksheet, scorecard and view all ITI semester & annual results on Wifi Result.">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/iti-result/">
+  <meta name="author" content="WifiResult Editorial Team">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/iti-result/">
+  <meta property="og:title" content="ITI Result – NCVT MIS, SCVT & Govt ITI Results">
+  <meta property="og:description" content=" ITI Result, NCVT MIS, SCVT, Government ITI. Download marksheet, scorecard and view all ITI semester & annual results on Wifi Result.">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta property="og:image:alt" content="ITI Result – Latest NCVT & SCVT ITI Exam Results">
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:type" content="image/png">
+
+  <meta property="article:published_time" content="{% now 'c' %}">
+  <meta property="article:modified_time" content="{% now 'c' %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/iti-result/">
+  <meta name="twitter:title" content="ITI Result – NCVT MIS, SCVT & Govt ITI Results">
+  <meta name="twitter:description" content=" ITI Result, NCVT MIS, SCVT, Government ITI. Download marksheet, scorecard and view all ITI semester & annual results on Wifi Result.">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="5 minutes" />
+
+  <!-- Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/iti-result/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+      { "@type": "ListItem", "position": 2, "name": "ITI Result", "item": "{{ request.scheme }}://{{ request.get_host }}/iti-result/" }
+    ]
+  }
+  </script>
+
+  <!-- WebPage + CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "CollectionPage"],
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/iti-result/#webpage",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/iti-result/",
+    "name": "ITI Result – NCVT MIS, SCVT & Govt ITI Results",
+    "headline": "Latest ITI Result – NCVT, SCVT, Government & Private ITI Exam Results",
+    "description": " ITI Result, NCVT MIS, SCVT, Government ITI. Download marksheet, scorecard and view all ITI semester & annual results on Wifi Result.",
+    "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "inLanguage": "en",
+    "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/iti-result/#breadcrumb" }
+  }
+  </script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "ITI Result – NCVT MIS, SCVT & Govt ITI Results",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 14px 0;
+    background: linear-gradient(90deg, #fce7f3, #e0f2fe);
+    margin-bottom: 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span.sep {
+    margin: 0 8px;
+    color: #6b7280;
+  }
+
+  /* Hero / Heading strip */
+  .result-hero {
+    background: radial-gradient(circle at top left, #22c55e, #0ea5e9, #6366f1);
+    color: #ffffff;
+    padding: 20px 0;
+  }
+  .result-hero .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .result-hero-left {
+    max-width: 650px;
+  }
+  .result-hero-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .result-hero-title span.badge {
+    background: rgba(15, 23, 42, 0.85);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  .result-hero-sub {
+    margin-top: 6px;
+    font-size: 14px;
+    opacity: 0.95;
+  }
+  .hero-meta {
+    margin-top: 10px;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hero-meta span {
+    background: rgba(15, 23, 42, 0.15);
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .result-hero-right {
+    min-width: 240px;
+  }
+  .hero-card {
+    background: rgba(15, 23, 42, 0.1);
+    border-radius: 14px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+  }
+  .hero-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .hero-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .hero-chip {
+    font-size: 11px;
+    padding: 4px 8px;
+    background: #f9fafb;
+    color: #111827;
+    border-radius: 999px;
+    border: 1px solid rgba(17,24,39,0.08);
+  }
+  .hero-note {
+    font-size: 11px;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .result-hero-title {
+      font-size: 20px;
+    }
+    .result-hero-left {
+      max-width: 100%;
+    }
+  }
+
+  /* Main Content Layout */
+  .main-content {
+    padding: 18px 0 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 300px;
+  }
+  .sidebar {
+    width: 320px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Listing container */
+  .result-card-wrapper {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  }
+  .result-card-header {
+    background: linear-gradient(90deg, #10b981, #3b82f6, #a855f7);
+    padding: 14px 18px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .result-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+  }
+  .result-card-header-left i {
+    font-size: 18px;
+  }
+  .result-card-header-right {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .result-card-header-right span.badge-soft {
+    background: rgba(15,23,42,0.18);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  /* Filter tags (static design) */
+  .filter-strip {
+    background: #f9fafb;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+  }
+  .filter-label {
+    font-weight: 600;
+    color: #4b5563;
+    margin-right: 4px;
+  }
+  .filter-pill {
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px dashed #e5e7eb;
+    background: #ffffff;
+    font-size: 11px;
+    cursor: default;
+  }
+
+  /* Result List */
+  .result-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .result-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.25s ease, transform 0.1s ease;
+  }
+  .result-item:hover {
+    background: #f3f4ff;
+    transform: translateY(-1px);
+  }
+  .result-main {
+    flex: 1;
+  }
+  .result-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .result-title:hover {
+    color: #2563eb;
+  }
+  .result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .result-tag {
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    color: #4b5563;
+  }
+  .result-meta {
+    min-width: 110px;
+    text-align: right;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  .result-meta span.date-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #eff6ff;
+  }
+  .result-meta span.date-pill i {
+    font-size: 11px;
+  }
+
+  @media (max-width: 768px) {
+    .result-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .result-meta {
+      text-align: left;
+      margin-top: 6px;
+    }
+  }
+
+  /* Pagination */
+  .pager-shell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 14px 0;
+  }
+  .pager-inner {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 18px rgba(15,23,42,0.05);
+  }
+  .pager-btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f9fafb, #f3f4f6);
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+    transition: all 0.2s ease;
+  }
+  .pager-btn:hover {
+    background: #e5e7eb;
+  }
+  .pager-current {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(79,70,229,0.35);
+  }
+
+  /* Sidebar cards */
+  .sidebar-card {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+    margin-bottom: 18px;
+  }
+  .sidebar-card-header {
+    background: linear-gradient(90deg, #f97316, #ec4899);
+    color: #ffffff;
+    padding: 12px 14px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sidebar-card-header i {
+    font-size: 16px;
+  }
+  .sidebar-card-body {
+    padding: 12px 14px;
+  }
+  .trend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e5e7eb;
+  }
+  .trend-item:last-child {
+    border-bottom: none;
+  }
+  .trend-number {
+    font-size: 18px;
+    font-weight: 800;
+    color: #9ca3af;
+    min-width: 24px;
+  }
+  .trend-title {
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #111827;
+  }
+  .trend-title:hover {
+    color: #2563eb;
+  }
+  .trend-meta {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+
+  /* Website info section */
+  .website-info {
+    background: radial-gradient(circle at top left, #eff6ff, #ecfdf3);
+    padding: 26px 0 30px 0;
+    margin: 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .website-info h2 {
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  .website-info h2 span {
+    color: #2563eb;
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.04);
+    border: 1px solid #e5e7eb;
+  }
+  .info-point h3 {
+    color: #dc2626;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+  .info-point p {
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .website-info-note {
+    margin-top: 16px;
+    text-align: center;
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span class="sep">›</span>
+      <span>ITI Result</span>
+    </div>
+  </div>
+
+    <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline">ITI Result – NCVT MIS, SCVT & Govt ITI Results</h1>
+  </marquee>
+</div>
+
+<style>
+.breaking-news {
+  background: #f8d7da;
+   color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;
+}
+.breaking-news .icon {
+  margin-right: 8px;
+}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;
+}
+</style>
+
+
+  <!-- Hero / Heading -->
+  <section class="result-hero">
+    <div class="container hero-inner">
+      <div class="result-hero-left">
+        <div class="result-hero-title">
+          <i class="fas fa-tools"></i>
+          <span>ITI Result 2025 – All India NCVT & SCVT Results</span>
+        </div>
+        <p class="result-hero-sub">
+          यहां पर आप <strong>NCVT MIS, SCVT, Government ITI</strong> और विभिन्न ट्रेड (Electrician, Fitter, Welder, COPA, आदि)
+          के <strong>latest ITI exam results</strong> देख सकते हैं। हर नया रिज़ल्ट WifiResult पर तेजी से अपडेट किया जाता है।
+        </p>
+        <div class="hero-meta">
+          <span><i class="far fa-clock"></i> Last updated: {% now "d M Y" %}</span>
+        <a href="{% url "fastjob" %}" class="text-white"> <span><i class="fas fa-bolt"></i> Fast updates</span></a>
+        <a href="{% url 'result' %}" class="text-white"><span><i class="fas fa-download"></i> Direct result links</span></a>
+        </div>
+      </div>
+
+      <div class="result-hero-right">
+        <div class="hero-card">
+          <div class="hero-card-title">Popular Result Categories</div>
+          <div class="hero-chip-row">
+           <a href="{% url 'ncvtmis' %}" class="text-white text-decoration-none">  <div class="hero-chip">NCVT MIS ITI Result</div></a>
+           <a href="{% url 'scvt' %}" class="text-white text-decoration-none">    <div class="hero-chip">SCVT ITI Result</div></a>
+            <a href="{% url 'notification_list' %}" class="text-white text-decoration-none">   <div class="hero-chip">Official Pdf</div></a>
+            <a href="{% url 'home' %}" class="text-white text-decoration-none">   <div class="hero-chip">Home</div></a>
+          </div>
+          <div class="hero-note">
+            Tip: Bookmark this page <strong>(Ctrl + D)</strong> ताकि आप सभी <strong>ITI Result</strong> एक ही जगह देख सकें।
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+
+      <!-- Listing card -->
+      <div class="result-card-wrapper">
+        <div class="result-card-header">
+          <div class="result-card-header-left">
+            <i class="fas fa-clipboard-check"></i>
+            <span>Latest ITI Result Updates</span>
+          </div>
+          <div class="result-card-header-right">
+            <span class="badge-soft"><i class="fas fa-list-ol"></i> Showing {{ page_obj.paginator.count }} results</span>
+          </div>
+        </div>
+
+        <!-- Static filter design (visual only) -->
+        <div class="filter-strip">
+          <span class="filter-label">Filter by:</span>
+          <span class="filter-pill">NCVT MIS</span>
+          <span class="filter-pill">SCVT</span>
+          <span class="filter-pill">Government ITI</span>
+          <span class="filter-pill">Private ITI</span>
+          <span class="filter-pill">All Trades</span>
+        </div>
+
+        <ul class="result-list">
+          {% for post in page_obj %}
+            <li class="result-item">
+              <div class="result-main">
+                <a href="{% url 'result_detail' post.slug %}" class="result-title">
+                  {{ post.title }}
+                </a>
+                <div class="result-tags">
+                  <span class="result-tag"><i class="fas fa-user-graduate"></i> ITI Result</span>
+                  <span class="result-tag"><i class="fas fa-hashtag"></i>WiFiResult</span>
+                </div>
+              </div>
+              <div class="result-meta">
+                <span class="date-pill">
+                  <i class="far fa-calendar-alt"></i>
+                  {{ post.published_date|date:"d M Y" }}
+                </span>
+              </div>
+            </li>
+          {% empty %}
+            <li class="result-item">
+              <div class="result-main">
+                <strong>No ITI result found.</strong>
+                <div class="result-tags">
+                  <span class="result-tag">Check back soon – new results will be updated here.</span>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Pagination -->
+        <div class="pager-shell">
+          <div class="pager-inner">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="pager-btn">← Previous</a>
+            {% endif %}
+
+            <span class="pager-current">{{ page_obj.number }}</span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="pager-btn">Next →</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <!-- Trending Jobs -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">
+          <i class="fas fa-fire"></i>
+          <span>Trending Govt Jobs</span>
+        </div>
+        <div class="sidebar-card-body">
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trend-item">
+                <div class="trend-number">{{ forloop.counter }}</div>
+                <div>
+                  <a href="/latest-jobs/{{ job.slug }}" class="trend-title">{{ job.title }}</a>
+                  <div class="trend-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+              <div class="trend-item">
+                <div class="trend-number">{{ forloop.counter|add:job_count }}</div>
+                <div>
+                  <a href="/admit-card/{{ admitcard.slug }}" class="trend-title">{{ admitcard.title }}</a>
+                  <div class="trend-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+
+      <!-- Govt Updates -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header" style="background: linear-gradient(90deg,#22c55e,#14b8a6);">
+          <i class="fas fa-bell"></i>
+          <span>Quick Govt Updates</span>
+        </div>
+        <div class="sidebar-card-body">
+          {% for govtupdate in latest_govtupdates %}
+            <div class="trend-item">
+              <div class="trend-number">{{ forloop.counter }}</div>
+              <div>
+                <a href="/govt-updates/{{ govtupdate.slug }}" class="trend-title">{{ govtupdate.title }}</a>
+                <div class="trend-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2><span>ITI Result 2025</span> – All India NCVT & SCVT Updates</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>All NCVT & SCVT ITI Results in One Place</h3>
+          <p>
+            <strong>wifiresult.com</strong> पर आप सभी <strong>NCVT MIS, SCVT और Government ITI</strong> के
+            नवीनतम रिज़ल्ट एक ही पेज पर देख सकते हैं। हम अलग-अलग राज्यों के Industrial Training Institutes
+            द्वारा जारी किए गए सभी प्रमुख <strong>ITI परिणाम</strong> को समय पर अपडेट करते हैं।
+          </p>
+        </div>
+        <div class="info-point">
+          <h3>Trade-wise ITI Result Updates</h3>
+          <p>
+            Electrician, Fitter, Welder, Mechanic Diesel, COPA, Plumber और अन्य trades के
+            <strong>semester / annual exam results</strong> की जानकारी यहां regularly अपडेट की जाती है।
+            आप आसानी से अपने trade के अनुसार रिज़ल्ट लिंक ढूंढ सकते हैं।
+          </p>
+        </div>
+        <div class="info-point">
+          <h3>Direct Result Link & Marksheet Download</h3>
+          <p>
+            WifiResult पर दी गई लिंक आपको सीधे official result portal पर ले जाती है, जहां से आप
+            <strong>marksheet, scorecard और certificate</strong> डाउनलोड कर सकते हैं। हम हमेशा
+            authentic और official sources ही शेयर करते हैं।
+          </p>
+        </div>
+        <div class="info-point">
+          <h3>ITI Students के लिए Complete Hub</h3>
+          <p>
+            Result के साथ-साथ हम ITI students के लिए <strong>admit card, exam date, syllabus, admission
+            updates और apprentice jobs</strong> की जानकारी भी साझा करते हैं ताकि आपकी पूरी journey
+            एक ही portal से manage हो सके।
+          </p>
+        </div>
+      </div>
+      <p class="website-info-note">
+        अगर आप ITI का रिज़ल्ट देख रहे हैं, तो इस पेज को <strong>Bookmark</strong> कर लें और रोजाना visit करें।
+        यहां आपको <strong>latest ITI Result 2025, NCVT MIS updates, SCVT state-wise results</strong> और
+        अन्य महत्वपूर्ण जानकारी हमेशा सबसे पहले मिलेगी।
+      </p>
+    </div>
+  </section>
+
+{% endblock content %}
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>wifiresult.com - Government Jobs, Results and Vacancy Notifications</title>
+<meta name="description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="keywords" content="Sarkari Result, WifiResult, Govt Jobs, Admit Card, Result, Answer Key, Sarkari Exam, Online Form, Latest Vacancy 2025, Government Jobs">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="author" content="WifiResult Editorial Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta http-equiv="Content-Language" content="en">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta property="og:title" content="wifiresult.com - Government Jobs, Results and Vacancy Notifications">
+<meta property="og:description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="twitter:title" content="wifiresult.com - Government Jobs, Results and Vacancy Notifications">
+<meta name="twitter:description" content="Get Sarkari Result 2025, Latest Govt Jobs, Admit Cards, Results & Answer Keys. Stay updated with WifiResult for fast and accurate job alerts daily.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/logo/images/wifiresult-logo.png">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="7 minutes" />
+
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Board Results", "item": "{{ request.scheme }}://{{ request.get_host }}/board-result/" }
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/board-result/",
+  "name": "Board Results 2025 | CBSE, UP Board, Bihar Board, MP Board – WifiResult",
+  "headline": "Latest Board Results 2025 – High School, Intermediate & Class 12 Results",
+  "description": "Check all India board exam results including CBSE, UP Board, Bihar Board, MP Board, and other state education boards. Download marksheets and scorecards instantly on WifiResult.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/images/board-result-og.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "inLanguage": "en",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#breadcrumb" }
+}
+</script>
+
+<!--ItemList — Latest Govt Jobs (section)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#results-list",
+  "name": "Latest Board Exam Results 2025",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": 10,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Thing",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}/result/up-board-10th-2025/",
+        "name": "UP Board 10th Result 2025 – Check Marks & Scorecard"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Thing",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}/result/cbse-12th-2025/",
+        "name": "CBSE Class 12 Result 2025 – Download Marksheet"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Thing",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}/result/bihar-board-10th-2025/",
+        "name": "Bihar Board 10th Result 2025 – Sarkari Result Link"
+      }
+    }
+  ]
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#">Home</a>
+      <span>&gt;</span>
+      <span>ITI Result</span>
+    </div>
+  </div>
+
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline">ITI Result</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+   color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i>ITI Result
+        </div>
+        <ul class="job-list-compact p-0">
+          
+  {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'result_detail' post.slug %}" class="job-title">{{ post.title }}a</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+  {% endfor %}
+ <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %} 
+          
+        </ul>
+        
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+          
+            {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+           
+  {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+            <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>All Government Jobs 2025 – Latest Sarkari Naukri Updates</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>Latest Job Notifications</h3>
+          <p>At <strong>wifiresult.com</strong>, you will find the most recent and authentic government job notifications published by UPSC, SSC, IBPS, Railway Recruitment Boards, Defence Forces, Police Departments, and various State Governments. We provide daily updates so you never miss an important opportunity.</p>
+        </div>
+        <div class="info-point">
+          <h3>Exam Dates & Admit Cards</h3>
+          <p>Stay updated with upcoming <strong>Sarkari Exam Dates</strong>, admit card releases, and important schedules. Whether it’s SSC CGL, Railway NTPC, IBPS Clerk, or UPSC Civil Services, we provide timely alerts and direct download links for admit cards and timetables.</p>
+        </div>
+        <div class="info-point">
+          <h3>Syllabus & Answer Keys</h3>
+          <p>Our job page also covers complete exam <strong>syllabus PDFs, previous year papers</strong>, and official answer keys released after exams. This helps candidates prepare effectively with the right resources and strategies.</p>
+        </div>
+        <div class="info-point">
+          <h3>For Freshers & Experienced</h3>
+          <p>We list jobs suitable for <strong>10th pass, 12th pass, graduates, diploma holders, engineers, MBAs, and experienced professionals</strong>. No matter your qualification, you can easily explore the opportunities that fit your profile.</p>
+        </div>
+        <div class="info-point">
+          <h3>One Stop Sarkari Naukri Portal</h3>
+          <p><strong>wifiresult.com</strong> is your one-stop destination for <strong>Latest Government Jobs 2025</strong>. From notifications to results, admit cards, cutoffs, and merit lists, we ensure you have all the information in one place without the need to visit multiple portals.</p>
+        </div>
+      </div>
+      <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+        Our mission is to help millions of aspirants achieve their dream of securing a <strong>Government Job (Sarkari Naukri)</strong>. Bookmark this page to get daily updates on <strong>Central Government Jobs, State Government Vacancies, Railway Jobs, Bank Jobs, Teaching Jobs, Defence Recruitment</strong>, and more.
+      </p>
+    </div>
+  </section>
+
+
+
+  {% endblock content %}
+   {% endcomment %}

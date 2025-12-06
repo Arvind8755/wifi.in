@@ -1,0 +1,402 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PDF Resizer & Page Cutter — Resize, Compress and Extract Pages</title>
+<meta name="description" content="Resize PDF pages, cut/extract page ranges, and optionally compress to a target KB — client-side, fast, and private.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/pdf-resizer">
+{% endblock seo %}
+
+{% block style %}
+<style>
+:root{ --primary:#0ea5e9; --accent:#ef4444; --muted:#6b7280; }
+.container{max-width:980px;}
+.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(2,6,23,.06)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.input-row{display:flex;gap:8px;align-items:center}
+label{font-size:13px;color:var(--muted)}
+input,select,button{padding:10px;border-radius:8px;border:1px solid #e6e9ee;font-size:14px}
+button.primary{background:linear-gradient(90deg,var(--primary),#06b6d4);color:#fff;border:none}
+.preview{border:1px dashed #e6e9ee;padding:12px;border-radius:8px;margin-top:12px}
+.small{font-size:12px;color:var(--muted)}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.progress{width:100%;height:10px;background:#f1f5f9;border-radius:10px;overflow:hidden}
+.progress > i{display:block;height:100%;background:linear-gradient(90deg,#06b6d4,#7c3aed);width:0%}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5f9;color:var(--muted)}
+code{background:#f8fafc;padding:2px 6px;border-radius:4px;font-size:13px}
+.footer-note{font-size:13px;color:var(--muted);margin-top:8px}
+
+.main-nav a {
+ 
+    padding: 5px 10px;
+   
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<main class="container">
+  <div class="card">
+    <h1 style="font-size:22px;">PDF Resizer & Page Cutter – Resize, Compress and Extract PDF Pages Online</h1>
+
+    <p class="small">Upload a PDF, choose pages or ranges to extract, set a custom page size or scale, and optionally target an approximate file size in KB (client-side). This improved version preserves vector/vectorized content when possible — so quality won't degrade for normal use.</p>
+
+    <div style="margin-top:12px" class="row">
+      <div style="flex:1;min-width:280px">
+        <label for="pdfFile">Select PDF file</label>
+        <input id="pdfFile" type="file" accept="application/pdf" />
+        <div class="small" style="margin-top:6px">Max file size depends on browser memory — big files may be slow. All processing happens in your browser.</div>
+      </div>
+
+      <div style="min-width:220px">
+        <label for="langToggle">Language</label><br>
+        <button id="langToggle" class="badge">EN</button>
+      </div>
+    </div>
+
+    <hr style="margin:12px 0">
+
+    <div class="controls">
+      <div>
+        <label for="pageRange">Pages to keep / cut (e.g. 1-3,5,7-)</label>
+        <input id="pageRange" placeholder="e.g. 1-5 or 2,4,6-8 or 3-" />
+        <div class="small">Leave empty to keep all pages.</div>
+      </div>
+
+      <div>
+        <label for="resizeMode">Resize Mode</label>
+        <select id="resizeMode">
+          <option value="scale">Scale (%)</option>
+          <option value="custom">Custom size (mm)</option>
+          <option value="fitA4">Fit to A4</option>
+          <option value="fitLetter">Fit to Letter</option>
+        </select>
+      </div>
+
+      <div id="scaleWrap">
+        <label for="scalePct">Scale percentage</label>
+        <input id="scalePct" type="number" min="10" max="300" value="100" />
+        <div class="small">100 = original size, 50 = half size, 200 = double size.</div>
+      </div>
+
+      <div id="customSizeWrap" style="display:none">
+        <label>Custom width × height (mm)</label>
+        <div class="input-row"><input id="customW" type="number" placeholder="width mm" /><input id="customH" type="number" placeholder="height mm" /></div>
+        <div class="small">Enter target physical page size (in millimeters). Resizing to custom size will rasterize pages.</div>
+      </div>
+
+      <div>
+        <label for="targetKb">Target size (KB) — optional</label>
+        <input id="targetKb" type="number" min="10" placeholder="e.g. 200" />
+        <div class="small">If set, tool will try to compress output. First attempt preserves original PDF structure (best quality). If still large, it falls back to image-based compression (may rasterize pages).</div>
+      </div>
+
+      <div>
+        <label for="imgQuality">Starting image quality (0.1 - 1)</label>
+        <input id="imgQuality" type="number" step="0.05" min="0.1" max="1" value="0.9" />
+        <div class="small">Only used if image-based compression is required. Lower quality = more compression.</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:12px; display:flex;gap:8px;flex-wrap:wrap">
+      <button id="processBtn" class="primary">Process PDF</button>
+      <button id="downloadBtn" style="display:none">Download Result</button>
+      <div style="flex:1"></div>
+      <div class="small">Pages extracted: <span id="pageCount">0</span></div>
+    </div>
+
+    <div class="preview" id="previewArea" aria-live="polite" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>Preview</strong>
+        <div class="small">Approx size: <span id="approxSize">—</span></div>
+      </div>
+      <div id="thumbs" style="display:flex;gap:8px;overflow:auto;margin-top:8px"></div>
+      <div style="margin-top:10px">
+        <div class="progress"><i id="progressBar"></i></div>
+      </div>
+    </div>
+
+    <div class="footer-note">Note: This runs entirely in your browser — PDF is not uploaded anywhere. For highest quality, avoid custom resizing and keep scale at 100%.</div>
+<br>
+   <!-- Information / How to use section -->
+    <section class="website-info" aria-labelledby="tool-info-title" style="margin-top:10px">
+      <h3 id="tool-info-title">यह टूल कैसे काम करता है — How this tool works</h3>
+      <div class="info-content">
+        <p class="small"><strong>उद्देश्य (Purpose):</strong> यह टूल आपके ब्राउज़र में ही PDF को तेज़ी से काटना (extract pages), आकार बदलना (resize/scale), और आवश्यकता पड़ने पर साइज कम करना (compress) करता है। यह पहले कोशिश करता है कि PDF की टेक्स्ट और वेक्टर क्वालिटी बरकरार रहे — केवल तभी पृष्ठों को इमेज में बदलकर (rasterize) कम किया जाता है जब लक्ष्य आकार पाने के लिए यह आवश्यक हो।</p>
+
+        <p class="small"><strong>शुरू करने के चरण (Quick start):</strong></p>
+        <ol class="small">
+          <li>"Select PDF file" से अपनी PDF अपलोड करें — सब प्रोसेसिंग आपके ब्राउज़र में होगी (कोई सर्वर पर नहीं)।</li>
+          <li>"Pages to keep / cut" में पन्नों की रेंज लिखें — उदाहरण: <code>1-5</code>, <code>2,4,7-</code> (अंत तक) या खाली छोड़ दें सभी पेज के लिए।</li>
+          <li>"Resize Mode" चुनें — <em>Scale (%)</em> सामान्यतः सुरक्षित है; <em>Fit to A4/Letter</em> या <em>Custom</em> चुनने पर पृष्ठ रैस्टराइज़ हो सकते हैं।</li>
+          <li>यदि आप कुल फ़ाइल साइज कम करना चाहते हैं तो "Target size (KB)" डालें। पहले टूल संरचना (text/vector) बरकरार रखने का प्रयास करेगा; अगर फ़ाइल फिर भी बड़ी रही तो इमेज‑आधारित कम्प्रेशन लागू होगा।</li>
+          <li>"Process PDF" दबाएँ — तैयार होने पर "Download Result" दिखेगा।</li>
+        </ol>
+
+        <p class="small"><strong>मुख्य विकल्पों का अर्थ (Key options explained):</strong></p>
+        <ul class="small">
+          <li><strong>Scale (%):</strong> मूल आकार का अनुपात — 100 = वही आकार, 50 = आधा, 200 = दोगुना।</li>
+          <li><strong>Custom size (mm):</strong> पेज का लक्ष्य आकार — इस ऑप्शन पर पृष्ठों को रैस्टराइज़ किया जा सकता है (vector → image)।</li>
+          <li><strong>Target size (KB):</strong> यदि निर्धारित किया जाए तो टूल पहले वर्कफ़्लो में टेक्स्ट/वेक्टर को बनाये रखने की कोशिश करेगा; फिर भी बड़ा होने पर इमेज‑बेस्ड रिसाइज़ और iterative JPEG कम्प्रेशन करेगा।</li>
+          <li><strong>Starting image quality:</strong> रैस्टर/इमेज fallback के लिए उपयोग होगा — 0.9 अच्छा क्वालिटी/कमप्रेशन संतुलन है, 0.5 तेज़ और छोटा रिज़ल्ट देगा लेकिन गुणवत्ता घटेगी।</li>
+        </ul>
+
+        <p class="small"><strong>Best practices / सुझाव:</strong></p>
+        <ul class="small">
+          <li>यदि आप टेक्स्ट की readability और vector quality रखना चाहते हैं, तो <em>Scale = 100%</em> रखें और <em>Target size</em> खाली छोड़ें।</li>
+          <li>केवल पृष्ठ निकालें (cut) करने से अक्सर साइज काफी कम हो जाती है — पहले अनप्रयुक्त पेज हटाकर देखें।</li>
+          <li>A4 या Letter में फिट करने की आवश्यकता हो तो ध्यान रखें कि कभी‑कभी यह rasterization को ट्रिगर कर सकता है — अगर मूल PDF already standard sizes में है तो avoid करें।</li>
+          <li>बहुत छोटा Target (उदाहरण: < 100 KB) माँगने पर परिणाम rasterized होगा और कुछ loss होगा — बैलेंस चुनें (200–500 KB आमतौर पर अच्छा है)।</li>
+        </ul>
+
+        <p class="small"><strong>Privacy & limitations:</strong> यह टूल क्लाइंट‑साइड है — PDF आपकी मशीन से बाहर नहीं भेजा जाता। बड़े PDF (50+ MB) ब्राउज़र मेमोरी के कारण धीमे/क्रैश कर सकते हैं। कुछ जटिल PDF (विशेष रूप से heavily encrypted या DRM-protected) सपोर्ट नहीं हो सकते।</p>
+
+        <p class="small"><strong>Troubleshooting:</strong></p>
+        <ul class="small">
+          <li>"Failed to load PDF" आए तो फ़ाइल ठीक से नहीं पढ़ी गई — PDF corrupt या ब्राउज़र ने ब्लॉब पढ़ने में समस्या हो सकती है।</li>
+          <li>यदि आउटपुट बहुत बड़ा है तो पहले अनावश्यक पन्ने हटाएँ; फिर target KB सेट करें और moderate image quality चुनें।</li>
+          <li>यदि आउटपुट में बहुत खराब क्वालिटी दिखे और आपने target KB सेट किया था, तो target बढ़ा दें या image quality बढ़ा कर दोबारा कोशिश करें।</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  
+</main>
+
+<!-- Libraries: pdf.js to render (fallback), jsPDF for image fallback, pdf-lib to preserve PDF structure -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<script>
+(function(){
+  const $ = id=>document.getElementById(id);
+  const pdfFile = $('pdfFile');
+  const pageRange = $('pageRange');
+  const resizeMode = $('resizeMode');
+  const scalePct = $('scalePct');
+  const customSizeWrap = $('customSizeWrap');
+  const customW = $('customW');
+  const customH = $('customH');
+  const targetKb = $('targetKb');
+  const imgQuality = $('imgQuality');
+  const processBtn = $('processBtn');
+  const downloadBtn = $('downloadBtn');
+  const previewArea = $('previewArea');
+  const thumbs = $('thumbs');
+  const progressBar = $('progressBar');
+  const pageCount = $('pageCount');
+  const approxSize = $('approxSize');
+  const langToggle = $('langToggle');
+
+  let pdfBytes = null, pdfDoc = null, pdfJsDoc = null, pageNums = [];
+  const { PDFDocument } = PDFLib;
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js';
+
+  resizeMode.addEventListener('change', ()=>{
+    const v = resizeMode.value;
+    if(v==='custom') customSizeWrap.style.display='block'; else customSizeWrap.style.display='none';
+    if(v==='scale') document.getElementById('scaleWrap').style.display='block'; else document.getElementById('scaleWrap').style.display='none';
+  });
+
+  langToggle.addEventListener('click', ()=>{ langToggle.textContent = langToggle.textContent==='EN' ? 'हिंदी' : 'EN'; });
+
+  pdfFile.addEventListener('change', async (e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    pdfBytes = await f.arrayBuffer();
+    try{
+      pdfJsDoc = await pdfjsLib.getDocument({data:pdfBytes}).promise;
+      pageCount.textContent = pdfJsDoc.numPages;
+      alert('Loaded PDF — '+pdfJsDoc.numPages+' pages');
+    }catch(err){ console.error(err); alert('Failed to load PDF: '+err.message); }
+  });
+
+  function parseRange(str, total){
+    if(!str) return Array.from({length:total}, (_,i)=>i+1);
+    const parts = str.split(',').map(s=>s.trim()).filter(Boolean);
+    const pages = new Set();
+    for(const p of parts){
+      if(p.includes('-')){
+        const [a,b] = p.split('-').map(x=>x.trim());
+        const from = a? parseInt(a,10):1; const to = b? parseInt(b,10):total;
+        if(Number.isNaN(from) || Number.isNaN(to)) continue;
+        for(let i=Math.max(1,from); i<=Math.min(total,to); i++) pages.add(i);
+      } else {
+        const n = parseInt(p,10); if(!Number.isNaN(n) && n>=1 && n<=total) pages.add(n);
+      }
+    }
+    const arr = Array.from(pages).sort((a,b)=>a-b);
+    return arr.length?arr:Array.from({length:total}, (_,i)=>i+1);
+  }
+
+  function mmToPt(mm){ return mm * 2.834645669; }
+
+  // Helper to show thumbnails (used when we rasterize)
+  function showThumb(blob){ const imgEl = document.createElement('img'); imgEl.src = URL.createObjectURL(blob); imgEl.style.height='120px'; imgEl.style.objectFit='contain'; imgEl.style.border='1px solid #eee'; imgEl.style.borderRadius='6px'; thumbs.appendChild(imgEl); }
+
+  async function buildPdf_preserve(originalBytes, pagesToKeep){
+    // Try to preserve original PDF content (vector/text) by copying pages using pdf-lib.
+    const srcDoc = await PDFDocument.load(originalBytes);
+    const outDoc = await PDFDocument.create();
+    const copied = await outDoc.copyPages(srcDoc, pagesToKeep.map(p=>p-1));
+    copied.forEach(p=> outDoc.addPage(p));
+    const outBytes = await outDoc.save();
+    return new Blob([outBytes], {type:'application/pdf'});
+  }
+
+  async function buildPdf_transform(originalBytes, pagesToKeep, options){
+    // For scaling or custom sizes we embed each source page as XObject and draw scaled on new page.
+    const srcDoc = await PDFDocument.load(originalBytes);
+    const outDoc = await PDFDocument.create();
+    const srcPages = await outDoc.copyPages(srcDoc, pagesToKeep.map(p=>p-1));
+    for(let i=0;i<srcPages.length;i++){
+      const src = srcPages[i];
+      // Determine target size in points
+      let targetWpt = src.getWidth(); let targetHpt = src.getHeight();
+      if(options.mode==='scale'){
+        const s = (parseFloat(options.scale||100)/100);
+        targetWpt = src.getWidth()*s; targetHpt = src.getHeight()*s;
+      } else if(options.mode==='fitA4'){
+        targetWpt = 595; targetHpt = 842;
+      } else if(options.mode==='fitLetter'){
+        targetWpt = 612; targetHpt = 792;
+      } else if(options.mode==='custom'){
+        targetWpt = mmToPt(options.customW||210); targetHpt = mmToPt(options.customH||297);
+      }
+      const page = outDoc.addPage([targetWpt, targetHpt]);
+      // Draw the original page onto new page preserving content — using 'drawPage' is not directly available on copied pages.
+      // Workaround: convert the source page to an embedded PDF page and draw as form XObject by embedding PDF of single page.
+      // pdf-lib doesn't provide a direct API to draw a page onto another page while scaling; but we can embed the whole page as an XObject by embedding the original doc.
+      const single = await PDFDocument.create();
+      const [p] = await single.copyPages(srcDoc, [pagesToKeep[i]-1]);
+      single.addPage(p);
+      const singleBytes = await single.save();
+      const embeddedPdf = await outDoc.embedPdf(singleBytes);
+      const embeddedPage = embeddedPdf[0];
+      const scaleX = targetWpt / embeddedPage.width;
+      const scaleY = targetHpt / embeddedPage.height;
+      const scale = Math.min(scaleX, scaleY);
+      page.drawPage(embeddedPage, { x: 0, y: targetHpt - embeddedPage.height * scale, xScale: scale, yScale: scale });
+    }
+    const outBytes = await outDoc.save();
+    return new Blob([outBytes], {type:'application/pdf'});
+  }
+
+  // Fallback: rasterize pages and rebuild with jsPDF (used only when preserve attempt fails to meet target KB)
+  async function rasterCompressAndBuildPdf(pagesToKeep, quality){
+    thumbs.innerHTML='';
+    const images = [];
+    for(let i=0;i<pagesToKeep.length;i++){
+      const page = await pdfJsDoc.getPage(pagesToKeep[i]);
+      const vp = page.getViewport({scale:1});
+      // Render at a modest scale to keep quality but reduce size: if original page is big, reduce scale
+      const renderScale = Math.min(1.5, Math.max(0.7, 1));
+      const canvas = document.createElement('canvas');
+      const scaledVp = page.getViewport({scale: renderScale});
+      canvas.width = Math.round(scaledVp.width);
+      canvas.height = Math.round(scaledVp.height);
+      const ctx = canvas.getContext('2d');
+      await page.render({ canvasContext: ctx, viewport: scaledVp }).promise;
+      const blob = await new Promise(res=> canvas.toBlob(res, 'image/jpeg', quality));
+      images.push({blob, width:canvas.width, height:canvas.height});
+      showThumb(blob);
+      progressBar.style.width = Math.round(((i+1)/pagesToKeep.length)*100)+'%';
+    }
+    // build pdf from images using jsPDF
+    const { jsPDF } = window.jspdf;
+    const px2pt = 0.75;
+    const doc = new jsPDF({ unit:'pt', format:[images[0].width*px2pt, images[0].height*px2pt] });
+    for(let i=0;i<images.length;i++){
+      const im = images[i];
+      const dataUrl = await blobToDataURL(im.blob);
+      const imgW = im.width*px2pt; const imgH = im.height*px2pt;
+      if(i>0) doc.addPage([imgW, imgH]);
+      doc.addImage(dataUrl, 'JPEG', 0, 0, imgW, imgH, undefined, 'FAST');
+    }
+    const out = doc.output('blob');
+    return out;
+  }
+
+  function blobToDataURL(blob){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload = ()=> res(r.result); r.onerror=rej; r.readAsDataURL(blob); }); }
+
+  processBtn.addEventListener('click', async ()=>{
+    processBtn.disabled=true; processBtn.textContent='Processing...';
+    try{
+      if(!pdfJsDoc){ alert('Please load a PDF first'); return; }
+      const total = pdfJsDoc.numPages;
+      const pagesToKeep = parseRange(pageRange.value, total);
+      previewArea.style.display='block'; thumbs.innerHTML=''; approxSize.textContent='—'; progressBar.style.width='0%';
+
+      // First attempt: preserve original structure (no raster) if possible
+      let finalBlob = null;
+      try{
+        const preserved = await buildPdf_preserve(pdfBytes, pagesToKeep);
+        approxSize.textContent = Math.round(preserved.size/1024)+' KB (preserved)';
+        // If user specified a target and preserved is larger, we'll try to shrink further below
+        finalBlob = preserved;
+      } catch(e){ console.warn('Preserve attempt failed, falling back to transform or raster approach', e); }
+
+      const target = parseInt(targetKb.value,10) || null;
+      const scaleMode = resizeMode.value;
+      const scaleVal = parseFloat(scalePct.value||100);
+      const customWval = parseFloat(customW.value||0);
+      const customHval = parseFloat(customH.value||0);
+
+      // If user requested resizing (scale != 100 or fit/custom), do transform attempt (may preserve vectors better than full raster)
+      const needsTransform = (scaleMode!=='scale' && scaleMode!=='') || (scaleMode==='scale' && Math.abs(scaleVal-100)>0.001) || (scaleMode==='custom');
+      if(needsTransform){
+        try{
+          const transformed = await buildPdf_transform(pdfBytes, pagesToKeep, { mode: scaleMode, scale: scaleVal, customW: customWval, customH: customHval });
+          finalBlob = transformed;
+          approxSize.textContent = Math.round(finalBlob.size/1024)+' KB (transformed)';
+        }catch(err){ console.warn('Transform failed, will attempt preserve or raster fallback', err);
+        }
+      }
+
+      // If target KB provided and finalBlob is larger than target, try to reduce.
+      if(target && finalBlob && Math.round(finalBlob.size/1024) > target){
+        // Try metadata stripping (rebuild preserve to remove incremental updates) — we've already used pdf-lib save which is compact.
+        // If still large, fallback to raster compression with iterative JPEG quality reduction.
+        let currentSizeKB = Math.round(finalBlob.size/1024);
+        if(currentSizeKB <= target){ /* ok */ }
+        else {
+          // Raster fallback
+          let q = Math.max(0.1, parseFloat(imgQuality.value)||0.9);
+          for(let attempt=0; attempt<7; attempt++){
+            const out = await rasterCompressAndBuildPdf(pagesToKeep, q);
+            const sizeKB = Math.round(out.size/1024);
+            approxSize.textContent = sizeKB + ' KB (raster q='+q.toFixed(2)+')';
+            if(sizeKB <= target || q <= 0.15){ finalBlob = out; break; }
+            q = Math.max(0.15, q * 0.7);
+          }
+        }
+      }
+
+      // If no finalBlob assigned yet (e.g. preserve failed but no transform), attempt transform with default.
+      if(!finalBlob){
+        try{ finalBlob = await buildPdf_transform(pdfBytes, pagesToKeep, { mode:'scale', scale:100 }); }
+        catch(e){ console.warn(e); finalBlob = await rasterCompressAndBuildPdf(pagesToKeep, Math.max(0.1, parseFloat(imgQuality.value)||0.9)); }
+      }
+
+      outputBlob = finalBlob;
+      downloadBtn.style.display = 'inline-block';
+      downloadBtn.onclick = ()=>{ const a=document.createElement('a'); a.href = URL.createObjectURL(outputBlob); a.download = 'pdf-resized-'+Date.now()+'.pdf'; a.click(); };
+
+      alert('Processing complete — click Download Result to save. If you requested a low target size and the result was rasterized, some quality loss may be visible. For best quality keep scale=100 and avoid target size.' );
+
+    }catch(err){ console.error(err); alert('Error: '+err.message); }
+    finally{ processBtn.disabled=false; processBtn.textContent='Process PDF'; }
+  });
+
+})();
+</script>
+
+{% endblock content %}
