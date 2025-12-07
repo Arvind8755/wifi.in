@@ -31,8 +31,8 @@ SECRET_KEY = 'django-insecure-q(3djmhgp52&yzedeikg415exg5p1@a-lk!_3%9jxh6s1sw5^7
 
 
 # PING_ALWAYS = True 
-DEBUG = True
-# DEBUG = False   # 404 template तभी दिखेगा जब DEBUG=False हो
+# DEBUG = True
+DEBUG = False   # 404 template तभी दिखेगा जब DEBUG=False हो
 SITE_ID = 1  
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", '192.168.1.4', "www.wifiresult.com", "wifiresult.com"]
 # ALLOWED_HOSTS = ['10.12.125.253']

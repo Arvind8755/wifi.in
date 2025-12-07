@@ -692,7 +692,7 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for result in results %}
-            <li><a href="/results/{{result.slug}}">SS {{result.title}}</a></li>
+            <li><a href="/results/{{result.slug}}/">SS {{result.title}}</a></li>
             {% endfor %}
             
             <li><a href="{% url 'result' %}">View All Results <i class="fas fa-arrow-right"></i></a></li>
@@ -707,7 +707,7 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for admitcard in admitcards %}
-            <li><a href="/admit-card/{{admitcard.slug}}">{{admitcard.title}}</a></li>
+            <li><a href="/admit-card/{{admitcard.slug}}/">{{admitcard.title}}</a></li>
             {% endfor %}
             
             <li><a href="{% url 'admitcard' %}">View All AdmitCards <i class="fas fa-arrow-right"></i></a></li>
@@ -723,7 +723,7 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for govtupdate in govtupdates %}
-            <li><a href="govt-updates/{{govtupdate.slug}}">{{govtupdate.title}}</a></li>
+            <li><a href="govt-updates/{{govtupdate.slug}}/">{{govtupdate.title}}</a></li>
             {% endfor %}
             
             <li><a href="{% url 'govtupdates' %}">View All Govt Updatess <i class="fas fa-arrow-right"></i></a></li>
