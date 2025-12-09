@@ -20,11 +20,11 @@
 <meta property="og:image:alt" content="{{ jobs.image_alt }}">
 <meta property="og:image:type" content="image/webp">
 {% else %}
-<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
-<meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
 {% endif %}
 <meta property="og:updated_time" content="{{ jobs.published_date|date:'c' }}">
 <meta property="article:published_time" content="{{ jobs.published_date|date:'c' }}">
@@ -40,7 +40,7 @@
 {% if jobs.image %}
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}">
 {% else %}
-<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 {% endif %}
 <meta name="twitter:site" content="@WifiResult" />
 <meta name="twitter:creator" content="@arvindpal" />
@@ -133,9 +133,9 @@
     "width": {{ jobs.image.width }},
     "height": {{ jobs.image.height }}
     {% else %}
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
-    "width": 512,
-    "height": 512
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
     {% endif %}
 
 
