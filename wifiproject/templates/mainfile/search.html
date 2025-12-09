@@ -2,9 +2,6 @@
 {% load static %}
 
 {% block seo %} 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Search Results for {{ request.GET.q|default:'Govt Jobs' }} – WifiResult.com</title>
 <meta name="description" content="Find all results related to '{{ request.GET.q|default:'Latest Government Jobs 2026' }}' including Sarkari Jobs, Results, Admit Cards, and official updates on WifiResult.">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/search/">
