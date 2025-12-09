@@ -9,11 +9,9 @@
 <meta name="description" content="{{ notification.description }}">
 <meta name="keywords" content="{{ notification.keywords }}">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}">
-<meta name="author" content="{{ notification.author|striptags }}">
-
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="article"/>
 <meta property="og:site_name" content="WifiResult">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}">
 <meta property="og:title" content="{{ notification.title }}">
@@ -26,6 +24,7 @@
 <meta property="og:updated_time" content="{{ notification.published_date|date:'c' }}">
 <meta property="article:published_time" content="{{ notification.published_date|date:'c' }}">
 <meta property="article:modified_time" content="{{ notification.published_date|date:'c' }}">
+<meta name="author" content="{{ notification.author|striptags }}">
 
 
 <!-- Twitter Card -->
