@@ -13,7 +13,8 @@
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.get_absolute_url }}">
 <meta property="og:title" content="{{govtupdates.title}}">
 <meta property="og:description" content="{{govtupdates.description}}">
-{% comment %} <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.image.url }}"> {% endcomment %}
+<meta itemprop="name" content="{{ govtupdates.title }}"/>
+<meta itemprop="description" content="{{ govtupdates.description }}"/>
 {% if govtupdates.image %}
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.image.url }}">
 <meta property="og:image:width" content="{{ govtupdates.image.width }}">
@@ -40,7 +41,7 @@
 {% if govtupdates.image %}
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.image.url }}">
 {% else %}
-<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
 {% endif %}
 <meta name="twitter:site" content="@WifiResult" />
 <meta name="twitter:creator" content="@arvindpal" />
@@ -93,6 +94,7 @@
     "width": 1200,
     "height": 675
   },
+  {% endif %}
   "inLanguage": "en-IN",
   "datePublished":"{{ govtupdates.published_date|date:'c' }}",
   "dateModified":"{{ govtupdates.published_date|date:'c' }}"

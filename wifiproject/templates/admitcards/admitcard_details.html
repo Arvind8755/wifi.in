@@ -13,6 +13,8 @@
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ admitcards.get_absolute_url }}">
 <meta property="og:title" content="{{ admitcards.title }}">
 <meta property="og:description" content="{{ admitcards.description }}">
+<meta itemprop="name" content="{{ admitcards.title }}"/>
+<meta itemprop="description" content="{{ admitcards.description }}"/>
 {% if admitcards.image %}
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ admitcards.image.url }}">
 <meta property="og:image:alt" content="{{ admitcards.image_alt }}">

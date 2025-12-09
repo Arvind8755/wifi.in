@@ -5101,8 +5101,8 @@ def wbpsc_jobs(request):
     ).order_by("-published_date")[:5]
   return render(request, 'psc/wbpsc_jobs.html',  {"posts": qs, "page_obj":page_obj, "latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,"latest_posts": jobs_westbengal,} )
 
-# def custom_404(request, exception=None):
-#     return redirect("/")  # Home page par redirect
+def custom_404(request, exception=None):
+     return redirect("/")  # Home page par redirect
 
 # 500 error page
 

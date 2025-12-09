@@ -13,7 +13,8 @@
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ results.get_absolute_url }}">
 <meta property="og:title" content="{{ results.title }}">
 <meta property="og:description" content="{{ results.description }}">
-
+<meta itemprop="name" content="{{ results.title }}"/>
+<meta itemprop="description" content="{{ results.description }}"/>
 {% if results.image %}
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ results.image.url }}">
 <meta property="og:image:alt" content="{{ results.image_alt }}">

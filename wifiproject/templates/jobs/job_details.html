@@ -13,6 +13,8 @@
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}">
 <meta property="og:title" content="{{ jobs.title }}">
 <meta property="og:description" content="{{ jobs.description }}">
+<meta itemprop="name" content="{{ jobs.title }}"/>
+<meta itemprop="description" content="{{ jobs.description }}"/>
 {% if jobs.image %}
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}">
 <meta property="og:image:width" content="{{ jobs.image.width }}">
