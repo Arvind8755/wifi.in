@@ -8,8 +8,6 @@
 <title>Free Job Alert | Govt Jobs, Results, Admit Cards & Updates</title>
 <meta name="description" content="Get instant free job alerts for latest government jobs, admit cards and official updates from SSC, UPSC, Railway, Banking, Defence and State departments.">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/free-job-alert/">
-<meta name="author" content="WifiResult Editorial Team">
-
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/free-job-alert/">
@@ -20,9 +18,10 @@
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta property="og:image:type" content="image/png">
-
+<meta property="og:updated_time" content="{% now 'c' %}" />
 <meta property="article:published_time" content="{% now 'c' %}">
 <meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
