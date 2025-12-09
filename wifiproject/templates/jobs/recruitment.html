@@ -177,7 +177,7 @@
         <ul class="recruit-list">
           {% for job in page_obj %}
           <li class="recruit-item">
-            <a href="/latest-jobs/{{ job.slug }}" class="title">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/" class="title">{{ job.title }}</a>
             <small>{{ job.published_date|date:"d M, Y" }}</small>
           </li>
           {% endfor %}
@@ -225,7 +225,7 @@
         <h3>Trending Recruitments</h3>
         <ul style="padding:0; margin:0; list-style:none">
           {% for item in latest_results|slice:":7" %}
-            <li style="padding:6px 0"><a href="/results/{{ item.slug }}">{{ item.title }}</a></li>
+            <li style="padding:6px 0"><a href="/results/{{ item.slug }}/">{{ item.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
@@ -241,7 +241,7 @@
 
       <div class="widget">
         <h3>Subscribe</h3>
-        <form action="/" method="post">
+        <form action="/subscriber/" method="post">
           {% csrf_token %}
           <label for="email" class="visually-hidden">Email address</label>
           <input id="email" name="email" type="email" placeholder="Enter email" required style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border)">

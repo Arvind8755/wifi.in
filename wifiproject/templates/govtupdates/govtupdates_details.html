@@ -12,8 +12,6 @@
 <meta name="description" content="{{ govtupdates.description }}">
 <meta name="keywords" content="{{ govtupdates.keywords }}">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.get_absolute_url }}">
-<meta name="author" content="{{ govtupdates.author|striptags }}">
-
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WifiResult.com">
@@ -36,6 +34,7 @@
 {% endif %}
 <meta property="article:published_time" content="{% now 'c' %}">
 <meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="{{ govtupdates.author|striptags }}"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -816,8 +815,7 @@ span.pen-green { color: #2E7D32; text-decoration: underline; text-decoration-thi
   <!-- Breaking news (optional) -->
   <div class="container" style="margin-top:12px;">
     <div class="breaking-news">
-      <span class="icon"><i class="fas fa-bolt"></i></span>
-      <span class="headline">🚨 {{ govtupdates.title }}</span>
+      <span class="headline">📢 {{ govtupdates.title }}</span>
     </div>
   </div>
 
@@ -922,7 +920,7 @@ span.pen-green { color: #2E7D32; text-decoration: underline; text-decoration-thi
               <span>Published on:  {{ govtupdates.published_date|date:"d M, Y" }}</span> &nbsp;By &nbsp;  {{ govtupdates.author|safe|cut:"<p>"|cut:"</p>"  }} <i class="fas fa-check-circle text-primary" aria-hidden="true"></i>
             </div>
           </div>
-          <div class="name"><a href="/"   style="text-align:center; color:#8f0d4e;"><h2>WiFiResult.Com</h2></a></div>
+          {% comment %} <div class="name"><a href="/"   style="text-align:center; color:#8f0d4e;"><h2>WiFiResult.Com</h2></a></div>
         <style>
 .name {
   font-weight: bold;
@@ -940,7 +938,7 @@ span.pen-green { color: #2E7D32; text-decoration: underline; text-decoration-thi
     font-size: 20px;
   }
 }
-</style>
+</style> {% endcomment %}
         </div>
 
 
@@ -1156,7 +1154,7 @@ Leave a comment
         </div>
         {% for job in latest_jobs %}
         <div class="related-job-item">
-          <a href="/jobs/{{ job.slug }}" class="related-job-title">{{ job.title }}</a>
+          <a href="/latest-jobs/{{ job.slug }}/" class="related-job-title">{{ job.title }}</a>
           <span class="related-job-date">{{ job.published_date|date:"d M, Y" }}</span>
         </div>
         {% endfor %}
@@ -1185,7 +1183,7 @@ Leave a comment
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
            {% for result in latest_results %}
-          <li><a href="/result/{{ result.slug }}">{{ result.title }}</a> </li>
+          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a> </li>
           {% endfor %}
           
         </ul>
@@ -1195,7 +1193,7 @@ Leave a comment
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
            {% for admitcard in latest_admitcards %}
-          <li><a href="/admitcard/{{ admitcard.slug }}">{{ admitcard.title }}</a> </li>
+          <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a> </li>
           {% endfor %}
         </ul>
       </div>

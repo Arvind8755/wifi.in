@@ -4,40 +4,41 @@
 
     {% block seo %} 
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>WifiResult.com – Govt Jobs, Admit Card Updates</title>
-<meta name="description" content="Latest Govt Jobs, Admit Card, Syllabus, Answer Key & Exam Updates at WifiResult.com. Fast Job Alerts & All India Recruitment News in Hindi.">
+<title>WifiResult — Govt Jobs, Admit Card & Sarkari Result Updates</title>
+<meta name="description" content="Get latest Govt jobs, admit cards, answer keys and recruitment news in English. Fast alerts, official links & exam updates at WifiResult.">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
-<meta name="author" content="WifiResult Editorial Team">
+<meta property="article:author" content="@Wifiresult"/>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WifiResult.com">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/">
-<meta property="og:title" content="WifiResult.com – Govt Jobs, Admit Card Updates">
-<meta property="og:description" content="Latest Govt Jobs, Admit Card, Syllabus, Answer Key & Exam Updates at WifiResult.com. Fast Job Alerts & All India Recruitment News in Hindi.">
-<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
+<meta property="og:title" content="WifiResult — Govt Jobs, Admit Card & Sarkari Result Updates">
+<meta property="og:description" content="Get latest Govt jobs, admit cards, answer keys and recruitment news in English. Fast alerts, official links & exam updates at WifiResult.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="Wifi Result Banner – Latest Government Job Alerts">
-<meta property="og:image:width" content="512" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:type" content="image/png">
-
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
 <meta property="article:published_time" content="{% now 'c' %}">
 <meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/">
-<meta name="twitter:title" content="WifiResult.com – Govt Jobs, Admit Card Updates">
-<meta name="twitter:description" content="Latest Govt Jobs, Admit Card, Syllabus, Answer Key & Exam Updates at WifiResult.com. Fast Job Alerts & All India Recruitment News in Hindi.">
-<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
-<meta name="twitter:site" content="@WifiResult" />
-<meta name="twitter:creator" content="@arvindpal" />
-<meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Arvind Pal" />
-<meta name="twitter:label2" content="Time to read" />
-<meta name="twitter:data2" content="6 minutes" />
+<meta name="twitter:title" content="WifiResult — Govt Jobs, Admit Card & Sarkari Result Updates">
+<meta name="twitter:description" content="Get latest Govt jobs, admit cards, answer keys and recruitment news in English. Fast alerts, official links & exam updates at WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult"/>
+<meta name="twitter:creator" content="@arvindpal"/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="Arvind Pal"/>
+<meta name="twitter:label2" content="Time to read"/>
+<meta name="twitter:data2" content="6 minutes"/>
 
 <script type="application/ld+json">
 {
@@ -45,16 +46,16 @@
   "@type": ["WebPage","CollectionPage"],
   "@id": "{{ request.scheme }}://{{ request.get_host }}/#homepage",
   "url": "{{ request.scheme }}://{{ request.get_host }}/",
-  "name": "WifiResult.com – Govt Jobs, Admit Card Updates",
+  "name": "WifiResult — Govt Jobs, Admit Card & Sarkari Result Updates",
   "headline": "WifiResult – Sarkari Result, Govt Jobs, Admit Card Today",
-  "description": "Latest Govt Jobs, Admit Card, Syllabus, Answer Key & Exam Updates at WifiResult.com. Fast Job Alerts & All India Recruitment News in Hindi.",
+  "description": "Get latest Govt jobs, admit cards, answer keys and recruitment news in English. Fast alerts, official links & exam updates at WifiResult.",
   "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
   "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
   "primaryImageOfPage": {
     "@type": "ImageObject",
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
-    "width": 512,
-    "height": 512
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200×675,
+    "height": 1200×675
   },
   "inLanguage": "en",
   "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#breadcrumb" }
@@ -201,7 +202,7 @@
 
     .quick-link {
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 10px 15px;
+      padding: 0px 15px;
       border-radius: 50px;
       text-decoration: none;
       color: var(--primary);
@@ -212,6 +213,7 @@
       align-items: center;
       white-space: nowrap;
       flex-shrink: 0;
+      padding-top: 15px;
     }
 
     .quick-link i {

@@ -580,7 +580,7 @@
         <ul class="wifi-list">
           {% for result in page_obj %}
           <li class="wifi-item">
-            <a href="/results/{{ result.slug }}" class="wifi-title">
+            <a href="/results/{{ result.slug }}/" class="wifi-title">
               {{ result.title }}
             </a>
             <div class="wifi-meta-row">
@@ -627,7 +627,7 @@
         <ul class="wifi-list">
           {% for admitcard in latest_admitcards %}
           <li class="wifi-item">
-            <a href="/admit-card/{{ admitcard.slug }}" class="wifi-title">
+            <a href="/admit-card/{{ admitcard.slug }}/" class="wifi-title">
               {{ admitcard.title }}
             </a>
             <div class="wifi-meta-row">
@@ -661,7 +661,7 @@
         <ul class="wifi-list">
           {% for job in latest_jobs %}
           <li class="wifi-item">
-            <a href="/latest-jobs/{{ job.slug }}" class="wifi-title">
+            <a href="/latest-jobs/{{ job.slug }}/" class="wifi-title">
               {{ job.title }}
             </a>
             <div class="wifi-meta-row">
@@ -701,7 +701,7 @@
           {% for govtupdate in latest_govtupdates %}
           <li class="wifi-item">
             <div style="flex:1;">
-              <a href="/govt-updates/{{ govtupdate.slug }}" class="wifi-title">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" class="wifi-title">
                 {{ govtupdate.title }}
               </a>
             </div>

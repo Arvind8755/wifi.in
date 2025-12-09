@@ -779,7 +779,7 @@
                   {{ forloop.counter }}
                 </div>
                 <div>
-                  <a href="/latest-jobs/{{ job.slug }}" class="widget-title">
+                  <a href="/latest-jobs/{{ job.slug }}/" class="widget-title">
                     {{ job.title }}
                   </a>
                   <div class="widget-meta">
@@ -795,7 +795,7 @@
                   {{ forloop.counter|add:job_count }}
                 </div>
                 <div>
-                  <a href="/admit-card/{{ admitcard.slug }}" class="widget-title">
+                  <a href="/admit-card/{{ admitcard.slug }}/" class="widget-title">
                     {{ admitcard.title }}
                   </a>
                   <div class="widget-meta">
@@ -817,7 +817,7 @@
         <div class="widget-body">
           {% for govtupdate in latest_govtupdates %}
             <div class="widget-item">
-              <a href="/govt-updates/{{ govtupdate.slug }}" class="widget-title">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" class="widget-title">
                 {{ govtupdate.title }}
               </a>
               <div class="widget-meta">

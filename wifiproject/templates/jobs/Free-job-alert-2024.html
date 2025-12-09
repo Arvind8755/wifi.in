@@ -236,19 +236,6 @@ a.cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 14p
         </div>
       </div>
 
-      {% comment %} <!-- Featured Strip -->
-      <div class="card" style="margin-top:18px">
-        <h3>Featured Notifications</h3>
-        <div class="featured-strip">
-          {% for feat in featured_jobs|slice:":6" %}
-            <div class="featured-card">
-              <strong><a href="/latest-jobs/{{ feat.slug }}/">{{ feat.title|truncatechars:60 }}</a></strong>
-              <div class="job-meta">{{ feat.short_desc|default:"Official notification" }}</div>
-            </div>
-          {% endfor %}
-        </div>
-      </div> {% endcomment %}
-
       <!-- SEO-rich content (unique) -->
       <div class="card" style="margin-top:18px">
         <h3>About Free Job Alert 2024</h3>
@@ -309,7 +296,7 @@ a.cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 14p
         <div class="card" style="margin-top:14px;text-align:center">
           <h3>Get Mobile Alerts</h3>
           <p class="job-meta">Join our WhatsApp/Telegram groups for instant mobile alerts.</p>
-          <a class="cta" href="/">Join Now</a>
+          <a class="cta" href="/subscriber/">Join Now</a>
         </div>
 
         <div class="card" style="margin-top:14px">

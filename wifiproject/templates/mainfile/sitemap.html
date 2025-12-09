@@ -207,7 +207,7 @@
         <li><a href="{% url 'result' %}">Results</a> <span class="meta">Updated daily</span></li>
                <li><a href="{% url 'latestresult' %}">Latest Results</a> <span class="meta">Updated daily</span></li>
  <li><a href="{% url 'sarkariresult' %}">Sarkari Results</a> <span class="meta">Updated daily</span></li>
-      <li><a href="{% url 'sarkariresult2024' %}">Result Update</a> <span class="meta">Updated daily</span></li>
+      <li><a href="{% url 'sarkariresult2024' %}">Sarkari Result 2024</a> <span class="meta">Updated daily</span></li>
   <li><a href="{% url 'latestsarkariresult' %}"> Latest Sarkari Results</a> <span class="meta">Updated daily</span></li>
                <li><a href="{% url 'boardresult' %}">Board Results</a> <span class="meta">Updated daily</span></li>
         <li><a href="{% url 'admitcard' %}">Admit Cards</a> <span class="meta">Updated daily</span></li>
@@ -472,19 +472,19 @@
       
       <ul class="sitemap-list" id="latestList">
 {% for job in latest_jobs %}
-        <li><a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a> <span class="meta">Jobs</span></li>
+        <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a> <span class="meta">Jobs</span></li>
         {% endfor %}
 
         {% for result in latest_results %}
-        <li><a href="/results/{{ result.slug }}">{{ result.title }}</a> <span class="meta">Result</span></li>
+        <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a> <span class="meta">Result</span></li>
   {% endfor %}
 
         {% for admitcard in latest_admitcards %}
-        <li><a href="/admit-card/{{ admitcard.slug }}">S{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
+        <li><a href="/admit-card/{{ admitcard.slug }}/">S{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
           {% endfor %}
 
           {% for govtupdate in latest_govtupdates %}
-        <li><a href="/govt-updates/{{ govtupdate.slug }}">S{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
+        <li><a href="/govt-updates/{{ govtupdate.slug }}/">S{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
           {% endfor %}
 
       </ul>

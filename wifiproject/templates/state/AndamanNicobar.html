@@ -534,6 +534,86 @@
       white-space: nowrap;
       border: 0;
     }
+
+     /* ===== Info Section  ===== */
+  .website-info {
+    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(255,255,255,0.96);
+    padding: 16px 18px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(148,163,184,0.4);
+    border: 1px solid rgba(148,163,184,0.5);
+    transition: transform 0.2s ease;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #1d4ed8;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   </style>
 
   {% endblock style %}
@@ -548,7 +628,7 @@
       <span>&gt;</span>
       <a href="{% url 'job' %}">Jobs</a>
       <span>&gt;</span>
-      <span>Latest Andaman & Nicobar Govt Jobs 2025</span>
+      <span>Latest Andaman & Nicobar Govt Jobs</span>
     </div>
   </div>
 
@@ -583,7 +663,7 @@
       <!-- New Job Listing Box -->
       <div class="job-listing-container">
         <div class="job-listing-header">
-          <i class="fas fa-bell"></i> Latest Andaman & Nicobar Govt Jobs 2025
+          <i class="fas fa-bell"></i> Latest Andaman & Nicobar Govt Jobs
         </div>
         <ul class="job-list-compact p-0">
 
@@ -654,7 +734,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -664,7 +744,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -686,7 +766,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>
@@ -697,36 +777,45 @@
     </div>
   </main>
   <!-- Website Information Section -->
-  <section class="website-info">
-    <div class="container">
-      <h2>All Government Jobs 2025 – Latest Sarkari Naukri Updates</h2>
-      <div class="info-content">
-        <div class="info-point">
-          <h3>Latest Job Notifications</h3>
-          <p>At <strong>wifiresult.com</strong>, you will find the most recent and authentic government job notifications published by UPSC, SSC, IBPS, Railway Recruitment Boards, Defence Forces, Police Departments, and various State Governments. We provide daily updates so you never miss an important opportunity.</p>
-        </div>
-        <div class="info-point">
-          <h3>Exam Dates & Admit Cards</h3>
-          <p>Stay updated with upcoming <strong>Sarkari Exam Dates</strong>, admit card releases, and important schedules. Whether it’s SSC CGL, Railway NTPC, IBPS Clerk, or UPSC Civil Services, we provide timely alerts and direct download links for admit cards and timetables.</p>
-        </div>
-        <div class="info-point">
-          <h3>Syllabus & Answer Keys</h3>
-          <p>Our job page also covers complete exam <strong>syllabus PDFs, previous year papers</strong>, and official answer keys released after exams. This helps candidates prepare effectively with the right resources and strategies.</p>
-        </div>
-        <div class="info-point">
-          <h3>For Freshers & Experienced</h3>
-          <p>We list jobs suitable for <strong>10th pass, 12th pass, graduates, diploma holders, engineers, MBAs, and experienced professionals</strong>. No matter your qualification, you can easily explore the opportunities that fit your profile.</p>
-        </div>
-        <div class="info-point">
-          <h3>One Stop Sarkari Naukri Portal</h3>
-          <p><strong>wifiresult.com</strong> is your one-stop destination for <strong>Latest Government Jobs 2025</strong>. From notifications to results, admit cards, cutoffs, and merit lists, we ensure you have all the information in one place without the need to visit multiple portals.</p>
-        </div>
+<section class="website-info">
+  <div class="container">
+    <h2>Andaman & Nicobar Govt Jobs 2026 – Latest Government Vacancies</h2>
+
+    <div class="info-content">
+
+      <div class="info-point">
+        <h3>Latest Andaman & Nicobar Job Notifications</h3>
+        <p>At <strong>wifiresult.com</strong>, you will find the latest and most reliable <strong>Andaman & Nicobar Government Job</strong> notifications released by A&N Administration, Police Department, Health Department, Education Department, APWD, Directorate of Fisheries, Forest Department, and other local authorities. We update job information daily so you never miss any opportunity.</p>
       </div>
-      <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
-        Our mission is to help millions of aspirants achieve their dream of securing a <strong>Government Job (Sarkari Naukri)</strong>. Bookmark this page to get daily updates on <strong>Central Government Jobs, State Government Vacancies, Railway Jobs, Bank Jobs, Teaching Jobs, Defence Recruitment</strong>, and more.
-      </p>
+
+      <div class="info-point">
+        <h3>Exam Dates & Admit Cards</h3>
+        <p>Stay informed about upcoming <strong>Andaman & Nicobar Exams</strong>, important schedules, and admit card releases. Whether it’s Police Constable Recruitment, Teacher Jobs, Multi-Tasking Staff, LDC, or Departmental Exams, we provide timely alerts and direct download links.</p>
+      </div>
+
+      <div class="info-point">
+        <h3>Syllabus, Previous Papers & Answer Keys</h3>
+        <p>Our job page offers complete exam <strong>syllabus PDFs, old question papers, and official answer keys</strong> for Andaman & Nicobar Government Recruitment. This helps candidates prepare with the proper study material and strategy.</p>
+      </div>
+
+      <div class="info-point">
+        <h3>Jobs for All Qualification Levels</h3>
+        <p>Find vacancies suitable for <strong>10th pass, 12th pass, graduates, diploma holders, ITI, engineers, nurses, teachers, and experienced professionals</strong> in the Andaman & Nicobar Administration. You can explore all job options based on your education and interests.</p>
+      </div>
+
+      <div class="info-point">
+        <h3>One-Stop Portal for A&N Government Jobs</h3>
+        <p><strong>wifiresult.com</strong> is your one-stop destination for <strong>Latest Andaman & Nicobar Govt Jobs 2026–2027</strong>. From notifications to admit cards, results, cutoffs, and merit lists — everything is available in one place without needing to search multiple websites.</p>
+      </div>
+
     </div>
-  </section>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      Our mission is to help candidates find the best opportunities in <strong>Andaman & Nicobar Government Departments</strong>. Bookmark this page to get daily updates on <strong>A&N Administration Jobs, Police Jobs, Teaching Jobs, Health Department Recruitment, Forest Jobs, Technical Vacancies, Marine Department Jobs</strong> and other government openings.
+    </p>
+  </div>
+</section>
+
 
 
 

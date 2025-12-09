@@ -18,10 +18,10 @@ urlpatterns = [
         path("bihar-help/", views.biharhelp, name="biharhelp"),
         path('free-job-alert-2024/', views.free_job_alert_2024, name='free_job_alert_2024'),
 
-        path('age-calculator/', views.agetool, name="agetool"),
         path("tools/", views.tools, name="tools"),
+        path('tools/age-calculator/', views.agetool, name="agetool"),
         path("tools/image-resizer/", views.imageresizer, name="imageresizer"),
-        path('pdf-resizer', views.pdfresizer, name="pdfresizer"),
+        path('tools/pdf-resizer/', views.pdfresizer, name="pdfresizer"),
         
         path("latest-jobs/job/", JobPostCreateView.as_view(), name="job_add"),
         path('latest-jobs/', views.job, name='job'),
@@ -78,13 +78,11 @@ urlpatterns = [
         path("govt-updates/govt/", GovtupdatePostCreateView.as_view(), name="govtupdate_add"),
         path("govt-updates/<path:slug>/", views.govt_update_detail, name="govt-update-detail"),
 
-
         path('admission/', views.admission, name='admission'),
         path('answer-key/', views.answerkey, name='answerkey'),
         path('scholarship/', views.scholarship, name='scholarship'),
         path('sarkari-yojana/', views.sarkariyojna, name='sarkariyojna'),
         path('syllabus/', views.syllabus, name='syllabus'),
-
 
         #new
         path('latest-news/', views.latestnews, name='latest_news'),

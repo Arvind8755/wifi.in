@@ -24,10 +24,10 @@ from django.conf import settings
 
 
 def home(request):
-    jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-id")[:20]           
-    results = Result.objects.all().filter(status='published', is_active=True).order_by("-id")[:20]
-    admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-id")[:20]
-    govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-id")[:20]
+    jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]           
+    results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
+    admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
+    govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
     boxnames = Boxname.objects.all().order_by("-published_date")
     # 2) chain se sabko jod do
     mixed_objects = list(chain(jobs, results, admitcards, govtupdates))
@@ -55,7 +55,6 @@ def home(request):
 
 def rojgarresult(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
-    # jobs = Job.objects.filter(is_active=True).order_by('-published_date')[:3]
     results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
@@ -466,8 +465,6 @@ def all_india_govt_jobs(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
     boxnames = Boxname.objects.all().order_by("-published_date")
 
-    jobs = Job.objects.all()           
-    # 2) chain se sabko jod do
     mixed_objects = list(chain(jobs))
     # 3) sabko created_at ke hisaab se sort kar do (naya sabse upar)
     mixed_objects = sorted(
@@ -516,7 +513,10 @@ def tools(request):
   return render(request, "tool/tool_listing.html")
 
 def agetool(request):
-  return render(request, "tool/agetool.html")
+  latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
+  return render(request, "tool/agetool.html", {"latest_jobs": latest_jobs, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,})
 
 def imageresizer(request):
   return render(request, "tool/imageresizer.html")
@@ -526,9 +526,9 @@ def pdfresizer(request):
 
 def job(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
     
     paginator = Paginator(jobs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -550,9 +550,9 @@ def job(request):
 
 def recruitment(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
     
     paginator = Paginator(jobs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -573,11 +573,10 @@ def recruitment(request):
 
 def govtjobstoday(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
-
-    jobs = Job.objects.all()           
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
+    
     mixed_objects = list(chain(jobs))
     # 3) sabko created_at ke hisaab se sort kar do (naya sabse upar)
     mixed_objects = sorted(
@@ -592,9 +591,9 @@ def govtjobstoday(request):
 
 def latest_govt_jobs(request):
     jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:5]
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+    latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
 
     paginator = Paginator(jobs, 10, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -612,8 +611,8 @@ def latest_govt_jobs(request):
     return render(request, "jobs/latestgovtjobs.html", {"jobs": jobs,"latest_results": latest_results, 'latest_govtupdates': latest_govtupdates, "page_obj":page_obj, "latest_posts": latest_posts,"latest_admitcards": latest_admitcards}) 
 
 def vacancy(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:9]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:9]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:9]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:9]  # latest 10 job
     jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")
     paginator = Paginator(jobs, 30, orphans=1) # प्रति पेज 20 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -632,8 +631,8 @@ def vacancy(request):
     return render(request, 'jobs/vacancy.html', {"jobs": jobs, "page_obj":page_obj,  "latest_posts": latest_posts, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def onlineform(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 10 job
     jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")
     paginator = Paginator(jobs, 20, orphans=1) # प्रति पेज 20 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -652,8 +651,8 @@ def onlineform(request):
     return render(request, 'jobs/onlineform.html', {"jobs": jobs, "page_obj":page_obj, "latest_posts": latest_posts, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def ljsr(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:15]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:15]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:15]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:15]  # latest 10 job
 
     jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")
     paginator = Paginator(jobs, 40, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (25 बहुत कम है)
@@ -673,8 +672,8 @@ def ljsr(request):
     return render(request, 'jobs/ljsr.html', {"jobs": jobs, "page_obj":page_obj, "latest_posts": latest_posts, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def srup(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:12]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:12]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:12]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:12]  # latest 10 job
     jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")
     paginator = Paginator(jobs, 35, orphans=1) # प्रति पेज 35 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -693,8 +692,8 @@ def srup(request):
     return render(request, 'jobs/srup.html', {"jobs": jobs, "page_obj":page_obj,  "latest_posts": latest_posts, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def sarkarinokri(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 10 job
     jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")
     paginator = Paginator(jobs, 35, orphans=1) # प्रति पेज 35 jobs दिखाने के लिए (2 बहुत कम है)
     page_number = request.GET.get('page')
@@ -716,9 +715,9 @@ def sarkarinokri(request):
 # job slug & comment
 def job_detail(request, slug):
     jobs = get_object_or_404(Job, slug=slug, is_active=True)
-    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     
     if request.method == "POST":
         comment=JobComment()
@@ -773,8 +772,8 @@ def html_sitemap(request):
 def result(request):
   results=Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
 
   paginator = Paginator(results, 20, orphans=1) # प्रति पेज 10 results दिखाने के लिए  
   page_number = request.GET.get('page')
@@ -794,8 +793,8 @@ def result(request):
 def latestresult(request):
   results=Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(results, 10, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -818,8 +817,8 @@ def latestresult(request):
 def sarkariresult2024(request):
   results=Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(results, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -839,9 +838,9 @@ def sarkariresult2024(request):
 
 def result_detail(request, slug):
     results = get_object_or_404(Result, slug=slug, is_active=True)
-    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
 
     if request.method == "POST":
         comment=ResultComment()
@@ -861,8 +860,8 @@ def boardresult(request):
         Q(category__icontains="board") | Q(category__icontains="board")
     ).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -877,8 +876,8 @@ def boardresult(request):
 def wifiresult(request):
   results=Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:20]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:20]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:20]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
 
   paginator = Paginator(results, 20, orphans=1) # प्रति पेज 10 results दिखाने के लिए  
   page_number = request.GET.get('page')
@@ -907,8 +906,8 @@ def itiresult(request):
         Q(category__icontains="itiresult") | Q(category__icontains="itiresult")
     ).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 10, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -924,8 +923,8 @@ def ncvtmis(request):
         Q(category__icontains="itiresult") | Q(category__icontains="itiresult")
     ).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 10, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -941,8 +940,8 @@ def scvt(request):
         Q(category__icontains="itiresult") | Q(category__icontains="itiresult")
     ).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 10, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -986,8 +985,8 @@ class ResultPostCreateView(CreateView):
 def admitcard(request):
   admitcards=Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
 
   paginator = Paginator(admitcards, 20, orphans=1) # प्रति पेज 20 results दिखाने के लिए  
   page_number = request.GET.get('page')
@@ -1007,8 +1006,8 @@ def admitcard(request):
 def examdate(request):
   admitcards=Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
 
   paginator = Paginator(admitcards, 20, orphans=1) # प्रति पेज 20 results दिखाने के लिए  
   page_number = request.GET.get('page')
@@ -1028,8 +1027,8 @@ def examdate(request):
 def sarkariexam(request):
   admitcards=Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:4]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:4]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:5]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
 
   paginator = Paginator(admitcards, 20, orphans=1) # प्रति पेज 20 results दिखाने के लिए  
   page_number = request.GET.get('page')
@@ -1048,9 +1047,9 @@ def sarkariexam(request):
 
 def admitcard_detail(request, slug):
     admitcards = get_object_or_404(Admitcard, slug=slug, is_active=True)
-    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 5 job
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 5 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 5 job
+    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 5 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 5 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 5 job
 
     if request.method == "POST":
         comment=AdmitcardComment()
@@ -1098,8 +1097,8 @@ class AdmitcardPostCreateView(CreateView):
 def govtupdates(request):
   govtupdates=Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
 
   paginator = Paginator(govtupdates, 20, orphans=1) # प्रति पेज 10 results दिखाने के लिए  
   page_number = request.GET.get('page')
@@ -1121,9 +1120,9 @@ def govtupdates(request):
 
 def govt_update_detail(request, slug):
   govtupdates = get_object_or_404(Govtupdate, slug=slug, is_active=True)
-  latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 5 job
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 5 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 5 job
+  latest_jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 5 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 5 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 5 job
 
   if request.method == "POST":
         comment=GovtupdateComment()
@@ -1168,8 +1167,8 @@ class GovtupdatePostCreateView(CreateView):
 
 def admission(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
 
   qs = Govtupdate.objects.filter(is_active=True).filter(
         Q(category__icontains="admission") | Q(category__icontains="admission")
@@ -1186,8 +1185,8 @@ def admission(request):
 
 def answerkey(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   qs = Govtupdate.objects.filter(is_active=True).filter(
         Q(category__icontains="answerkey") | Q(category__icontains="answerkey")
     ).order_by("-published_date")
@@ -1203,8 +1202,8 @@ def answerkey(request):
 
 def sarkariyojna(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   qs = Govtupdate.objects.filter(is_active=True).filter(
         Q(category__icontains="sarkariyojana") | Q(category__icontains="sarkariyojna")
     ).order_by("-published_date")
@@ -1220,8 +1219,8 @@ def sarkariyojna(request):
 
 def scholarship(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   qs = Govtupdate.objects.filter(is_active=True).filter(
         Q(category__icontains="scholarship") | Q(category__icontains="scholarship")
     ).order_by("-published_date")
@@ -1236,8 +1235,8 @@ def scholarship(request):
 
 def syllabus(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   qs = Govtupdate.objects.filter(is_active=True).filter(
         Q(category__icontains="syllabus") | Q(category__icontains="syllabus")
     ).order_by("-published_date")
@@ -1256,85 +1255,85 @@ def syllabus(request):
 
 
 def contact(request):
- latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
- latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+ latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+ latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
  return render(request, 'mainfile/contact.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def about(request):
- latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
- latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+ latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+ latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
  return render(request, 'mainfile/about.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards,"today": date.today()})
 
 
 def disclaimer(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
   return render(request, 'mainfile/disclaimer.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def PrivacyPolicy(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
   return render(request, 'mainfile/PrivacyPolicy.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards,"today": date.today()})
 
 def dmca(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
   return render(request, 'mainfile/dmca.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards, "today": date.today()})
 
 def hyperlinkpolicy(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, "mainfile/hyperlinkpolicy.html", {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 #sitemap.html----
 
 def html_sitemap(request):
   latest_jobs = Job.objects.filter(is_active=True).order_by('-published_date')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]  
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]  
   return render(request, 'mainfile/sitemap.html',{"latest_results": latest_results, "latest_jobs": latest_jobs, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates})
 
 def TermsConditions(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, 'mainfile/TermsConditions.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards,  "today": date.today()}) 
 
 def editorialpolicy(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, 'mainfile/editorialpolicy.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def FactCheckingPolicy(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, 'mainfile/FactCheckingPolicy.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def AdvertisingPolicy(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, 'mainfile/AdvertisingPolicy.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def grievanceofficer(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, 'mainfile/grievanceofficer.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def cookiepolicy(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, 'mainfile/cookiepolicy.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 #  Authors 
 
 def MeetTeam(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:7]  # latest 11 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 11 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:7]  # latest 11 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 11 job
   return render(request, 'author/MeetTeam.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def arvind(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 11 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 11 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 11 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 11 job
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="arvind") | Q(category__icontains="arvind")
     ).order_by("-published_date")
@@ -1344,8 +1343,8 @@ def arvind(request):
   return render(request, 'author/arvind-author.html',  {"posts": qs, 'page_obj': page_obj, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def rohan(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:7]  # latest 12 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 12 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:7]  # latest 12 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 12 job
   qs = Result.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="rohan") | Q(category__icontains="rohan")
     ).order_by("-published_date")
@@ -1355,8 +1354,8 @@ def rohan(request):
   return render(request, 'author/Rohansharma-author.html',{"posts": qs, 'page_obj': page_obj, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def priya(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 11 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:7]  # latest 11 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 11 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:7]  # latest 11 job
   qs = Govtupdate.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="priya") | Q(category__icontains="priya")
     ).order_by("-published_date")
@@ -1366,8 +1365,8 @@ def priya(request):
   return render(request, 'author/PriyaPatel-author.html',{"posts": qs, 'page_obj': page_obj, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def neha(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:7]  # latest 10 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:7]  # latest 10 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:7]  # latest 10 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:7]  # latest 10 job
   qs = Admitcard.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="neha") | Q(category__icontains="neha")
     ).order_by("-published_date")
@@ -1377,25 +1376,26 @@ def neha(request):
   return render(request, 'author/nehagupta-author.html',{"posts": qs, 'page_obj': page_obj, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 def founder(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]  # latest 11 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]  # latest 11 job
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]  # latest 11 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]  # latest 11 job
   return render(request, 'author/founder.html',{"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
 
 # all state government 
 
 def all_state_govt_job(request):
- latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
- latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
- return render(request, 'state/allstategovjob.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
+ latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+ latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+ latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:15]  # latest 10 job
+ return render(request, 'state/allstategovjob.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards,"latest_jobs":latest_jobs,})
 
 def AndhraPradesh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="andhrapradesh") | Q(category__icontains="andhrapradesh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1410,9 +1410,9 @@ def ArunachalPradesh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="arunachalpradesh") | Q(category__icontains="arunachalpradesh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1427,9 +1427,9 @@ def Assam(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="assam") | Q(category__icontains="assam")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1444,9 +1444,9 @@ def Bihar(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="bihar") | Q(category__icontains="bihar")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1461,9 +1461,9 @@ def Chhattisgarh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="chhattisgarh") | Q(category__icontains="chhattisgarh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1478,9 +1478,9 @@ def Delhi(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="delhi") | Q(category__icontains="delhi")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1495,9 +1495,9 @@ def Goa(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="goa") | Q(category__icontains="goa")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1512,9 +1512,9 @@ def Gujarat(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="gujarat") | Q(category__icontains="gujarat")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1529,9 +1529,9 @@ def Haryana(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="haryana") | Q(category__icontains="haryana")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1546,9 +1546,9 @@ def HimachalPradesh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="himachalpradesh") | Q(category__icontains="himachalpradesh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1563,9 +1563,9 @@ def JammuKashmir(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="jammukashmir") | Q(category__icontains="jammukashmir")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1580,9 +1580,9 @@ def Jharkhand(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="jharkhand") | Q(category__icontains="jharkhand")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1597,9 +1597,9 @@ def Karnataka(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="karnataka") | Q(category__icontains="karnataka")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1614,9 +1614,9 @@ def Kerala(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="kerala") | Q(category__icontains="kerala")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1631,9 +1631,9 @@ def MadhyaPradesh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="madhyapradesh") | Q(category__icontains="madhyapradesh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1648,9 +1648,9 @@ def Maharashtra(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="maharashtra") | Q(category__icontains="maharashtra")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1665,9 +1665,9 @@ def Manipur(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="manipur") | Q(category__icontains="manipur")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1682,9 +1682,9 @@ def Meghalaya(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="meghalaya") | Q(category__icontains="meghalaya")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1699,9 +1699,9 @@ def Mizoram(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="mizoram") | Q(category__icontains="mizoram")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1716,9 +1716,9 @@ def Nagaland(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="nagaland") | Q(category__icontains="nagaland")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1734,9 +1734,9 @@ def Odisha(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="odisha") | Q(category__icontains="odisha")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1751,9 +1751,9 @@ def Punjab(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="punjab") | Q(category__icontains="punjab")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1768,9 +1768,9 @@ def Rajasthan(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="rajasthan") | Q(category__icontains="rajasthan")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1785,9 +1785,9 @@ def Sikkim(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="sikkim") | Q(category__icontains="sikkim")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1802,9 +1802,9 @@ def TamilNadu(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="tamilnadu") | Q(category__icontains="tamilnadu")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1819,9 +1819,9 @@ def Telangana(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="telangana") | Q(category__icontains="telangana")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1836,9 +1836,9 @@ def Tripura(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="tripura") | Q(category__icontains="tripura")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1853,9 +1853,9 @@ def upjob(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="up") | Q(category__icontains="up")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1870,9 +1870,9 @@ def Uttarakhand(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="uttarakhand") | Q(category__icontains="uttarakhand")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1887,9 +1887,9 @@ def WestBengal(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="westbengal") | Q(category__icontains="westbengal")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1904,9 +1904,9 @@ def AndamanNicobar(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="andamannicobar") | Q(category__icontains="andamannicobar")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1921,9 +1921,9 @@ def Chandigarh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="chandigarh") | Q(category__icontains="chandigarh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1938,9 +1938,9 @@ def DadraNagarHaveli(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="dadranagarhaveli") | Q(category__icontains="dadranagarhaveli")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1955,9 +1955,9 @@ def DamanDiu(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="damandiu") | Q(category__icontains="damandiu")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1972,9 +1972,9 @@ def Ladakh(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="ladakh") | Q(category__icontains="ladakh")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -1989,9 +1989,9 @@ def Lakshadweep(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="lakshadweep") | Q(category__icontains="lakshadweep")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -2006,9 +2006,9 @@ def Puducherry(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="puducherry") | Q(category__icontains="puducherry")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -2027,9 +2027,9 @@ def CentralGovtjob(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="centraljob") | Q(category__icontains="centralgovtjob")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:3]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:4]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:3]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:4]
   paginator = Paginator(qs, 1, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -2043,15 +2043,16 @@ def CentralGovtjob(request):
 # qualification
 
 def all_education(request):
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    return render(request, "qualification/alleducation.html", {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    return render(request, "qualification/alleducation.html", {"latest_results": latest_results, "latest_admitcards": latest_admitcards,"latest_jobs":latest_jobs})
 
 
 def EighthPassJob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="8th") | Q(category__icontains="8TH")
@@ -2071,9 +2072,9 @@ def EighthPassJob(request):
 
 
 def tenthjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="10th") | Q(category__icontains="10th")
@@ -2092,9 +2093,9 @@ def tenthjob(request):
   return render(request, 'qualification/10thjob.html',  {"posts": qs , "page_obj":page_obj,"latest_posts": jobs_10th,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def twellthjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="12th") | Q(category__icontains="12th")
     ).order_by("-published_date")
@@ -2109,9 +2110,9 @@ def twellthjob(request):
   return render(request, 'qualification/12thjob.html',  {"posts": qs , "page_obj":page_obj,"latest_posts": jobs_10th,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def graduationjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="graduation") | Q(category__icontains="graduation")
     ).order_by("-published_date")
@@ -2126,9 +2127,9 @@ def graduationjob(request):
   return render(request, 'qualification/graduation.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_graduation,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def postgraduationjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="postgraduation") | Q(category__icontains="postgraduation")
     ).order_by("-published_date")
@@ -2143,9 +2144,9 @@ def postgraduationjob(request):
   return render(request, 'qualification/postgraduation.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_postgraduation,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def diploma_jobs(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="diploma") | Q(category__icontains="diploma")
     ).order_by("-published_date")
@@ -2160,9 +2161,9 @@ def diploma_jobs(request):
   return render(request, 'qualification/diplomajobs.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_diplomajobs,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def engineering_jobs(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="engineering") | Q(category__icontains="engineering")
     ).order_by("-published_date")
@@ -2177,9 +2178,9 @@ def engineering_jobs(request):
   return render(request, 'qualification/engineeringjobs.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_engineering,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def medical_jobs(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="medical") | Q(category__icontains="medical")
     ).order_by("-published_date")
@@ -2194,9 +2195,9 @@ def medical_jobs(request):
   return render(request, 'qualification/medicaljobs.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_medical,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def itigovtjobs(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="iti") | Q(category__icontains="iti")
     ).order_by("-published_date")
@@ -2211,9 +2212,9 @@ def itigovtjobs(request):
   return render(request, 'qualification/itigovtjobs.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_iti,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,} )
 
 def apprenticejob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="apprentice") | Q(category__icontains="apprentice")
     ).order_by("-published_date")
@@ -2232,14 +2233,15 @@ def apprenticejob(request):
 # category jobs
 
 def allcategoryjobs(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 10 job
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 10 job
-  return render(request, 'category/allcategoryjobs.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 10 job
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 10 job
+  latest_jobs = Job.objects.filter(status='published', is_active=True).order_by("-published_date")[:15]  # latest 10 job
+  return render(request, 'category/allcategoryjobs.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards,"latest_jobs":latest_jobs,})
 
 def railwayjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="railway") | Q(category__icontains="railway")
@@ -2256,9 +2258,9 @@ def railwayjob(request):
 
 
 def bankjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="bank") | Q(category__icontains="bank")
@@ -2273,9 +2275,9 @@ def bankjob(request):
   return render(request, 'category/bankjob.html', {"posts": qs,"page_obj":page_obj, "latest_posts": jobs_bank,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,})
 
 def defensejob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="defense") | Q(category__icontains="defense")
@@ -2292,8 +2294,8 @@ def defensejob(request):
 
 def policejobs(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:10]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="police") | Q(category__icontains="police")
@@ -2310,8 +2312,8 @@ def policejobs(request):
 
 def uppolice(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:10]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="uppolice") | Q(category__icontains="defense")
@@ -2327,8 +2329,8 @@ def uppolice(request):
 
 def delhipolice(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:10]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="delhipolice") | Q(category__icontains="Delhipolice")
@@ -2344,8 +2346,8 @@ def delhipolice(request):
 
 def rajasthanpolice(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:10]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="rajasthanpolice") | Q(category__icontains="rajasthanpolice")
@@ -2363,9 +2365,9 @@ def rajasthanpolice(request):
 
 
 def sscjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="ssc") | Q(category__icontains="ssc", )
@@ -2380,9 +2382,9 @@ def sscjob(request):
   return render(request, 'category/sscjob.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_ssc,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,})
 
 def upscjob(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:6]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:6]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:12]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:12]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="upsc") | Q(category__icontains="upsc")
@@ -2397,9 +2399,9 @@ def upscjob(request):
   return render(request, 'category/upscjob.html',  {"posts": qs, "page_obj":page_obj,"latest_posts": jobs_upsc,"latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,})
 
 def government_teacher_jobs(request):
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="teacher") | Q(category__icontains="teacher")
@@ -2455,8 +2457,8 @@ def SignupPage(request):
             login(request, authed)
         return redirect('home')
     
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     
     return render(request, 'singup/singup.html', {"latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
@@ -2483,8 +2485,8 @@ def LoginPage(request):
     else:
         form = AuthenticationForm(request)
 
-    latest_results = Result.objects.filter(is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
 
     return render(request, "singup/login.html", {"latest_results": latest_results, "latest_admitcards": latest_admitcards, "form": form, "next": request.GET.get("next", "")})
 
@@ -2702,8 +2704,8 @@ def search(request):
     paginator = Paginator(results, per_page)
     page_obj = paginator.get_page(page)
 
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:7]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:7]  # latest 10 job
 
     context = {
         "q": q,
@@ -2737,8 +2739,8 @@ def sitemap_index_custom(request):
     lastmod = timezone.now().date().isoformat()
 
     # Absolute URLs बनाएं (slash की गड़बड़ से बचने के लिए rstrip)
-    index_url = request.build_absolute_uri("/sitemap-pages.xml").rstrip("/")
-    post_url  = request.build_absolute_uri("/sitemap-posts.xml").rstrip("/")
+    index_url = request.build_absolute_uri("/sitemap-pages.xml/").rstrip("/")
+    post_url  = request.build_absolute_uri("/sitemap-posts.xml/").rstrip("/")
 
     xml = f'''<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2993,8 +2995,8 @@ def latestnews(request):
     # 4) agar 20 ya 30 hi dikhane hain:
     latest_posts = mixed_objects[:13]
 
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:2]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:2]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:2]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:2]  # latest 10 job
 
     return render(request, "news/latestnews.html", {"page_obj": page_obj, "items": page_obj.object_list,"latest_posts": latest_posts, "latest_results":latest_results, "latest_admitcards": latest_admitcards})
 
@@ -3232,8 +3234,8 @@ def sarkariresultnewupdate(request):
     # 4) agar 20 ya 30 hi dikhane hain:
     latest_posts = mixed_objects[:10]
 
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:10]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
     return render(request, "news/sarkariresultnewupdate.html", {"page_obj": page_obj, "items": page_obj.object_list,"latest_posts": latest_posts, "latest_results":latest_results, "latest_admitcards": latest_admitcards})
 
 
@@ -3466,8 +3468,8 @@ def latestsarkarinews(request):
     # 4) agar 20 ya 30 hi dikhane hain:
     latest_posts = mixed_objects[:13]
 
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:8]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:8]  # latest 10 job
 
     return render(request, "news/latessarkarinews.html", {"page_obj": page_obj, "items": page_obj.object_list, "latest_posts": latest_posts, "latest_results": latest_results, "latest_admitcards": latest_admitcards})
 
@@ -4303,8 +4305,8 @@ def todaynews(request):
     # 4) agar 20 ya 30 hi dikhane hain:
     latest_posts = mixed_objects[:10]
 
-    latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:2]  # latest 10 job
-    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:2]  # latest 10 job
+    latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:2]  # latest 10 job
+    latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:2]  # latest 10 job
 
     return render(request, "news/todaynews.html", {
         "page_obj": page_obj,
@@ -4588,9 +4590,9 @@ def appsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="appsc") | Q(category__icontains="appsc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
 
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
@@ -4606,9 +4608,9 @@ def arunachal_appsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="arunachal psc") | Q(category__icontains="arunachal psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4624,9 +4626,9 @@ def apsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="assam psc") | Q(category__icontains="assam psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4643,9 +4645,9 @@ def bpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="bihar psc") | Q(category__icontains="bihar psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4661,9 +4663,9 @@ def cgpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="chandigarh psc") | Q(category__icontains="chandigarh psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4679,9 +4681,9 @@ def goapsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="goa psc") | Q(category__icontains="goa psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4696,9 +4698,9 @@ def gpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="gujarat psc") | Q(category__icontains="gujarat psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4714,9 +4716,9 @@ def hpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="haryana psc") | Q(category__icontains="haryana psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4732,9 +4734,9 @@ def hppsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="himachalpradesh psc") | Q(category__icontains="himachalpradesh psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4749,9 +4751,9 @@ def jkpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="jammukashmir psc") | Q(category__icontains="jammukashmir psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4766,9 +4768,9 @@ def jpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="jharkhand psc") | Q(category__icontains="jharkhand psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4783,9 +4785,9 @@ def kpsc(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="karnataka psc") | Q(category__icontains="karnataka psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4801,9 +4803,9 @@ def kerala_job(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="kerala psc") | Q(category__icontains="kerala psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4819,9 +4821,9 @@ def mppsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="madhyapradesh psc") | Q(category__icontains="madhyapradesh psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4837,9 +4839,9 @@ def mpsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="maharashtra psc") | Q(category__icontains="maharashtra psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4855,9 +4857,9 @@ def manipur_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="manipur psc") | Q(category__icontains="manipur psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4873,9 +4875,9 @@ def meghalaya_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="meghalaya psc") | Q(category__icontains="meghalaya psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4891,9 +4893,9 @@ def mizoram_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="mizoram psc") | Q(category__icontains="mizoram psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4908,9 +4910,9 @@ def nagaland_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="nagaland psc") | Q(category__icontains="nagaland psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4927,9 +4929,9 @@ def opsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="odisha psc") | Q(category__icontains="odisha psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4945,9 +4947,9 @@ def punjab_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="punjab psc") | Q(category__icontains="punjab psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4962,9 +4964,9 @@ def rpsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="rajasthan psc") | Q(category__icontains="rajasthan psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4979,9 +4981,9 @@ def sikkim_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="sikkim psc") | Q(category__icontains="sikkim psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -4998,9 +5000,9 @@ def tnpsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="tamilnadu psc") | Q(category__icontains="tamilnadu psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -5015,9 +5017,9 @@ def telangana_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="telangana psc") | Q(category__icontains="telangana psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -5032,9 +5034,9 @@ def tripura_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="tripura psc") | Q(category__icontains="tripura psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -5050,9 +5052,9 @@ def uppsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="up psc") | Q(category__icontains="up psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -5068,9 +5070,9 @@ def ukpsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="uttarakhand psc") | Q(category__icontains="uttarakhand psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -5086,9 +5088,9 @@ def wbpsc_jobs(request):
   qs = Job.objects.filter(status='published', is_active=True).filter(
         Q(category__icontains="westbengal psc") | Q(category__icontains="westbengal psc")
     ).order_by("-published_date")
-  latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:5]
-  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by('-id')[:10]
+  latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
+  latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]
   paginator = Paginator(qs, 20, orphans=1) # प्रति पेज 10 jobs दिखाने के लिए (2 बहुत कम है)
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
@@ -5099,8 +5101,8 @@ def wbpsc_jobs(request):
     ).order_by("-published_date")[:5]
   return render(request, 'psc/wbpsc_jobs.html',  {"posts": qs, "page_obj":page_obj, "latest_results": latest_results, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates,"latest_posts": jobs_westbengal,} )
 
-def custom_404(request, exception=None):
-    return redirect("/")  # Home page par redirect
+# def custom_404(request, exception=None):
+#     return redirect("/")  # Home page par redirect
 
 # 500 error page
 
@@ -5150,8 +5152,8 @@ def notification_list(request):
 from django.shortcuts import render, redirect
 from .forms import SubscriberForm
 
-latest_results = Result.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 10 job
-latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by('-id')[:6]  # latest 10 job
+latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 10 job
+latest_admitcards = Admitcard.objects.filter(status='published', is_active=True).order_by("-published_date")[:6]  # latest 10 job
 
 def subscribe(request):
     if request.method == 'POST':

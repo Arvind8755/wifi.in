@@ -753,7 +753,7 @@
           {% for result in page_obj %}
             <li class="job-item">
               <div class="job-main">
-                <a href="/results/{{ result.slug }}" class="job-title">
+                <a href="/results/{{ result.slug }}/" class="job-title">
                   {{ result.title }}
                 </a>
                 <div class="job-meta">
@@ -814,7 +814,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -824,7 +824,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
                   <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -842,7 +842,7 @@
           {% for govtupdate in latest_govtupdates %}
             <div class="quick-item">
               <div class="quick-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
                 <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

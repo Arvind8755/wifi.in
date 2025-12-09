@@ -663,7 +663,7 @@
           {% for admitcard in page_obj %}
             <li class="job-item">
               <div class="job-title-box">
-                <a href="/admit-card/{{admitcard.slug}}" class="job-title">
+                <a href="/admit-card/{{admitcard.slug}}/" class="job-title">
                   {{admitcard.title}}
                 </a>
                 <span class="job-meta-label">Exam / Admit Card Update</span>
@@ -725,7 +725,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -735,7 +735,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+                  <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
                   <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -756,7 +756,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter }}</div>
               <div class="trending-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
                 <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

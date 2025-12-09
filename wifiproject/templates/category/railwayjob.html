@@ -540,7 +540,7 @@
       <span>&gt;</span>
       <a href="{% url 'job' %}">Jobs</a>
       <span>&gt;</span>
-      <span>Sarkari Railway Job</span>
+      <span>Railway Job</span>
     </div>
   </div>
   <!-- Breadcrumb के नीचे Breaking News Marquee -->
@@ -582,7 +582,7 @@
       <!-- New Job Listing Box -->
       <div class="job-listing-container">
         <div class="job-listing-header">
-          <i class="fas fa-bell"></i> Sarkari Railway Job 2025
+          <i class="fas fa-bell"></i>Railway Job
         </div>
         <ul class="job-list-compact">
 
@@ -652,7 +652,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -662,7 +662,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -681,7 +681,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

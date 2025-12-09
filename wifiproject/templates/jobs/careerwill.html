@@ -543,7 +543,7 @@
         {% for job in jobs %}
         <li class="board-item">
           <div>
-            <a href="/latest-jobs/{{ job.slug }}" class="board-item-title">
+            <a href="/latest-jobs/{{ job.slug }}/" class="board-item-title">
               {{ job.title }}
             </a>
             <div class="board-item-meta">
@@ -590,7 +590,7 @@
         {% for result in page_obj %}
         <li class="board-item">
           <div>
-            <a href="/results/{{ result.slug }}" class="board-item-title">
+            <a href="/results/{{ result.slug }}/" class="board-item-title">
               {{ result.title }}
             </a>
             <div class="board-item-meta">

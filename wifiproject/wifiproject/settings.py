@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,10 +31,11 @@ SECRET_KEY = 'django-insecure-q(3djmhgp52&yzedeikg415exg5p1@a-lk!_3%9jxh6s1sw5^7
 
 
 # PING_ALWAYS = True 
-# DEBUG = True
-DEBUG = False   # 404 template तभी दिखेगा जब DEBUG=False हो
+DEBUG = True
+# DEBUG = False   # 404 template तभी दिखेगा जब DEBUG=False हो
 SITE_ID = 1  
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", '3.80.59.222', "www.wifiresult.com", "wifiresult.com"]
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1", '3.80.59.222', "www.wifiresult.com", "wifiresult.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", '192.168.1.4', "www.wifiresult.com", "wifiresult.com"]
 # ALLOWED_HOSTS = ['10.12.125.253']
 
 
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # WhiteNoise ke liye yeh line staticfiles ke pehle
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     "firstapp.apps.FirstappConfig",
     "django_ckeditor_5",
@@ -57,6 +60,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # WhiteNoise middleware
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,8 +70,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+APPEND_SLASH = True
 
 ROOT_URLCONF = 'wifiproject.urls'
+
 
 TEMPLATES = [
     {
@@ -154,11 +162,21 @@ STATIC_URL='static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL='/media/'
+STATIC_ROOT = BASE_DIR / "staticfiles"   # collectstatic यहीं files store करेगा
+# WhiteNoise storage (compressed + cache-busted filenames)
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 
 TIME_ZONE = "Asia/Kolkata"
 USE_TZ = True
+
+
+ 
+ 
+
 
 
 

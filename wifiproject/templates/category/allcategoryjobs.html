@@ -1005,22 +1005,14 @@
         <div class="section-title">
           <i class="fas fa-briefcase"></i> Similar Jobs
         </div>
+
+         {% for job in latest_jobs %}
         <div class="related-job-item">
-          <a href="#" class="related-job-title">SBI Clerk Recruitment 2023 - 5000+ Vacancies</a>
-          <span class="related-job-date">20 Sept 2023</span>
+          <a href="/latest-jobs/{{ job.slug }}/" class="related-job-title">{{ job.title }}</a>
+          <span class="related-job-date">{{ job.published_date|date:"d M, Y" }}</span>
         </div>
-        <div class="related-job-item">
-          <a href="#" class="related-job-title">RBI Assistant Recruitment 2023 - 1000 Posts</a>
-          <span class="related-job-date">12 Oct 2023</span>
-        </div>
-        <div class="related-job-item">
-          <a href="#" class="related-job-title">IBPS PO 2023 Notification - 4000 Probationary Officer Posts</a>
-          <span class="related-job-date">05 Oct 2023</span>
-        </div>
-        <div class="related-job-item">
-          <a href="#" class="related-job-title">SBI PO 2023 Notification - 2000 Probationary Officer Posts</a>
-          <span class="related-job-date">18 Oct 2023</span>
-        </div>
+        {% endfor %}
+      
 
         <!-- NEW: Page description under Similar Jobs as requested -->
         <div style="padding:16px 0 0; color:#555; font-size:14px; line-height:1.5;">
@@ -1055,7 +1047,7 @@
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
          {% for result in latest_results %}
-          <li><a href="/results/{{ result.slug }}">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
           
           
@@ -1066,7 +1058,7 @@
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
  {% for admitcard in latest_admitcards %}
-          <li><a href="/admitcard/{{ admitcard.slug }}">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/admitcard/{{ admitcard.slug }}/">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
         </ul>
       </div>

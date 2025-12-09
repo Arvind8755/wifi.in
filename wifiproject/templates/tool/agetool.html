@@ -40,6 +40,20 @@
 <meta name="twitter:data1" content="Arvind Pal" />
 <meta name="twitter:label2" content="Time to read" />
 <meta name="twitter:data2" content="6 minutes" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <script type="application/ld+json" id="jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "उम्र कैलकुलेटर (Age Calculator)",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+  }
+  </script>
   {% endblock seo %}
 
   {% block style %}    
@@ -494,15 +508,6 @@
           <i class="fas fa-bell"></i> Latest Jobs
         </div>
         
-        <!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>उम्र कैलकुलेटर (Age Calculator) — wifiresult</title>
-  <meta name="description" content="DOB और As on तारीख से Years, Months, Days में उम्र निकालेँ। Eligibility (Min/Max age), शेयर/कॉपी, और PNG Screenshot डाउनलोड।" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
     :root {
       /* Vibrant palette */
@@ -612,18 +617,7 @@
       background: linear-gradient(90deg, #fee2e2, #fce7f3);
     }
   </style>
-  <script type="application/ld+json" id="jsonld">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "उम्र कैलकुलेटर (Age Calculator)",
-    "applicationCategory": "CalculatorApplication",
-    "operatingSystem": "Web",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
-  }
-  </script>
-</head>
-<body>
+
   <div class="wrap">
     <div class="row" style="margin-bottom:10px">
       <h1 id="title">उम्र कैलकुलेटर (Age Calculator)</h1>
@@ -818,8 +812,6 @@
   });
 })();
 </script>
-</body>
-</html>
 
           
       </div>
@@ -835,41 +827,29 @@
           <i class="fas fa-fire"></i> Trending Job Topics
         </div>
         <div class="trending-list">
-          <div class="trending-item">
-            <div class="trending-number">1</div>
-            <div class="trending-content">
-              <a href="#">IBPS Clerk Recruitment 2023</a>
-             <div class="trending-meta">2 hours ago</div>
-            </div>
-          </div>
-          <div class="trending-item">
-            <div class="trending-number">2</div>
-            <div class="trending-content">
-              <a href="#">SSC CGL Notification 2023</a>
-           <div class="trending-meta">2 hours ago</div>
-            </div>
-          </div>
-          <div class="trending-item">
-            <div class="trending-number">3</div>
-            <div class="trending-content">
-              <a href="#">Railway Group D Recruitment</a>
-            <div class="trending-meta">2 hours ago</div>
-            </div>
-          </div>
-          <div class="trending-item">
-            <div class="trending-number">4</div>
-            <div class="trending-content">
-              <a href="#">UP Police Constable 2023</a>
-             <div class="trending-meta">2 hours ago</div>
-            </div>
-          </div>
-          <div class="trending-item">
-            <div class="trending-number">5</div>
-            <div class="trending-content">
-              <a href="#">Indian Army Technical Entry</a>
-             <div class="trending-meta">2 hours ago</div>
-            </div>
-          </div>
+          {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}  
+
+
         </div>
       </div>
       
@@ -879,24 +859,15 @@
           <i class="fas fa-bell"></i> Quick Alerts
         </div>
         <div class="trending-list">
+            {% for govtupdate in latest_govtupdates %}
           <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="#">SSC CHSL Admit Card 2023 Released</a>
-              <div class="trending-meta">2 hours ago</div>
+              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+            <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
-          </div>
-          <div class="trending-item">
-            <div class="trending-content">
-              <a href="#">IBPS PO Result Declared</a>
-              <div class="trending-meta">1 day ago</div>
-            </div>
-          </div>
-          <div class="trending-item">
-            <div class="trending-content">
-              <a href="#">Railway NTPC Phase 4 Schedule</a>
-              <div class="trending-meta">2 days ago</div>
-            </div>
-          </div>
+              </div>
+              {% endfor %}
         </div>
       </div>
     </div>

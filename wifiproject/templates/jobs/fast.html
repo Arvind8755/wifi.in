@@ -666,7 +666,7 @@
         <ul class="fast-list">
           {% for result in results %}
           <li class="fast-item">
-            <a href="/results/{{ result.slug }}">{{ result.title }}</a>
+            <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
             <div class="fast-meta">
               Result Date: {{ result.published_date|date:"d M, Y" }}
             </div>
@@ -693,7 +693,7 @@
         <ul class="fast-list">
           {% for job in jobs %}
           <li class="fast-item">
-            <a href="/latest-jobs/{{ job.slug }}">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
             <div class="fast-meta">
               Last Update: {{ job.published_date|date:"d M, Y" }}
             </div>
@@ -720,7 +720,7 @@
         <ul class="fast-list">
           {% for admitcard in admitcards %}
           <li class="fast-item">
-            <a href="/admit-card/{{ admitcard.slug }}">{{ admitcard.title }}</a>
+            <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
             <div class="fast-meta">
               Exam Date / Update: {{ admitcard.published_date|date:"d M, Y" }}
             </div>
@@ -759,7 +759,7 @@
         <div class="trending-item">
           <div class="trending-number">{{ forloop.counter }}</div>
           <div class="trending-content">
-            <a href="/govt-updates/{{ govtupdate.slug }}">{{ govtupdate.title }}</a>
+            <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
           </div>
         </div>

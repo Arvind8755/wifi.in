@@ -1,6 +1,1285 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block seo %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shadi / Marriage Bio Data Maker — WifiResult Tool</title>
+<meta name="description" content="Create printable marriage biodata in Hindi/English. Upload photo, fill personal & family details, preview and print or download HTML/PDF. Advanced features: bilingual labels, PDF export, QR code, save/load presets, export image, education table." />
+{% endblock seo %}
+
+{% block style %}
+<style>
+:root{ --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:14px; }
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:#0f172a}
+.wrap{max-width:1100px;margin:24px auto;padding:20px}
+h1{margin:0 0 12px;font-size:20px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+.grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input[type=file]{display:block}
+.controls{display:grid;gap:10px}
+.row{display:flex;gap:8px;align-items:center}
+input[type=number], select, input[type=text], textarea{padding:10px;border-radius:10px;border:1px solid #e6eef7;width:100%}
+button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+.btn-ghost{background:#fff;border:1px solid #e6eef7;color:#0f172a}
+.preview{display:flex;flex-direction:column;gap:10px;align-items:center}
+img#photoPreview{width:140px;height:180px;object-fit:cover;border-radius:6px;border:1px solid #e6eef7}
+.meta{font-size:13px;color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+.biodata-card{width:100%;padding:18px;border-radius:12px;background:#fff;border:1px solid #eef6fb}
+.biodata-row{display:flex;gap:12px;align-items:flex-start}
+.biodata-left{width:140px}
+.biodata-right{flex:1}
+.field{margin-bottom:6px}
+.badge{display:inline-block;padding:6px 8px;border-radius:8px;background:#f3f4f6;font-size:12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.toast{position:fixed;right:20px;bottom:20px;background:#111;color:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 6px 20px rgba(2,6,23,.2);display:none}
+.color-swatch{width:22px;height:22px;border-radius:6px;border:1px solid #e6eef7;display:inline-block;vertical-align:middle}
+.table-edit{border:1px dashed #e6eef7;padding:8px;border-radius:8px}
+.switch{display:inline-flex;align-items:center;gap:8px}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="wrap">
+  <h1>Shadi / Marriage Bio Data Maker — Advanced</h1>
+  <div class="card grid">
+    <div>
+      <div class="card" style="padding:12px">
+        <label>Photo / फोटो</label>
+        <input id="photoInput" type="file" accept="image/*" />
+        <div class="small" style="margin-top:6px">Upload a passport-style photo (recommended 400×500px). / पासपोर्ट साइज फोटो अपलोड करें।</div>
+
+        <hr style="margin:12px 0" />
+
+        <div class="controls">
+          <div>
+            <label>Full Name / पूरा नाम</label>
+            <input id="fullName" type="text" placeholder="e.g., Rahul Kumar" />
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Age / आयु</label>
+              <input id="age" type="number" min="18" placeholder="e.g., 28" />
+            </div>
+            <div style="width:160px">
+              <label>Height / कद</label>
+              <input id="height" type="text" placeholder="e.g., 5'8\" / 173 cm" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Religion / Caste / धर्म / जाति</label>
+              <input id="religion" type="text" placeholder="e.g., Hindu / Brahmin" />
+            </div>
+            <div style="width:160px">
+              <label>Mother Tongue / मातृभाषा</label>
+              <input id="motherTongue" type="text" placeholder="e.g., Hindi" />
+            </div>
+          </div>
+
+          <div>
+            <label>Education / शिक्षा</label>
+            <input id="education" type="text" placeholder="e.g., B.Tech (Computer Science)" />
+          </div>
+
+          <div>
+            <label>Occupation / व्यवसाय</label>
+            <input id="occupation" type="text" placeholder="e.g., Software Engineer at XYZ Pvt Ltd" />
+          </div>
+
+          <div>
+            <label>City / State / स्थान</label>
+            <input id="location" type="text" placeholder="e.g., Delhi, India" />
+          </div>
+
+          <div>
+            <label>Contact (optional) / संपर्क (वैकल्पिक)</label>
+            <input id="contact" type="text" placeholder="Phone / Email" />
+          </div>
+
+          <div>
+            <label>Family Details (short) / पारिवारिक विवरण</label>
+            <textarea id="family" rows="3" placeholder="Father: ..."></textarea>
+          </div>
+
+          <div>
+            <label>About / Partner Preferences / परिचय / साथी की अपेक्षाएँ</label>
+            <textarea id="about" rows="4" placeholder="Short bio and partner expectations"></textarea>
+          </div>
+
+          <div>
+            <label>Education Details Table / शिक्षा विवरण तालिका</label>
+            <div class="table-edit" id="educationTable">
+              <table style="width:100%" id="eduTbl">
+                <thead><tr><th>Degree</th><th>Institute</th><th>Year</th><th></th></tr></thead>
+                <tbody></tbody>
+              </table>
+              <div style="margin-top:8px;display:flex;gap:8px">
+                <input id="eduDeg" placeholder="Degree" />
+                <input id="eduInst" placeholder="Institute" />
+                <input id="eduYear" placeholder="Year" style="width:90px" />
+                <button id="eduAdd" class="btn-ghost">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:8px">
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button id="previewBtn">Preview / पूर्वावलोकन</button>
+              <button id="printBtn" class="btn-ghost">Print / Save as PDF</button>
+              <button id="downloadHtmlBtn" class="btn-ghost">Download HTML</button>
+              <button id="exportImgBtn" class="btn-ghost">Export as Image</button>
+            </div>
+            <div style="display:flex;gap:6px;align-items:center">
+              <label class="small">Template / टेम्पलेट</label>
+              <select id="templateSelect">
+                <option value="classic">Classic (simple)</option>
+                <option value="modern">Modern (photo left)</option>
+                <option value="compact">Compact (one-column)</option>
+              </select>
+              <label class="small">Theme</label>
+              <input type="color" id="themeColor" value="#0ea5e9" title="Theme color" />
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+            <label class="switch"><input type="checkbox" id="hideContact" /> Hide contact for public / सार्वजनिक के लिए संपर्क छिपाएँ</label>
+            <label class="switch"><input type="checkbox" id="includeQr" /> Include QR link in biodata</label>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="savePreset" class="btn-ghost">Save Preset</button>
+            <select id="presetsSelect"></select>
+            <button id="loadPreset" class="btn-ghost">Load</button>
+            <button id="deletePreset" class="btn-ghost">Delete</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Tips & Notes / सुझाव</label>
+        <ul class="small" style="margin-top:8px">
+          <li>Fill accurate details. Keep contact info optional for public sharing.</li>
+          <li>Use Print to save as PDF (browser print dialog). For best PDF results choose A4 or Letter.</li>
+          <li>Education table can be exported with biodata.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside>
+      <div class="card preview">
+        <div style="width:100%">
+          <label>Preview / पूर्वावलोकन</label>
+          <div style="border:1px dashed #e6eef7;padding:12px;border-radius:8px;min-height:360px;display:flex;align-items:center;justify-content:center">
+            <div id="biodataContainer" class="biodata-card" style="display:none;">
+              <div id="biodataInner"></div>
+            </div>
+            <div id="placeholder" class="meta">Preview will appear here after you click Preview / पूर्वावलोकन पर क्लिक करने पर यहाँ दिखाई देगा</div>
+          </div>
+        </div>
+
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          <div class="meta">Template: <span id="curTemplate">Classic</span></div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+            <button id="resetBtnSide" class="btn-ghost">Reset</button>
+            <button id="editBtn" class="btn-ghost">Edit</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <div style="margin-top:12px" class="card">
+    <label>How to use / उपयोग कैसे करें</label>
+    <div class="small" style="margin-top:8px;line-height:1.5">
+      <ol>
+        <li>Fill fields and click Preview. Template & theme change available.</li>
+        <li>Use Print to save as PDF. Use Export as Image to get a PNG/JPEG version.</li>
+        <li>Save presets to reuse common profiles (e.g., groom/bride templates).</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Shadi Biodata Maker</div>
+</div>
+
+<!-- External libs: html2pdf and html2canvas + qrcode generator. Using CDN links (no server required). -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+(function(){
+  // elements
+  const photoInput = document.getElementById('photoInput');
+  const biodataContainer = document.getElementById('biodataContainer');
+  const biodataInner = document.getElementById('biodataInner');
+  const placeholder = document.getElementById('placeholder');
+  const curTemplate = document.getElementById('curTemplate');
+  const toast = document.getElementById('toast');
+
+  const fields = ['fullName','age','height','religion','motherTongue','education','occupation','location','contact','family','about'];
+  const els = {};
+  fields.forEach(f=>els[f]=document.getElementById(f));
+
+  const themeColor = document.getElementById('themeColor');
+  const templateSelect = document.getElementById('templateSelect');
+  const hideContact = document.getElementById('hideContact');
+  const includeQr = document.getElementById('includeQr');
+
+  const eduTblBody = document.querySelector('#eduTbl tbody');
+  const eduDeg = document.getElementById('eduDeg'), eduInst = document.getElementById('eduInst'), eduYear = document.getElementById('eduYear'), eduAdd = document.getElementById('eduAdd');
+
+  const presetsSelect = document.getElementById('presetsSelect');
+  const savePreset = document.getElementById('savePreset'), loadPreset = document.getElementById('loadPreset'), deletePreset = document.getElementById('deletePreset');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  let photoDataUrl = null;
+  let eduRows = [];
+
+  function showToast(msg){ toast.textContent = msg; toast.style.display='block'; setTimeout(()=>toast.style.display='none',3000); }
+
+  // photo handling
+  photoInput.addEventListener('change', (e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    if(!f.type.startsWith('image/')){ alert('Please upload an image file'); return; }
+    const reader = new FileReader();
+    reader.onload = function(ev){ photoDataUrl = ev.target.result; showToast('Photo loaded'); }
+    reader.readAsDataURL(f);
+  });
+
+  // education table
+  function renderEdu(){ eduTblBody.innerHTML=''; eduRows.forEach((r,idx)=>{
+    const tr = document.createElement('tr'); tr.innerHTML = `<td>${escapeHtml(r.degree)}</td><td>${escapeHtml(r.institute)}</td><td>${escapeHtml(r.year)}</td><td><button data-i="${idx}" class="btn-ghost">Remove</button></td>`; eduTblBody.appendChild(tr);
+  });
+  // attach remove
+  eduTblBody.querySelectorAll('button').forEach(b=>b.addEventListener('click',(e)=>{ const i=parseInt(e.target.dataset.i,10); eduRows.splice(i,1); renderEdu(); })); }
+
+  eduAdd.addEventListener('click', ()=>{
+    const d=eduDeg.value.trim(), ins=eduInst.value.trim(), y=eduYear.value.trim(); if(!d||!ins) { showToast('Enter degree and institute'); return; }
+    eduRows.push({degree:d,institute:ins,year:y}); eduDeg.value=''; eduInst.value=''; eduYear.value=''; renderEdu();
+  });
+
+  function resetAll(){ fields.forEach(f=>{ els[f].value=''; }); photoInput.value=''; photoDataUrl=null; eduRows=[]; renderEdu(); biodataContainer.style.display='none'; placeholder.style.display='block'; curTemplate.textContent = 'Classic'; templateSelect.value='classic'; themeColor.value='#0ea5e9'; hideContact.checked=false; includeQr.checked=false; presetsSelect.innerHTML=''; loadPresetsToSelect(); }
+
+  // presets (localStorage)
+  function loadPresetsToSelect(){ presetsSelect.innerHTML=''; const keys = Object.keys(localStorage).filter(k=>k.startsWith('biodata_preset_')); keys.forEach(k=>{
+    const opt = document.createElement('option'); opt.value=k; opt.textContent = k.replace('biodata_preset_',''); presetsSelect.appendChild(opt);
+  }); }
+  loadPresetsToSelect();
+
+  savePreset.addEventListener('click', ()=>{
+    const name = prompt('Preset name'); if(!name) return; const data = collectData(); localStorage.setItem('biodata_preset_'+name, JSON.stringify(data)); loadPresetsToSelect(); showToast('Preset saved');
+  });
+  loadPreset.addEventListener('click', ()=>{
+    const key = presetsSelect.value; if(!key){ showToast('No preset selected'); return; } const data = JSON.parse(localStorage.getItem(key)); if(!data) { showToast('Preset not found'); return; } applyData(data); showToast('Preset loaded');
+  });
+  deletePreset.addEventListener('click', ()=>{ const key = presetsSelect.value; if(!key){ showToast('No preset selected'); return; } if(confirm('Delete preset?')){ localStorage.removeItem(key); loadPresetsToSelect(); showToast('Deleted'); } });
+
+  function collectData(){ const out = {}; fields.forEach(f=>out[f]=els[f].value); out.edu=eduRows; out.photo = photoDataUrl; out.template = templateSelect.value; out.theme = themeColor.value; out.hideContact = hideContact.checked; out.includeQr = includeQr.checked; return out; }
+  function applyData(d){ fields.forEach(f=>els[f].value = d[f]||''); eduRows = d.edu||[]; renderEdu(); photoDataUrl = d.photo||null; templateSelect.value = d.template||'classic'; themeColor.value = d.theme||'#0ea5e9'; hideContact.checked = !!d.hideContact; includeQr.checked = !!d.includeQr; }
+
+  // build html
+  function buildBiodataHtml(template){
+    const name = els.fullName.value || '—';
+    const age = els.age.value || '—';
+    const height = els.height.value || '—';
+    const religion = els.religion.value || '—';
+    const motherTongue = els.motherTongue.value || '—';
+    const educationText = els.education.value || '—';
+    const occupation = els.occupation.value || '—';
+    const location = els.location.value || '—';
+    const contact = els.contact.value || '';
+    const family = els.family.value || '';
+    const about = els.about.value || '';
+
+    const theme = themeColor.value || '#0ea5e9';
+    const hideC = hideContact.checked;
+    const includeQR = includeQr.checked;
+
+    const eduHtml = eduRows.length? '<h4>Education</h4><table style="width:100%;border-collapse:collapse">' + eduRows.map(r=>`<tr><td style="padding:4px 8px;border-bottom:1px solid #eef6fb"><strong>${escapeHtml(r.degree)}</strong></td><td style="padding:4px 8px;border-bottom:1px solid #eef6fb">${escapeHtml(r.institute)}</td><td style="padding:4px 8px;border-bottom:1px solid #eef6eef6">${escapeHtml(r.year)}</td></tr>`).join('') + '</table>' : '';
+
+    const contactHtml = hideC? '' : (contact? `<div><strong>Contact:</strong> ${escapeHtml(contact)}</div>` : '');
+
+    const qrPlaceholder = includeQR? '<div id="qrCode" style="margin-top:10px"></div>' : '';
+
+    if(template==='compact'){
+      return `
+        <div style="font-family:inherit;color:#0f172a;max-width:760px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid ${theme};padding-bottom:8px;margin-bottom:8px">
+            <div>
+              <h2 style="margin:0">${escapeHtml(name)}</h2>
+              <div style="color:${theme};font-weight:600">${escapeHtml(educationText)} • ${escapeHtml(occupation)}</div>
+            </div>
+            ${photoDataUrl? `<img src="${photoDataUrl}" style="width:120px;height:150px;object-fit:cover;border-radius:6px;border:1px solid #eef6fb">` : ''}
+          </div>
+          <div>${escapeHtml(about)}</div>
+          <div style="margin-top:8px">
+            <div><strong>Age:</strong> ${escapeHtml(age)} &nbsp; <strong>Height:</strong> ${escapeHtml(height)}</div>
+            <div><strong>Religion:</strong> ${escapeHtml(religion)} &nbsp; <strong>Mother Tongue:</strong> ${escapeHtml(motherTongue)}</div>
+            <div><strong>Location:</strong> ${escapeHtml(location)}</div>
+            ${contactHtml}
+            ${family?`<div style="margin-top:8px"><strong>Family:</strong> ${escapeHtml(family)}</div>`:''}
+            ${eduHtml}
+            ${qrPlaceholder}
+          </div>
+        </div>
+      `;
+    }
+
+    const photoHtml = photoDataUrl? `<div class="biodata-left"><img src="${photoDataUrl}" style="width:120px;height:150px;object-fit:cover;border-radius:6px;border:1px solid #eef6fb"></div>` : '<div class="biodata-left"><div style="width:120px;height:150px;background:#f3f4f6;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#94a3b8">No Photo</div></div>';
+
+    const rightHtml = `
+      <div class="biodata-right">
+        <h2 style="margin:0 0 6px;color:${theme}">${escapeHtml(name)}</h2>
+        <div class="badge">${escapeHtml(educationText)} • ${escapeHtml(occupation)}</div>
+        <div style="margin-top:10px">${escapeHtml(about)}</div>
+        <div style="margin-top:12px">
+          <div class="field"><strong>Age:</strong> ${escapeHtml(age)}</div>
+          <div class="field"><strong>Height:</strong> ${escapeHtml(height)}</div>
+          <div class="field"><strong>Religion / Caste:</strong> ${escapeHtml(religion)}</div>
+          <div class="field"><strong>Mother Tongue:</strong> ${escapeHtml(motherTongue)}</div>
+          <div class="field"><strong>Location:</strong> ${escapeHtml(location)}</div>
+          ${contactHtml}
+          ${family?`<div class="field"><strong>Family:</strong> ${escapeHtml(family)}</div>`:''}
+          ${eduHtml}
+          ${qrPlaceholder}
+        </div>
+      </div>
+    `;
+
+    if(template==='modern'){
+      return `<div style="display:flex;gap:12px;align-items:flex-start">${photoHtml}${rightHtml}</div>`;
+    }
+    // classic
+    const topPhoto = photoDataUrl? `<div style="text-align:center;margin-bottom:8px"><img src="${photoDataUrl}" style="width:120px;height:150px;object-fit:cover;border-radius:6px;border:1px solid #eef6fb"></div>`:'';
+    return `
+      ${topPhoto}
+      <div style="max-width:760px">
+        <h2 style="margin:0 0 6px;color:${theme}">${escapeHtml(name)}</h2>
+        <div class="badge">${escapeHtml(educationText)} • ${escapeHtml(occupation)}</div>
+        <div style="margin-top:10px">${escapeHtml(about)}</div>
+        <div style="margin-top:12px">
+          <div class="field"><strong>Age:</strong> ${escapeHtml(age)} &nbsp; <strong>Height:</strong> ${escapeHtml(height)}</div>
+          <div class="field"><strong>Religion / Caste:</strong> ${escapeHtml(religion)} &nbsp; <strong>Mother Tongue:</strong> ${escapeHtml(motherTongue)}</div>
+          <div class="field"><strong>Location:</strong> ${escapeHtml(location)}</div>
+          ${contactHtml}
+          ${family?`<div class="field"><strong>Family:</strong> ${escapeHtml(family)}</div>`:''}
+          ${eduHtml}
+          ${qrPlaceholder}
+        </div>
+      </div>
+    `;
+  }
+
+  function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]; }); }
+
+  // preview
+  document.getElementById('previewBtn').addEventListener('click', ()=>{
+    const tpl = templateSelect.value; curTemplate.textContent = tpl.charAt(0).toUpperCase()+tpl.slice(1);
+    const html = buildBiodataHtml(tpl);
+    biodataInner.innerHTML = html; biodataContainer.style.display='block'; placeholder.style.display='none';
+    // render QR if needed
+    if(includeQr.checked){ const qrEl = document.getElementById('qrCode'); if(qrEl){ qrEl.innerHTML=''; const url = generateDownloadableHtmlUrl(); new QRCode(qrEl, { text: url, width: 96, height: 96 }); }}
+    // apply theme color to badges
+    biodataInner.querySelectorAll('.badge').forEach(b=>{ b.style.background = '#f3f4f6'; });
+    showToast('Preview updated');
+  });
+
+  // generate downloadable HTML data URL used for QR
+  function generateDownloadableHtmlUrl(){ const tpl = templateSelect.value; const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(els.fullName.value||'Biodata')}</title></head><body>${buildBiodataHtml(tpl)}</body></html>`; const blob = new Blob([html], {type:'text/html'}); return URL.createObjectURL(blob); }
+
+  // print / pdf
+  document.getElementById('printBtn').addEventListener('click', ()=>{
+    if(biodataContainer.style.display==='none'){ showToast('Click Preview first'); return; }
+    const opt = { margin:0.4, filename: (els.fullName.value||'biodata') + '.pdf', image:{type:'jpeg',quality:0.95}, html2canvas:{scale:2}, jsPDF:{unit:'in',format:'a4',orientation:'portrait'} };
+    html2pdf().set(opt).from(biodataInner).save();
+  });
+
+  // download html
+  document.getElementById('downloadHtmlBtn').addEventListener('click', ()=>{
+    const tpl = templateSelect.value; const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(els.fullName.value||'Biodata')}</title></head><body>${buildBiodataHtml(tpl)}</body></html>`;
+    const blob = new Blob([html], {type:'text/html'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = (els.fullName.value||'biodata') + '.html'; a.click();
+  });
+
+  // export as image
+  document.getElementById('exportImgBtn').addEventListener('click', async ()=>{
+    if(biodataContainer.style.display==='none'){ showToast('Click Preview first'); return; }
+    try{
+      const canvas = await html2canvas(biodataInner, { scale:2, useCORS:true });
+      canvas.toBlob((blob)=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(els.fullName.value||'biodata')+'.png'; a.click(); }, 'image/png');
+    }catch(e){ console.error(e); showToast('Export failed'); }
+  });
+
+  // reset / edit
+  document.getElementById('resetBtnSide').addEventListener('click', resetAll);
+  document.getElementById('editBtn').addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  // presets initialization
+  loadPresetsToSelect();
+
+  // helper: load saved last session
+  (function loadSession(){ const s = localStorage.getItem('biodata_last'); if(s){ applyData(JSON.parse(s)); showToast('Loaded last session'); } renderEdu(); })();
+  // save session on unload
+  window.addEventListener('beforeunload', ()=>{ localStorage.setItem('biodata_last', JSON.stringify(collectData())); });
+
+})();
+</script>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume & CV Maker — WifiResult Tool</title>
+<meta name="description" content="Create, preview and export beautiful resumes/CVs (Classic, Modern, Minimal). Fill fields, choose a template, then preview or print/export as PDF." />
+{% endblock seo %}
+
+{% block style %}
+<style>
+:root{ --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:12px; --text:#0f172a }
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:var(--text)}
+.wrap{max-width:1100px;margin:28px auto;padding:20px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+.grid{display:grid;grid-template-columns:420px 1fr;gap:18px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input[type=text], input[type=email], input[type=tel], textarea, select{padding:10px;border-radius:8px;border:1px solid #e6eef7;width:100%;font-size:14px}
+textarea{min-height:80px}
+.row{display:flex;gap:8px}
+.small{font-size:13px;color:var(--muted)}
+.button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+.btn-ghost{background:#fff;border:1px solid #e6eef7;color:var(--text)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}
+.template-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.template-card{padding:8px;border-radius:8px;border:1px solid #e6eef7;background:#fff;cursor:pointer;min-width:120px}
+.template-card.active{box-shadow:0 6px 18px rgba(14,165,233,.12);border-color:var(--accent)}
+.preview-pane{border:1px dashed #e6eef7;padding:12px;border-radius:8px;min-height:600px;background:#fff}
+.preview-inner{max-width:800px;margin:0 auto;padding:24px;background:#fff}
+.meta{font-size:13px;color:var(--muted)}
+.controls{display:grid;gap:10px}
+.section{margin-bottom:12px}
+.kv{display:flex;justify-content:space-between;gap:8px}
+.kv > div{flex:1}
+.badge{display:inline-block;padding:6px 8px;border-radius:999px;border:1px solid #e6eef7;background:#fff}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+/* Template styles */
+.template-classic{font-family:Georgia, 'Times New Roman', serif;color:#111}
+.template-classic .name{font-size:26px;font-weight:700}
+.template-classic .heading{color:#0b7285;font-weight:600;margin-top:10px}
+
+.template-modern{font-family:Inter, system-ui, Arial; color:#0f172a}
+.template-modern .header{display:flex;justify-content:space-between;align-items:center}
+.template-modern .name{font-size:28px;font-weight:700}
+.template-modern .sidebar{background:#f1f9fc;padding:12px;border-radius:8px}
+
+.template-minimal{font-family:system-ui;color:#0f172a}
+.template-minimal .name{font-size:24px;font-weight:700}
+.template-minimal .muted{color:var(--muted)}
+
+/* Print helpers */
+@media print{
+  body *{visibility:hidden}
+  .printable, .printable *{visibility:visible}
+  .printable{position:fixed;left:0;top:0;width:100%}
+}
+
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="wrap">
+  <h1>Resume & CV Maker</h1>
+  <div class="card grid">
+    <aside>
+      <div class="card">
+        <label>Personal Details</label>
+        <div class="controls">
+          <input id="fullName" type="text" placeholder="Full name" />
+          <input id="title" type="text" placeholder="Job title (e.g., Software Engineer)" />
+          <input id="email" type="email" placeholder="Email" />
+          <input id="phone" type="tel" placeholder="Phone" />
+          <input id="location" type="text" placeholder="Location (City, Country)" />
+          <label>Profile Summary</label>
+          <textarea id="summary" placeholder="Short professional summary..."></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Sections</label>
+        <div class="small" style="margin-top:8px">
+          <div class="section">
+            <label>Education</label>
+            <div id="educationList"></div>
+            <button id="addEducation" class="btn-ghost">+ Add Education</button>
+          </div>
+
+          <div class="section">
+            <label>Experience</label>
+            <div id="experienceList"></div>
+            <button id="addExperience" class="btn-ghost">+ Add Experience</button>
+          </div>
+
+          <div class="section">
+            <label>Skills (comma separated)</label>
+            <input id="skills" type="text" placeholder="e.g., JavaScript, Django, SQL" />
+          </div>
+
+          <div class="section">
+            <label>Extras</label>
+            <textarea id="extras" placeholder="Certifications, Languages, Hobbies... (optional)"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Template</label>
+        <div class="template-list" id="templateList">
+          <div class="template-card active" data-template="classic">Classic</div>
+          <div class="template-card" data-template="modern">Modern</div>
+          <div class="template-card" data-template="minimal">Minimal</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label>Filename</label>
+          <input id="outName" type="text" placeholder="my-resume" />
+        </div>
+
+        <div style="margin-top:12px" class="actions">
+          <button id="previewBtn" class="button">Preview</button>
+          <button id="downloadBtn" class="button">Download (Print → Save as PDF)</button>
+          <button id="exportJson" class="btn-ghost">Export JSON</button>
+          <button id="resetBtn" class="btn-ghost">Reset</button>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="card preview-pane">
+        <label>Preview</label>
+        <div id="preview" class="preview-inner printable template-classic" style="margin-top:12px">
+          <!-- populated by JS -->
+          <div style="text-align:center;color:var(--muted)">Preview will appear here. Fill the form and click <strong>Preview</strong>.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card small">
+        <label>Templates — Examples</label>
+        <div style="margin-top:8px">
+          <strong>Classic:</strong> Serif heading, structured sections. Good for academia and formal roles.<br>
+          <strong>Modern:</strong> Two-column layout with colored sidebar. Clean and contemporary.<br>
+          <strong>Minimal:</strong> Clean single-column, compact layout for recruiters scanning fast.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Resume & CV Maker</div>
+</div>
+
+<!-- Hidden template fragments -->
+<template id="tplClassic">
+  <div class="template-classic">
+    <div class="name" id="p_name"></div>
+    <div class="kv">
+      <div class="muted" id="p_title"></div>
+      <div class="muted" style="text-align:right" id="p_contact"></div>
+    </div>
+    <hr />
+    <div>
+      <div class="heading">Profile</div>
+      <p id="p_summary"></p>
+    </div>
+    <div>
+      <div class="heading">Experience</div>
+      <div id="p_experience"></div>
+    </div>
+    <div>
+      <div class="heading">Education</div>
+      <div id="p_education"></div>
+    </div>
+    <div>
+      <div class="heading">Skills</div>
+      <div id="p_skills"></div>
+    </div>
+    <div>
+      <div class="heading">Extras</div>
+      <div id="p_extras"></div>
+    </div>
+  </div>
+</template>
+
+<template id="tplModern">
+  <div class="template-modern" style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+    <div>
+      <div class="name" id="p_name"></div>
+      <div class="muted" id="p_title"></div>
+      <hr />
+      <div><strong>Experience</strong><div id="p_experience"></div></div>
+      <div><strong>Education</strong><div id="p_education"></div></div>
+    </div>
+    <aside class="sidebar">
+      <div style="text-align:center"><strong>Contact</strong><div id="p_contact"></div></div>
+      <hr />
+      <div><strong>Profile</strong><p id="p_summary"></p></div>
+      <div><strong>Skills</strong><div id="p_skills"></div></div>
+      <div><strong>Extras</strong><div id="p_extras"></div></div>
+    </aside>
+  </div>
+</template>
+
+<template id="tplMinimal">
+  <div class="template-minimal">
+    <div class="name" id="p_name"></div>
+    <div class="muted" id="p_title"></div>
+    <div style="height:8px"></div>
+    <div id="p_contact" class="muted"></div>
+    <hr />
+    <div id="p_summary"></div>
+    <hr />
+    <div><strong>Experience</strong><div id="p_experience"></div></div>
+    <div><strong>Education</strong><div id="p_education"></div></div>
+    <div><strong>Skills</strong><div id="p_skills"></div></div>
+  </div>
+</template>
+
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const educationList = document.getElementById('educationList');
+  const experienceList = document.getElementById('experienceList');
+  const addEducation = document.getElementById('addEducation');
+  const addExperience = document.getElementById('addExperience');
+  const templateCards = document.querySelectorAll('.template-card');
+  const previewBtn = document.getElementById('previewBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const exportJson = document.getElementById('exportJson');
+  const resetBtn = document.getElementById('resetBtn');
+  const preview = document.getElementById('preview');
+  const outName = document.getElementById('outName');
+
+  function makeEducationItem(data){
+    const id = 'edu_' + Date.now() + Math.random().toString(36).slice(2,6);
+    const wrapper = document.createElement('div'); wrapper.className='edu-item'; wrapper.style.marginBottom='8px';
+    wrapper.innerHTML = `
+      <input class="edu_school" type="text" placeholder="Degree & Institution (e.g., B.Sc Computer Science, XYZ University)" value="${data?.school||''}" />
+      <div class=\"row\"> 
+        <input class=\"edu_date\" type=\"text\" placeholder=\"Year / Duration (e.g., 2018 - 2022)\" value=\"${data?.date||''}\" />
+        <button class=\"btn-ghost remove-edu\">Remove</button>
+      </div>
+    `;
+    wrapper.querySelector('.remove-edu').addEventListener('click',()=>wrapper.remove());
+    educationList.appendChild(wrapper);
+  }
+
+  function makeExperienceItem(data){
+    const wrapper = document.createElement('div'); wrapper.className='exp-item'; wrapper.style.marginBottom='8px';
+    wrapper.innerHTML = `
+      <input class="exp_role" type="text" placeholder="Role & Company (e.g., Frontend Developer — ABC Ltd)" value="${data?.role||''}" />
+      <textarea class="exp_desc" placeholder="Responsibilities and achievements...">${data?.desc||''}</textarea>
+      <div class=\"row\"> 
+        <input class=\"exp_date\" type=\"text\" placeholder=\"Duration (e.g., Jun 2022 - Present)\" value=\"${data?.date||''}\" />
+        <button class=\"btn-ghost remove-exp\">Remove</button>
+      </div>
+    `;
+    wrapper.querySelector('.remove-exp').addEventListener('click',()=>wrapper.remove());
+    experienceList.appendChild(wrapper);
+  }
+
+  addEducation.addEventListener('click',()=>makeEducationItem());
+  addExperience.addEventListener('click',()=>makeExperienceItem());
+
+  // templating
+  let selectedTemplate = 'classic';
+  templateCards.forEach(c=>c.addEventListener('click',()=>{
+    templateCards.forEach(x=>x.classList.remove('active')); c.classList.add('active'); selectedTemplate=c.dataset.template;
+  }));
+
+  function gatherData(){
+    const eduEls = Array.from(document.querySelectorAll('.edu-item'));
+    const expEls = Array.from(document.querySelectorAll('.exp-item'));
+    return {
+      name: document.getElementById('fullName').value.trim(),
+      title: document.getElementById('title').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      location: document.getElementById('location').value.trim(),
+      summary: document.getElementById('summary').value.trim(),
+      skills: document.getElementById('skills').value.split(',').map(s=>s.trim()).filter(Boolean),
+      extras: document.getElementById('extras').value.trim(),
+      education: eduEls.map(el=>({school: el.querySelector('.edu_school').value.trim(), date: el.querySelector('.edu_date').value.trim()})),
+      experience: expEls.map(el=>({role: el.querySelector('.exp_role').value.trim(), date: el.querySelector('.exp_date').value.trim(), desc: el.querySelector('.exp_desc').value.trim()}))
+    };
+  }
+
+  function renderSectionList(items, type){
+    if(!items || items.length===0) return '<div class="meta">—</div>';
+    if(type==='education'){
+      return items.map(i=>`<div style="margin-bottom:8px"><strong>${escapeHtml(i.school)}</strong><div class="meta">${escapeHtml(i.date)}</div></div>`).join('');
+    }
+    if(type==='experience'){
+      return items.map(i=>`<div style="margin-bottom:10px"><strong>${escapeHtml(i.role)}</strong><div class="meta">${escapeHtml(i.date)}</div><div>${escapeHtml(i.desc)}</div></div>`).join('');
+    }
+    return '';
+  }
+
+  function escapeHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;'); }
+
+  function buildPreview(data){
+    // choose template fragment
+    const tplId = selectedTemplate==='modern' ? 'tplModern' : selectedTemplate==='minimal' ? 'tplMinimal' : 'tplClassic';
+    const frag = document.getElementById(tplId).content.cloneNode(true);
+    // populate fields
+    frag.getElementById('p_name').textContent = data.name || 'Your Name';
+    frag.getElementById('p_title').textContent = data.title || '';
+    frag.getElementById('p_contact').innerHTML = [data.email, data.phone, data.location].filter(Boolean).join(' • ');
+    frag.getElementById('p_summary').textContent = data.summary || '';
+    frag.getElementById('p_education').innerHTML = renderSectionList(data.education, 'education');
+    frag.getElementById('p_experience').innerHTML = renderSectionList(data.experience, 'experience');
+    frag.getElementById('p_skills').innerHTML = (data.skills && data.skills.length) ? data.skills.map(s=>`<span class=\"badge\">${escapeHtml(s)}</span>`).join(' ') : '<div class="meta">—</div>';
+    frag.getElementById('p_extras').textContent = data.extras || '';
+    // wrap into container
+    const wrapper = document.createElement('div'); wrapper.className = 'printable';
+    wrapper.appendChild(frag);
+    // apply template class on outer preview container
+    preview.innerHTML = '';
+    preview.className = 'preview-inner printable ' + (selectedTemplate==='modern' ? 'template-modern' : selectedTemplate==='minimal' ? 'template-minimal' : 'template-classic');
+    preview.appendChild(wrapper);
+  }
+
+  previewBtn.addEventListener('click', ()=>{
+    const data = gatherData();
+    buildPreview(data);
+    // set filename default
+    outName.value = outName.value || (data.name ? data.name.toLowerCase().replace(/\s+/g,'-') + '-resume' : 'my-resume');
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    // generate preview first so print captures the content
+    const data = gatherData(); buildPreview(data);
+    // small delay to ensure DOM updated
+    setTimeout(()=>{
+      window.print();
+    },100);
+  });
+
+  exportJson.addEventListener('click', ()=>{
+    const data = gatherData();
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = (outName.value||'my-resume') + '.json'; a.click();
+  });
+
+  resetBtn.addEventListener('click', ()=>{
+    if(!confirm('Reset all fields?')) return;
+    document.querySelectorAll('input[type=text], input[type=email], input[type=tel], textarea').forEach(i=>i.value='');
+    educationList.innerHTML=''; experienceList.innerHTML=''; preview.innerHTML='<div style="text-align:center;color:var(--muted)">Preview will appear here. Fill the form and click <strong>Preview</strong>.</div>';
+  });
+
+  // helpers: add a couple of sample entries for convenience
+  makeEducationItem({school:'B.Sc Computer Science — XYZ University', date:'2016 - 2019'});
+  makeExperienceItem({role:'Frontend Developer — Acme Tech', date:'Jul 2022 - Present', desc:'Worked on building responsive UI components and performance optimisation.'});
+
+  // simple filename sanitization when printing (not all browsers support programmatic filename for print -> user must Save as PDF manually)
+  window.addEventListener('beforeprint', ()=>{
+    // nothing required — print CSS handles layout
+  });
+
+})();
+</script>
+
+{% endblock content %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} photo & signature {% endcomment %}
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photo + Signature Joiner — WifiResult Tool</title>
+<meta name="description" content="Join a signature image onto a main photo. Position, scale, rotate, set margin and opacity, then download as PNG/JPG/WEBP." />
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:#0f172a}
+  .wrap{max-width:980px;margin:28px auto;padding:20px}
+  h1{margin:0 0 12px;font-size:20px}
+  .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  input[type=file]{display:block}
+  .controls{display:grid;gap:10px}
+  .row{display:flex;gap:8px;align-items:center}
+  input[type=number], select, input[type=text]{padding:10px;border-radius:10px;border:1px solid #e6eef7;width:100%}
+  button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+  .btn-ghost{background:#fff;border:1px solid #e6eef7;color:#0f172a}
+  .preview{display:flex;flex-direction:column;gap:10px;align-items:center}
+  img#previewImg{max-width:100%;border-radius:8px;border:1px solid #e6eef7}
+  canvas#previewCanvas{max-width:100%;border-radius:8px;border:1px solid #e6eef7}
+  .meta{font-size:13px;color:var(--muted)}
+  .small{font-size:12px;color:var(--muted)}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+  .progress{height:8px;background:#e6eef7;border-radius:8px;overflow:hidden}
+  .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%}
+  .help{font-size:12px;color:var(--muted)}
+  .preset{display:flex;gap:6px;flex-wrap:wrap}
+  .preset button{background:#f3f4f6;color:#111;padding:6px 8px;border-radius:8px;border:1px solid #e6eef7}
+  .toggle{display:inline-flex;align-items:center;gap:8px}
+  ul.small{padding-left:18px;margin:6px 0}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="wrap">
+  <h1>Photo + Signature Joiner</h1>
+  <div class="card grid">
+    <div>
+      <div class="card" style="padding:12px">
+        <label>Main Photo (Passport / ID photo)</label>
+        <input id="photoInput" type="file" accept="image/*" />
+        <div class="small" style="margin-top:6px">Supported: PNG, JPEG, WEBP, HEIC (if browser supports). Prefer high-res passport-style photo.</div>
+
+        <hr style="margin:12px 0" />
+
+        <label>Signature Image (PNG with transparent bg recommended)</label>
+        <input id="signInput" type="file" accept="image/*" />
+        <div class="small" style="margin-top:6px">Best: signature on white/transparent background. If background present, you can still overlay.</div>
+
+        <hr style="margin:12px 0" />
+
+        <div class="controls">
+          <div class="row">
+            <div style="flex:1">
+              <label>Signature Position</label>
+              <select id="signPosition">
+                <option value="bottom-right">Bottom Right (default)</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="top-right">Top Right</option>
+                <option value="top-left">Top Left</option>
+                <option value="custom">Custom (set X/Y %)</option>
+              </select>
+            </div>
+            <div style="width:120px">
+              <label>Margin (px)</label>
+              <input id="signMargin" type="number" min="0" value="16" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Signature Scale (%) — relative to photo width</label>
+              <input id="signScale" type="number" min="1" max="200" value="20" />
+            </div>
+            <div style="width:120px">
+              <label>Opacity</label>
+              <input id="signOpacity" type="number" min="0" max="100" value="100" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Rotation (deg)</label>
+              <input id="signRotate" type="number" step="1" value="0" />
+            </div>
+            <div style="width:160px">
+              <label>Custom X (%)</label>
+              <input id="customX" type="number" min="0" max="100" placeholder="50" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Custom Y (%)</label>
+              <input id="customY" type="number" min="0" max="100" placeholder="50" />
+            </div>
+            <div style="width:160px">
+              <label>Background fill</label>
+              <input id="bgFill" type="text" placeholder="transparent or #ffffff" />
+            </div>
+          </div>
+
+          <div>
+            <label>Output Format</label>
+            <select id="outFormat">
+              <option value="image/png">PNG (transparent if bg 'transparent')</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WEBP</option>
+            </select>
+          </div>
+
+          <div class="row" style="margin-top:8px">
+            <div style="flex:1">
+              <label>Quality (for JPG/WEBP) — 0.1 to 1</label>
+              <input id="outQuality" type="number" step="0.05" min="0.1" max="1" value="0.92" />
+            </div>
+            <div style="width:160px">
+              <label>Filename</label>
+              <input id="outFilename" type="text" placeholder="photo-signed" />
+            </div>
+          </div>
+
+          <div style="margin-top:8px;display:flex;gap:8px;">
+            <button id="previewBtn">Preview</button>
+            <button id="downloadBtn">Download</button>
+            <button id="resetBtn" class="btn-ghost">Reset</button>
+          </div>
+
+          <div style="margin-top:8px">
+            <div class="progress" aria-hidden>
+              <i id="progressBar"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Tips & Notes</label>
+        <ul class="small">
+          <li>Signature ko photo ke upar place karne ke liye PNG with transparent bg best hai.</li>
+          <li>Signature scale % photo width ke hisaab se hai — 15–25% aksar passport signatures ke liye theek rehta hai.</li>
+          <li>Custom position me X/Y % set karke precise placement kar sakte hain.</li>
+          <li>Web browsers par large images slow ho sakte hain; 30MB se badi files avoid karein.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside>
+      <div class="card preview">
+        <div style="width:100%">
+          <label>Preview</label>
+          <div style="border:1px dashed #e6eef7;padding:8px;border-radius:8px;min-height:260px;display:flex;align-items:center;justify-content:center">
+            <canvas id="previewCanvas" width="600" height="400" style="display:block;max-width:100%"></canvas>
+            <div id="placeholder" class="meta" style="display:none">No preview</div>
+          </div>
+        </div>
+
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          <div class="meta">Photo: <span id="photoInfo">—</span></div>
+          <div class="meta">Signature: <span id="signInfo">—</span></div>
+          <div class="meta">Export: <span id="exportInfo">—</span></div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+            <button id="downloadPreview" class="btn-ghost">Download Preview</button>
+            <button id="copyBtn" class="btn-ghost">Copy to Clipboard</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <div style="margin-top:12px" class="card">
+    <label>Tool — Kaise Use Karein</label>
+    <div class="small" style="margin-top:8px;line-height:1.5">
+      <ul>
+        <li><strong>1.</strong> "Main Photo" upload karein (passport/ID photo).</li>
+        <li><strong>2.</strong> "Signature Image" upload karein (PNG transparent recommended).</li>
+        <li><strong>3.</strong> Signature Position/Scale/Rotation/Opacity aur Margin set karein. Custom select karne par X/Y % de sakte hain.</li>
+        <li><strong>4.</strong> Preview se result dekhein. Satisfied ho to "Download" karein.</li>
+        <li><strong>5.</strong> Output format PNG/JPG/WEBP — PNG transparency maintain karega agar background "transparent" ho.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Photo + Signature Joiner</div>
+</div>
+
+<script>
+(function(){
+  // DOM
+  const photoInput = document.getElementById('photoInput');
+  const signInput = document.getElementById('signInput');
+  const previewCanvas = document.getElementById('previewCanvas');
+  const placeholder = document.getElementById('placeholder');
+  const photoInfo = document.getElementById('photoInfo');
+  const signInfo = document.getElementById('signInfo');
+  const exportInfo = document.getElementById('exportInfo');
+  const progressBar = document.getElementById('progressBar');
+
+  const signPosition = document.getElementById('signPosition');
+  const signMargin = document.getElementById('signMargin');
+  const signScale = document.getElementById('signScale');
+  const signOpacity = document.getElementById('signOpacity');
+  const signRotate = document.getElementById('signRotate');
+  const customX = document.getElementById('customX');
+  const customY = document.getElementById('customY');
+  const bgFill = document.getElementById('bgFill');
+  const outFormat = document.getElementById('outFormat');
+  const outQuality = document.getElementById('outQuality');
+  const outFilename = document.getElementById('outFilename');
+
+  const previewBtn = document.getElementById('previewBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const downloadPreview = document.getElementById('downloadPreview');
+  const copyBtn = document.getElementById('copyBtn');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  let photoImg = null;
+  let signImg = null;
+  let lastBlob = null;
+
+  function setProgress(p){ progressBar.style.width = (p*100)+'%'; }
+
+  photoInput.addEventListener('change', async(e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f){ photoImg = null; photoInfo.textContent='—'; drawPlaceholder(); return; }
+    if(!f.type.startsWith('image/')){ alert('Please upload an image file for photo'); return; }
+    photoImg = await loadImageFromFile(f);
+    photoInfo.textContent = `${formatBytes(f.size)} • ${photoImg.width}×${photoImg.height}`;
+    // set canvas to photo aspect with reasonable display size
+    fitCanvasToPhoto(photoImg);
+    drawPlaceholder();
+  });
+
+  signInput.addEventListener('change', async(e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f){ signImg = null; signInfo.textContent='—'; drawPlaceholder(); return; }
+    if(!f.type.startsWith('image/')){ alert('Please upload an image file for signature'); return; }
+    signImg = await loadImageFromFile(f);
+    signInfo.textContent = `${formatBytes(f.size)} • ${signImg.width}×${signImg.height}`;
+    drawPlaceholder();
+  });
+
+  function loadImageFromFile(file){
+    return new Promise((res,rej)=>{
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = ()=>{ URL.revokeObjectURL(url); res(img); };
+      img.onerror = ()=>{ URL.revokeObjectURL(url); rej(new Error('Failed to load image')); };
+      img.src = url;
+    });
+  }
+
+  function fitCanvasToPhoto(img){
+    const maxW = 1200; // limit internal canvas width for performance
+    const ratio = img.width / img.height;
+    let cw = img.width, ch = img.height;
+    if(cw > maxW){ cw = maxW; ch = Math.round(cw / ratio); }
+    previewCanvas.width = cw; previewCanvas.height = ch;
+  }
+
+  function drawPlaceholder(){
+    const ctx = previewCanvas.getContext('2d');
+    ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    if(!photoImg){ placeholder.style.display='block'; return; }
+    placeholder.style.display='none';
+    // draw photo scaled to canvas
+    drawCompositeToCanvas(photoImg, signImg).catch(e=>console.error(e));
+  }
+
+  async function drawCompositeToCanvas(photo, sign, opts){
+    setProgress(0.05);
+    const ctx = previewCanvas.getContext('2d');
+    // clear
+    ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    // background fill if requested
+    const bg = (bgFill.value||'').trim().toLowerCase();
+    if(bg && bg !== 'transparent'){
+      ctx.fillStyle = bg;
+      ctx.fillRect(0,0,previewCanvas.width,previewCanvas.height);
+    } else {
+      ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    }
+    setProgress(0.2);
+
+    // draw photo centered and fitted
+    // scale photo to canvas size keeping aspect ratio
+    const cw = previewCanvas.width, ch = previewCanvas.height;
+    const pw = photo.width, ph = photo.height;
+    const pr = pw/ph; const cr = cw/ch;
+    let dw, dh;
+    if(pr > cr){ // photo wider -> fit width
+      dw = cw; dh = Math.round(dw / pr);
+    } else {
+      dh = ch; dw = Math.round(dh * pr);
+    }
+    const dx = Math.round((cw - dw)/2);
+    const dy = Math.round((ch - dh)/2);
+    ctx.drawImage(photo, 0, 0, pw, ph, dx, dy, dw, dh);
+    setProgress(0.5);
+
+    if(!sign) { setProgress(1); return; }
+
+    // calculate signature dimensions
+    const scalePct = Math.max(1, parseFloat(signScale.value) || 20);
+    const sigW = Math.round(dw * (scalePct/100));
+    // maintain aspect ratio of signature
+    const sigH = Math.round(sigW * (sign.height / sign.width));
+    // rotation and opacity
+    const rotDeg = parseFloat(signRotate.value) || 0;
+    const opacity = Math.max(0, Math.min(100, parseFloat(signOpacity.value)||100))/100;
+    // position
+    const margin = parseInt(signMargin.value || 0,10);
+    let tx=0, ty=0;
+    const pos = signPosition.value;
+    if(pos === 'custom'){
+      const cx = customX.value ? Math.max(0, Math.min(100, parseFloat(customX.value))) : 50;
+      const cy = customY.value ? Math.max(0, Math.min(100, parseFloat(customY.value))) : 50;
+      tx = Math.round((cx/100)*cw - sigW/2);
+      ty = Math.round((cy/100)*ch - sigH/2);
+    } else {
+      if(pos.includes('right')) tx = dx + dw - sigW - margin;
+      else tx = dx + margin;
+      if(pos.includes('bottom')) ty = dy + dh - sigH - margin;
+      else ty = dy + margin;
+    }
+
+    // draw with rotation and opacity
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    // move to center of signature rectangle for rotation
+    const cxSig = tx + sigW/2;
+    const cySig = ty + sigH/2;
+    ctx.translate(cxSig, cySig);
+    ctx.rotate(rotDeg * Math.PI/180);
+    // draw image centered at rotated origin
+    ctx.drawImage(sign, -sigW/2, -sigH/2, sigW, sigH);
+    ctx.restore();
+
+    setProgress(0.9);
+    setTimeout(()=>setProgress(1), 150);
+  }
+
+  function formatBytes(n){ if(n==null) return '—'; if(n<1024) return n+' B'; if(n<1024*1024) return (n/1024).toFixed(1)+' KB'; return (n/1024/1024).toFixed(2)+' MB'; }
+
+  previewBtn.addEventListener('click', async ()=>{
+    if(!photoImg){ alert('Please upload the main photo first'); return; }
+    setProgress(0);
+    // ensure canvas matches photo aspect
+    fitCanvasToPhoto(photoImg);
+    await drawCompositeToCanvas(photoImg, signImg);
+    exportInfo.textContent = 'Preview ready';
+    // update lastBlob for preview download
+    lastBlob = await canvasToBlob(previewCanvas, outFormat.value, parseFloat(outQuality.value)||0.92);
+  });
+
+  async function canvasToBlob(canvas, mime, q){
+    return new Promise((res)=> canvas.toBlob(b=>res(b), mime, q));
+  }
+
+  downloadBtn.addEventListener('click', async ()=>{
+    if(!photoImg){ alert('Please upload the main photo first'); return; }
+    setProgress(0);
+    fitCanvasToPhoto(photoImg);
+    await drawCompositeToCanvas(photoImg, signImg);
+    const mime = outFormat.value || 'image/png';
+    const q = parseFloat(outQuality.value) || 0.92;
+    const blob = await canvasToBlob(previewCanvas, mime, q);
+    if(!blob){ alert('Export failed'); setProgress(0); return; }
+    lastBlob = blob;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    const name = (outFilename.value || 'photo-signed') + (mime==='image/png'?'.png': mime==='image/jpeg'?'.jpg':'.webp');
+    a.download = name;
+    a.click();
+    setProgress(1);
+    setTimeout(()=>setProgress(0),600);
+    exportInfo.textContent = `${formatBytes(blob.size)} • ${previewCanvas.width}×${previewCanvas.height}`;
+  });
+
+  downloadPreview.addEventListener('click', ()=>{
+    if(!lastBlob){ alert('No preview available. Click Preview or Download first.'); return; }
+    const mime = lastBlob.type || outFormat.value || 'image/png';
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(lastBlob);
+    const name = (outFilename.value || 'photo-signed') + (mime==='image/png'?'.png': mime==='image/jpeg'?'.jpg':'.webp');
+    a.download = name;
+    a.click();
+  });
+
+  copyBtn.addEventListener('click', async ()=>{
+    if(!lastBlob){ alert('No exported image to copy. Click Preview or Download first.'); return; }
+    try{
+      await navigator.clipboard.write([new ClipboardItem({[lastBlob.type]: lastBlob})]);
+      alert('Image copied to clipboard');
+    }catch(e){ alert('Copy to clipboard failed — your browser may not support it.'); }
+  });
+
+  resetBtn.addEventListener('click', ()=>{
+    photoInput.value = ''; signInput.value = '';
+    photoImg = null; signImg = null; lastBlob = null;
+    photoInfo.textContent='—'; signInfo.textContent='—'; exportInfo.textContent='—';
+    const ctx = previewCanvas.getContext('2d'); ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    placeholder.style.display = 'block';
+    setProgress(0);
+  });
+
+  // small safety: revoke object URLs when navigating
+  window.addEventListener('unload', ()=>{ try{ /* nothing to revoke here */ }catch(e){} });
+
+})();
+</script>
+
+{% endblock content %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
 
     {% block seo %} 
 
@@ -44,6 +1323,7 @@
     .preset button{background:#f3f4f6;color:#111;padding:6px 8px;border-radius:8px;border:1px solid #e6eef7}
     .toggle{display:inline-flex;align-items:center;gap:8px}
   </style>
+
 
 
 
@@ -186,6 +1466,23 @@
         </div>
       </aside>
 
+    </div>
+
+    <!-- Usage info added here: instructions on how to use the tool (placed above footer, below tools) -->
+    <div style="margin-top:12px" class="card">
+      <label>Tool — Kaise Use Karein</label>
+      <div class="small" style="margin-top:8px;line-height:1.5">
+        <ul>
+          <li><strong>1.</strong> "Upload Image" se apni image chunein (PNG, JPG, WEBP, HEIC).</li>
+          <li><strong>2.</strong> <em>Resize Mode</em> chunen: <em>Contain</em> image ko fit karega, <em>Cover</em> specified dimensions ko fill karega (crop ho sakta hai), <em>Stretch</em> aspect ignore karega, aur <em>Scale by %</em> aapko direct percentage dene dega.</li>
+          <li><strong>3.</strong> Width/Height ya Scale % set karein. "Keep aspect ratio" enabled rakhein agar original proportion preserve karna ho.</li>
+          <li><strong>4.</strong> Output format (PNG/JPG/WEBP) aur quality set karein. Transparent PNG ke liye background "transparent" chhodein ya color specify karein.</li>
+          <li><strong>5.</strong> Agar aapko file size target karna ho to "Target file size (KB)" me value daalein; exporter quality/scale adjust karke approximate size nikaalne ki koshish karega.</li>
+          <li><strong>6.</strong> "Preview" button se pehle export ka preview dekhein. "Download Export" se final file download karein. "Copy Image to Clipboard" (agar browser support kare) clipboard me copy karega.</li>
+          <li><strong>7.</strong> Presets quick size buttons hai — unhe click karke width/height jaldi set kar sakte hain.</li>
+          <li><strong>8.</strong> Notes: Browser-based exporter ke karan results device/browser pe thode different ho sakte hain; large images (30MB+) par performance slow ho sakti hai.</li>
+        </ul>
+      </div>
     </div>
 
     <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Image Resizer & Exporter</div>
@@ -398,4 +1695,475 @@
   </script>
 
 
-  {% endblock content %}
+  {% endblock content %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% comment %} image to pdf  {% endcomment %}
+{% comment %} 
+  {% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Images → PDF Converter — WifiResult Tool</title>
+<meta name="description" content="Convert single or multiple images to a single PDF. Choose page size, orientation, margins, image fit, and output quality." />
+{% endblock seo %}
+
+{% block style %}
+<style>
+ :root{
+  --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:14px;
+ }
+ *{box-sizing:border-box}
+ body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:#0f172a}
+ .wrap{max-width:980px;margin:28px auto;padding:20px}
+ h1{margin:0 0 12px;font-size:20px}
+ .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+ .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+ @media(max-width:900px){.grid{grid-template-columns:1fr}}
+ label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+ input[type=file]{display:block}
+ .controls{display:grid;gap:10px}
+ .row{display:flex;gap:8px;align-items:center}
+ select, input[type=text], input[type=number]{padding:10px;border-radius:10px;border:1px solid #e6eef7;width:100%}
+ button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+ .btn-ghost{background:#fff;border:1px solid #e6eef7;color:#0f172a}
+ .preview{display:flex;flex-direction:column;gap:10px;align-items:center}
+ .thumbs{display:flex;gap:8px;flex-wrap:wrap}
+ .thumb{width:70px;height:70px;border-radius:6px;border:1px solid #e6eef7;overflow:hidden;display:flex;align-items:center;justify-content:center}
+ .thumb img{max-width:100%;max-height:100%}
+ .meta{font-size:13px;color:var(--muted)}
+ .small{font-size:12px;color:var(--muted)}
+ .progress{height:8px;background:#e6eef7;border-radius:8px;overflow:hidden}
+ .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%}
+ .help{font-size:12px;color:var(--muted)}
+ .toggle{display:inline-flex;align-items:center;gap:8px}
+ .iframe-preview{width:100%;height:420px;border:1px solid #e6eef7;border-radius:8px}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="wrap">
+  <h1>Images → PDF Converter</h1>
+  <div class="card grid">
+    <div>
+      <div class="card" style="padding:12px">
+        <label>Upload Images</label>
+        <input id="fileInput" type="file" accept="image/*" multiple />
+        <div style="margin-top:8px" class="small">Supported: PNG, JPEG, WEBP, HEIC (if browser supports). Select multiple files to combine into one PDF.</div>
+
+        <hr style="margin:12px 0" />
+
+        <div class="controls">
+          <div class="row">
+            <div style="flex:1">
+              <label>Page Size</label>
+              <select id="pageSize">
+                <option value="a4">A4 (210 × 297 mm)</option>
+                <option value="letter">Letter (8.5 × 11 in)</option>
+                <option value="a5">A5 (148 × 210 mm)</option>
+                <option value="custom">Custom (px)</option>
+              </select>
+            </div>
+            <div style="width:140px">
+              <label>Orientation</label>
+              <select id="orientation">
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="customSizeRow" class="row" style="display:none">
+            <div style="flex:1">
+              <label>Custom Width (px)</label>
+              <input id="customW" type="number" min="100" placeholder="e.g., 1240" />
+            </div>
+            <div style="width:140px">
+              <label>Custom Height (px)</label>
+              <input id="customH" type="number" min="100" placeholder="e.g., 1754" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Margins (mm)</label>
+              <input id="margin" type="number" min="0" value="10" />
+            </div>
+            <div style="width:160px">
+              <label>Image Fit</label>
+              <select id="imgFit">
+                <option value="contain">Contain (fit within page, preserve aspect)</option>
+                <option value="cover">Cover (fill page, may crop)</option>
+                <option value="stretch">Stretch (fill page, ignore aspect)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Output Image Quality (0.1 - 1) — affects JPG/WebP used to embed images</label>
+              <input id="imgQuality" type="number" step="0.05" min="0.1" max="1" value="0.92" />
+            </div>
+            <div style="width:160px">
+              <label>Images per page</label>
+              <select id="perPage">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Filename</label>
+              <input id="outName" type="text" placeholder="images-to-pdf" />
+            </div>
+            <div style="width:160px">
+              <label class="toggle"><input id="openPreview" type="checkbox" checked /> Open preview after generate</label>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button id="generateBtn">Generate PDF</button>
+            <button id="downloadBtn" class="btn-ghost">Download Last PDF</button>
+            <button id="resetBtn" class="btn-ghost">Reset</button>
+          </div>
+
+          <div style="margin-top:8px">
+            <div class="progress" aria-hidden>
+              <i id="progressBar"></i>
+            </div>
+          </div>
+
+          <div style="margin-top:8px" class="help">Tip: For best results, upload images with sufficient resolution for your selected page size. If PDF is large, try lowering Image Quality.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>How to Use</label>
+        <div class="small" style="margin-top:8px;line-height:1.5">
+          <ul>
+            <li>Upload one or more images. Order will follow your file selection order.</li>
+            <li>Choose Page Size, Orientation, Margins and Image Fit.</li>
+            <li>Set Images per page (1, 2, or 4). Each page will place that many images in a grid.</li>
+            <li>Click "Generate PDF" to create the PDF. Use "Download Last PDF" to save again.</li>
+            <li>Preview opens an embedded viewer (if enabled).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card preview">
+        <div style="width:100%">
+          <label>Preview & Thumbnails</label>
+          <div style="border:1px dashed #e6eef7;padding:8px;border-radius:8px;min-height:180px;display:flex;flex-direction:column;gap:8px">
+            <div class="thumbs" id="thumbs"></div>
+            <div id="placeholder" class="meta">No images loaded</div>
+          </div>
+        </div>
+
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          <div class="meta">Files: <span id="fileCount">0</span> • Total size: <span id="totalSize">—</span></div>
+          <div class="meta">Last PDF: <span id="lastPdfSize">—</span></div>
+          <div id="pdfPreviewWrap" style="width:100%;display:none;margin-top:8px">
+            <label>PDF Preview</label>
+            <iframe id="pdfPreview" class="iframe-preview"></iframe>
+            <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+              <button id="openInNew" class="btn-ghost">Open in new tab</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+            <button id="downloadPreviewBtn" class="btn-ghost">Download Preview</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Images to PDF</div>
+</div>
+
+<!-- jsPDF CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  const { jsPDF } = window.jspdf;
+
+  const fileInput = document.getElementById('fileInput');
+  const thumbs = document.getElementById('thumbs');
+  const placeholder = document.getElementById('placeholder');
+  const fileCount = document.getElementById('fileCount');
+  const totalSizeEl = document.getElementById('totalSize');
+  const lastPdfSize = document.getElementById('lastPdfSize');
+  const pdfPreviewWrap = document.getElementById('pdfPreviewWrap');
+  const pdfPreview = document.getElementById('pdfPreview');
+  const openInNew = document.getElementById('openInNew');
+  const downloadPreviewBtn = document.getElementById('downloadPreviewBtn');
+
+  const pageSize = document.getElementById('pageSize');
+  const orientation = document.getElementById('orientation');
+  const customSizeRow = document.getElementById('customSizeRow');
+  const customW = document.getElementById('customW');
+  const customH = document.getElementById('customH');
+  const marginEl = document.getElementById('margin');
+  const imgFit = document.getElementById('imgFit');
+  const imgQuality = document.getElementById('imgQuality');
+  const perPage = document.getElementById('perPage');
+  const outName = document.getElementById('outName');
+  const generateBtn = document.getElementById('generateBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const progressBar = document.getElementById('progressBar');
+  const openPreview = document.getElementById('openPreview');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  let files = [];
+  let imgElements = []; // {file, img, w,h}
+  let lastPdfBlob = null;
+
+  function setProgress(p){ progressBar.style.width = (p*100)+'%'; }
+
+  pageSize.addEventListener('change', ()=>{
+    customSizeRow.style.display = pageSize.value==='custom' ? 'flex' : 'none';
+  });
+
+  fileInput.addEventListener('change', async (e)=>{
+    const fList = Array.from(e.target.files || []);
+    if(!fList.length) return resetAll();
+    files = fList;
+    await loadThumbnails();
+  });
+
+  function formatBytes(n){ if(n==null) return '—'; if(n<1024) return n+' B'; if(n<1024*1024) return (n/1024).toFixed(1)+' KB'; return (n/1024/1024).toFixed(2)+' MB'; }
+
+  async function loadThumbnails(){
+    thumbs.innerHTML = ''; imgElements = [];
+    let total=0;
+    setProgress(0.05);
+    for(let i=0;i<files.length;i++){
+      const f = files[i]; total += f.size;
+      const url = URL.createObjectURL(f);
+      const img = new Image();
+      await new Promise((res,rej)=>{
+        img.onload = ()=>{ res(); };
+        img.onerror = ()=>{ res(); };
+        img.src = url;
+      });
+      const div = document.createElement('div'); div.className='thumb';
+      const imgEl = document.createElement('img'); imgEl.src = img.src;
+      div.appendChild(imgEl); thumbs.appendChild(div);
+      imgElements.push({file:files[i], img:img, w:img.width, h:img.height, url:img.src});
+      setProgress(0.05 + (i+1)/files.length*0.7);
+    }
+    fileCount.textContent = files.length;
+    totalSizeEl.textContent = formatBytes(total);
+    placeholder.style.display = 'none';
+    setTimeout(()=>setProgress(0),400);
+  }
+
+  function getPageDimensions(){
+    // return {wPts, hPts} in points (1pt = 1/72 in). jsPDF default units are "pt" unless specified.
+    // We'll use 'pt' unit. Convert mm/in to pt.
+    const mmToPt = mm => mm * 2.83464567; // 1 mm = 2.83464567 pt
+    if(pageSize.value === 'a4'){
+      const w = orientation.value==='portrait' ? mmToPt(210) : mmToPt(297);
+      const h = orientation.value==='portrait' ? mmToPt(297) : mmToPt(210);
+      return {w,h};
+    }
+    if(pageSize.value === 'a5'){
+      const w = orientation.value==='portrait' ? mmToPt(148) : mmToPt(210);
+      const h = orientation.value==='portrait' ? mmToPt(210) : mmToPt(148);
+      return {w,h};
+    }
+    if(pageSize.value === 'letter'){
+      const inToPt = inch => inch * 72;
+      const w = orientation.value==='portrait' ? inToPt(8.5) : inToPt(11);
+      const h = orientation.value==='portrait' ? inToPt(11) : inToPt(8.5);
+      return {w,h};
+    }
+    // custom px assumed as pixels: we'll treat px at 96dpi -> convert px to pt: pt = px * (72/96) = px * 0.75
+    if(pageSize.value === 'custom'){
+      const cw = parseInt(customW.value,10) || 1240;
+      const ch = parseInt(customH.value,10) || 1754;
+      return {w: cw * 0.75, h: ch * 0.75};
+    }
+    return {w:mmToPt(210), h:mmToPt(297)};
+  }
+
+  function placeImageOnCanvas(imgObj, targetW, targetH, fit){
+    // Draw image onto intermediate canvas sized targetW x targetH (px). Return dataURL (jpeg/webp) according to quality.
+    const canvas = document.createElement('canvas');
+    // We'll use targetW,targetH in px at 96dpi approximation. Convert points to px: px = pt * (96/72) = pt * 1.3333
+    const ptToPx = v => Math.round(v * 1.3333333);
+    const wPx = ptToPx(targetW);
+    const hPx = ptToPx(targetH);
+    canvas.width = Math.max(1, wPx);
+    canvas.height = Math.max(1, hPx);
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+    const sw = imgObj.w, sh = imgObj.h;
+    if(fit === 'stretch'){
+      ctx.drawImage(imgObj.img, 0,0,sw,sh, 0,0,canvas.width,canvas.height);
+    } else if(fit === 'contain'){
+      // fit inside
+      const srcRatio = sw/sh; const tgtRatio = canvas.width/canvas.height;
+      let dw = canvas.width, dh = Math.round(dw / srcRatio);
+      if(dh > canvas.height){ dh = canvas.height; dw = Math.round(dh * srcRatio); }
+      const dx = Math.round((canvas.width - dw)/2), dy = Math.round((canvas.height - dh)/2);
+      ctx.drawImage(imgObj.img, 0,0,sw,sh, dx,dy,dw,dh);
+    } else if(fit === 'cover'){
+      // fill and crop
+      const srcRatio = sw/sh; const tgtRatio = canvas.width/canvas.height;
+      if(srcRatio > tgtRatio){
+        // source wider -> crop sides
+        const shCrop = sh; const swCrop = Math.round(shCrop * tgtRatio);
+        const sx = Math.round((sw - swCrop)/2);
+        ctx.drawImage(imgObj.img, sx,0,swCrop,shCrop, 0,0,canvas.width,canvas.height);
+      } else {
+        const swCrop = sw; const shCrop = Math.round(swCrop / tgtRatio);
+        const sy = Math.round((sh - shCrop)/2);
+        ctx.drawImage(imgObj.img, 0,sy,swCrop,shCrop, 0,0,canvas.width,canvas.height);
+      }
+    }
+    // quality and output format: we'll use 'image/jpeg' for smaller size unless source has transparency and user didn't need white background (we always used white)
+    const q = parseFloat(imgQuality.value) || 0.92;
+    return canvas.toDataURL('image/jpeg', q);
+  }
+
+  async function generatePDF(){
+    if(!imgElements.length){ alert('Please upload images first'); return; }
+    setProgress(0.02);
+    const per = parseInt(perPage.value,10) || 1;
+    const fit = imgFit.value;
+    const marginMm = parseFloat(marginEl.value) || 10;
+    const marginPt = marginMm * 2.83464567;
+    const {w:pageW, h:pageH} = getPageDimensions();
+    const doc = new jsPDF({unit:'pt', format:[pageW, pageH], orientation: orientation.value});
+    const pages = [];
+    // We'll place up to `per` images in one page in a grid (1 => full, 2 => two rows, 4 => 2x2)
+    const grid = per === 1 ? [1,1] : per === 2 ? [2,1] : [2,2];
+
+    // Prepare a sequence of image placements (group into pages)
+    let idx = 0;
+    const totalImgs = imgElements.length;
+    const totalPages = Math.ceil(totalImgs / per);
+    for(let p=0;p<totalPages;p++){
+      // create page canvas dims for each slot
+      const slots = [];
+      const cols = grid[1];
+      const rows = grid[0];
+      const innerW = pageW - marginPt*2;
+      const innerH = pageH - marginPt*2;
+      const slotW = innerW / cols;
+      const slotH = innerH / rows;
+      for(let r=0;r<rows;r++){
+        for(let c=0;c<cols;c++){
+          slots.push({
+            x: marginPt + c*slotW,
+            y: marginPt + r*slotH,
+            w: slotW,
+            h: slotH
+          });
+        }
+      }
+      // for each slot, if there's an image, render and add to PDF
+      for(let s=0;s<per;s++){
+        if(idx >= totalImgs) break;
+        const imgObj = imgElements[idx];
+        setProgress(0.05 + (idx/totalImgs)*0.85);
+        // create dataURL scaled appropriately
+        const slot = slots[s];
+        // produce a data URL using a canvas sized slot.w x slot.h (in points) for good quality
+        const dataUrl = placeImageOnCanvas(imgObj, slot.w, slot.h, fit);
+        // add to PDF
+        // addImage expects image format and coordinates in points; use slot.x, slot.y, slot.w, slot.h
+        doc.addImage(dataUrl, 'JPEG', slot.x, slot.y, slot.w, slot.h);
+        idx++;
+      }
+      if(p < totalPages - 1) doc.addPage([pageW, pageH], orientation.value);
+    }
+
+    setProgress(1);
+    const pdfBlob = doc.output('blob');
+    lastPdfBlob = pdfBlob;
+    lastPdfSize.textContent = formatBytes(pdfBlob.size);
+    if(openPreview.checked){
+      const url = URL.createObjectURL(pdfBlob);
+      pdfPreview.src = url;
+      pdfPreviewWrap.style.display = 'block';
+      openInNew.onclick = ()=> window.open(url, '_blank');
+      downloadPreviewBtn.onclick = ()=> {
+        const filename = (outName.value || 'images-to-pdf') + '.pdf';
+        const a = document.createElement('a'); a.href = url; a.download = filename; a.click();
+      };
+    }
+    // auto trigger download if user clicked generate and didn't want preview? We will NOT auto-download — provide Download Last PDF button
+    setTimeout(()=>setProgress(0),600);
+    alert('PDF generated. Use "Download Last PDF" to save it.');
+  }
+
+  generateBtn.addEventListener('click', async ()=>{
+    try{ await generatePDF(); } catch(e){ console.error(e); alert('Failed to generate PDF: '+ (e.message || e)); setProgress(0); }
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    if(!lastPdfBlob){ alert('No PDF available. Click Generate PDF first.'); return; }
+    const url = URL.createObjectURL(lastPdfBlob);
+    const filename = (outName.value || 'images-to-pdf') + '.pdf';
+    const a = document.createElement('a'); a.href = url; a.download = filename; a.click();
+  });
+
+  downloadPreviewBtn.addEventListener('click', ()=>{
+    if(!lastPdfBlob){ alert('No PDF available. Click Generate PDF first.'); return; }
+    const url = URL.createObjectURL(lastPdfBlob);
+    const a = document.createElement('a'); a.href = url; a.download = (outName.value || 'images-to-pdf') + '.pdf'; a.click();
+  });
+
+  resetBtn.addEventListener('click', resetAll);
+
+  function resetAll(){
+    fileInput.value = ''; thumbs.innerHTML = ''; placeholder.style.display='block';
+    fileCount.textContent = 0; totalSizeEl.textContent = '—'; lastPdfSize.textContent = '—';
+    pdfPreviewWrap.style.display='none'; pdfPreview.src=''; openInNew.onclick = null;
+    files = []; imgElements = []; lastPdfBlob = null; setProgress(0);
+  }
+
+  // cleanup object URLs on unload
+  window.addEventListener('unload', ()=>{ try{ pdfPreview.src=''; }catch(e){} });
+})();
+</script>
+{% endblock content %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

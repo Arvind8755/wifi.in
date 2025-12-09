@@ -26,6 +26,8 @@ from django.shortcuts import render
 from firstapp.views import sitemap_index_custom  # if you use a custom sitemap index view
 # robots.txy
 from django.http import HttpResponse
+from django.urls import path, include, re_path
+from django.views.static import serve
 
 
 from firstapp.views_news_sitemap import news_sitemap
@@ -75,10 +77,23 @@ else:
     path("news-sitemap.xml/", news_sitemap, name="news-sitemap"),
 
 ]# development में media serve करने के लिए
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# MEDIA (PDF, upload images, etc.)
+urlpatterns += [
+    re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+]
+
+# STATIC (CSS, JS, static images) – localhost par hi theek hai
+urlpatterns += [
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
+]
+
+
+# ✅ DEBUG True ho ya False – dono me static + media serve karega
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     
 # Custom handlers
-handler404 = "firstapp.views.custom_404"
+# handler404 = "firstapp.views.custom_404"
 handler500 = "firstapp.views.custom_500"
