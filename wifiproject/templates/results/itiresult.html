@@ -70,6 +70,42 @@
   }
   </script>
 
+<!-- SEO-Optimized FAQ Schema for /iti-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ITI Result page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko NCVT aur SCVT ITI Results, marksheets, certificates, semester/trade-wise result updates, exam notices aur official result PDF links milte hain. Sabhi updates verified official portals se hi liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main ITI result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap NCVT ya SCVT result list me apne trade ya semester ke saamne 'Check Result' link par click karein. Yeh aapko official result portal par redirect karega, jahan roll number ya registration number enter karne ke baad aap apna result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya ITI marksheet aur certificate online download kiye ja sakte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, aap NCVT MIS portal ya respective SCVT portal par login karke apna digital marksheet aur certificate download kar sakte hain. Iske liye registration number ya roll number ki zarurat hoti hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
@@ -664,7 +700,7 @@
           {% for post in page_obj %}
             <li class="result-item">
               <div class="result-main">
-                <a href="{% url 'result_detail' post.slug %}" class="result-title">
+                <a href="{% url 'result_detail' post.slug %}" target="_blank" class="result-title">
                   {{ post.title }}
                 </a>
                 <div class="result-tags">
@@ -724,7 +760,7 @@
               <div class="trend-item">
                 <div class="trend-number">{{ forloop.counter }}</div>
                 <div>
-                  <a href="/latest-jobs/{{ job.slug }}/" class="trend-title">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="trend-title">{{ job.title }}</a>
                   <div class="trend-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -734,7 +770,7 @@
               <div class="trend-item">
                 <div class="trend-number">{{ forloop.counter|add:job_count }}</div>
                 <div>
-                  <a href="/admit-card/{{ admitcard.slug }}/" class="trend-title">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" class="trend-title">{{ admitcard.title }}</a>
                   <div class="trend-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -754,7 +790,7 @@
             <div class="trend-item">
               <div class="trend-number">{{ forloop.counter }}</div>
               <div>
-                <a href="/govt-updates/{{ govtupdate.slug }}/" class="trend-title">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" class="trend-title">{{ govtupdate.title }}</a>
                 <div class="trend-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

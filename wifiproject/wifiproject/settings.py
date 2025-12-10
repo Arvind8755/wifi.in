@@ -285,7 +285,7 @@ CKEDITOR_5_CONFIGS = {
 
         # 🌐 Font size options
         "fontSize": {
-            "options": [8, 10, 12, 14, "default", 16, 18, 24, 32, 48],
+            "options": [8, 10, 12, 14, "default", 16, 17, 18, 24, 32, 48],
             "supportAllValues": True
         },
 

@@ -295,7 +295,7 @@ All India Government Jobs</span>
       <div class="card-body">
         <ul class="job-list">
           {% for job in jobs %}
-            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'job' %}">View All Jobs →</a></li>
         </ul>

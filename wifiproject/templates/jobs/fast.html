@@ -608,8 +608,8 @@
   <div class="container fast-hero-inner">
     <div>
       <div class="fast-badges">
-      <a href="{% url 'fastjob' %}" class="text-white text-decoration-none">  <span class="fast-badge">Fast Jobs</span></a>
-       <a href="/" class="text-white text-decoration-none"> <span class="fast-badge">Real-time Updates</span></a>
+      <a href="{% url 'fastjob' %}" style="text-decoration:none;">  <span class="fast-badge">Fast Jobs</span></a>
+       <a href="/" style="text-decoration:none;" > <span class="fast-badge">Real-time Updates</span></a>
       </div>
       <h1 class="fast-hero-title">Fast Sarkari Result & Government Updates</h1>
       <p class="fast-hero-subtitle">
@@ -662,7 +662,7 @@
         <ul class="fast-list">
           {% for result in results %}
           <li class="fast-item">
-            <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+            <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
             <div class="fast-meta">
               Result Date: {{ result.published_date|date:"d M, Y" }}
             </div>
@@ -674,7 +674,7 @@
           {% endfor %}
         </ul>
         <div class="fast-footer-link">
-          <a href="/results/">View full results page →</a>
+          <a href="/results/"  target="_blank" >View full results page →</a>
         </div>
       </div>
 
@@ -689,7 +689,7 @@
         <ul class="fast-list">
           {% for job in jobs %}
           <li class="fast-item">
-            <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
             <div class="fast-meta">
               Last Update: {{ job.published_date|date:"d M, Y" }}
             </div>
@@ -701,7 +701,7 @@
           {% endfor %}
         </ul>
         <div class="fast-footer-link">
-          <a href="/latest-jobs/">All job notifications →</a>
+          <a href="/latest-jobs/" target="_blank" >All job notifications →</a>
         </div>
       </div>
 
@@ -716,7 +716,7 @@
         <ul class="fast-list">
           {% for admitcard in admitcards %}
           <li class="fast-item">
-            <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+            <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
             <div class="fast-meta">
               Exam Date / Update: {{ admitcard.published_date|date:"d M, Y" }}
             </div>
@@ -755,7 +755,7 @@
         <div class="trending-item">
           <div class="trending-number">{{ forloop.counter }}</div>
           <div class="trending-content">
-            <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+            <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
           </div>
         </div>

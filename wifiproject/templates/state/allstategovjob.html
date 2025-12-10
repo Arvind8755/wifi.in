@@ -70,7 +70,57 @@
 }
 </script>
 
- 
+<!--   SEO-Optimized FAQ Schema for /state-government-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "State Government Jobs page par mujhe kya-kya dekhne ko milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi Indian states ki latest government job notifications ke direct links milte hain. Har state ke liye alag job listings, apply links, eligibility details aur official PDFs arranged format me provide kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed state job links verified hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, is page par diye gaye saare state-wise job links official state government websites, recruitment boards, SSC State Wings, PSCs aur departmental portals se hi liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apne state ki jobs kaise search karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap list me apne state ka naam select karke uski dedicated job page open kar sakte hain. Wahan aapko sirf us state ki latest vacancies, notifications aur apply links milenge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya is page par central government jobs bhi listed hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nahi, yeh page specifically state-wise government jobs ke liye banaya gaya hai. Central Government jobs ke liye website par alag section available hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "State Government Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana kai baar update hota hai. Jaise hi kisi state government ki new vacancy release hoti hai, uska link turant respective state listing me add kar diya jata hai."
+      }
+    }
+  ]
+}
+</script>
+
 
   {% endblock seo %}
 
@@ -979,7 +1029,7 @@
         </div>
      {% for job in latest_jobs %}
         <div class="related-job-item">
-          <a href="/latest-jobs/{{ job.slug }}/" class="related-job-title">{{ job.title }}</a>
+          <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="related-job-title">{{ job.title }}</a>
           <span class="related-job-date">{{ job.published_date|date:"d M, Y" }}</span>
         </div>
         {% endfor %}
@@ -1017,7 +1067,7 @@
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
          {% for result in latest_results %}
-          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
           
           
@@ -1028,7 +1078,7 @@
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
  {% for admitcard in latest_admitcards %}
-          <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
         </ul>
       </div>

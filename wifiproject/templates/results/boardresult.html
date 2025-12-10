@@ -72,6 +72,50 @@
 }
 </script>
 
+<!-- Human-Written, SEO-Optimized FAQ Schema for /board-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Board Result page par mujhe kaun-se board exam results milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko CBSE, ICSE, UP Board, Bihar Board, Rajasthan Board, MP Board, Haryana Board, aur anya state boards ke latest 10th aur 12th exam results ka official update milta hai. Saare links official board websites se liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Board exam ka result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Result check karne ke liye apne board ka naam list me dhundhe aur 'Check Result' button par click karein. Aap official board website par redirect ho jaayenge jahan roll number, school code ya registration number dal kar result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Board Result page par diya gaya data 100% official hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, Board Result page par sirf wahi updates publish kiye jaate hain jo respective education boards ki official websites par announce ho chuke hote hain. Verification ke liye har result ke saath official link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Board Result page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page exam season ke dauran kai baar update hota hai. Jaise hi kisi board ka 10th ya 12th result release hota hai, hum kuch hi minutes me yahan uska direct link aur full details update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -570,7 +614,7 @@
           
           {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'result_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'result_detail' post.slug %}"  target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
            {% empty %}
@@ -635,7 +679,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -645,7 +689,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
                   <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -665,7 +709,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
               <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
           </div>

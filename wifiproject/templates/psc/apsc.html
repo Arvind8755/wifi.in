@@ -115,6 +115,43 @@
     ]
   }
   </script>
+
+<!-- SEO-Optimized FAQ Schema for /assam-apsc-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Assam APSC Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Assam APSC ki latest recruitments jaise Administrative Services, AE/JE Engineering Posts, Secretariat Assistant, Police, Teaching, Agriculture, Finance aur Health department vacancies ki details milti hain. Saath hi eligibility, exam dates aur official apply links bhi provide kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Assam APSC Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan publish sabhi job notifications official APSC website, state government notices aur verified recruitment circulars par based hote hain. Har vacancy ke saath official notification PDF link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Assam APSC exams ke liye eligibility aur syllabus kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me qualification, age limit, reservation rules, selection process aur syllabus ki basic details mention hoti hain. Aap official APSC notification PDF download karke complete eligibility aur updated syllabus dekh sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 {% endblock seo %}
 
 {% block style %}    
@@ -478,7 +515,7 @@
         <ul class="job-list-compact">
           {% for job in page_obj %}
           <li class="job-item">
-            <a href="/latest-jobs/{{ job.slug }}/" class="job-title">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
             <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
           </li>
            {% empty %}
@@ -537,7 +574,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter }}</div>
               <div class="trending-content">
-                <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+                <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
                 <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -547,7 +584,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
               <div class="trending-content">
-                <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
                 <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -566,7 +603,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
               <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
           </div>

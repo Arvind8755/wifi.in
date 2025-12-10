@@ -70,6 +70,43 @@
 }
 </script>
 
+
+<!-- SEO-Optimized FAQ Schema for /defense-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Defense Jobs page par mujhe kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Indian Army, Navy, Air Force, Coast Guard, BSF, CISF, CRPF, ITBP aur Assam Rifles ki latest recruitments, eligibility details, physical standards, exam dates aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Defense Jobs page par diya gaya data official hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi defense notifications official recruitment portals, armed forces websites aur government press releases ke adhar par hi publish kiye jaate hain. Har listing ke saath official PDF link bhi hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Defense jobs ke liye eligibility aur physical standards kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me qualification, age limit, height-chest measurements, running test, medical standards aur selection stages clearly mention hote hain. Aap official notification download karke complete details dekh sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -581,7 +618,7 @@
         <ul class="job-list-compact">
           {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -643,7 +680,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -653,7 +690,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -672,7 +709,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

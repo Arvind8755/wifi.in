@@ -81,6 +81,58 @@
 }
 </script>
 
+<!-- FAQ (Schema) for /results/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Results page par mujhe kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par sabse naye Sarkari Exam Results, scorecards, merit lists, cutoff updates, selection lists aur official result PDFs list kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yeh results official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, WifiResult par sabhi results official government portals par publish hui notifications ke adhar par hi update kiye jaate hain. Verification ke liye har post me official link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apna result kaise download karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har result listing me 'Download Result', 'View Scorecard' ya 'Check Merit List' ka direct official link diya hota hai. Link par click karke aap seedha respective department ke portal par redirect ho jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cutoff marks aur merit list bhi milti hai kya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jee haan. Agar department cutoff marks, merit list, selection list ya scorecard release karta hai to WifiResult uska direct link aur details page par update kar deta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Results page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Results page din me kai baar update hota hai. Jaise hi kisi government department dwara koi naya result release hota hai, hum turant uski listing yahan update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -588,7 +640,7 @@
         <ul class="job-list-compact p-0">
           {% for result in page_obj %}
           <li class="job-item">
-            <a href="/results/{{ result.slug }}/" class="job-title">{{ result.title }}</a>
+            <a href="/results/{{ result.slug }}/" target="_blank" class="job-title">{{ result.title }}</a>
             <span class="job-date">{{ result.published_date|date:"d M, Y" }}</span>
           </li>  {% endfor %}
 
@@ -645,7 +697,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
         <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -655,7 +707,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -679,7 +731,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

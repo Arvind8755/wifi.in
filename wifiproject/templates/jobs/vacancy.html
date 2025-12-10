@@ -72,6 +72,42 @@
 }
 </script>
 
+<!-- SEO-Optimized FAQ Schema for /vacancy/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vacancy page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko latest government job vacancies, post-wise details, eligibility criteria, important dates, exam updates aur official notification PDFs milte hain. Saare updates verified official recruitment sources se hi liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main latest govt job vacancy ke liye apply kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap jis vacancy ke liye interested hain uske saath diye gaye 'Apply Online' button par click karein. Yeh aapko official recruitment portal par redirect karega jahan registration, document upload aur fee payment steps complete karke aap apply kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Vacancy page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, Vacancy section me publish sabhi job notifications official government departments, recruitment boards, PSUs aur verified portals par release hue notices par based hote hain. Har listing me official PDF link bhi provide kiya jata hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -334,7 +370,7 @@
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
          {% for result in latest_results %}
-          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
           
           
@@ -345,7 +381,7 @@
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
  {% for admitcard in latest_admitcards %}
-          <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
         </ul>
       </div>

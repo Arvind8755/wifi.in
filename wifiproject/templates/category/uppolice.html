@@ -71,6 +71,43 @@
   }
   </script>
 
+<!-- SEO-Optimized FAQ Schema for /up-police/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "UP Police page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko UP Police Constable, SI, Jail Warder, Radio Operator, Clerk, PAC, Fireman aur anya UPPRPB recruitments ke latest notifications, eligibility details, physical standards, exam dates aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya UP Police ke notifications yahan official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi UP Police job updates official UP Police Recruitment and Promotion Board (UPPRPB) ki notifications, press releases aur government portals par based hote hain. Har listing ke saath official PDF link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "UP Police jobs ke liye physical eligibility kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har post ke liye required height, chest measurement, running test, medical standards aur age limit job listing me mention hoti hai. Aap official notification PDF download karke complete eligibility and physical test criteria detail me dekh sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
   <!-- ItemList — Latest UP Police Jobs (based on latest_posts) -->
   <script type="application/ld+json">
   {
@@ -596,7 +633,7 @@
                 </div>
               </div>
               <div class="job-right">
-                <a href="{% url 'job_detail' post.slug %}" class="job-pill-link">
+                <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-pill-link">
                   View Details
                   <span>➜</span>
                 </a>
@@ -649,7 +686,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -659,7 +696,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
                   <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -677,7 +714,7 @@
           {% for govtupdate in latest_govtupdates %}
             <div class="quick-item">
               <div class="quick-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
                 <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

@@ -71,6 +71,42 @@
 }
 </script>
 
+<!--SEO-Optimized FAQ Schema for /answer-key/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Answer Key page par mujhe kya-kya updates milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi latest government exams ki answer keys, response sheets, OMR sheets, question papers, objection dates aur official solution PDFs ki updates milti hain. Saare links verified official portals se liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main answer key download kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap list me apne exam ka naam dhundhkar 'Download Answer Key' button par click karein. Yeh aapko official website par le jaayega jahan login details ya roll number enter karke aap answer key dekh ya download kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya answer key me objection raise karne ka option milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, agar department provisional answer key release karta hai, to candidates objection raise kar sakte hain. Iske liye objection dates, fee aur official portal ka link job listing me clearly mention hota hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -577,7 +613,7 @@
 
  {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'govt-update-detail' post.slug %}" class="job-title">{{ post.title }}a</a>  
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -640,7 +676,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
         <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -650,7 +686,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -669,7 +705,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
             <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

@@ -74,6 +74,58 @@
 }
 </script>
 
+<!-- FAQ (Schema) for /latest-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Latest Jobs page par kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par daily updated latest government vacancies, recruitment notifications, eligibility details, important dates, and official apply links list kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed jobs verified hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, WifiResult par sabhi job notifications official government websites, recruitment boards aur departments dwara issue kiye gaye verified notices par based hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main Latest Jobs page se apply kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job ke saamne 'Apply Online' ya 'Official Website' ka direct link diya hota hai. In links par click karke aap seedha official portal par jaakar application submit kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Eligibility kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligibility (qualification, age limit, experience) har job listing me mention hoti hai, aur saath me official notification PDF ka link bhi hota hai jisse aap details verify kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Latest Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Latest Jobs page rozana multiple times update hota hai jab bhi koi nayi government vacancy release hoti hai. Hum official notifications aate hi turant update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -578,7 +630,7 @@
         <ul class="job-list-compact p-0">  
           {% for job in page_obj %}
           <li class="job-item">
-            <a href="/latest-jobs/{{ job.slug }}/" class="job-title">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
             <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
           </li>  {% endfor %}
 
@@ -642,7 +694,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -652,7 +704,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -673,7 +725,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

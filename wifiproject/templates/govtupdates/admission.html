@@ -73,6 +73,43 @@
 </script>
 
 
+<!--SEO-Optimized FAQ Schema for /admission/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Admission page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko university admissions, college admissions, entrance exams, counselling schedules, cutoff lists, merit lists aur official notification PDFs ki latest updates milti hain. Sabhi details verified official sources se li jaati hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed admission updates official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, saare admission updates universities, colleges, entrance exam authorities, state counselling boards aur official government portals par publish hui notifications ke adhar par hi update kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Admission process, eligibility aur required documents kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har admission update ke saath eligibility criteria, application steps, required documents, fee details aur important dates mention hote hain. Full details ke liye aap official notification PDF bhi download kar sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -579,7 +616,7 @@
 
 {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'govt-update-detail' post.slug %}" class="job-title">{{ post.title }}a</a>  
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -643,7 +680,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
         <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -653,7 +690,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -672,7 +709,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
             <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

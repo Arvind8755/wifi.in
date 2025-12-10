@@ -71,6 +71,58 @@
 }
 </script>
 
+<!--  SEO-Optimized FAQ Schema for /bank-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Bank Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko latest bank recruitments, notifications, eligibility criteria, exam dates, syllabus, vacancies aur official apply online links milte hain. Yeh IBPS, SBI, RBI, RRB aur state cooperative banks sabhi ko cover karta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed bank job notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, sabhi bank job updates official notification PDFs, recruitment boards, IBPS calendar aur banks ki official websites ke adhar par publish kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bank exams ke liye eligibility kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me qualification, age limit, experience aur selection process clearly mention hota hai. Saath hi aap official notification PDF download karke complete eligibility details dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Bank Jobs page par private bank vacancies bhi milti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, public sector ke saath-saath kuch trusted private banks ki important vacancies bhi is page par update ki jaati hain, agar unka official recruitment notice available ho."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bank Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana kai baar update hota hai. Jaise hi IBPS, SBI, RBI, RRB ya kisi bank ki new vacancy release hoti hai, hum turant uska apply link aur notification publish kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -580,7 +632,7 @@
 
             {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'job_detail' post.slug %}"  target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -643,7 +695,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -653,7 +705,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -672,7 +724,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

@@ -315,7 +315,7 @@
                onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png';">
           <div>
             <div class="news-title">
-              <a href="{{ it.url }}">{{ it.title }}</a>
+              <a href="{{ it.url }}"  target="_blank" >{{ it.title }}</a>
             </div>
             <div class="news-meta">
               <i class="far fa-clock"></i>
@@ -364,16 +364,16 @@
     <div class="sidebar-card" id="latest-job-card">
       <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
       <ul class="sidebar-list">
-        <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
-        <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'all_education' %}" target="_blank" >All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'tenthjob' %}" target="_blank" >10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'twellthjob' %}" target="_blank" >12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'diploma_jobs' %}" target="_blank" >Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'itigovtjobs' %}" target="_blank" >ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'apprenticejob' %}" target="_blank" >Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'graduationjob' %}" target="_blank" >Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'postgraduaionjob' %}" target="_blank" >Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'medical_jobs' %}" target="_blank" >Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'engineering_jobs' %}" target="_blank" >Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
       </ul>
     </div>
 
@@ -382,7 +382,7 @@
       <ul class="sidebar-list">
         {% for result in latest_results %}
         <li>
-          <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+          <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
           <span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span>
         </li>
         {% endfor %}
@@ -394,7 +394,7 @@
       <ul class="sidebar-list">
         {% for admitcard in latest_admitcards %}
         <li>
-          <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+          <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
           <span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span>
         </li>
         {% endfor %}

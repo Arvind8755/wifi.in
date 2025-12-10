@@ -71,6 +71,58 @@
 }
 </script>
 
+<!--  SEO-Optimized FAQ Schema for /blog/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Blog page par mujhe kya-kya content milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blog page par aapko government jobs, exams, education updates, preparation tips, career guidance, notifications analysis aur helpful informational articles milte hain. Yahan published content users ki real problems ko address karta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Blog page par diya gaya information reliable hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, blog me published information verified sources, official notifications aur trusted references ke adhar par likhi jaati hai. Har article ka content manually check karne ke baad hi publish kiya jata hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Blog page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blog page regular basis par update hota rehta hai. Jaise hi koi important update, exam notice, recruitment detail ya relevant information aati hai, hum naya article publish ya existing article update kar dete hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya blog articles exam preparation me helpful hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bilkul. Blog me exam strategy, syllabus breakdown, preparation tips, previous year trend analysis aur study guidance jaise articles publish kiye jaate hain, jo students ke liye kaafi useful hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya main blog topics ke liye suggestions send kar sakta hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, aap apne blog topic suggestions easily contact section ya comment box ke through send kar sakte hain. Useful aur popular topics ko team blog me include kar deti hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 
   <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
@@ -371,7 +423,7 @@
       {% if page_obj.has_other_pages %}
       <div class="pagination" aria-label="Pagination">
         {% if page_obj.has_previous %}
-          <a href="?page={{ page_obj.previous_page_number }}" rel="prev">&laquo; Prev</a>
+          <a href="?page={{ page_obj.previous_page_number }}" target="_blank" rel="prev">&laquo; Prev</a>
         {% else %}
           <span class="disabled">&laquo; Prev</span>
         {% endif %}
@@ -379,7 +431,7 @@
         <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
 
         {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" rel="next">Next &raquo;</a>
+          <a href="?page={{ page_obj.next_page_number }}" target="_blank" rel="next">Next &raquo;</a>
         {% else %}
           <span class="disabled">Next &raquo;</span>
         {% endif %}

@@ -197,7 +197,7 @@
 
     .quick-link {
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 0px 15px;
+      padding: 10px 15px;
       border-radius: 50px;
       text-decoration: none;
       color: var(--primary);
@@ -674,10 +674,10 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for job in jobs %}
-            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank">{{ job.title }}</a></li>
             {% endfor %}
             
-            <li><a href="{% url 'job' %}">View All Jobs <i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="{% url 'job' %}" target="_blank" >View All Jobs <i class="fas fa-arrow-right"></i></a></li>
           </ul>
         </div>
       </div>
@@ -689,10 +689,10 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for result in results %}
-            <li><a href="/results/{{result.slug}}/">SS {{result.title}}</a></li>
+            <li><a href="/results/{{result.slug}}/" target="_blank"> {{result.title}}</a></li>
             {% endfor %}
             
-            <li><a href="{% url 'result' %}">View All Results <i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="{% url 'result' %}" target="_blank">View All Results <i class="fas fa-arrow-right"></i></a></li>
           </ul>
         </div>
       </div>
@@ -704,10 +704,10 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for admitcard in admitcards %}
-            <li><a href="/admit-card/{{admitcard.slug}}/">{{admitcard.title}}</a></li>
+            <li><a href="/admit-card/{{admitcard.slug}}/" target="_blank">{{admitcard.title}}</a></li>
             {% endfor %}
             
-            <li><a href="{% url 'admitcard' %}">View All AdmitCards <i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="{% url 'admitcard' %}" target="_blank">View All AdmitCards <i class="fas fa-arrow-right"></i></a></li>
           </ul>
         </div>
       </div>
@@ -720,10 +720,10 @@
         <div class="card-body">
           <ul class="job-list p-0">
             {% for govtupdate in govtupdates %}
-            <li><a href="govt-updates/{{govtupdate.slug}}/">{{govtupdate.title}}</a></li>
+            <li><a href="govt-updates/{{govtupdate.slug}}/" target="_blank">{{govtupdate.title}}</a></li>
             {% endfor %}
             
-            <li><a href="{% url 'govtupdates' %}">View All Govt Updatess <i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="{% url 'govtupdates' %}" target="_blank">View All Govt Updatess <i class="fas fa-arrow-right"></i></a></li>
           </ul>
         </div>
       </div>

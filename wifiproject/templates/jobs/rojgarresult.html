@@ -75,6 +75,41 @@
 }
 </script>
 
+<!--  SEO-Optimized FAQ Schema for /rojgar-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Rojgar Result page par mujhe kya-kya results milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko latest Sarkari Exam Results, scorecards, merit lists, cutoff updates aur official result notifications milti hain. Yeh page central, state aur departmental exams ke sabhi results cover karta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apna Rojgar Result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap apne exam ke saamne diye gaye 'Check Result' ya 'View Scorecard' link par click karein. Yeh aapko official result portal par redirect karega jahan roll number ya registration number dal kar aap apna result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Rojgar Result page par listed result links official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, Rojgar Result section me publish sabhi links official government portals, recruitment boards aur exam conducting authorities se verify karke hi add kiye jaate hain. Har result listing ke saath official PDF link bhi diya hota hai."
+      }
+    }
+  ]
+}
+</script>
+
 
   <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
@@ -314,9 +349,9 @@
       <div class="card-body">
         <ul class="job-list">
           {% for job in jobs %}
-            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
           {% endfor %}
-          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+          <li><a href="{% url 'job' %}" target="_blank" >View All Jobs →</a></li>
         </ul>
       </div>
     </div>
@@ -326,7 +361,7 @@
       <div class="card-body">
         <ul class="job-list">
           {% for result in results %}
-            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'result' %}">View All Results →</a></li>
         </ul>
@@ -338,9 +373,9 @@
       <div class="card-body">
         <ul class="job-list">
           {% for admitcard in admitcards %}
-            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+            <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a></li>
           {% endfor %}
-          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+          <li><a href="{% url 'admitcard' %}" target="_blank" >View All Admit Cards →</a></li>
         </ul>
       </div>
     </div>
@@ -350,9 +385,9 @@
       <div class="card-body">
         <ul class="job-list">
           {% for govtupdate in govtupdates %}
-            <li><a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a></li>
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
           {% endfor %}
-          <li><a href="{% url 'govtupdates' %}">View All Govt Updates →</a></li>
+          <li><a href="{% url 'govtupdates' %}" target="_blank" >View All Govt Updates →</a></li>
         </ul>
       </div>
     </div>

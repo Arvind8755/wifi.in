@@ -71,6 +71,58 @@
 }
 </script>
 
+<!-- SEO-Optimized FAQ Schema for /ssc-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "SSC Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko SSC ki sabhi latest recruitments jaise SSC CGL, CHSL, MTS, GD Constable, JE, Stenographer, CPO aur Selection Post notifications milte hain. Saath hi eligibility, vacancies, apply links aur official PDFs bhi provide kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed SSC notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, SSC Jobs page par sirf verified notifications hi publish kiye jaate hain. Saari information directly SSC ki official website, annual calendar aur recruitment notices se li jaati hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SSC exams ki eligibility aur age limit kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me qualification, age limit, relaxation aur selection stages clearly mention hoti hain. Aap official notification PDF download karke detailed eligibility bhi dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SSC Jobs page par exam dates aur admit card updates milte hain kya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, SSC ke exam dates, admit card releases, exam city intimation aur result updates bhi yahi par regularly publish kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SSC Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page daily basis par update hota hai. Jaise hi SSC koi new vacancy, exam notice, syllabus update ya result publish karta hai, hum turant is page par uska link add kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -579,7 +631,7 @@
 
             {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -642,7 +694,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -652,7 +704,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -671,7 +723,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

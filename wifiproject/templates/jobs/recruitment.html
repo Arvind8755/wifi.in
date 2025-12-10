@@ -229,7 +229,7 @@
         <h3>Trending Recruitments</h3>
         <ul style="padding:0; margin:0; list-style:none">
           {% for item in latest_results|slice:":7" %}
-            <li style="padding:6px 0"><a href="/results/{{ item.slug }}/">{{ item.title }}</a></li>
+            <li style="padding:6px 0"><a href="/results/{{ item.slug }}/" target="_blank" >{{ item.title }}</a></li>
           {% endfor %}
         </ul>
       </div>

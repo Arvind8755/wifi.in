@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block seo %}
@@ -27,6 +26,10 @@
 .pagination{display:flex;gap:6px}
 .page-link{padding:8px 10px;border-radius:8px;border:1px solid #e6e9ee;background:#fff}
 .empty{padding:40px;text-align:center;color:var(--muted)}
+.small{font-size:13px}
+.tool-icon img{width:40px;height:40px}
+/* responsive tweaks */
+@media (max-width:540px){.tools-header{flex-direction:column;align-items:flex-start;gap:12px}}
 </style>
 {% endblock style %}
 
@@ -43,22 +46,23 @@
         <input name="q" class="input" placeholder="Search tools, e.g. 'pdf compress'" value="{{ request.GET.q|default_if_none:'' }}" />
         <select name="category" class="input">
           <option value="">All categories</option>
-          {% comment %} <option value="pdf" {% if request.GET.category=='pdf' %}selected{% endif %}>PDF</option>
-          <option value="image" {% if request.GET.category=='image' %}selected{% endif %}>Image</option>
-          <option value="text" {% if request.GET.category=='text' %}selected{% endif %}>Text</option> {% endcomment %}
+          <option value="pdf" {% if request.GET.category == 'pdf' %}selected{% endif %}>PDF</option>
+          <option value="image" {% if request.GET.category == 'image' %}selected{% endif %}>Image</option>
+          <option value="utility" {% if request.GET.category == 'utility' %}selected{% endif %}>Utility</option>
         </select>
         <button class="btn">Search</button>
       </form>
     </div>
   </header>
 
+  <!-- If you already pass `tools` from view, the loop below will use it. If not, the hard-coded fallback cards will show. -->
   {% if tools %}
   <section class="tools-grid" aria-live="polite">
     {% for tool in tools %}
     <article class="tool-card" role="article" aria-labelledby="tool-{{ tool.slug }}">
       <div class="tool-top">
         {% if tool.icon %}
-          <img src="{{ tool.icon }}" alt="{{ tool.title }}" class="tool-icon" style="object-fit:cover;" />
+          <img src="{{ tool.icon }}" alt="{{ tool.title }} icon" class="tool-icon" style="object-fit:cover;" />
         {% else %}
           <div class="tool-icon">{{ tool.title|slice:":1"|upper }}</div>
         {% endif %}
@@ -77,54 +81,184 @@
     </article>
     {% endfor %}
   </section>
-
-  {% if page_obj and page_obj.has_other_pages %}
-  <nav class="tools-footer" aria-label="Pagination">
-    <div class="pagination">
-      {% if page_obj.has_previous %}
-        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">Previous</a>
-      {% endif %}
-
-      {% for p in page_obj.paginator.page_range %}
-        {% comment %} {% if page_obj.number == p %} {% endcomment %}
-          <span class="page-link" aria-current="page"><strong>{{ p }}</strong></span>
-        {% comment %} {% elif p <= 2 or p > page_obj.paginator.num_pages-2 or (p >= page_obj.number-2 and p <= page_obj.number+2) %} {% endcomment %}
-          <a class="page-link" href="?page={{ p }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">{{ p }}</a>
-        {% comment %} {% elif forloop.first %} {% endcomment %}
-          <span class="page-link">...</span>
-        {% comment %} {% endif %}   {% endcomment %}
-      {% endfor %}
-
-      {% if page_obj.has_next %}
-        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">Next</a>
-      {% endif %}
-    </div>
-  </nav>
-  {% endif %}
-
   {% else %}
-    <div class="empty">
-      <h3>No tools found</h3>
-      <p class="small">Try a different search or check back later — we're adding new tools frequently.</p>
-    </div>
+
+  <!-- Hard-coded tool cards (fallback). Replace URLs with your real tool routes. -->
+  <section class="tools-grid" aria-live="polite">
+
+    <!-- Resume & CV Maker -->
+    <article class="tool-card" role="article" aria-labelledby="tool-resume-cv">
+      <div class="tool-top">
+        <div class="tool-icon" aria-hidden="true">
+          <!-- simple SVG icon -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="14" height="16" rx="2" stroke="#6b7280" stroke-width="1.2" fill="none"/><path d="M7 8h6" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/><path d="M7 12h6" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/><circle cx="18" cy="10" r="3" stroke="#6b7280" stroke-width="1.2" fill="none"/></svg>
+        </div>
+        <div style="flex:1">
+          <a id="tool-resume-cv" class="tool-title" href="/tools/resume-cv-maker/">Resume & CV Maker</a>
+          <div class="tool-desc">Create professional resumes and CVs from templates — export as PDF, download or share a public link.</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">Utility</span>
+        <span class="small">Updated Aug 10, 2025</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/resume-cv-maker/">Open</a>
+      </div>
+    </article>
+
+    <!-- Age Calculator -->
+    <article class="tool-card" role="article" aria-labelledby="tool-age-calc">
+      <div class="tool-top">
+        <div class="tool-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#6b7280" stroke-width="1.2" fill="none"/><path d="M12 7v6l4 2" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="flex:1">
+          <a id="tool-age-calc" class="tool-title" href="/tools/age-calculator/">Age Calculator</a>
+          <div class="tool-desc">Calculate exact age from date of birth — years, months, days, and next birthday countdown.</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">Utility</span>
+        <span class="small">Updated Sep 1, 2025</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/age-calculator/">Open</a>
+      </div>
+    </article>
+
+    <!-- Image Resizer -->
+    <article class="tool-card" role="article" aria-labelledby="tool-image-resizer">
+      <div class="tool-top">
+        <div class="tool-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#6b7280" stroke-width="1.2" fill="none"/><path d="M7 10h.01M11 10h.01M15 10h.01" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div style="flex:1">
+          <a id="tool-image-resizer" class="tool-title" href="/tools/image-resizer/">Image Resizer</a>
+          <div class="tool-desc">Resize, crop and convert images (PNG, JPG, WEBP). Preserve aspect ratio and set exact dimensions.</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">Image</span>
+        <span class="small">Updated Oct 5, 2025</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/image-resizer/">Open</a>
+      </div>
+    </article>
+
+    <!-- PDF Resizer / Compressor -->
+    <article class="tool-card" role="article" aria-labelledby="tool-pdf-resizer">
+      <div class="tool-top">
+        <div class="tool-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="12" height="18" rx="2" stroke="#6b7280" stroke-width="1.2" fill="none"/><path d="M8 7h4" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/><path d="M8 11h6" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div style="flex:1">
+          <a id="tool-pdf-resizer" class="tool-title" href="/tools/pdf-compressor/">PDF Resizer & Compressor</a>
+          <div class="tool-desc">Compress PDFs, change quality, remove unused objects and reduce file size without losing readability.</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">PDF</span>
+        <span class="small">Updated Nov 12, 2025</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/pdf-compressor/">Open</a>
+      </div>
+    </article>
+
+    <!-- Image to PDF Converter -->
+    <article class="tool-card" role="article" aria-labelledby="tool-img2pdf">
+      <div class="tool-top">
+        <div class="tool-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#6b7280" stroke-width="1.2" fill="none"/><path d="M7 8h10M7 12h10" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div style="flex:1">
+          <a id="tool-img2pdf" class="tool-title" href="/tools/image-to-pdf/">Image → PDF Converter</a>
+          <div class="tool-desc">Merge images into a single PDF, reorder pages, choose paper size and download—fully client-side or server-side options.</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">PDF</span>
+        <span class="small">Updated Jul 28, 2025</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/image-to-pdf/">Open</a>
+      </div>
+    </article>
+
+    <!-- Photo & Signature Tool -->
+    <article class="tool-card" role="article" aria-labelledby="tool-photo-sign">
+      <div class="tool-top">
+        <div class="tool-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#6b7280" stroke-width="1.2" fill="none"/><path d="M8 16s1-2 4-2 4 2 4 2" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/><path d="M9 9h6" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div style="flex:1">
+          <a id="tool-photo-sign" class="tool-title" href="/tools/photo-signature/">Photo & Signature Tool</a>
+          <div class="tool-desc">Crop passport/ID photos to exact dimensions, remove background, and capture/sign digitally for application forms.</div>
+        </div>
+      </div>
+
+      <div class="tool-meta">
+        <span class="pill">Image</span>
+        <span class="small">Updated Jun 14, 2025</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/photo-signature/">Open</a>
+      </div>
+    </article>
+
+  </section>
   {% endif %}
 
-  <!-- JSON-LD Tool list (structured data) -->
+  <!-- JSON-LD Tool list (structured data) - keep top 10 items for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "WifiResult Tools Hub",
     "itemListElement": [
-      {% for tool in tools|slice:":10" %}
       {
         "@type": "ListItem",
-        "position": {{ forloop.counter }},
-        "url": "{{ request.scheme }}://{{ request.get_host }}{{ tool.get_absolute_url|default:tool.url|default:'#' }}",
-        "name": "{{ tool.title|escapejs }}",
-        "description": "{{ tool.short_description|default:tool.description|truncatechars:120|escapejs }}"
-      }{% if not forloop.last %},{% endif %}
-      {% endfor %}
+        "position": 1,
+        "url": "{{ request.scheme }}://{{ request.get_host }}/tools/resume-cv-maker/",
+        "name": "Resume & CV Maker",
+        "description": "Create professional resumes and CVs from templates — export as PDF, download or share a public link."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "{{ request.scheme }}://{{ request.get_host }}/tools/age-calculator/",
+        "name": "Age Calculator",
+        "description": "Calculate exact age from date of birth — years, months, days, and next birthday countdown."
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "{{ request.scheme }}://{{ request.get_host }}/tools/image-resizer/",
+        "name": "Image Resizer",
+        "description": "Resize, crop and convert images (PNG, JPG, WEBP). Preserve aspect ratio and set exact dimensions."
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/",
+        "name": "PDF Resizer & Compressor",
+        "description": "Compress PDFs, change quality, remove unused objects and reduce file size without losing readability."
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "url": "{{ request.scheme }}://{{ request.get_host }}/tools/image-to-pdf/",
+        "name": "Image to PDF Converter",
+        "description": "Merge images into a single PDF, reorder pages, choose paper size and download."
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "url": "{{ request.scheme }}://{{ request.get_host }}/tools/photo-signature/",
+        "name": "Photo & Signature Tool",
+        "description": "Crop passport/ID photos to exact dimensions, remove background, and capture/sign digitally."
+      }
     ]
   }
   </script>

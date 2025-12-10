@@ -75,6 +75,40 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Free Job Alert 2024 page par kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par 2024 me release hui sabhi latest government job vacancies, admit cards, results, syllabus updates aur recruitment notices ki real-time information milti hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main 2024 ki latest jobs kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap page me listed 2024 job notifications dekh sakte hain aur har job ke saath diya gaya eligibility, apply link, dates aur official PDF access kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Free Job Alert 2024 page verified information deta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan sirf wahi alerts publish hote hain jo official government portals, SSC, UPSC, Railway, Banking aur state departments ke verified notifications par based hote hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -212,9 +246,9 @@ a.cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 14p
 
     <div class="filters" aria-hidden="false">
       
-      <a href="{% url "all_india_govt_jobs" %}" class="text-decoration-none text-white"><div class="filter-pill">All India</div></a>
-    <a href="{% url "all-state-govt-job" %}" class="text-decoration-none text-white">  <div class="filter-pill">State Jobs</div></a>
-      <a href="{% url "bankjob" %}" class="text-decoration-none text-white"><div class="filter-pill">Banking</div></a>
+      <a href="{% url "all_india_govt_jobs" %}" target="_blank"  style="color:white;"  ><div class="filter-pill">All India</div></a>
+    <a href="{% url "all-state-govt-job" %}" target="_blank"  style="color:white;">  <div class="filter-pill">State Jobs</div></a>
+      <a href="{% url "bankjob" %}" style="color:white;"><div class="filter-pill">Banking</div></a>
     </div>
   </div>
 </section>
@@ -232,7 +266,7 @@ a.cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 14p
           {% for job in jobs|slice:":12" %}
             <div class="job-item">
               <div>
-                <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
                 <div class="job-meta">{{ job.published_date|date:"d M, Y" }} •  Job </div>
               </div>
               <div>
@@ -315,7 +349,7 @@ a.cta{display:inline-block;background:var(--primary);color:#fff;padding:10px 14p
         <div class="card" style="margin-top:14px">
           <h3>Download Sitemap</h3>
           <p class="job-meta">SEO friendly sitemap for crawlers</p>
-          <a href="/sitemap.xml">Sitemap.xml</a>
+          <a href="/sitemap.xml"  target="_blank" >Sitemap.xml</a>
         </div>
 
       </div>

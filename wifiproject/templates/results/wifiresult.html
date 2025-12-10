@@ -81,6 +81,42 @@
 </script>
 
 
+<!-- SEO-Optimized FAQ Schema for /wifi-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wifi Result kya hai aur yeh kis tarah ki information provide karta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wifi Result ek private information platform hai jo government jobs, admit cards, results, answer keys, exam dates aur sarkari notifications ke verified updates provide karta hai. Yeh users ko official sources tak fast access dene ke liye banaya gaya hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Wifi Result government ka official website hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nahi, Wifi Result kisi bhi government department ka official portal nahi hai. Yahan publish sabhi updates official government websites, notifications aur exam conducting authorities se verify karke provide kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wifi Result par di gayi information kaise verify ki jaati hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wifi Result par updates publish karne se pehle unhe official notices, PDF notifications, government portals aur recruitment boards se cross-check kiya jata hai. Har post ke saath official link bhi diya jata hai jisse users direct verification kar sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -575,7 +611,7 @@
         <ul class="wifi-list">
           {% for result in page_obj %}
           <li class="wifi-item">
-            <a href="/results/{{ result.slug }}/" class="wifi-title">
+            <a href="/results/{{ result.slug }}/" target="_blank" class="wifi-title">
               {{ result.title }}
             </a>
             <div class="wifi-meta-row">
@@ -622,7 +658,7 @@
         <ul class="wifi-list">
           {% for admitcard in latest_admitcards %}
           <li class="wifi-item">
-            <a href="/admit-card/{{ admitcard.slug }}/" class="wifi-title">
+            <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" class="wifi-title">
               {{ admitcard.title }}
             </a>
             <div class="wifi-meta-row">
@@ -656,7 +692,7 @@
         <ul class="wifi-list">
           {% for job in latest_jobs %}
           <li class="wifi-item">
-            <a href="/latest-jobs/{{ job.slug }}/" class="wifi-title">
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="wifi-title">
               {{ job.title }}
             </a>
             <div class="wifi-meta-row">
@@ -696,7 +732,7 @@
           {% for govtupdate in latest_govtupdates %}
           <li class="wifi-item">
             <div style="flex:1;">
-              <a href="/govt-updates/{{ govtupdate.slug }}/" class="wifi-title">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" class="wifi-title">
                 {{ govtupdate.title }}
               </a>
             </div>

@@ -274,7 +274,7 @@
               <div>{{ f.answer }}</div>
             </details>
           {% endfor %}
-          <a href="/" class="meta">View all FAQs</a>
+          <a href="/"  target="_blank" class="meta">View all FAQs</a>
         </div>
       </div>
 
@@ -397,9 +397,9 @@
       <div class="card">
         <h3>State Resources</h3>
         <ul class="list-compact">
-          <li class="item"><a href="{% url 'Bihar' %}">All Bihar Notifications</a></li>
-          <li class="item"><a href="{% url 'result' %}">Bihar Results</a></li>
-          <li class="item"><a href="{% url 'admitcard' %}">Bihar Admit Cards</a></li>
+          <li class="item"><a href="{% url 'Bihar' %}" target="_blank" >All Bihar Notifications</a></li>
+          <li class="item"><a href="{% url 'result' %}" target="_blank" >Bihar Results</a></li>
+          <li class="item"><a href="{% url 'admitcard' %}" target="_blank" >Bihar Admit Cards</a></li>
         </ul>
       </div>
     </aside>

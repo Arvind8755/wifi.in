@@ -80,6 +80,42 @@
 }
 </script>
 
+<!-- SEO-Optimized FAQ Schema for /today-news/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Today News page par mujhe kya-kya updates milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko aaj ki sabse latest government job news, exam updates, admit card releases, results, notifications, policy changes aur official announcements milte hain. Saare updates real-time verified sources par based hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Today News page ki information official hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, Today News section me publish sabhi updates government portals, recruitment boards, official notifications aur press releases se verify karne ke baad hi add kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Today News page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page din bhar me multiple times update hota hai. Jaise hi koi new exam notice, result, admit card ya recruitment announcement aata hai, uska update turant Today News section me add kar diya jata hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
 <script type="application/ld+json">
 {
@@ -255,13 +291,13 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {% for it in items %}
         <article class="bg-white border rounded-lg overflow-hidden card-shadow flex">
-          <a href="{{ it.url }}" class="w-1/3 block">
+          <a href="{{ it.url }}" target="_blank" class="w-1/3 block">
             <img src="{{ it.thumb }}" alt="{{ it.title }}" class="w-full h-full object-cover h-28" onerror="this.onerror=null;this.src='{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-logo.png' %}'">
           </a>
           <div class="p-3 w-2/3 flex flex-col justify-between">
             <div>
               <h3 class="text-sm font-semibold leading-5">
-                <a href="{{ it.url }}" class="hover:text-blue-600">{{ it.title|truncatechars:100 }}</a>
+                <a href="{{ it.url }}" target="_blank" class="hover:text-blue-600">{{ it.title|truncatechars:100 }}</a>
               </h3>
               <p class="text-xs text-gray-500 mt-1">{{ it.excerpt|default:'' }}</p>
             </div>
@@ -281,7 +317,7 @@
       <!-- Load more / Pagination -->
       <div class="mt-4 flex justify-center">
         {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 border rounded bg-white">Load more</a>
+          <a href="?page={{ page_obj.next_page_number }}" target="_blank" class="px-4 py-2 border rounded bg-white">Load more</a>
         {% endif %}
       </div>
 
@@ -302,18 +338,18 @@
       <div class="bg-white p-4 rounded border card-shadow">
         <h4 class="text-sm font-semibold mb-2">Categories</h4>
         <div class="flex flex-col gap-2 text-sm">
-          <a href="{% url 'admitcard' %}" class="hover:text-blue-600">Admit Cards</a>
-          <a href="{% url 'result' %}" class="hover:text-blue-600">Results</a>
-          <a href="{% url 'vacancy' %}" class="hover:text-blue-600">Vacancies</a>
+          <a href="{% url 'admitcard' %}" target="_blank" class="hover:text-blue-600">Admit Cards</a>
+          <a href="{% url 'result' %}" target="_blank" class="hover:text-blue-600">Results</a>
+          <a href="{% url 'vacancy' %}" target="_blank" class="hover:text-blue-600">Vacancies</a>
         </div>
       </div>
 
       <div class="bg-white p-4 rounded border card-shadow">
         <h4 class="text-sm font-semibold mb-2">Quick Links</h4>
         <ul class="text-sm space-y-1 text-gray-600">
-          <li><a href="{% url 'admitcard' %}" class="hover:text-blue-600">Admit Cards</a></li>
-          <li><a href="{% url 'result' %}" class="hover:text-blue-600">Results</a></li>
-          <li><a href="{% url 'answerkey' %}" class="hover:text-blue-600">Answer Keys</a></li>
+          <li><a href="{% url 'admitcard' %}" target="_blank" class="hover:text-blue-600">Admit Cards</a></li>
+          <li><a href="{% url 'result' %}" target="_blank" class="hover:text-blue-600">Results</a></li>
+          <li><a href="{% url 'answerkey' %}" target="_blank" class="hover:text-blue-600">Answer Keys</a></li>
         </ul>
       </div>
     </aside>

@@ -80,6 +80,42 @@
   }
   </script>
 
+  <!-- SEO-Optimized FAQ Schema for /scvt/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "SCVT page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko SCVT ITI Results, merit lists, scorecards, exam updates aur official result PDFs milte hain. Saath hi state-wise SCVT result links bhi provide kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main SCVT ITI result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap list me apne SCVT exam ka naam choose karke 'Check Result' link par click karein. Yeh aapko official SCVT portal ya result server par redirect karega, jahan roll number enter karke aap apna result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed SCVT results official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, SCVT page par publish saare result links official state SCVT portals, MIS systems aur examination boards par release ki gayi notifications par based hote hain. Verify karne ke liye official PDF link bhi diya hota hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -747,7 +783,7 @@
         <div class="pagination-wrapper">
           <div class="pagination-inner">
             {% if page_obj.has_previous %}
-              <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">← Previous</a>
+              <a href="?page={{ page_obj.previous_page_number }}" target="_blank" class="page-btn">← Previous</a>
             {% endif %}
 
             <span class="page-current">
@@ -795,7 +831,7 @@
                   {{ forloop.counter|add:job_count }}
                 </div>
                 <div>
-                  <a href="/admit-card/{{ admitcard.slug }}/" class="widget-title">
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" class="widget-title">
                     {{ admitcard.title }}
                   </a>
                   <div class="widget-meta">
@@ -817,7 +853,7 @@
         <div class="widget-body">
           {% for govtupdate in latest_govtupdates %}
             <div class="widget-item">
-              <a href="/govt-updates/{{ govtupdate.slug }}/" class="widget-title">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" class="widget-title">
                 {{ govtupdate.title }}
               </a>
               <div class="widget-meta">

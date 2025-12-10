@@ -49,7 +49,7 @@
 </script>
 
   <!--WebPage Schema-->
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": ["WebPage", "CollectionPage"],
@@ -67,7 +67,58 @@
     "height": 675
   },
   "inLanguage": "en-IN",
-  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#breadcrumb" },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#breadcrumb" }
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /all-category-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "All Category Jobs page par mujhe kya-kya dekhne ko milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi major government job categories jaise SSC, UPSC, Banking, Railway, Defence, Police, Teacher, PSU, Apprentice aur State Government Jobs ke latest notifications ek hi jagah par milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya All Category Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan published sabhi job updates official government portals, recruitment boards, public sector units aur verified notifications se hi liye jaate hain. Har listing ke saath official PDF link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apni category ke according jobs kaise search karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap category list me Banking, SSC, UPSC, Railway, Defence, Teacher, Police ya State Jobs jaise sections choose karke apni preference ke hisab se jobs filter kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya All Category Jobs page me central aur state dono jobs hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, is page par central government recruitments ke saath-saath sabhi states ki latest vacancies bhi include ki jaati hain, taki candidates ko complete job coverage ek hi page par mil sake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "All Category Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana multiple times update hota hai. Jaise hi kisi category me new notification release hoti hai, uska link turant All Category Jobs section me add kar diya jata hai."
+      }
+    }
+  ]
 }
 </script>
 
@@ -1042,7 +1093,7 @@
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
          {% for result in latest_results %}
-          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
           
           
@@ -1053,7 +1104,7 @@
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
  {% for admitcard in latest_admitcards %}
-          <li><a href="/admitcard/{{ admitcard.slug }}/">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/admitcard/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
         </ul>
       </div>

@@ -80,6 +80,42 @@
   }
   </script>
 
+  <!--SEO-Optimized FAQ Schema for /ncvtmis/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "NCVT MIS page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko NCVT MIS ITI Results, marksheets, certificates, semester/trade-wise result updates, exam notices aur official PDF links milte hain. Saare results verified NCVT MIS portal se hi liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main NCVT MIS ITI result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap apne trade ya semester ke result ke saamne diye gaye 'Check Result' link par click karein. Yeh aapko official NCVT MIS website par le jaayega, jahan roll number ya registration number dal kar result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya NCVT MIS marksheet aur certificate download karna possible hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, NCVT MIS portal par login karke aap apna digital marksheet aur certificate download kar sakte hain. Iske liye aapko MIS login details ya registration number ki zarurat hogi."
+      }
+    }
+  ]
+}
+</script>
+
+
   <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -270,6 +306,7 @@
     padding: 5px 10px;
     border-radius: 999px;
     border: 1px dashed rgba(248,250,252,0.4);
+    color:white;
   }
 
   /* ===== Layout ===== */
@@ -669,7 +706,7 @@
           Result publish होने के बाद official NCVT / SCVT portal अक्सर slow हो जाता है। इसलिए WifiResult पर हम direct और alternate result links भी share करते हैं।
         </p>
         <div class="iti-hero-pill-row">
-           <a href="https://www.ncvtmis.gov.in/Pages/Marksheet/Validate.aspx" class="text-white text-decoration-none"><div class="iti-hero-pill">Verification Marksheet NCVT </div></a>
+           <a href="https://www.ncvtmis.gov.in/Pages/Marksheet/Validate.aspx" class="text-white text-decoration-none"><div class="iti-hero-pill text-white">Verification Marksheet NCVT </div></a>
           <a href="https://dgt.skillindiadigital.gov.in/result" class="text-white text-decoration-none"> <div class="iti-hero-pill">ITI Result</div></a>
          <a href="https://apps.vppup.in/General/frmValidateMarksheet.aspx" class="text-white text-decoration-none"><div class="iti-hero-pill">Verification Marksheet SCVT</div></a>
         </div>
@@ -720,7 +757,7 @@
                 </div>
               </div>
               <div class="result-right">
-                <a href="{% url 'result_detail' post.slug %}" class="result-pill-link">
+                <a href="{% url 'result_detail' post.slug %}" target="_blank" class="result-pill-link">
                   View Result
                   <span>➜</span>
                 </a>
@@ -775,7 +812,7 @@
                   {{ forloop.counter }}
                 </div>
                 <div>
-                  <a href="/latest-jobs/{{ job.slug }}/" class="widget-title">
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="widget-title">
                     {{ job.title }}
                   </a>
                   <div class="widget-meta">
@@ -791,7 +828,7 @@
                   {{ forloop.counter|add:job_count }}
                 </div>
                 <div>
-                  <a href="/admit-card/{{ admitcard.slug }}/" class="widget-title">
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" class="widget-title">
                     {{ admitcard.title }}
                   </a>
                   <div class="widget-meta">
@@ -813,7 +850,7 @@
         <div class="widget-body">
           {% for govtupdate in latest_govtupdates %}
             <div class="widget-item">
-              <a href="/govt-updates/{{ govtupdate.slug }}/" class="widget-title">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" class="widget-title">
                 {{ govtupdate.title }}
               </a>
               <div class="widget-meta">
@@ -829,7 +866,7 @@
   <!-- ITI Info Section -->
   <section class="iti-info">
     <div class="container">
-      <h2>NCVT MIS ITI Result 2025 – आपकी सारी जानकारी एक ही जगह</h2>
+      <h2>NCVT MIS ITI Result 2026 – आपकी सारी जानकारी एक ही जगह</h2>
       <div class="iti-info-grid">
         <div class="iti-info-card">
           <h3>NCVT MIS ITI Result क्या होता है?</h3>

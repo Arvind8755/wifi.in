@@ -71,6 +71,51 @@
   </script>
 
 
+  <!-- SEO-Optimized FAQ Schema for /sarkari-exam/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sarkari Exam page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi major government recruitment exams ki details milti hain, jaise eligibility, syllabus, exam pattern, important dates, admit card updates, result status aur official notifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Sarkari Exam ki information official hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, yahan listed saari exam details official government recruitment boards ki notifications par based hoti hain. Hum updates tabhi publish karte hain jab official notice release hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sarkari Exam ka syllabus aur exam pattern kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har exam ke saath syllabus aur exam pattern ka section mention hota hai. Saath hi official syllabus PDF ka link bhi diya hota hai jisse aap complete updated syllabus download kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sarkari Exam page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page daily basis par update hota hai. Jaise ही koi naya recruitment exam, exam date notice, syllabus update, ya result release hota hai — hum turant uski information page me add kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -633,7 +678,7 @@
           {% for admitcard in page_obj %}
             <li class="job-item">
               <div class="job-title-box">
-                <a href="/admit-card/{{admitcard.slug}}/" class="job-title">{{admitcard.title}}</a>
+                <a href="/admit-card/{{admitcard.slug}}/"  target="_blank" class="job-title">{{admitcard.title}}</a>
                 <span class="job-meta-label">Notification / Exam Update</span>
               </div>
               <span class="job-date">{{ admitcard.published_date|date:"d M, Y"}}</span>
@@ -689,7 +734,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -699,7 +744,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+                  <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
                   <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -719,7 +764,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter }}</div>
               <div class="trending-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
                 <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

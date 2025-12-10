@@ -736,7 +736,7 @@
           {% for job in page_obj %}
             <li class="job-item">
               <div class="job-main">
-                <a href="/latest-jobs/{{ job.slug }}/" class="job-title">
+                <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">
                   {{ job.title }}
                 </a>
                 <div class="job-meta">
@@ -745,7 +745,7 @@
                 </div>
               </div>
               <div class="job-right">
-                <a href="/latest-jobs/{{ job.slug }}/" class="job-cta-pill">
+                <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-cta-pill">
                   View Details
                   <span>➜</span>
                 </a>
@@ -798,7 +798,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -808,7 +808,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -829,7 +829,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

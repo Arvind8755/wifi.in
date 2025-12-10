@@ -78,6 +78,32 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Wifi Result Online and how does it help in checking Sarkari Results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wifi Result Online is a fast and mobile-friendly platform where students can check government exam results, admit cards, answer keys, and job updates instantly. It provides real-time updates with direct official links for quick access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I use Wifi Result Online to get instant government job alerts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can get instant job alerts on Wifi Result Online with daily updated government job notifications, exam dates, syllabus, answer keys, and results. All updates are verified and sourced from official government websites for accurate information."
+      }
+    }
+  ]
+}
+</script>
+
+
 
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
@@ -166,6 +192,7 @@
     letter-spacing: .04em;
     background: rgba(15,23,42,0.45);
     backdrop-filter: blur(6px);
+    color: white;
   }
   .hero-meta {
     display: flex;
@@ -217,9 +244,11 @@
   }
   .hero-card-list span.label {
     opacity: 0.9;
+    color:white;
   }
   .hero-card-list span.value {
     font-weight: 600;
+    color:white;
   }
   .hero-small-note {
     font-size: 11px;
@@ -663,7 +692,7 @@
         {% for result in page_obj %}
         <li class="result-item">
           <div class="result-main">
-            <a href="/results/{{ result.slug }}/" class="result-title">
+            <a href="/results/{{ result.slug }}/" target="_blank" class="result-title">
               {{ result.title }}
             </a>
             <div class="result-meta-line">
@@ -758,13 +787,13 @@
       <div class="side-card-body">
         <ul class="side-list">
           <li>
-            <a href="{% url 'sarkariresult2025' %}">
+            <a href="{% url 'sarkariresult2025' %}" target="_blank" >
               <span class="label"><i class="fas fa-calculator"></i> Check Normalization / Cut Off</span>
               <span class="meta">Expected & Official</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'answerkey' %}">
+            <a href="{% url 'answerkey' %}"  target="_blank" >
               <span class="label"><i class="fas fa-file-alt"></i> Latest Answer Keys</span>
               <span class="meta">Provisional & Final</span>
             </a>

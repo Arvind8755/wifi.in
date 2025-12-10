@@ -1,0 +1,435 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photo + Signature Joiner — WifiResult Tool</title>
+<meta name="description" content="Join a signature image onto a main photo. Position, scale, rotate, set margin and opacity, then download as PNG/JPG/WEBP." />
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:#0f172a}
+  .wrap{max-width:980px;margin:28px auto;padding:20px}
+  h1{margin:0 0 12px;font-size:20px}
+  .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  input[type=file]{display:block}
+  .controls{display:grid;gap:10px}
+  .row{display:flex;gap:8px;align-items:center}
+  input[type=number], select, input[type=text]{padding:10px;border-radius:10px;border:1px solid #e6eef7;width:100%}
+  button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+  .btn-ghost{background:#fff;border:1px solid #e6eef7;color:#0f172a}
+  .preview{display:flex;flex-direction:column;gap:10px;align-items:center}
+  img#previewImg{max-width:100%;border-radius:8px;border:1px solid #e6eef7}
+  canvas#previewCanvas{max-width:100%;border-radius:8px;border:1px solid #e6eef7}
+  .meta{font-size:13px;color:var(--muted)}
+  .small{font-size:12px;color:var(--muted)}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+  .progress{height:8px;background:#e6eef7;border-radius:8px;overflow:hidden}
+  .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%}
+  .help{font-size:12px;color:var(--muted)}
+  .preset{display:flex;gap:6px;flex-wrap:wrap}
+  .preset button{background:#f3f4f6;color:#111;padding:6px 8px;border-radius:8px;border:1px solid #e6eef7}
+  .toggle{display:inline-flex;align-items:center;gap:8px}
+  ul.small{padding-left:18px;margin:6px 0}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="wrap">
+  <h1>Photo + Signature Joiner</h1>
+  <div class="card grid">
+    <div>
+      <div class="card" style="padding:12px">
+        <label>Main Photo (Passport / ID photo)</label>
+        <input id="photoInput" type="file" accept="image/*" />
+        <div class="small" style="margin-top:6px">Supported: PNG, JPEG, WEBP, HEIC (if browser supports). Prefer high-res passport-style photo.</div>
+
+        <hr style="margin:12px 0" />
+
+        <label>Signature Image (PNG with transparent bg recommended)</label>
+        <input id="signInput" type="file" accept="image/*" />
+        <div class="small" style="margin-top:6px">Best: signature on white/transparent background. If background present, you can still overlay.</div>
+
+        <hr style="margin:12px 0" />
+
+        <div class="controls">
+          <div class="row">
+            <div style="flex:1">
+              <label>Signature Position</label>
+              <select id="signPosition">
+                <option value="bottom-right">Bottom Right (default)</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="top-right">Top Right</option>
+                <option value="top-left">Top Left</option>
+                <option value="custom">Custom (set X/Y %)</option>
+              </select>
+            </div>
+            <div style="width:120px">
+              <label>Margin (px)</label>
+              <input id="signMargin" type="number" min="0" value="16" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Signature Scale (%) — relative to photo width</label>
+              <input id="signScale" type="number" min="1" max="200" value="20" />
+            </div>
+            <div style="width:120px">
+              <label>Opacity</label>
+              <input id="signOpacity" type="number" min="0" max="100" value="100" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Rotation (deg)</label>
+              <input id="signRotate" type="number" step="1" value="0" />
+            </div>
+            <div style="width:160px">
+              <label>Custom X (%)</label>
+              <input id="customX" type="number" min="0" max="100" placeholder="50" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Custom Y (%)</label>
+              <input id="customY" type="number" min="0" max="100" placeholder="50" />
+            </div>
+            <div style="width:160px">
+              <label>Background fill</label>
+              <input id="bgFill" type="text" placeholder="transparent or #ffffff" />
+            </div>
+          </div>
+
+          <div>
+            <label>Output Format</label>
+            <select id="outFormat">
+              <option value="image/png">PNG (transparent if bg 'transparent')</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WEBP</option>
+            </select>
+          </div>
+
+          <div class="row" style="margin-top:8px">
+            <div style="flex:1">
+              <label>Quality (for JPG/WEBP) — 0.1 to 1</label>
+              <input id="outQuality" type="number" step="0.05" min="0.1" max="1" value="0.92" />
+            </div>
+            <div style="width:160px">
+              <label>Filename</label>
+              <input id="outFilename" type="text" placeholder="photo-signed" />
+            </div>
+          </div>
+
+          <div style="margin-top:8px;display:flex;gap:8px;">
+            <button id="previewBtn">Preview</button>
+            <button id="downloadBtn">Download</button>
+            <button id="resetBtn" class="btn-ghost">Reset</button>
+          </div>
+
+          <div style="margin-top:8px">
+            <div class="progress" aria-hidden>
+              <i id="progressBar"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Tips & Notes</label>
+        <ul class="small">
+          <li>Signature ko photo ke upar place karne ke liye PNG with transparent bg best hai.</li>
+          <li>Signature scale % photo width ke hisaab se hai — 15–25% aksar passport signatures ke liye theek rehta hai.</li>
+          <li>Custom position me X/Y % set karke precise placement kar sakte hain.</li>
+          <li>Web browsers par large images slow ho sakte hain; 30MB se badi files avoid karein.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <aside>
+      <div class="card preview">
+        <div style="width:100%">
+          <label>Preview</label>
+          <div style="border:1px dashed #e6eef7;padding:8px;border-radius:8px;min-height:260px;display:flex;align-items:center;justify-content:center">
+            <canvas id="previewCanvas" width="600" height="400" style="display:block;max-width:100%"></canvas>
+            <div id="placeholder" class="meta" style="display:none">No preview</div>
+          </div>
+        </div>
+
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          <div class="meta">Photo: <span id="photoInfo">—</span></div>
+          <div class="meta">Signature: <span id="signInfo">—</span></div>
+          <div class="meta">Export: <span id="exportInfo">—</span></div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px">
+            <button id="downloadPreview" class="btn-ghost">Download Preview</button>
+            <button id="copyBtn" class="btn-ghost">Copy to Clipboard</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <div style="margin-top:12px" class="card">
+    <label>Tool — Kaise Use Karein</label>
+    <div class="small" style="margin-top:8px;line-height:1.5">
+      <ul>
+        <li><strong>1.</strong> "Main Photo" upload karein (passport/ID photo).</li>
+        <li><strong>2.</strong> "Signature Image" upload karein (PNG transparent recommended).</li>
+        <li><strong>3.</strong> Signature Position/Scale/Rotation/Opacity aur Margin set karein. Custom select karne par X/Y % de sakte hain.</li>
+        <li><strong>4.</strong> Preview se result dekhein. Satisfied ho to "Download" karein.</li>
+        <li><strong>5.</strong> Output format PNG/JPG/WEBP — PNG transparency maintain karega agar background "transparent" ho.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Photo + Signature Joiner</div>
+</div>
+
+<script>
+(function(){
+  // DOM
+  const photoInput = document.getElementById('photoInput');
+  const signInput = document.getElementById('signInput');
+  const previewCanvas = document.getElementById('previewCanvas');
+  const placeholder = document.getElementById('placeholder');
+  const photoInfo = document.getElementById('photoInfo');
+  const signInfo = document.getElementById('signInfo');
+  const exportInfo = document.getElementById('exportInfo');
+  const progressBar = document.getElementById('progressBar');
+
+  const signPosition = document.getElementById('signPosition');
+  const signMargin = document.getElementById('signMargin');
+  const signScale = document.getElementById('signScale');
+  const signOpacity = document.getElementById('signOpacity');
+  const signRotate = document.getElementById('signRotate');
+  const customX = document.getElementById('customX');
+  const customY = document.getElementById('customY');
+  const bgFill = document.getElementById('bgFill');
+  const outFormat = document.getElementById('outFormat');
+  const outQuality = document.getElementById('outQuality');
+  const outFilename = document.getElementById('outFilename');
+
+  const previewBtn = document.getElementById('previewBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const downloadPreview = document.getElementById('downloadPreview');
+  const copyBtn = document.getElementById('copyBtn');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  let photoImg = null;
+  let signImg = null;
+  let lastBlob = null;
+
+  function setProgress(p){ progressBar.style.width = (p*100)+'%'; }
+
+  photoInput.addEventListener('change', async(e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f){ photoImg = null; photoInfo.textContent='—'; drawPlaceholder(); return; }
+    if(!f.type.startsWith('image/')){ alert('Please upload an image file for photo'); return; }
+    photoImg = await loadImageFromFile(f);
+    photoInfo.textContent = `${formatBytes(f.size)} • ${photoImg.width}×${photoImg.height}`;
+    // set canvas to photo aspect with reasonable display size
+    fitCanvasToPhoto(photoImg);
+    drawPlaceholder();
+  });
+
+  signInput.addEventListener('change', async(e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f){ signImg = null; signInfo.textContent='—'; drawPlaceholder(); return; }
+    if(!f.type.startsWith('image/')){ alert('Please upload an image file for signature'); return; }
+    signImg = await loadImageFromFile(f);
+    signInfo.textContent = `${formatBytes(f.size)} • ${signImg.width}×${signImg.height}`;
+    drawPlaceholder();
+  });
+
+  function loadImageFromFile(file){
+    return new Promise((res,rej)=>{
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = ()=>{ URL.revokeObjectURL(url); res(img); };
+      img.onerror = ()=>{ URL.revokeObjectURL(url); rej(new Error('Failed to load image')); };
+      img.src = url;
+    });
+  }
+
+  function fitCanvasToPhoto(img){
+    const maxW = 1200; // limit internal canvas width for performance
+    const ratio = img.width / img.height;
+    let cw = img.width, ch = img.height;
+    if(cw > maxW){ cw = maxW; ch = Math.round(cw / ratio); }
+    previewCanvas.width = cw; previewCanvas.height = ch;
+  }
+
+  function drawPlaceholder(){
+    const ctx = previewCanvas.getContext('2d');
+    ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    if(!photoImg){ placeholder.style.display='block'; return; }
+    placeholder.style.display='none';
+    // draw photo scaled to canvas
+    drawCompositeToCanvas(photoImg, signImg).catch(e=>console.error(e));
+  }
+
+  async function drawCompositeToCanvas(photo, sign, opts){
+    setProgress(0.05);
+    const ctx = previewCanvas.getContext('2d');
+    // clear
+    ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    // background fill if requested
+    const bg = (bgFill.value||'').trim().toLowerCase();
+    if(bg && bg !== 'transparent'){
+      ctx.fillStyle = bg;
+      ctx.fillRect(0,0,previewCanvas.width,previewCanvas.height);
+    } else {
+      ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    }
+    setProgress(0.2);
+
+    // draw photo centered and fitted
+    // scale photo to canvas size keeping aspect ratio
+    const cw = previewCanvas.width, ch = previewCanvas.height;
+    const pw = photo.width, ph = photo.height;
+    const pr = pw/ph; const cr = cw/ch;
+    let dw, dh;
+    if(pr > cr){ // photo wider -> fit width
+      dw = cw; dh = Math.round(dw / pr);
+    } else {
+      dh = ch; dw = Math.round(dh * pr);
+    }
+    const dx = Math.round((cw - dw)/2);
+    const dy = Math.round((ch - dh)/2);
+    ctx.drawImage(photo, 0, 0, pw, ph, dx, dy, dw, dh);
+    setProgress(0.5);
+
+    if(!sign) { setProgress(1); return; }
+
+    // calculate signature dimensions
+    const scalePct = Math.max(1, parseFloat(signScale.value) || 20);
+    const sigW = Math.round(dw * (scalePct/100));
+    // maintain aspect ratio of signature
+    const sigH = Math.round(sigW * (sign.height / sign.width));
+    // rotation and opacity
+    const rotDeg = parseFloat(signRotate.value) || 0;
+    const opacity = Math.max(0, Math.min(100, parseFloat(signOpacity.value)||100))/100;
+    // position
+    const margin = parseInt(signMargin.value || 0,10);
+    let tx=0, ty=0;
+    const pos = signPosition.value;
+    if(pos === 'custom'){
+      const cx = customX.value ? Math.max(0, Math.min(100, parseFloat(customX.value))) : 50;
+      const cy = customY.value ? Math.max(0, Math.min(100, parseFloat(customY.value))) : 50;
+      tx = Math.round((cx/100)*cw - sigW/2);
+      ty = Math.round((cy/100)*ch - sigH/2);
+    } else {
+      if(pos.includes('right')) tx = dx + dw - sigW - margin;
+      else tx = dx + margin;
+      if(pos.includes('bottom')) ty = dy + dh - sigH - margin;
+      else ty = dy + margin;
+    }
+
+    // draw with rotation and opacity
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    // move to center of signature rectangle for rotation
+    const cxSig = tx + sigW/2;
+    const cySig = ty + sigH/2;
+    ctx.translate(cxSig, cySig);
+    ctx.rotate(rotDeg * Math.PI/180);
+    // draw image centered at rotated origin
+    ctx.drawImage(sign, -sigW/2, -sigH/2, sigW, sigH);
+    ctx.restore();
+
+    setProgress(0.9);
+    setTimeout(()=>setProgress(1), 150);
+  }
+
+  function formatBytes(n){ if(n==null) return '—'; if(n<1024) return n+' B'; if(n<1024*1024) return (n/1024).toFixed(1)+' KB'; return (n/1024/1024).toFixed(2)+' MB'; }
+
+  previewBtn.addEventListener('click', async ()=>{
+    if(!photoImg){ alert('Please upload the main photo first'); return; }
+    setProgress(0);
+    // ensure canvas matches photo aspect
+    fitCanvasToPhoto(photoImg);
+    await drawCompositeToCanvas(photoImg, signImg);
+    exportInfo.textContent = 'Preview ready';
+    // update lastBlob for preview download
+    lastBlob = await canvasToBlob(previewCanvas, outFormat.value, parseFloat(outQuality.value)||0.92);
+  });
+
+  async function canvasToBlob(canvas, mime, q){
+    return new Promise((res)=> canvas.toBlob(b=>res(b), mime, q));
+  }
+
+  downloadBtn.addEventListener('click', async ()=>{
+    if(!photoImg){ alert('Please upload the main photo first'); return; }
+    setProgress(0);
+    fitCanvasToPhoto(photoImg);
+    await drawCompositeToCanvas(photoImg, signImg);
+    const mime = outFormat.value || 'image/png';
+    const q = parseFloat(outQuality.value) || 0.92;
+    const blob = await canvasToBlob(previewCanvas, mime, q);
+    if(!blob){ alert('Export failed'); setProgress(0); return; }
+    lastBlob = blob;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    const name = (outFilename.value || 'photo-signed') + (mime==='image/png'?'.png': mime==='image/jpeg'?'.jpg':'.webp');
+    a.download = name;
+    a.click();
+    setProgress(1);
+    setTimeout(()=>setProgress(0),600);
+    exportInfo.textContent = `${formatBytes(blob.size)} • ${previewCanvas.width}×${previewCanvas.height}`;
+  });
+
+  downloadPreview.addEventListener('click', ()=>{
+    if(!lastBlob){ alert('No preview available. Click Preview or Download first.'); return; }
+    const mime = lastBlob.type || outFormat.value || 'image/png';
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(lastBlob);
+    const name = (outFilename.value || 'photo-signed') + (mime==='image/png'?'.png': mime==='image/jpeg'?'.jpg':'.webp');
+    a.download = name;
+    a.click();
+  });
+
+  copyBtn.addEventListener('click', async ()=>{
+    if(!lastBlob){ alert('No exported image to copy. Click Preview or Download first.'); return; }
+    try{
+      await navigator.clipboard.write([new ClipboardItem({[lastBlob.type]: lastBlob})]);
+      alert('Image copied to clipboard');
+    }catch(e){ alert('Copy to clipboard failed — your browser may not support it.'); }
+  });
+
+  resetBtn.addEventListener('click', ()=>{
+    photoInput.value = ''; signInput.value = '';
+    photoImg = null; signImg = null; lastBlob = null;
+    photoInfo.textContent='—'; signInfo.textContent='—'; exportInfo.textContent='—';
+    const ctx = previewCanvas.getContext('2d'); ctx.clearRect(0,0,previewCanvas.width,previewCanvas.height);
+    placeholder.style.display = 'block';
+    setProgress(0);
+  });
+
+  // small safety: revoke object URLs when navigating
+  window.addEventListener('unload', ()=>{ try{ /* nothing to revoke here */ }catch(e){} });
+
+})();
+</script>
+
+{% endblock content %}  
+
+
+
+
+

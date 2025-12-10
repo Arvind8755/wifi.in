@@ -1,0 +1,364 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume & CV Maker — WifiResult Tool</title>
+<meta name="description" content="Create, preview and export beautiful resumes/CVs (Classic, Modern, Minimal). Fill fields, choose a template, then preview or print/export as PDF." />
+{% endblock seo %}
+
+{% block style %}
+<style>
+:root{ --bg:#f7fafc; --card:#fff; --accent:#0ea5e9; --muted:#6b7280; --radius:12px; --text:#0f172a }
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#fbfdff,#f0f9ff); color:var(--text)}
+.wrap{max-width:1100px;margin:28px auto;padding:20px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(2,6,23,.06)}
+.grid{display:grid;grid-template-columns:420px 1fr;gap:18px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input[type=text], input[type=email], input[type=tel], textarea, select{padding:10px;border-radius:8px;border:1px solid #e6eef7;width:100%;font-size:14px}
+textarea{min-height:80px}
+.row{display:flex;gap:8px}
+.small{font-size:13px;color:var(--muted)}
+.button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+.btn-ghost{background:#fff;border:1px solid #e6eef7;color:var(--text)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}
+.template-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.template-card{padding:8px;border-radius:8px;border:1px solid #e6eef7;background:#fff;cursor:pointer;min-width:120px}
+.template-card.active{box-shadow:0 6px 18px rgba(14,165,233,.12);border-color:var(--accent)}
+.preview-pane{border:1px dashed #e6eef7;padding:12px;border-radius:8px;min-height:600px;background:#fff}
+.preview-inner{max-width:800px;margin:0 auto;padding:24px;background:#fff}
+.meta{font-size:13px;color:var(--muted)}
+.controls{display:grid;gap:10px}
+.section{margin-bottom:12px}
+.kv{display:flex;justify-content:space-between;gap:8px}
+.kv > div{flex:1}
+.badge{display:inline-block;padding:6px 8px;border-radius:999px;border:1px solid #e6eef7;background:#fff}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+/* Template styles */
+.template-classic{font-family:Georgia, 'Times New Roman', serif;color:#111}
+.template-classic .name{font-size:26px;font-weight:700}
+.template-classic .heading{color:#0b7285;font-weight:600;margin-top:10px}
+
+.template-modern{font-family:Inter, system-ui, Arial; color:#0f172a}
+.template-modern .header{display:flex;justify-content:space-between;align-items:center}
+.template-modern .name{font-size:28px;font-weight:700}
+.template-modern .sidebar{background:#f1f9fc;padding:12px;border-radius:8px}
+
+.template-minimal{font-family:system-ui;color:#0f172a}
+.template-minimal .name{font-size:24px;font-weight:700}
+.template-minimal .muted{color:var(--muted)}
+
+/* Print helpers */
+@media print{
+  body *{visibility:hidden}
+  .printable, .printable *{visibility:visible}
+  .printable{position:fixed;left:0;top:0;width:100%}
+}
+
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="wrap">
+  <h1>Resume & CV Maker</h1>
+  <div class="card grid">
+    <aside>
+      <div class="card">
+        <label>Personal Details</label>
+        <div class="controls">
+          <input id="fullName" type="text" placeholder="Full name" />
+          <input id="title" type="text" placeholder="Job title (e.g., Software Engineer)" />
+          <input id="email" type="email" placeholder="Email" />
+          <input id="phone" type="tel" placeholder="Phone" />
+          <input id="location" type="text" placeholder="Location (City, Country)" />
+          <label>Profile Summary</label>
+          <textarea id="summary" placeholder="Short professional summary..."></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Sections</label>
+        <div class="small" style="margin-top:8px">
+          <div class="section">
+            <label>Education</label>
+            <div id="educationList"></div>
+            <button id="addEducation" class="btn-ghost">+ Add Education</button>
+          </div>
+
+          <div class="section">
+            <label>Experience</label>
+            <div id="experienceList"></div>
+            <button id="addExperience" class="btn-ghost">+ Add Experience</button>
+          </div>
+
+          <div class="section">
+            <label>Skills (comma separated)</label>
+            <input id="skills" type="text" placeholder="e.g., JavaScript, Django, SQL" />
+          </div>
+
+          <div class="section">
+            <label>Extras</label>
+            <textarea id="extras" placeholder="Certifications, Languages, Hobbies... (optional)"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <label>Template</label>
+        <div class="template-list" id="templateList">
+          <div class="template-card active" data-template="classic">Classic</div>
+          <div class="template-card" data-template="modern">Modern</div>
+          <div class="template-card" data-template="minimal">Minimal</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label>Filename</label>
+          <input id="outName" type="text" placeholder="my-resume" />
+        </div>
+
+        <div style="margin-top:12px" class="actions">
+          <button id="previewBtn" class="button">Preview</button>
+          <button id="downloadBtn" class="button">Download (Print → Save as PDF)</button>
+          <button id="exportJson" class="btn-ghost">Export JSON</button>
+          <button id="resetBtn" class="btn-ghost">Reset</button>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="card preview-pane">
+        <label>Preview</label>
+        <div id="preview" class="preview-inner printable template-classic" style="margin-top:12px">
+          <!-- populated by JS -->
+          <div style="text-align:center;color:var(--muted)">Preview will appear here. Fill the form and click <strong>Preview</strong>.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card small">
+        <label>Templates — Examples</label>
+        <div style="margin-top:8px">
+          <strong>Classic:</strong> Serif heading, structured sections. Good for academia and formal roles.<br>
+          <strong>Modern:</strong> Two-column layout with colored sidebar. Clean and contemporary.<br>
+          <strong>Minimal:</strong> Clean single-column, compact layout for recruiters scanning fast.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div style="margin-top:12px" class="small">© <span id="year"></span> wifiresult — Resume & CV Maker</div>
+</div>
+
+<!-- Hidden template fragments -->
+<template id="tplClassic">
+  <div class="template-classic">
+    <div class="name" id="p_name"></div>
+    <div class="kv">
+      <div class="muted" id="p_title"></div>
+      <div class="muted" style="text-align:right" id="p_contact"></div>
+    </div>
+    <hr />
+    <div>
+      <div class="heading">Profile</div>
+      <p id="p_summary"></p>
+    </div>
+    <div>
+      <div class="heading">Experience</div>
+      <div id="p_experience"></div>
+    </div>
+    <div>
+      <div class="heading">Education</div>
+      <div id="p_education"></div>
+    </div>
+    <div>
+      <div class="heading">Skills</div>
+      <div id="p_skills"></div>
+    </div>
+    <div>
+      <div class="heading">Extras</div>
+      <div id="p_extras"></div>
+    </div>
+  </div>
+</template>
+
+<template id="tplModern">
+  <div class="template-modern" style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+    <div>
+      <div class="name" id="p_name"></div>
+      <div class="muted" id="p_title"></div>
+      <hr />
+      <div><strong>Experience</strong><div id="p_experience"></div></div>
+      <div><strong>Education</strong><div id="p_education"></div></div>
+    </div>
+    <aside class="sidebar">
+      <div style="text-align:center"><strong>Contact</strong><div id="p_contact"></div></div>
+      <hr />
+      <div><strong>Profile</strong><p id="p_summary"></p></div>
+      <div><strong>Skills</strong><div id="p_skills"></div></div>
+      <div><strong>Extras</strong><div id="p_extras"></div></div>
+    </aside>
+  </div>
+</template>
+
+<template id="tplMinimal">
+  <div class="template-minimal">
+    <div class="name" id="p_name"></div>
+    <div class="muted" id="p_title"></div>
+    <div style="height:8px"></div>
+    <div id="p_contact" class="muted"></div>
+    <hr />
+    <div id="p_summary"></div>
+    <hr />
+    <div><strong>Experience</strong><div id="p_experience"></div></div>
+    <div><strong>Education</strong><div id="p_education"></div></div>
+    <div><strong>Skills</strong><div id="p_skills"></div></div>
+  </div>
+</template>
+
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const educationList = document.getElementById('educationList');
+  const experienceList = document.getElementById('experienceList');
+  const addEducation = document.getElementById('addEducation');
+  const addExperience = document.getElementById('addExperience');
+  const templateCards = document.querySelectorAll('.template-card');
+  const previewBtn = document.getElementById('previewBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const exportJson = document.getElementById('exportJson');
+  const resetBtn = document.getElementById('resetBtn');
+  const preview = document.getElementById('preview');
+  const outName = document.getElementById('outName');
+
+  function makeEducationItem(data){
+    const id = 'edu_' + Date.now() + Math.random().toString(36).slice(2,6);
+    const wrapper = document.createElement('div'); wrapper.className='edu-item'; wrapper.style.marginBottom='8px';
+    wrapper.innerHTML = `
+      <input class="edu_school" type="text" placeholder="Degree & Institution (e.g., B.Sc Computer Science, XYZ University)" value="${data?.school||''}" />
+      <div class=\"row\"> 
+        <input class=\"edu_date\" type=\"text\" placeholder=\"Year / Duration (e.g., 2018 - 2022)\" value=\"${data?.date||''}\" />
+        <button class=\"btn-ghost remove-edu\">Remove</button>
+      </div>
+    `;
+    wrapper.querySelector('.remove-edu').addEventListener('click',()=>wrapper.remove());
+    educationList.appendChild(wrapper);
+  }
+
+  function makeExperienceItem(data){
+    const wrapper = document.createElement('div'); wrapper.className='exp-item'; wrapper.style.marginBottom='8px';
+    wrapper.innerHTML = `
+      <input class="exp_role" type="text" placeholder="Role & Company (e.g., Frontend Developer — ABC Ltd)" value="${data?.role||''}" />
+      <textarea class="exp_desc" placeholder="Responsibilities and achievements...">${data?.desc||''}</textarea>
+      <div class=\"row\"> 
+        <input class=\"exp_date\" type=\"text\" placeholder=\"Duration (e.g., Jun 2022 - Present)\" value=\"${data?.date||''}\" />
+        <button class=\"btn-ghost remove-exp\">Remove</button>
+      </div>
+    `;
+    wrapper.querySelector('.remove-exp').addEventListener('click',()=>wrapper.remove());
+    experienceList.appendChild(wrapper);
+  }
+
+  addEducation.addEventListener('click',()=>makeEducationItem());
+  addExperience.addEventListener('click',()=>makeExperienceItem());
+
+  // templating
+  let selectedTemplate = 'classic';
+  templateCards.forEach(c=>c.addEventListener('click',()=>{
+    templateCards.forEach(x=>x.classList.remove('active')); c.classList.add('active'); selectedTemplate=c.dataset.template;
+  }));
+
+  function gatherData(){
+    const eduEls = Array.from(document.querySelectorAll('.edu-item'));
+    const expEls = Array.from(document.querySelectorAll('.exp-item'));
+    return {
+      name: document.getElementById('fullName').value.trim(),
+      title: document.getElementById('title').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      location: document.getElementById('location').value.trim(),
+      summary: document.getElementById('summary').value.trim(),
+      skills: document.getElementById('skills').value.split(',').map(s=>s.trim()).filter(Boolean),
+      extras: document.getElementById('extras').value.trim(),
+      education: eduEls.map(el=>({school: el.querySelector('.edu_school').value.trim(), date: el.querySelector('.edu_date').value.trim()})),
+      experience: expEls.map(el=>({role: el.querySelector('.exp_role').value.trim(), date: el.querySelector('.exp_date').value.trim(), desc: el.querySelector('.exp_desc').value.trim()}))
+    };
+  }
+
+  function renderSectionList(items, type){
+    if(!items || items.length===0) return '<div class="meta">—</div>';
+    if(type==='education'){
+      return items.map(i=>`<div style="margin-bottom:8px"><strong>${escapeHtml(i.school)}</strong><div class="meta">${escapeHtml(i.date)}</div></div>`).join('');
+    }
+    if(type==='experience'){
+      return items.map(i=>`<div style="margin-bottom:10px"><strong>${escapeHtml(i.role)}</strong><div class="meta">${escapeHtml(i.date)}</div><div>${escapeHtml(i.desc)}</div></div>`).join('');
+    }
+    return '';
+  }
+
+  function escapeHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;'); }
+
+  function buildPreview(data){
+    // choose template fragment
+    const tplId = selectedTemplate==='modern' ? 'tplModern' : selectedTemplate==='minimal' ? 'tplMinimal' : 'tplClassic';
+    const frag = document.getElementById(tplId).content.cloneNode(true);
+    // populate fields
+    frag.getElementById('p_name').textContent = data.name || 'Your Name';
+    frag.getElementById('p_title').textContent = data.title || '';
+    frag.getElementById('p_contact').innerHTML = [data.email, data.phone, data.location].filter(Boolean).join(' • ');
+    frag.getElementById('p_summary').textContent = data.summary || '';
+    frag.getElementById('p_education').innerHTML = renderSectionList(data.education, 'education');
+    frag.getElementById('p_experience').innerHTML = renderSectionList(data.experience, 'experience');
+    frag.getElementById('p_skills').innerHTML = (data.skills && data.skills.length) ? data.skills.map(s=>`<span class=\"badge\">${escapeHtml(s)}</span>`).join(' ') : '<div class="meta">—</div>';
+    frag.getElementById('p_extras').textContent = data.extras || '';
+    // wrap into container
+    const wrapper = document.createElement('div'); wrapper.className = 'printable';
+    wrapper.appendChild(frag);
+    // apply template class on outer preview container
+    preview.innerHTML = '';
+    preview.className = 'preview-inner printable ' + (selectedTemplate==='modern' ? 'template-modern' : selectedTemplate==='minimal' ? 'template-minimal' : 'template-classic');
+    preview.appendChild(wrapper);
+  }
+
+  previewBtn.addEventListener('click', ()=>{
+    const data = gatherData();
+    buildPreview(data);
+    // set filename default
+    outName.value = outName.value || (data.name ? data.name.toLowerCase().replace(/\s+/g,'-') + '-resume' : 'my-resume');
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    // generate preview first so print captures the content
+    const data = gatherData(); buildPreview(data);
+    // small delay to ensure DOM updated
+    setTimeout(()=>{
+      window.print();
+    },100);
+  });
+
+  exportJson.addEventListener('click', ()=>{
+    const data = gatherData();
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = (outName.value||'my-resume') + '.json'; a.click();
+  });
+
+  resetBtn.addEventListener('click', ()=>{
+    if(!confirm('Reset all fields?')) return;
+    document.querySelectorAll('input[type=text], input[type=email], input[type=tel], textarea').forEach(i=>i.value='');
+    educationList.innerHTML=''; experienceList.innerHTML=''; preview.innerHTML='<div style="text-align:center;color:var(--muted)">Preview will appear here. Fill the form and click <strong>Preview</strong>.</div>';
+  });
+
+  // helpers: add a couple of sample entries for convenience
+  makeEducationItem({school:'B.Sc Computer Science — XYZ University', date:'2016 - 2019'});
+  makeExperienceItem({role:'Frontend Developer — Acme Tech', date:'Jul 2022 - Present', desc:'Worked on building responsive UI components and performance optimisation.'});
+
+  // simple filename sanitization when printing (not all browsers support programmatic filename for print -> user must Save as PDF manually)
+  window.addEventListener('beforeprint', ()=>{
+    // nothing required — print CSS handles layout
+  });
+
+})();
+</script>
+
+{% endblock content %} 

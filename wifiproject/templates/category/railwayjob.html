@@ -71,6 +71,42 @@
 }
 </script>
 
+<!-- SEO-Optimized FAQ Schema for /railway-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Railway Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko RRB aur RRC ke latest recruitments jaise Group D, ALP, Technician, NTPC, Apprentice, JE aur trade-wise vacancies ka official update milta hai. Saath hi eligibility, age limit, selection process aur apply links bhi provide kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Railway Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, yahan published sabhi job notifications Indian Railways, RRBs aur RRCs ki official websites par release hue verified notices par based hote hain. Har listing me official PDF link bhi diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main Railway job ke liye apply kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apply karne ke liye apne region ke RRB/RRC notification par click karein aur 'Apply Online' link follow karein. Aapko official portal par registration, document upload aur fee payment complete karna hota hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -584,7 +620,7 @@
 
           {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -648,7 +684,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -658,7 +694,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -677,7 +713,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

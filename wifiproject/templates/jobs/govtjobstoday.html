@@ -70,6 +70,50 @@
   }
   </script>
 
+  <!-- FAQ (Schema) for /govt-jobs-today/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Govt Jobs Today page par kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aaj ke din release hui latest government job notifications, new vacancies, apply online links, eligibility, important dates aur official PDFs list kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ye jobs daily update hoti hain kya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, Govt Jobs Today page din bhar me multiple times update hota hai jab bhi koi nayi government vacancy release hoti hai. Saare updates verified official notifications par based hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya main Govt Jobs Today page se direct apply kar sakta/sakti hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WifiResult par sirf information aur official links provide kiye jaate hain. Apply karne ke liye aapko hamesha respective department ke official portal par redirect kiya jaata hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qualifications ke hisab se jobs kaise search karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap page par list hui jobs ko category, qualification (10th, 12th, Diploma, Graduate, Post Graduate), department ya state ke hisab se filter/search kar sakte hain. Har job ke paas eligibility clearly mention hoti hai."
+      }
+    }
+  ]
+}
+</script>
+
+
   <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -478,7 +522,7 @@
         <ul class="job-list-compact">
           {% for job in jobs %}
           <li class="job-item">
-            <a href="/latest-jobs/{{ job.slug }}/" class="job-title">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
             <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
           </li>
           {% endfor %}
@@ -498,7 +542,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter }}</div>
               <div class="trending-content">
-                <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+                <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
                 <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -508,7 +552,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
               <div class="trending-content">
-                <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
                 <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

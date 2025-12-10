@@ -476,8 +476,8 @@
         Bank, SSC, UPSC, Railway, Police & State Jobs – everything updated daily.
       </div>
       <div class="hero-badges">
-        <div class="hero-badge"><a href="{% url 'job' %}" class="text-white text-decoration-none">Latest Jobs</a></div>
-        <div class="hero-badge secondary"><a href="{%  url 'result' %}" class="text-white text-decoration-none">Exam Results</a></div>
+        <div class="hero-badge"><a href="{% url 'job' %}" style="text-decoration:none; color:white;" >Latest Jobs</a></div>
+        <div class="hero-badge secondary"><a href="{%  url 'result' %}" style="text-decoration:none; color:white;" >Exam Results</a></div>
       </div>
     </div>
     <div class="home-hero-right">
@@ -531,14 +531,14 @@
           </div>
         </div>
         <div class="board-header-right">
-          <a href="/latest-jobs/">View all Jobs</a>
+          <a href="/latest-jobs/" target="_blank" >View all Jobs</a>
         </div>
       </div>
       <ul class="board-list">
         {% for job in jobs %}
         <li class="board-item">
           <div>
-            <a href="/latest-jobs/{{ job.slug }}/" class="board-item-title">
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank"  class="board-item-title">
               {{ job.title }}
             </a>
             <div class="board-item-meta">
@@ -585,7 +585,7 @@
         {% for result in page_obj %}
         <li class="board-item">
           <div>
-            <a href="/results/{{ result.slug }}/" class="board-item-title">
+            <a href="/results/{{ result.slug }}/" target="_blank" class="board-item-title">
               {{ result.title }}
             </a>
             <div class="board-item-meta">

@@ -377,14 +377,14 @@
                     <!-- Actions -->
                     <div class="pdf-card-actions">
                         {% if n.pdf_file %}
-                            <a href="{{ n.pdf_file.url }}" target="_blank" class="pdf-btn pdf-btn-primary">
+                            <a href="{{ n.pdf_file.url }}" target="_blank" target="_blank" class="pdf-btn pdf-btn-primary">
                                 👁 View PDF
                             </a>
                             <a href="{{ n.pdf_file.url }}" download class="pdf-btn">
                                 ⬇ Download
                             </a>
                         {% endif %}
-                        <a href="{% url 'notification_detail' n.slug %}" class="pdf-btn">
+                        <a href="{% url 'notification_detail' n.slug %}" target="_blank" class="pdf-btn">
                             🔎 Open Detail Page
                         </a>
                     </div>

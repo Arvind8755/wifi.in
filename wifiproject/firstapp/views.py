@@ -112,6 +112,39 @@ def fastjob(request):
     }
     return render (request, "jobs/fastjob.html", context)
 
+
+def fastjobsearchers(request):
+    jobs = Job.objects.all().order_by("-published_date")[:10]
+    results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    boxnames = Boxname.objects.all().order_by("-published_date")
+
+    # 2) chain se sabko jod do
+    mixed_objects = list(chain(jobs, results, admitcards, govtupdates))
+    # 3) sabko created_at ke hisaab se sort kar do (naya sabse upar)
+    mixed_objects = sorted(
+        mixed_objects,
+        key=lambda obj: obj.published_date,
+        reverse=True
+    )
+    # 4) agar 20 ya 30 hi dikhane hain:
+    latest_posts = mixed_objects[:12]
+
+    context = {
+        "published_time": timezone.now(),
+        "modified_time": timezone.now(),
+        "jobs": jobs,
+        "results": results,
+        "admitcards": admitcards,
+        "govtupdates": govtupdates,
+        "boxnames": boxnames,
+        "latest_posts": latest_posts,
+    }
+    return render (request, "jobs/fastjobsearchers.html", context)
+
+
+
 def freejobalert(request):
     jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:10]
     results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
@@ -523,6 +556,15 @@ def imageresizer(request):
 
 def pdfresizer(request):
     return render(request, "tool/pdfresizer.html")
+
+def resumecvmaker(request):
+    return render(request, "tool/resumecvmaker.html")
+
+def photosignature(request):
+    return render(request, "tool/photosignature.html")
+
+def imagestopdfconverter(request):
+    return render(request, "tool/imagestopdfconverter.html")
 
 def job(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")

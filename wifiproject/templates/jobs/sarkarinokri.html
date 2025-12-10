@@ -72,6 +72,58 @@
 }
 </script>
 
+<!-- FAQ (Schema) for /sarkari-naukri/ - Top 5 FAQs -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sarkari Naukri page par mujhe kya-kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par latest government job notifications, vacancy details, eligibility criteria, important dates, official apply links, admit card/result updates aur related PDFs list kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main kaise apply kar sakta/ sakti hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing mein 'Apply Online' ya 'Official Link' diya hota hai jo aapko seedha respective department ke official portal par le jaayega. Application instructions aur required documents wahan diye jaate hain — hamesha official notification dhyan se padhein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Eligibility aur age limit kaise verify karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligibility (educational qualification, age limit, experience) har notification mein clearly di hoti hai. WifiResult par diye gaye 'Official PDF' link se original notification khol kar details confirm karna best practice hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kaise job alerts ya naye notifications ke liye signup karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agar website par newsletter/subscription available hai to email se subscribe kar sakte hain. Saath hi browser notifications allow karein ya social channels (Telegram/WhatsApp/Facebook) follow karein jahan hum instant updates share karte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Selection process, syllabus aur cutoff ki jankari milti hai kya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jee haan. Jab official notification mein syllabus, selection stages (written, interview, skill test), cutoff aur merit list release hote hain, hum unki copies, summaries aur direct official links iss page par provide kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -276,7 +328,7 @@
           <img src="{{ jobs.image.url }}" alt="{{ jobs.image_alt|default:jobs.title }}" loading="lazy" style="max-width:100%; height:auto; display:block; margin:0 auto;">{% endif %}
             <div>
               <div class="news-title">
-                <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
               </div>
               <div class="news-meta" style="font-size:13px;"><i class="far fa-clock"></i> {{ job.published_date|date:"d M, Y" }} &nbsp;•&nbsp; <i class="far fa-folder"></i> Jobs</div>
             </div>
@@ -342,7 +394,7 @@
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
          {% for result in latest_results %}
-          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
           
           
@@ -353,7 +405,7 @@
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
  {% for admitcard in latest_admitcards %}
-          <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
         </ul>
       </div>

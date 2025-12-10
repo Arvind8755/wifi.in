@@ -71,6 +71,42 @@
   }
   </script>
 
+<!--SEO-Optimized FAQ Schema for /delhi-police/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Delhi Police Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Delhi Police Constable, Head Constable, Ministerial, Driver, MTS aur SI posts ki latest recruitments, eligibility criteria, physical standards, vacancies, exam dates aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Delhi Police ke notifications yahan official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi Delhi Police job notifications SSC, Delhi Police Department, aur official government portals par publish hue verified notices par based hote hain. Har listing me official PDF ka link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Delhi Police jobs ke liye eligibility aur physical test kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har post ke liye height, chest measurement, race timing, educational qualification aur age limit ki details job listing me mention hoti hain. Aap official notification PDF download karke bhi complete physical test criteria check kar sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
   <!-- ItemList — Latest Delhi Police Jobs (based on latest_posts) -->
   <script type="application/ld+json">
   {
@@ -589,7 +625,7 @@
           {% for post in page_obj %}
             <li class="job-item">
               <div class="job-main">
-                <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>
+                <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>
                 <div class="job-meta">
                   <span class="badge-police">Delhi Police</span>
                   <span class="job-date">📅 {{ post.published_date|date:"d M Y" }}</span>
@@ -649,7 +685,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -659,7 +695,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
                   <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -677,7 +713,7 @@
           {% for govtupdate in latest_govtupdates %}
             <div class="quick-item">
               <div class="quick-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
                 <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

@@ -78,6 +78,42 @@
 }
 </script>
 
+<!-- Human-Written, SEO-Optimized FAQ Schema for /fast-job/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Fast Job page par mujhe kya-kya updates milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabse fast government job notifications, admit card updates, exam dates, results, answer keys aur official notices milte hain. Yeh page real-time verified updates provide karta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Fast Job page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, Fast Job section me publish sabhi notifications government recruitment portals, SSC, UPSC, Railway, Police, State Boards aur PSUs dwara release kiye gaye verified notices par based hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Fast job update kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap is page ko daily visit karke latest fast job updates dekh sakte hain. Har notification ke saath official PDF, apply link aur important dates clearly mention kiye jaate hain jisse aap direct action le sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -327,10 +363,10 @@
 
 <main class="container" style="padding:14px 0;">
   <div class="section-title">
-    <a href="{% url 'sarkariresult2024' %}" class="text-decoration-none">
+    <a href="{% url 'sarkariresult2024' %}"  target="_blank" class="text-decoration-none">
       <span class="chip">Now Trending</span>
     </a>
-    <a href="{% url 'sarkariresult2025' %}" class="text-decoration-none text-black">
+    <a href="{% url 'sarkariresult2025' %}" target="_blank"  class="text-decoration-none text-black">
       <span>Fast Job Updates</span>
     </a>
   </div>
@@ -341,7 +377,7 @@
       <div class="card-body">
         <ul class="job-list" id="jobs-list">
           {% for job in jobs %}
-            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+            <li><a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'job' %}">View All Jobs →</a></li>
         </ul>
@@ -353,7 +389,7 @@
       <div class="card-body">
         <ul class="job-list" id="results-list">
           {% for result in results %}
-            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+            <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'result' %}">View All Results →</a></li>
         </ul>
@@ -365,7 +401,7 @@
       <div class="card-body">
         <ul class="job-list" id="admit-list">
           {% for admitcard in admitcards %}
-            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+            <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
         </ul>
@@ -377,7 +413,7 @@
       <div class="card-body">
         <ul class="job-list" id="updates-list">
           {% for govtupdate in govtupdates %}
-            <li><a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a></li>
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'govtupdates' %}">View All Govt Updates →</a></li>
         </ul>
@@ -408,24 +444,25 @@
       <ul class="faq-list" id="faq-list">
         <li class="faq-item">
           <div class="question" data-index="1" tabindex="0">
-            <h3>क्या यह आधिकारिक सरकारी वेबसाइट है?</h3>
+            <h3>Fast Job page par mujhe kya-kya updates milte hain?</h3>
             <div class="toggle" aria-hidden="true">+</div>
           </div>
-          <div class="answer"><p>नहीं। यह WifiResult का सूचना पेज है। Apply करने और PDFs डाउनलोड करने के लिए हम आधिकारिक लिंक देते हैं।</p></div>
+          <div class="answer"><p>Is page par aapko sabse fast government job notifications, admit card updates, exam dates, results, answer keys aur official notices milte hain. Yeh page real-time verified updates provide karta hai.</p></div>
         </li>
         <li class="faq-item">
           <div class="question" data-index="2" tabindex="0">
-            <h3>Official notifications कहाँ मिलेंगे?</h3>
+            <h3>Kya Fast Job page par listed notifications official hote hain
+            </h3>
             <div class="toggle">+</div>
           </div>
-          <div class="answer"><p>हर पोस्ट के <b>Important Links</b> सेक्शन में विभाग/बोर्ड के पोर्टल या PDF के direct links रहते हैं।</p></div>
+          <div class="answer"><p>Ji haan, Fast Job section me publish sabhi notifications government recruitment portals, SSC, UPSC, Railway, Police, State Boards aur PSUs dwara release kiye gaye verified notices par based hote hain.</p></div>
         </li>
         <li class="faq-item">
           <div class="question" data-index="3" tabindex="0">
-            <h3>यह पेज कितनी जल्दी अपडेट होता है?</h3>
+            <h3>Fast job update kaise check karoon?</h3>
             <div class="toggle">+</div>
           </div>
-          <div class="answer"><p>नए official notices, admit cards, answer keys या results आने पर तुरंत अपडेट किया जाता है।</p></div>
+          <div class="answer"><p>Aap is page ko daily visit karke latest fast job updates dekh sakte hain. Har notification ke saath official PDF, apply link aur important dates clearly mention kiye jaate hain jisse aap direct action le sakte hain.</p></div>
         </li>
       </ul>
     </div>

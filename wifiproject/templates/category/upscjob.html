@@ -72,6 +72,42 @@
 }
 </script>
 
+<!--  SEO-Optimized FAQ Schema for /upsc-job/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "UPSC Job page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko UPSC ki sabhi latest recruitments jaise Civil Services, CDS, NDA, CAPF, ESE, IFS, Medical Services aur ORA posts ki notifications, eligibility, exam dates, syllabus aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya UPSC Job page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, is page par publish ki gayi sabhi UPSC job notifications official UPSC website aur Gazette notifications par based hoti hain. Har listing me verified official PDF link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "UPSC exams ki eligibility aur syllabus kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap har job listing ke saath given eligibility, age limit, educational qualification aur selection process dekh sakte hain. Detailed syllabus aur exam pattern ke liye official notification PDF download karna best hota hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -580,7 +616,7 @@
 
             {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -642,7 +678,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -652,7 +688,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -671,7 +707,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

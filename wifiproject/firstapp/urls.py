@@ -21,7 +21,10 @@ urlpatterns = [
         path("tools/", views.tools, name="tools"),
         path('tools/age-calculator/', views.agetool, name="agetool"),
         path("tools/image-resizer/", views.imageresizer, name="imageresizer"),
-        path('tools/pdf-resizer/', views.pdfresizer, name="pdfresizer"),
+        path('tools/pdf-compressor/', views.pdfresizer, name="pdfresizer"),
+        path('tools/resume-cv-maker/', views.resumecvmaker, name="resumecvmaker"),
+        path('tools/photo-signature/', views.photosignature, name="photosignature"),
+        path('tools/image-to-pdf/', views.imagestopdfconverter, name="imagestopdfconverter"),
         
         path("latest-jobs/job/", JobPostCreateView.as_view(), name="job_add"),
         path('latest-jobs/', views.job, name='job'),
@@ -236,7 +239,10 @@ urlpatterns = [
         path("notifications/<slug:slug>/", views.notification_detail, name="notification_detail"),
         # path("notification/<slug:slug>/download/", views.notification_pdf_download, name="notification_pdf_download"),
 
+        path('fastjobsearchers/', views.fastjobsearchers, name="fastjobsearchers"),
+
         path('subscriber/', subscribe, name='subscribe'),
+        
         
 
 

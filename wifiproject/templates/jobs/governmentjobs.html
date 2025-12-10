@@ -78,6 +78,45 @@
   "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/government-jobs/#breadcrumb" }
 }
 </script>
+
+
+<!-- SEO-Optimized FAQ Schema for /jobs-by-education/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Jobs by Education page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko 10th pass, 12th pass, ITI, Diploma, Graduate, Post Graduate aur professional qualification ke hisab se latest government job notifications milte hain. Saath hi eligibility, vacancies aur official apply links bhi milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kaise pata chalega ki main kisi job ke liye eligible hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me education qualification, age limit aur required criteria clearly mention hota hai. Aap official notification PDF download karke complete eligibility details check kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya education-wise job notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi jobs official government departments, recruitment boards aur verified portals par publish hui notifications par based hoti hain. Har job ke saath official PDF link diya hota hai."
+      }
+    }
+  ]
+}
+</script>
+
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -171,7 +210,7 @@
     <section class="jobs-grid">
       {% for job in page_obj %}
       <article class="job-card">
-        <a href="{{ job.get_absolute_url }}" class="job-thumb" aria-label="{{ job.title }}">
+        <a href="{{ job.get_absolute_url }}" target="_blank" class="job-thumb" aria-label="{{ job.title }}">
           {% if job.image %}
             <img src="{{ job.image.url }}" alt="{{ job.title }}">
           {% else %}

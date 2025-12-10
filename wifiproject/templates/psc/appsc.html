@@ -115,6 +115,44 @@
     ]
   }
   </script>
+
+<!--  SEO-Optimized FAQ Schema for /appsc-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "APPSC Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko APPSC ki latest recruitments jaise Group 1, Group 2, Group 3, Group 4, Panchayat Secretary, Police, Forest, Engineering Services, aur Technical/Non-Technical posts ke notifications, eligibility, exam dates aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya APPSC Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi APPSC job updates official APPSC website, Gazette notifications aur government releases par based hote hain. Har vacancy ke saath official PDF link bhi diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "APPSC exams ke liye eligibility aur syllabus kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me qualification, age limit, exam pattern aur selection process mention hota hai. Aap official notification PDF download karke detailed eligibility aur syllabus bhi check kar sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
 {% endblock seo %}
 
 {% block style %}    
@@ -478,7 +516,7 @@
         <ul class="job-list-compact">
           {% for job in page_obj %}
           <li class="job-item">
-            <a href="/latest-jobs/{{ job.slug }}/" class="job-title">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
             <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
           </li>
            {% empty %}
@@ -537,7 +575,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter }}</div>
               <div class="trending-content">
-                <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+                <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
                 <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -547,7 +585,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
               <div class="trending-content">
-                <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
                 <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -566,7 +604,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
               <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
           </div>

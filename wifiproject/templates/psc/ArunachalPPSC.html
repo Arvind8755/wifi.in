@@ -115,6 +115,43 @@
     ]
   }
   </script>
+
+<!-- SEO-Optimized FAQ Schema for /arunachal-appsc-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Arunachal APPSC Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Arunachal Pradesh APPSC ki latest recruitments jaise APCS, Police Services, Engineering Services, Secretariat Assistant, AE/JE, Teacher posts aur Group-wise notifications ki details milti hain. Saath hi eligibility, vacancies, exam dates aur official apply links bhi include hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Arunachal APPSC notifications yahan official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi Arunachal APPSC job updates official APPSC portal, state government notices aur verified recruitment publications par based hote hain. Har listing ke saath official PDF link provide kiya jata hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arunachal APPSC exams ke liye eligibility aur syllabus kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har notification me qualification, age limit, reservation rules, syllabus aur selection process clearly mention hota hai. Aap official PDF download karke detailed eligibility aur exam syllabus dekh sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 {% endblock seo %}
 
 {% block style %}    
@@ -478,7 +515,7 @@
         <ul class="job-list-compact">
           {% for job in page_obj %}
           <li class="job-item">
-            <a href="/latest-jobs/{{ job.slug }}/" class="job-title">{{ job.title }}</a>
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
             <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
           </li>
           {% empty %}
@@ -537,7 +574,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter }}</div>
               <div class="trending-content">
-                <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+                <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
                 <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -547,7 +584,7 @@
             <div class="trending-item">
               <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
               <div class="trending-content">
-                <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
                 <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
               </div>
             </div>
@@ -566,7 +603,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
               <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
           </div>

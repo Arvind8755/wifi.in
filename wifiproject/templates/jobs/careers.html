@@ -679,7 +679,7 @@
             <span class="career-badge">
               <i class="fas fa-route"></i> Career Guide
             </span>
-            <a href="/results/{{ result.slug }}/" class="career-title">
+            <a href="/results/{{ result.slug }}/" target="_blank"  class="career-title">
               {{ result.title }}
             </a>
           </div>
@@ -737,7 +737,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+              <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
               <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
             </div>
           </div>
@@ -747,7 +747,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
             <div class="trending-content">
-              <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
               <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
             </div>
           </div>
@@ -766,7 +766,7 @@
         <div class="trending-item">
           <div class="trending-number">{{ forloop.counter }}</div>
           <div class="trending-content">
-            <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+            <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
           </div>
         </div>

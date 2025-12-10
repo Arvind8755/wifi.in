@@ -71,6 +71,60 @@
     "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/sarkari-result-2024/#breadcrumb" }
   }
   </script>
+
+<!-- Human-Written FAQ (Schema) for /sarkari-result-2024/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sarkari Result 2024 page par mujhe kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par 2024 me release hue sabhi latest government exam results, scorecards, merit lists, cutoff updates aur official PDFs ek hi jagah par list kiye jaate hain. Saari information official sources se hi li jaati hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Sarkari Result 2024 page par diya gaya data sahi aur verified hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, hum results sirf tabhi update karte hain jab woh official government websites par publish ho chuke hote hain. Verification ke liye har listing ke saath official link bhi diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apna 2024 result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "List me apne exam ka naam search karein aur 'Check Result' ya 'Download Scorecard' button par click karein. Yeh aapko seedha official portal par le jaayega, jahan roll number ya registration number dal kar aap result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya cutoff, merit list aur selection list bhi mil jaati hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agar 2024 ke kisi exam ke saath cutoff marks, merit list ya selection list release hoti hai, to hum uska official PDF link bhi update kar dete hain. Users easily download karke details dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sarkari Result 2024 page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana multiple times update hota hai. Jaise hi koi naya 2024 result release hota hai, hum use kuch hi minutes me list me add kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -540,7 +594,7 @@
               <tr>
                 <td class="no">{{ forloop.counter }}</td>
                 <td class="title">
-                  <a href="/results/{{ result.slug }}/">
+                  <a href="/results/{{ result.slug }}/" target="_blank" >
                     {{ result.title }}
                   </a>
                 </td>
@@ -592,7 +646,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -602,7 +656,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
                   <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -620,7 +674,7 @@
           {% for govtupdate in latest_govtupdates %}
             <div class="quick-item">
               <div class="quick-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
                 <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

@@ -70,6 +70,51 @@
   }
   </script>
 
+<!--SEO-Optimized FAQ Schema for /police-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Police Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi states ki latest Police recruitments jaise Constable, SI, Jail Warder, Home Guard, Driver, Armed Police aur Special Forces vacancies ki notifications, eligibility, physical standards aur apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Police Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan publish ki gayi sabhi police job notifications official state police departments, recruitment boards aur government portals par based hoti hain. Har listing ke saath official PDF link bhi diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Police jobs ke liye physical eligibility kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har job listing me height, chest measurement, running test, long jump, medical standards aur age limit ka detailed criteria mention hota hai. Complete details ke liye official notification PDF dekhna best hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Police Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana update hota hai. Jaise hi kisi state police department ki new vacancy release hoti hai, uska official link turant Police Jobs section me add kar diya jata hai."
+      }
+    }
+  ]
+}
+}
+</script>
+
+
   <!-- ItemList — Latest Police Jobs (based on latest_posts) -->
   <script type="application/ld+json">
   {
@@ -618,7 +663,7 @@
         <div class="pagination-wrapper">
           <div class="pagination-inner">
             {% if page_obj.has_previous %}
-              <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">← Previous</a>
+              <a href="?page={{ page_obj.previous_page_number }}" target="_blank" class="page-btn">← Previous</a>
             {% endif %}
 
             <span class="page-current">
@@ -648,7 +693,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter }}</div>
                 <div class="trending-content">
-                  <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
                   <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -658,7 +703,7 @@
               <div class="trending-item">
                 <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
                 <div class="trending-content">
-                  <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank">{{ admitcard.title }}</a>
                   <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
                 </div>
               </div>
@@ -676,7 +721,7 @@
           {% for govtupdate in latest_govtupdates %}
             <div class="quick-item">
               <div class="quick-content">
-                <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+                <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
                 <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
               </div>
             </div>

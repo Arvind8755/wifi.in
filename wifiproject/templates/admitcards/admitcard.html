@@ -79,6 +79,58 @@
 }
 </script>
 
+<!-- SEO-Optimized FAQ Schema for /admit-card/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Admit Card page par mujhe kya-kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi latest government exams ke admit cards, exam dates, city intimation slips, and official download links milte hain. Saare updates verified official sources se hi publish kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Admit card kaise download karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Admit card download karne ke liye list me apne exam ko dhundhe aur 'Download Admit Card' link par click karein. Aap official website par redirect ho jaayenge jahan registration number, DOB ya login ID dal kar admit card download kiya ja sakta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Admit Card page par diya gaya link official hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, saare admit card links sarkari departments ki official websites se hi liye jaate hain. WifiResult sirf information aur redirect links provide karta hai, admit card download hamesha official portal par hi hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agar admit card open nahi ho raha ho to kya karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agar admit card open nahi ho raha hai, to official site par high traffic ho sakta hai. Thodi der baad try karein. Agar fir bhi issue rahe to aap respective department ke helpline number ya support email par contact kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Admit Card page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Admit Card page rozana multiple times update hota hai. Jaise hi kisi competitive exam ka admit card release hota hai, hum turant is page par uska direct link aur exam-related instructions update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -583,7 +635,7 @@
 
           {% for admitcard in page_obj %}
           <li class="job-item">
-            <a href="/admit-card/{{admitcard.slug}}/" class="job-title">{{admitcard.title}}</a>
+            <a href="/admit-card/{{admitcard.slug}}/"  target="_blank" class="job-title">{{admitcard.title}}</a>
             <span class="job-date">{{ admitcard.published_date|date:"d M, Y"}}</span>
             </li> {% endfor %}
             <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
@@ -637,7 +689,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
         <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -647,7 +699,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -669,7 +721,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

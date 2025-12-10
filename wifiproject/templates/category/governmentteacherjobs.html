@@ -72,6 +72,50 @@
 }
 </script>
 
+<!--SEO-Optimized FAQ Schema for /government-teacher-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Government Teacher Jobs page par mujhe kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko TET, CTET, KVS, NVS, DSSSB, State Teacher Recruitment, Army School aur university teaching posts ki latest vacancies, eligibility, exam dates aur official notifications milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed teacher job notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, sabhi teaching job updates official education boards, recruitment commissions, central schools aur state government portals par publish notifications ke base par hi update kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Teacher eligibility test (TET/CTET) ki qualification kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har listing me TET/CTET ya teacher recruitment ki qualification, age limit aur required training (B.Ed, D.El.Ed, BTC, etc.) clearly mention hoti hai. Aap official notification PDF se full eligibility verify kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Government Teacher Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page daily update hota hai. Jaise hi kisi state ya central education department ki new teacher vacancy release hoti hai, uska official link turant page par add kar diya jata hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -578,7 +622,7 @@
   
           {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>  
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -641,7 +685,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -651,7 +695,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -670,7 +714,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
             </div>
              </div>

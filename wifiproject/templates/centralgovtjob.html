@@ -70,6 +70,42 @@
 }
 </script>
 
+<!--SEO-Optimized FAQ Schema for /central-govt-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Central Govt Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Central Government ke various departments, ministries, PSUs, SSC, UPSC, Railway, Defence, Banking aur anya central-level recruitments ki latest job notifications, eligibility, vacancies aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Central Govt Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, sabhi job updates official government portals, recruitment bodies, ministries aur verified notification PDFs par based hote hain. Har listing ke saath official document ka link diya hota hai jisse users correct information verify kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main Central Government job ke liye eligibility kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligibility, age limit, qualification aur selection process har job listing me mention hota hai. Aap official notification PDF download karke complete eligibility aur exam-related details bhi dekh sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -206,7 +242,7 @@
         {% for post in page_obj %}
         <li class="job-item">
           <div style="flex:1">
-            <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }} 
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }} 
             <div class="job-excerpt">{% if post.description %}{{ post.description|striptags|truncatechars:60 }}{% endif %}</div></a>
           </div>
           <div style="min-width:160px; text-align:right">
@@ -244,7 +280,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -254,7 +290,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
       <div class="trending-content">
-        <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
         <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
       </div>
     </div>

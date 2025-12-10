@@ -73,6 +73,82 @@
 }
 </script>
 
+<!-- FAQ (Schema) for /sarkari-result-2025/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is included in Sarkari Result 2025 on WifiResult?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Sarkari Result 2025 page on WifiResult includes the latest government exam results, merit lists, scorecards, cutoff updates, and related official notices for central and state-level recruitments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Sarkari Result 2025 information on WifiResult official?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All result updates published on WifiResult are based on official notifications released by government departments. Users are always advised to verify the details on the official website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I download my result from WifiResult?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every result listed includes a direct 'Download Result' or 'View Result' link that redirects to the respective department's official portal where candidates can check and download their results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Sarkari Result 2025 include cutoff and scorecard details?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, whenever available, WifiResult provides cutoff marks, scorecards, merit lists, and additional documentation along with the official result links."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How frequently is the Sarkari Result 2025 page updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Sarkari Result 2025 page is updated multiple times a day based on newly released government exam results, notifications, and official announcements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I apply for a job directly through the Sarkari Result 2025 page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. WifiResult only provides update information and official links. Applications are always submitted on the official government recruitment portals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Sarkari Result 2025 page available in Hindi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently, the page is primarily available in English. Some job/result updates may also include Hindi details depending on the official notification source."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WifiResult provide notifications for upcoming results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, WifiResult frequently updates expected result dates and provides notifications when official results are released by the respective departments."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -229,9 +305,9 @@
       <div class="card-body">
         <ul class="job-list">
           {% for job in jobs %}
-            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
           {% endfor %}
-          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+          <li><a href="{% url 'job' %}" target="_blank" >View All Jobs →</a></li>
         </ul>
       </div>
     </div>
@@ -241,9 +317,9 @@
       <div class="card-body">
         <ul class="job-list">
           {% for result in results %}
-            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
           {% endfor %}
-          <li><a href="{% url 'result' %}">View All Results →</a></li>
+          <li><a href="{% url 'result' %}" target="_blank" >View All Results →</a></li>
         </ul>
       </div>
     </div>

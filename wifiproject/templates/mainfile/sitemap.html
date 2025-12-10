@@ -283,6 +283,7 @@
 <li><a href="{% url 'srup' %}"> Sarkari Result Upcoming Vacancy</a> <span class="meta">jobs</span></li>
 <li><a href="{% url 'vacancy' %}">Vacancy</a> <span class="meta">jobs</span></li>
 <li><a href="{% url 'onlineform' %}">Online Form</a> <span class="meta">All Category</span></li>
+<li><a href="{% url 'fastjobsearchers' %}">fastjobsearchers</a> <span class="meta">All Category</span></li>
 
 <li><a href="{% url 'fastjob' %}">Fast Jobs</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'rojgarresult' %}">Rojgar Result</a> <span class="meta">Updated daily</span></li>
@@ -445,16 +446,16 @@
 
         <ul class="sitemap-list">
         
-          <li><a href="{% url 'opsc_jobs' %}">Odisha PSC</a></li>
-          <li><a href="{% url 'punjab_jobs' %}">Punjab PSC</a></li>
-          <li><a href="{% url 'rpsc_jobs' %}">Rajasthan PSC</a></li>
-          <li><a href="{% url 'sikkim_jobs' %}">Sikkim PSC</a></li>
-          <li><a href="{% url 'tnpsc_jobs' %}">Tamil Nadu PSC</a></li>
-          <li><a href="{% url 'telangana_jobs' %}">Telangana PSC</a></li>
-          <li><a href="{% url 'tripura_jobs' %}">Tripura PSC</a></li>
-          <li><a href="{% url 'uppsc_jobs' %}">Uttar Pradesh PSC</a></li>
-          <li><a href="{% url 'ukpsc_jobs' %}">Uttarakhand PSC</a></li>
-          <li><a href="{% url 'wbpsc_jobs' %}">WestBengal PSC</a></li>
+          <li><a href="{% url 'opsc_jobs' %}" target="_blank" >Odisha PSC</a></li>
+          <li><a href="{% url 'punjab_jobs' %}" target="_blank" >Punjab PSC</a></li>
+          <li><a href="{% url 'rpsc_jobs' %}" target="_blank" >Rajasthan PSC</a></li>
+          <li><a href="{% url 'sikkim_jobs' %}" target="_blank" >Sikkim PSC</a></li>
+          <li><a href="{% url 'tnpsc_jobs' %}" target="_blank" >Tamil Nadu PSC</a></li>
+          <li><a href="{% url 'telangana_jobs' %}" target="_blank" >Telangana PSC</a></li>
+          <li><a href="{% url 'tripura_jobs' %}" target="_blank" >Tripura PSC</a></li>
+          <li><a href="{% url 'uppsc_jobs' %}" target="_blank" >Uttar Pradesh PSC</a></li>
+          <li><a href="{% url 'ukpsc_jobs' %}" target="_blank" >Uttarakhand PSC</a></li>
+          <li><a href="{% url 'wbpsc_jobs' %}" target="_blank" >WestBengal PSC</a></li>
   
         </ul>
 
@@ -467,19 +468,19 @@
       
       <ul class="sitemap-list" id="latestList">
 {% for job in latest_jobs %}
-        <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a> <span class="meta">Jobs</span></li>
+        <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a> <span class="meta">Jobs</span></li>
         {% endfor %}
 
         {% for result in latest_results %}
-        <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a> <span class="meta">Result</span></li>
+        <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a> <span class="meta">Result</span></li>
   {% endfor %}
 
         {% for admitcard in latest_admitcards %}
-        <li><a href="/admit-card/{{ admitcard.slug }}/">S{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
+        <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >S{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
           {% endfor %}
 
           {% for govtupdate in latest_govtupdates %}
-        <li><a href="/govt-updates/{{ govtupdate.slug }}/">S{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
+        <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >S{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
           {% endfor %}
 
       </ul>

@@ -47,7 +47,8 @@
 
 <!-- or media=print trick -->
 <link rel="stylesheet" href="/static/css/bootstrap.min.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/static/css/bootstrap.min.css"></noscript>
+
+
 
 
 <!-- Google Fonts Optimized -->
@@ -699,7 +700,8 @@
 }
 
 .ck-content li {
-  padding-left: 0;     /* bullet aur text bilkul पास-पास */
+  padding-left: 0;
+     }     /* bullet aur text bilkul पास-पास */
 
 /* 📱 Responsive adjustments */
 @media screen and (max-width: 768px) {
@@ -1323,6 +1325,55 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
   </script>
+
+
+
+{% comment %} Disable Right Click {% endcomment %}
+<script>
+// Disable Right Click
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    alert("Right-click is disabled on this website.");
+});
+
+
+// Disable Keyboard Shortcuts
+document.addEventListener("keydown", function (e) {
+
+    // Ctrl+U (View Source)
+    if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+    }
+
+    // Ctrl+S (Save Page)
+    if (e.ctrlKey && e.key === "s") {
+        e.preventDefault();
+    }
+
+    // Ctrl+C (Copy)
+    if (e.ctrlKey && e.key === "c") {
+        e.preventDefault();
+    }
+
+    // Ctrl+X (Cut)
+    if (e.ctrlKey && e.key === "x") {
+        e.preventDefault();
+    }
+
+    // Ctrl+Shift+I (DevTools)
+    if (e.ctrlKey && e.shiftKey && e.key === "I") {
+        e.preventDefault();
+    }
+
+    // F12 (DevTools)
+    if (e.key === "F12") {
+        e.preventDefault();
+    }
+});
+</script>
+
+
+
 </body>
 
 </html>

@@ -73,6 +73,42 @@
 }
 </script>
 
+<!-- SEO-Optimized FAQ Schema for /scholarship/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Scholarship page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Central Government, State Government, minority, SC/ST/OBC, student welfare aur college-level scholarships ki latest updates, benefits, eligibility, required documents aur official application links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main scholarship ke liye apply kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap jis scholarship ke liye eligible hain, uske official link par click karke online registration kar sakte hain. Application form me basic details, documents upload aur bank verification steps complete karne hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya scholarship information yahan official hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi scholarships ki details official portals jaise NSP (National Scholarship Portal), राज्य सरकारी portals, university websites aur verified notifications par based hoti hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -578,7 +614,7 @@
 
  {% for post in page_obj %}
           <li class="job-item">
-            <a href="{% url 'govt-update-detail' post.slug %}" class="job-title">{{ post.title }}a</a>  
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
             <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
           </li>
             {% empty %}
@@ -642,7 +678,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
         <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -652,7 +688,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -671,7 +707,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
             <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

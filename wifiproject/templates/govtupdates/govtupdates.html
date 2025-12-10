@@ -117,6 +117,56 @@
   }
   </script>
 
+<!-- SEO-Optimized FAQ Schema for /govt-updates/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Govt Updates page par kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko latest government notifications, policy updates, circulars, recruitment news, exam dates, results aur official announcements ek hi jagah par mil jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Govt Updates page par diya gaya data official hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, saare updates official government departments, ministries, recruitment boards, aur public notices par based hote hain. Hum sirf verified official sources se hi information publish karte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Govt Updates page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana kai baar update hota hai. Jaise hi koi naya government notification, recruitment news, exam update ya policy change release hota hai, hum turant uski details add kar dete hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya main yahan se official notification PDF download kar sakta hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, har update ke saath official PDF notice, circular ya press release ka direct link diya hota hai jisse aap easily download kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Govt Updates page par state-level notifications bhi milti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, is page par central government ke saath-saath state governments ke important updates, recruitment notices aur public announcements bhi include kiye jaate hain."
+      }
+    }
+  ]
+}
+</script>
 
 
 
@@ -577,7 +627,7 @@
         <ul class="job-list-compact p-0">
             {% for govtupdate in page_obj %}
           <li class="job-item">
-            <a href="/govt-updates/{{govtupdate.slug}}/" class="job-title">{{govtupdate.title}}</a>
+            <a href="/govt-updates/{{govtupdate.slug}}/" target="_blank" class="job-title">{{govtupdate.title}}</a>
             <span class="job-date">{{ govtupdate.published_date|date:"d M, Y"}}</span></li>
             {% endfor %}
             <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
@@ -631,7 +681,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter }}</div>
       <div class="trending-content">
-        <a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a>
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
         <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -641,7 +691,7 @@
     <div class="trending-item">
       <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
       <div class="trending-content">
-        <a href="/results/{{ result.slug }}/">{{ result.title }}</a>
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
         <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
       </div>
     </div>
@@ -662,7 +712,7 @@
           <div class="trending-item">
             <div class="trending-number">{{ forloop.counter }}</div>
             <div class="trending-content">
-              <a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a>
+              <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
             <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
             </div>
               </div>

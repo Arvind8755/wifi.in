@@ -81,6 +81,43 @@
   "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/jobs-by-education/#breadcrumb" }
 }
 </script>
+
+<!-- SEO-Optimized FAQ Schema for /jobs-by-education/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Jobs by Education page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko qualification-wise government jobs milti hain, jaise 10th Pass Jobs, 12th Pass Jobs, Graduate Jobs, Diploma Jobs, ITI Jobs, Post Graduate Jobs aur professional qualification ke base par latest vacancies aur official notifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apne education ke hisab se job kaise search karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap page par apni qualification category choose karein — jaise 10th, 12th, Graduate, ITI, Diploma, PG — uske baad aapko us education level ke according sabhi latest government jobs ki list mil jayegi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Jobs by Education page par listed vacancies official hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, is page par publish sabhi job vacancies official recruitment boards, government departments, PSUs, SSC, UPSC aur state portals par release hue verified notifications par based hoti hain. Har listing ke saath official PDF link diya jata hai."
+      }
+    }
+  ]
+}
+</script>
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -200,11 +237,11 @@
       <div class="table-card" id="categories-table">
         <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
         <div class="table-grid">
-          <div class="table-item"><a href="{% url 'allcategoryjobs' %}">All Category</a><div class="meta">All</div></div>
-          <div class="table-item"><a href="{% url 'bankjob' %}">Banking</a><div class="meta">Bank</div></div>
-          <div class="table-item"><a href="{% url 'sscjob' %}">SSC</a><div class="meta">SSC</div></div>
-          <div class="table-item"><a href="{% url 'railwayjob' %}">Railways</a><div class="meta">Railways</div></div>
-          <div class="table-item"><a href="{% url 'government_teacher_jobs' %}">Teaching</a><div class="meta">Teaching</div></div>
+          <div class="table-item"><a href="{% url 'allcategoryjobs' %}" target="_blank" >All Category</a><div class="meta">All</div></div>
+          <div class="table-item"><a href="{% url 'bankjob' %}" target="_blank" >Banking</a><div class="meta">Bank</div></div>
+          <div class="table-item"><a href="{% url 'sscjob' %}" target="_blank" >SSC</a><div class="meta">SSC</div></div>
+          <div class="table-item"><a href="{% url 'railwayjob' %}" target="_blank" >Railways</a><div class="meta">Railways</div></div>
+          <div class="table-item"><a href="{% url 'government_teacher_jobs' %}" target="_blank" >Teaching</a><div class="meta">Teaching</div></div>
           <div class="table-item"><a href="{% url 'defensejob' %}">Defense</a><div class="meta">Defense</div></div>
           <div class="table-item"><a href="{% url 'upscjob' %}">UPSC</a><div class="meta">UPSC</div></div>
           <div class="table-item"><a href="{% url 'all-state-govt-job' %}">State Govt</a><div class="meta">State</div></div>
@@ -217,7 +254,7 @@
     <section class="jobs-grid">
       {% for job in page_obj %}
       <article class="job-card">
-        <a href="{{ job.get_absolute_url }}" class="job-thumb" aria-label="{{ job.title }}">
+        <a href="{{ job.get_absolute_url }}" target="_blank" class="job-thumb" aria-label="{{ job.title }}">
           {% if job.image %}
             <img src="{{ job.image.url }}" alt="{{ job.title }}" loading="lazy">
           {% else %}

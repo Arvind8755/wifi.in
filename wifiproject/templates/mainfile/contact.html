@@ -72,6 +72,42 @@
 </script>
 
 
+<!-- Human-Written, SEO-Optimized FAQ Schema for /contact-us/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Main Contact Us page ka use kis liye kar sakta hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap Contact Us page ka use queries, feedback, corrections, collaboration requests, ya kisi bhi technical issue ke liye hamse sampark karne ke liye kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Contact form submit karne ke baad kitne time me response milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aapke message ka reply aam taur par 24–48 hours ke andar de diya jata hai. High-traffic days me thoda adhik samay lag sakta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya main email ke through bhi contact kar sakta hoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, agar aapko contact form use karne me dikkat aa rahi ho ya detailed query bhejni ho, to aap hamara official support email bhi use kar sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
 
   {% endblock seo %}
 
@@ -428,7 +464,7 @@
         <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
         <ul class="sidebar-list">
          {% for result in latest_results %}
-          <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
           
           
@@ -439,7 +475,7 @@
         <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
         <ul class="sidebar-list">
  {% for admitcard in latest_admitcards %}
-          <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
           {% endfor %}
         </ul>
       </div>

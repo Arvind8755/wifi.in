@@ -77,6 +77,43 @@
 }
 </script>
 
+<!-- FAQ (Schema) for /free-job-alert/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Free Job Alert kaise kaam karta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free Job Alert service aapko email, SMS ya browser notifications ke through latest government job updates aur important deadlines free me bhejti hai. Aap apni preference (state, category, education) set karke sirf relevant alerts prapt kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Free Job Alert ke liye signup kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free Job Alert page par apna email ya mobile number aur preferred job categories enter karke subscribe karein. Confirmation ke baad aapko selected channels par regular alerts milne lagenge. Unsubscribe option hamesha available hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Free Job Alert me diye gaye links official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, jo alerts hum bhejte hain unme diye gaye 'Apply' ya 'Official Notification' links sarkari portals ya verified recruitment websites par lead karte hain. Hum sirf verified sources se hi alerts generate karte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
   {
@@ -254,7 +291,7 @@
 </section>
 
 <main class="container" style="padding:14px 0;">
-  <div class="section-title"><a href="{% url 'blog'%}"><span class="chip">All Updates</span></a>  <a href="{% url 'freejobalert' %}"><span>Free Job Alert Updates</span></a></div>
+  <div class="section-title"><a href="{% url 'blog'%}"><span class="chip">All Updates</span></a>  <a href="{% url 'freejobalert' %}  target="_blank" "><span>Free Job Alert Updates</span></a></div>
 
   <div class="card-grid">
     <div class="card">
@@ -262,7 +299,7 @@
       <div class="card-body">
         <ul class="job-list">
           {% for job in jobs %}
-            <li><a href="/latest-jobs/{{ job.slug }}/">{{ job.title }}</a></li>
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'job' %}">View All Jobs →</a></li>
         </ul>
@@ -274,7 +311,7 @@
       <div class="card-body">
         <ul class="job-list">
           {% for result in results %}
-            <li><a href="/results/{{ result.slug }}/">{{ result.title }}</a></li>
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'result' %}">View All Results →</a></li>
         </ul>
@@ -286,7 +323,7 @@
       <div class="card-body">
         <ul class="job-list">
           {% for admitcard in admitcards %}
-            <li><a href="/admit-card/{{ admitcard.slug }}/">{{ admitcard.title }}</a></li>
+            <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
         </ul>
@@ -298,7 +335,7 @@
       <div class="card-body">
         <ul class="job-list">
           {% for govtupdate in govtupdates %}
-            <li><a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a></li>
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
           {% endfor %}
           <li><a href="{% url 'govtupdates' %}">View All Govt Updates →</a></li>
         </ul>
