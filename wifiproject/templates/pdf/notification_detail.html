@@ -9,6 +9,328 @@
 <meta name="description" content="{{ notification.description }}">
 <meta name="keywords" content="{{ notification.keywords }}">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}">
+ 
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}">
+<meta property="og:title" content="{{ notification.title }}">
+<meta property="og:description" content="{{ notification.description }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{{ notification.published_date|date:'c' }}">
+<meta property="article:published_time" content="{{ notification.published_date|date:'c' }}">
+<meta property="og:updated_time" content="{{ notification.published_date|date:'c' }}">
+<meta name="author" content="{{ notification.author|striptags }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}">
+<meta name="twitter:title" content="{{ notification.title }}">
+<meta name="twitter:description" content="{{ notification.description }}">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@wifiresult" />
+
+
+<!--BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "All PDF Notification",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/notifications/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ notification.title|escapejs }}",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}"
+    }
+  ]
+}
+</script>
+
+
+<!--webpage + collectionpage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}",
+  "name": "{{ notification.title }}",
+  "headline": "{{ notification.h1|striptags|escapejs }}",
+  "description": "{{ notification.description }}",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/notifications/#breadcrumb" }
+}
+</script>
+
+<!--Article Schema — content detail-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#article",
+  "mainEntityOfPage": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#webpage"
+  },
+  "headline": "{{ notification.h1|striptags|escapejs }}",
+  "description": "{{ notification.description|truncatechars:300|escapejs }}",
+  "articleSection": "Notification",
+  "datePublished": "{{ notification.created_at|date:'Y-m-d' }}",
+  "dateModified": "{{ notification.created_at|date:'Y-m-d' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ notification.author|striptags }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "hasPart": {
+        "@id": "{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}#pdf"
+      }
+}
+</script>
+
+
+  <style>
+    /* compact page styles preserved + small improvements for accessibility */
+    .pdf-page-wrapper { max-width: 1000px; margin: 20px auto 40px; padding: 0 10px; }
+    .pdf-header { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+    .pdf-title { font-size: 22px; font-weight: 600; margin: 0; text-transform: uppercase; }
+    .pdf-download-btn { display: inline-flex; align-items:center; gap:8px; padding: 8px 16px; font-size: 14px; border-radius: 6px; text-decoration: none; border: 1px solid #2563eb; color: #fff; background: linear-gradient(180deg,#2563eb,#1d4ed8); white-space: nowrap; transition: 0.15s ease; }
+    .pdf-download-btn:focus { outline: 3px solid rgba(37,99,235,0.3); }
+    .pdf-overview-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; margin-bottom: 16px; }
+    .pdf-overview-title { font-size: 15px; font-weight: 700; margin: 0 0 8px 0; }
+    .pdf-overview-body { font-size: 14px; line-height: 1.7; max-height: 220px; overflow: auto; }
+    .pdf-viewer-card { border-radius: 8px; border: 1px solid #e5e7eb; box-shadow: 0 0 10px rgba(0,0,0,0.04); overflow: hidden; }
+    .pdf-viewer-frame { width: 100%; height: 80vh; border: none; }
+    .pdf-footer-download { margin-top: 12px; text-align: right; }
+
+    /* small utilities */
+    .meta-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; font-size:13px; color:#374151; }
+    .share-buttons { display:flex; gap:8px; }
+
+    @media (max-width: 768px) { .pdf-header { flex-direction: column; align-items: flex-start; } .pdf-title { font-size: 18px; } .pdf-overview-body { max-height: 180px; } .pdf-viewer-frame { height: 70vh; } }
+  </style>
+
+
+  {% endblock seo %}
+
+{% block content %}
+<br>
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="{% url 'notification_list' %}">Notifications</a>
+      <span aria-hidden="true">&gt;</span>
+      <span aria-current="page">{{ notification.tag }}</span>
+    </div>
+  </nav>
+<br>
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> {{ notification.h1|safe|cut:"<p>"|cut:"</p>" }}</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+<div class="pdf-page-wrapper">
+
+    {% if notification.pdf_file %}
+        <!-- Header: Title + Top Download Button -->
+        <div class="pdf-header">
+            <h2 class="pdf-title">{{ notification.title }}</h2>
+
+            <div style="display:flex;gap:8px;align-items:center">
+                <a href="{{ notification.pdf_file.url }}" download rel="noopener" class="pdf-download-btn" aria-label="Download official PDF">
+                    ⬇ Download Official PDF
+                </a>
+
+                <!-- quick actions -->
+                <div class="share-buttons" role="toolbar" aria-label="Share">
+                  <button type="button" class="pdf-download-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copied'))">Copy link</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meta row: author / date / reading time -->
+        <div class="meta-row" aria-hidden="false">
+          <div>By <strong>{{ notification.author|striptags }}</strong></div>
+          <div>•</div>
+          <div>Published: {{ notification.published_date|date:'d M, Y' }}</div>
+        </div>
+
+        <!-- Overview box (notification.content se) -->
+        {% if notification.overview %}
+            <div class="pdf-overview-card">
+                <p class="pdf-overview-title">Overview</p>
+                <div class="pdf-overview-body ck-content">
+                    {{ notification.overview|safe }}
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Main PDF Viewer: lazy load iframe for performance -->
+        <div class="pdf-viewer-card" role="region" aria-label="PDF viewer">
+            <iframe
+                src="{{ notification.pdf_file.url }}#toolbar=0&navpanes=0"
+                class="pdf-viewer-frame"
+                loading="lazy"
+                title="{{ notification.title }} PDF viewer">
+            </iframe>
+        </div>
+
+        <!-- Bottom Download Button -->
+        <div class="pdf-footer-download">
+            <a href="{{ notification.pdf_file.url }}" download rel="noopener" class="pdf-download-btn" aria-label="Download PDF">
+                ⬇ Download Official Notification PDF
+            </a>
+        </div>
+
+    {% else %}
+        <h1 class="pdf-title">{{ notification.title }}</h1>
+        <p>No PDF uploaded for this notification.</p>
+    {% endif %}
+
+</div>
+
+
+<!-- site note / disclaimer -->
+<div class="site-note site-note--disclaimer" role="note" aria-label="Disclaimer">
+  <div class="site-note__accent">
+    <svg class="site-note__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2L2 22h20L12 2zm1 16h-2v-2h2v2zm0-4h-2V8h2v6z"/>
+    </svg>
+  </div>
+  <div class="site-note__body">
+    <p>
+      <strong>Disclaimer:</strong> All PDF documents displayed on <strong> WifiResult</strong> are provided for informational purposes only and are based on official notifications from the relevant authorities. Applicants are requested to visit the official website before filling out the application. The website is not responsible for any errors, updates, or changes.
+    </p>
+  </div>
+</div>
+
+
+<style>
+.site-note--disclaimer { background: #fff5f5; border-left: 5px solid #e63946; border-radius: 10px; padding: 14px; display: flex; gap: 14px; box-shadow: 0 6px 18px rgba(230, 57, 70, 0.12); }
+.site-note--disclaimer .site-note__accent { flex: 0 0 46px; height: 46px; border-radius: 8px; background: linear-gradient(135deg, #e63946, #b91c1c); display: flex; align-items: center; justify-content: center; }
+.site-note--disclaimer .site-note__icon { width: 22px; height: 22px; fill: #fff; }
+.site-note--disclaimer .site-note__body { color: #b91c1c; font-size: 15px; line-height: 1.6; }
+</style>
+
+
+<!-- Optional FAQ JSON-LD if notification has faqs (expects notification.faqs to be iterable with question/answer) -->
+{% if notification.faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in notification.faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question|escapejs }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.answer|striptags|escapejs }}" }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+
+<!-- small script: basic analytics for download clicks (expects an endpoint /api/track-download) -->
+<script>
+  (function(){
+    const downloadBtns = document.querySelectorAll('a[download]');
+    downloadBtns.forEach(btn => {
+      btn.addEventListener('click', function(){
+        try{
+          navigator.sendBeacon('/api/track-download', JSON.stringify({url: this.href, id: '{{ notification.pk }}'}));
+        }catch(e){/* fail silently */}
+      });
+    });
+  })();
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+{% load html_filters %}
+
+
+{% block seo %} 
+<title>{{ notification.title }}</title>
+<meta name="description" content="{{ notification.description }}">
+<meta name="keywords" content="{{ notification.keywords }}">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ notification.get_absolute_url }}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article"/>
@@ -232,7 +554,7 @@
   {% endblock seo %}
 
 {% block content %}
-
+<br>
   <!-- Breadcrumb -->
   <div class="breadcrumb">
     <div class="container">
@@ -240,7 +562,7 @@
       <span>&gt;</span>
       <a href="{% url 'notification_list' %}">Notifications</a>
       <span>&gt;</span>
-      <span>{{ notifications.tag }}</span>
+      <span>{{ notification.tag }}</span>
     </div>
   </div>
 
@@ -254,6 +576,13 @@
             <a href="{{ notification.pdf_file.url }}" download class="pdf-download-btn">
                 ⬇ Download Official PDF
             </a>
+        </div>
+
+           <!-- Meta row: author / date / reading time -->
+        <div class="meta-row" aria-hidden="false">
+          <div>By <strong>{{ notification.author|striptags }}</strong></div>
+          <div>•</div>
+          <div>Published: {{ notification.published_date|date:'d M, Y' }}</div>
         </div>
 
         <!-- Overview box (notification.content se) -->
@@ -340,4 +669,4 @@
 }
 
 </style>  
-{% endblock %}
+{% endblock %} {% endcomment %}

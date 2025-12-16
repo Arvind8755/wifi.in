@@ -3,6 +3,8 @@ from django.utils.text import slugify
 from django.utils import timezone
 from bs4 import BeautifulSoup
 from django.urls import reverse
+import html
+from django.utils.html import strip_tags
 
 from django_ckeditor_5.fields import CKEditor5Field
 
@@ -70,6 +72,12 @@ class Job(models.Model):
     is_active = models.BooleanField(default=True)
 # ⭐ New Field Added (Draft / Published)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+
+    @property
+    def clean_h1(self):
+        if not self.h1:
+            return ""
+        return html.unescape(strip_tags(self.h1))
 
 
     def get_absolute_url(self):
@@ -148,6 +156,12 @@ class Result(models.Model):
     is_active = models.BooleanField(default=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
 
+    @property
+    def clean_h1(self):
+        if not self.h1:
+            return ""
+        return html.unescape(strip_tags(self.h1))
+
 
     def get_absolute_url(self):
         return reverse("result_detail", kwargs={"slug": self.slug})  # /results/<slug>/
@@ -160,7 +174,6 @@ class Result(models.Model):
     def __str__(self):
         return self.title
     
-
 
 
 class Admitcard(models.Model):
@@ -225,6 +238,12 @@ class Admitcard(models.Model):
     published_date = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+
+    @property
+    def clean_h1(self):
+        if not self.h1:
+            return ""
+        return html.unescape(strip_tags(self.h1))
 
 
     def get_absolute_url(self):
@@ -307,6 +326,12 @@ class Govtupdate(models.Model):
     published_date = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+
+    @property
+    def clean_h1(self):
+        if not self.h1:
+            return ""
+        return html.unescape(strip_tags(self.h1))
 
 
     def get_absolute_url(self):
@@ -422,6 +447,10 @@ class PdfDocument(models.Model):
 from django.db import models
 
 class Notification(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     description = models.TextField()
@@ -439,6 +468,8 @@ class Notification(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(default=timezone.now)
+    is_active = models.BooleanField(default=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
 
     def get_absolute_url(self):
         return reverse("notification_detail", kwargs={"slug": self.slug})  # /notification/<slug>/

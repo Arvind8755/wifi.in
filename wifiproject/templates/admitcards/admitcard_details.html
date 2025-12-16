@@ -2,6 +2,8 @@
 {% load custom_filters %}
 {% load static %}
 
+
+
     {% block seo %} 
 <title>{{ admitcards.title }}</title>
 <meta name="description" content="{{ admitcards.description }}">
@@ -46,9 +48,6 @@
 {% endif %}
 
 <meta name="twitter:site" content="@WifiResult" />
-<meta name="twitter:creator" content="@arvindpal" />
-<meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Arvind Pal" />
 <meta name="twitter:label2" content="Time to read" />
 <meta name="twitter:data2" content="7 minutes" />
 <meta name="twitter:label3" content="Category">
@@ -122,88 +121,51 @@
 }
 </script>
 
-
-
-<!--Article Schema — content detail-->
+<!--Article — result detail content -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
   "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#article",
   "mainEntityOfPage": {
-    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#webpage"
+    "@type": "WebPage",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
   },
-  "headline": "{{ admitcards.h1|striptags|escapejs }}",
+  "articleSection": "Exam City & Admit Card",
+  "headline": "{{ admitcards.clean_h1|escapejs }}",
+  "alternativeHeadline": "{{ admitcards.title|escapejs }}",
   "description": "{{ admitcards.description|truncatechars:300|escapejs }}",
-  "articleSection": "Admit Card",
-  "datePublished": "{{ admitcards.published_date|date:'Y-m-d' }}",
-  "dateModified": "{{ admitcards.published_date|date:'Y-m-d' }}",
+  "datePublished": "{{ admitcards.published_date|date:'c' }}",
+  "dateModified": "{{ admitcards.published_date|date:'c' }}",
   "author": {
     "@type": "Person",
     "name": "{{ admitcards.author|striptags }}"
   },
   "publisher": {
     "@type": "Organization",
-    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
-  },
-{% if admitcards.image %}
-"Image": {
-  "@type": "ImageObject",
-  "url": "{{ request.scheme }}://{{ request.get_host }}{{ admitcards.image.url }}",
-  "width": {{ admitcards.image.width }},
-  "height": {{ admitcards.image.height }}
-},
-{% else %}
-"primaryImageOfPage": {
-  "@type": "ImageObject",
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
-    "width": 1200,
-    "height": 675
-},
-{% endif %}
-  "isPartOf": {
-    "@type": "WebSite",
-    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
-  }
-}
-</script>
-
-<!--EducationEvent Schema — exam context
-
-👉 इससे Google को पता चलता है कि ये “Exam Admit Card / Education Event” से संबंधित page है।-->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationEvent",
-  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#educationevent",
-  "name": "{{ admitcards.title|escapejs }}",
-  "eventStatus": "https://schema.org/EventScheduled",
-  {% if admit.exam_date %}
-  "startDate": "{{ admit.exam_date|date:'Y-m-d' }}",
-  {% endif %}
-  "description": "{{ admitcards.description|escapejs }}",
-  "organizer": {
-    "@type": "GovernmentOrganization",
-    "name": "{{ admitcards.tag}}",
-{% if admitcards.image %}
-  "url": "{{ request.scheme }}://{{ request.get_host }}{{ admitcards.image.url }}",
-{% else %}
-  "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
-{% endif %}
-
-  },
-  "startDate": "{{ admitcards.published_date|date:'Y-m-d' }}",
-  "endDate": "{{ admitcards.published_date|add_days:15|date:'c' }}",
-  "location": {
-    "@type": "Place",
-    "name": "{{ admitcards.tag }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN",
-      "addressLocality": "India",
-      "addressRegion": "All India"
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+    "name": "WifiResult",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo-600x120.webp",
+      "width": 600,
+      "height": 120
     }
   },
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{{ admitcards.image.url }}",
+    "width": {{ admitcards.image.width }},
+    "height": {{ admitcards.image.height }}
+  },
+  "isPartOf": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "{{ admitcards.tag|escapejs }}"
+  },
+  "inLanguage": "en-IN",
   "isAccessibleForFree": true
 }
 </script>

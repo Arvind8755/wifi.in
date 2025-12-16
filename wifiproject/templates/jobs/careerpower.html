@@ -3,14 +3,14 @@
 {% load tz %}
 
 {% block seo %}
-<title>CareerPower </title>
+<title>CareerPower – Latest Govt Jobs, Results & Admit Cards</title>
 <meta name="description" content="CareerPower — Fast access to latest government results, admit cards, answer keys and notifications.">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/careerpower/">
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="WifiResult.com">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/careerpower/">
-<meta property="og:title" content="CareerPower ">
+<meta property="og:title" content="CareerPower – Latest Govt Jobs, Results & Admit Cards">
 <meta property="og:description" content="CareerPower — Fast access to latest government results, admit cards, answer keys and notifications.">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
@@ -25,7 +25,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/careerpower/">
-<meta name="twitter:title" content="CareerPower ">
+<meta name="twitter:title" content="CareerPower – Latest Govt Jobs, Results & Admit Cards">
 <meta name="twitter:description" content="CareerPower — Fast access to latest government results, admit cards, answer keys and notifications.">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta name="twitter:site" content="@WifiResult" />
@@ -57,8 +57,8 @@
   "@type": ["WebPage","CollectionPage"],
   "@id": "{{ request.scheme }}://{{ request.get_host }}/careerpower/#webpage",
   "url": "{{ request.scheme }}://{{ request.get_host }}/careerpower/",
-  "name": "CareerPower",
-  "headline": "Daily Govt Job Alerts, Admit Cards & Results",
+  "name": "CareerPower – Latest Govt Jobs, Results & Admit Cards",
+  "headline": "CareerPower: Latest Government Jobs, Results & Admit Cards",
   "description": "CareerPower — Fast access to latest government results, admit cards, answer keys and notifications.",
   "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
   "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
@@ -79,7 +79,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
-    "name": "CareerPower",
+    "name": "CareerPower – Latest Govt Jobs, Results & Admit Cards",
     "itemListOrder": "https://schema.org/ItemListOrderDescending",
     "numberOfItems": {{ latest_posts|length }},
     "itemListElement": [
@@ -181,7 +181,7 @@
 <section class="career-hero">
   <div class="container wrap">
     <div style="flex:1;min-width:260px">
-      <h1>Daily Govt Job Alerts, Admit Cards & Results</h1>
+      <h1>CareerPower: Latest Government Jobs, Results & Admit Cards</h1>
       <p>Organized, fast and mobile-first job feed — filters for state, qualification and department.</p>
       <form method="get" action="{% url 'search' %}" class="search-bar" role="search">
         <input name="q" type="search" placeholder="Search jobs, results, admit cards, e.g. 'RRB NTPC, UP Police'" aria-label="Search">
@@ -389,18 +389,14 @@
 
   
 
-    <div class="card">
-      <div class="section-head"><h3>FAQs</h3></div>
-      <div class="faq-compact">
-        {% for f in faq_list|slice:":4" %}
-          <details>
-            <summary>{{ f.question }}</summary>
-            <div>{{ f.answer }}</div>
-          </details>
-        {% endfor %}
-        <a href="/"  target="_blank" class="small-muted">View all FAQs</a>
-      </div>
-    </div>
+<div class="card">
+  <strong>Editorial Team – WifiResult</strong>
+  <p>
+  Managed by Arvind Pal, focusing on verified government job notifications,
+  results and admit cards sourced from official websites only.
+  </p>
+</div>
+
 
   </aside>
 </main>

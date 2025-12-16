@@ -4,7 +4,102 @@
 {% block seo %}
 <title>PDF Resizer & Page Cutter — Resize, Compress and Extract Pages</title>
 <meta name="description" content="Resize PDF pages, cut/extract page ranges, and optionally compress to a target KB — client-side, fast, and private.">
-<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/pdf-resizer">
+  <meta name="keywords" content="pdf resizer online, reduce pdf size, compress pdf free, pdf compressor tool, resize pdf for upload, pdf size reducer">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/">
+<meta property="og:title" content="PDF Resizer & Page Cutter — Resize, Compress and Extract Pages">
+<meta property="og:description" content="Resize PDF pages, cut/extract page ranges, and optionally compress to a target KB — client-side, fast, and private.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/tools/pdf-resizer-banner.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="Arvind Pal"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/">
+<meta name="twitter:title" content="PDF Resizer & Page Cutter — Resize, Compress and Extract Pages">
+<meta name="twitter:description" content="Resize PDF pages, cut/extract page ranges, and optionally compress to a target KB — client-side, fast, and private.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/tools/pdf-resizer-banner.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PDF Resizer & Page Cutter — Resize, Compress and Extract Pages",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/",
+  "description": "Resize PDF pages, cut/extract page ranges, and optionally compress to a target KB — client-side, fast, and private."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PDF Resizer & Page Cutter — Resize, Compress and Extract Pages",
+  "applicationCategory": "Document Utility Tool",
+  "operatingSystem": "All",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/",
+  "description": "Resize PDF pages, cut/extract page ranges, and optionally compress to a target KB — client-side, fast, and private."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "{{ request.scheme }}://{{ request.get_host }}/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "PDF Compressor", "item": "{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I reduce the size of a PDF?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Upload your PDF, choose compression level, and download the smaller file instantly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compress PDF to 100KB or 200KB?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, the tool supports fixed-size compression." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the PDF resizer free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is 100% free and watermark-free." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my PDF be secure?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, all PDF processing happens in your browser only." }
+    }
+  ]
+}
+</script>
+
+
 {% endblock seo %}
 
 {% block style %}
@@ -35,6 +130,15 @@ code{background:#f8fafc;padding:2px 6px;border-radius:4px;font-size:13px}
 {% endblock style %}
 
 {% block content %}
+ 
+  <!-- Breadcrumb -->
+<div class="breadcrumb container" style="padding-left:20px;margin-top:5px;margin-bottom:5px;">
+  <a href="/">Home</a>
+  <span>&gt;</span>
+  <a href="{% url 'tools' %}">Tools</a>
+  <span>&gt;</span>
+  <span>PDF Resizer & Compress</span>
+</div> 
 <main class="container">
   <div class="card">
     <h1 style="font-size:22px;">PDF Resizer & Page Cutter – Resize, Compress and Extract PDF Pages Online</h1>
@@ -396,4 +500,4 @@ code{background:#f8fafc;padding:2px 6px;border-radius:4px;font-size:13px}
 })();
 </script>
 
-{% endblock content %}
+{% endblock content %} 

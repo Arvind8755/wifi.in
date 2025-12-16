@@ -12,7 +12,7 @@ try:
 except Exception:
     SITES_ENABLED = False
 
-from .models import Job, Result, Admitcard, Govtupdate
+from .models import Job, Result, Admitcard, Govtupdate, Notification
 
 
 def _current_domain():
@@ -69,6 +69,7 @@ def _should_ping():
 @receiver(post_save, sender=Result)
 @receiver(post_save, sender=Admitcard)
 @receiver(post_save, sender=Govtupdate)
+@receiver(post_save, sender=Notification)
 def ping_search_engines_on_save(sender, instance, created, **kwargs):
     if not _should_ping():
         return

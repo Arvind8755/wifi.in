@@ -48,6 +48,10 @@
 <!-- or media=print trick -->
 <link rel="stylesheet" href="/static/css/bootstrap.min.css" media="print" onload="this.media='all'">
 
+{% comment %} <link rel="preload" href="/static/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/static/css/bootstrap.min.css"></noscript> {% endcomment %}
+
+
 
 
 
@@ -115,7 +119,7 @@
       "@type": "ContactPoint",
       "contactType": "customer support",
       "email": "wifiresult3@gmail.com",
-      "availableLanguage": ["en"]
+      "availableLanguage": ["en-IN"]
     }
   ]
   },
@@ -126,7 +130,7 @@
       "url": "{{ request.scheme }}://{{ request.get_host }}/",
       "name": "WifiResult",
       "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
-      "inLanguage": "en",
+      "inLanguage": "en-IN",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "{{ request.scheme }}://{{ request.get_host }}/search/?q={search_term_string}",
@@ -1329,7 +1333,7 @@
 
 
 {% comment %} Disable Right Click {% endcomment %}
-<script>
+{% comment %} <script>
 // Disable Right Click
 document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
@@ -1371,7 +1375,7 @@ document.addEventListener("keydown", function (e) {
     }
 });
 </script>
-
+ {% endcomment %}
 
 
 </body>

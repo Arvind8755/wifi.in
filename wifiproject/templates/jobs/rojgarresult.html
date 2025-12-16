@@ -3,14 +3,14 @@
 {% load tz %}
 
 {% block seo %}
-<title>Rojgar Result</title>
+<title>Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards</title>
 <meta name="description" content="Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
 <!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="WifiResult.com">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
-<meta property="og:title" content="Rojgar Result">
+<meta property="og:title" content="Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards">
 <meta property="og:description" content="Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
@@ -25,7 +25,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
-<meta name="twitter:title" content="Rojgar Result">
+<meta name="twitter:title" content="Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards">
 <meta name="twitter:description" content="Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta name="twitter:site" content="@WifiResult">
@@ -59,7 +59,7 @@
   "@type":["WebPage","CollectionPage"],
   "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#webpage",
   "url":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/",
-  "name":"Rojgar Result",
+  "name":"Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards",
   "headline":"Rojgar Result – Latest Govt Jobs & Sarkari Result Updates",
   "description":"Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.",
   "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
@@ -117,7 +117,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
-    "name": "Latest Govt Job News & Updates 2025 – WifiResult Blog",
+    "name": "Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards",
     "itemListOrder": "https://schema.org/ItemListOrderDescending",
     "numberOfItems": {{ latest_posts|length }},
     "itemListElement": [

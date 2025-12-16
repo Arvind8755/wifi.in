@@ -36,8 +36,12 @@ from firstapp.views_news_sitemap import news_sitemap
 def robots_txt(request):
     content = (
         "User-agent: *\n"
-        "Disallow:\n"
-        "Sitemap: https://www.wifiresult.com/sitemap.xml\n"
+        "Allow: /\n"
+
+        "Sitemap: https://wifiresult.com/sitemap.xml\n"
+        "Sitemap: https://wifiresult.com/pages-sitemap.xml\n"
+        "Sitemap: https://wifiresult.com/posts-sitemap.xml\n"
+        "Sitemap: https://wifiresult.com/news-sitemap.xml\n"
 
     )
     return HttpResponse(content, content_type="text/plain")
@@ -72,8 +76,8 @@ else:
     path("ads.txt/", TemplateView.as_view(template_name="mainfile/ads.txt", content_type="text/plain")),
 
     path("sitemap.xml/", sitemap_index_custom, name="sitemap-index"),
-    path("sitemap-pages.xml/", sitemap, {"sitemaps": {"index": IndexSitemap}}, name="sitemap-index-only"),
-    path("sitemap-posts.xml/", sitemap, {"sitemaps": {"post": PostSitemap}}, name="sitemap-post-only"),
+    path("pages-sitemap.xml/", sitemap, {"sitemaps": {"index": IndexSitemap}}, name="sitemap-index-only"),
+    path("posts-sitemap.xml/", sitemap, {"sitemaps": {"post": PostSitemap}}, name="sitemap-post-only"),
     path("news-sitemap.xml/", news_sitemap, name="news-sitemap"),
 
 ]# development में media serve करने के लिए
@@ -95,5 +99,5 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     
 # Custom handlers
-# handler404 = "firstapp.views.custom_404"
+handler404 = "firstapp.views.custom_404"
 handler500 = "firstapp.views.custom_500"

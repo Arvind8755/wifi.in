@@ -3,7 +3,130 @@
 {% block seo %}
 <title>PDF & Online Tools — WifiResult Tools Hub</title>
 <meta name="description" content="Free online PDF tools, compressors, resizers, page cutters and more — browser-based and private. Browse tools, search, and open any tool instantly.">
+  <meta name="keywords" content="online tools free, image tools online, pdf tools online, utility tools website, best free online tools, browser-based tools, no watermark tools">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+<meta property="og:title" content="PDF & Online Tools — WifiResult Tools Hub">
+<meta property="og:description" content="Free online PDF tools, compressors, resizers, page cutters and more — browser-based and private. Browse tools, search, and open any tool instantly.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/tools/tools-listing-banner.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="Arvind Pal"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+<meta name="twitter:title" content="PDF & Online Tools — WifiResult Tools Hub">
+<meta name="twitter:description" content="Free online PDF tools, compressors, resizers, page cutters and more — browser-based and private. Browse tools, search, and open any tool instantly.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/tools/tools-listing-banner.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "PDF & Online Tools — WifiResult Tools Hub",
+ "url": "{{ request.scheme }}://{{ request.get_host }}/tools/",
+ "description": "Free online PDF tools, compressors, resizers, page cutters and more — browser-based and private. Browse tools, search, and open any tool instantly."
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "PDF & Online Tools — WifiResult Tools Hub",
+ "itemListElement": [
+   {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Image Resizer",
+     "url": "{{ request.scheme }}://{{ request.get_host }}/tools/image-resizer/"
+   },
+   {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "PDF Resizer",
+     "url": "{{ request.scheme }}://{{ request.get_host }}/tools/pdf-compressor/"
+   },
+   {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Image to PDF",
+     "url": "{{ request.scheme }}://{{ request.get_host }}/tools/image-to-pdf/"
+   },
+   {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Resume & CV Maker",
+     "url": "{{ request.scheme }}://{{ request.get_host }}/tools/resume-cv-maker/"
+   },
+   {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "Name & Date on Photo",
+     "url": "{{ request.scheme }}://{{ request.get_host }}/tools/name-date-on-photo/"
+   },
+   {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "Photo Signature Maker",
+     "url": "{{ request.scheme }}://{{ request.get_host }}/tools/photo-signature/"
+   }
+ ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "Are WifiResult tools free?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Yes, all tools are completely free and watermark-free." }
+   },
+   {
+     "@type": "Question",
+     "name": "Is it safe to use online tools?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Yes, processing happens in your browser ensuring full security." }
+   },
+   {
+     "@type": "Question",
+     "name": "Do these tools work on mobile?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Yes, all tools are optimized for phones and desktops." }
+   }
+ ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+   { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+   { "@type": "ListItem", "position": 2, "name": "Tools", "item": "{{ request.scheme }}://{{ request.get_host }}/tools/" }
+ ]
+}
+</script>
+
+
 {% endblock seo %}
 
 {% block style %}
@@ -34,6 +157,14 @@
 {% endblock style %}
 
 {% block content %}
+<br>
+<!-- Breadcrumb -->
+<div class="breadcrumb container">
+  <a href="/">Home</a>
+  <span>&gt;</span>
+ <span>Tools</span>
+</div>
+
 <main class="tools-wrap">
   <header class="tools-header">
     <div>
@@ -44,12 +175,7 @@
     <div class="tools-search">
       <form method="get" action="" style="display:flex;gap:8px;align-items:center">
         <input name="q" class="input" placeholder="Search tools, e.g. 'pdf compress'" value="{{ request.GET.q|default_if_none:'' }}" />
-        <select name="category" class="input">
-          <option value="">All categories</option>
-          <option value="pdf" {% if request.GET.category == 'pdf' %}selected{% endif %}>PDF</option>
-          <option value="image" {% if request.GET.category == 'image' %}selected{% endif %}>Image</option>
-          <option value="utility" {% if request.GET.category == 'utility' %}selected{% endif %}>Utility</option>
-        </select>
+       
         <button class="btn">Search</button>
       </form>
     </div>
@@ -73,7 +199,6 @@
       </div>
 
       <div class="tool-meta">
-        <span class="pill">{{ tool.category|default:'Utility' }}</span>
         <span class="small">Updated {{ tool.updated_at|date:"M d, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="{{ tool.get_absolute_url|default:tool.url|default:'#' }}">Open</a>
@@ -101,7 +226,7 @@
 
       <div class="tool-meta">
         <span class="pill">Utility</span>
-        <span class="small">Updated Aug 10, 2025</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="/tools/resume-cv-maker/">Open</a>
       </div>
@@ -121,7 +246,7 @@
 
       <div class="tool-meta">
         <span class="pill">Utility</span>
-        <span class="small">Updated Sep 1, 2025</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="/tools/age-calculator/">Open</a>
       </div>
@@ -141,7 +266,7 @@
 
       <div class="tool-meta">
         <span class="pill">Image</span>
-        <span class="small">Updated Oct 5, 2025</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="/tools/image-resizer/">Open</a>
       </div>
@@ -161,7 +286,7 @@
 
       <div class="tool-meta">
         <span class="pill">PDF</span>
-        <span class="small">Updated Nov 12, 2025</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="/tools/pdf-compressor/">Open</a>
       </div>
@@ -181,11 +306,47 @@
 
       <div class="tool-meta">
         <span class="pill">PDF</span>
-        <span class="small">Updated Jul 28, 2025</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="/tools/image-to-pdf/">Open</a>
       </div>
     </article>
+
+    <!-- Name & Date on Photo Maker -->
+<article class="tool-card" role="article" aria-labelledby="tool-name-date-photo">
+  <div class="tool-top">
+    <div class="tool-icon" aria-hidden="true">
+      <!-- Photo with text icon -->
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" 
+           xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="4" width="18" height="16" rx="2" 
+              stroke="#6b7280" stroke-width="1.2" fill="none"/>
+        <path d="M7 15h10M7 11h6" 
+              stroke="#6b7280" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="15" cy="9" r="1.4" fill="#6b7280"/>
+      </svg>
+    </div>
+
+    <div style="flex:1">
+      <a id="tool-name-date-photo" class="tool-title" href="/tools/name-date-on-photo/">
+        Name & Date on Photo
+      </a>
+      <div class="tool-desc">
+        Add name, date, caption, text or watermark on photos. Choose font, color, size, 
+        position and download the edited image instantly.
+      </div>
+    </div>
+  </div>
+
+   <div class="tool-meta">
+        <span class="pill">Image</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
+        <div style="flex:1"></div>
+        <a class="btn" href="/tools/name-date-on-photo/">Open</a>
+      </div>
+
+</article>
+
 
     <!-- Photo & Signature Tool -->
     <article class="tool-card" role="article" aria-labelledby="tool-photo-sign">
@@ -201,7 +362,7 @@
 
       <div class="tool-meta">
         <span class="pill">Image</span>
-        <span class="small">Updated Jun 14, 2025</span>
+        <span class="small">{{ today|date:"F j, Y" }}</span>
         <div style="flex:1"></div>
         <a class="btn" href="/tools/photo-signature/">Open</a>
       </div>

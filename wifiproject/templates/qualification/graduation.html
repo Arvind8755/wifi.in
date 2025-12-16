@@ -19,7 +19,7 @@
 <meta property="og:updated_time" content="{% now 'c' %}" />
 <meta property="article:published_time" content="{% now 'c' %}">
 <meta property="article:modified_time" content="{% now 'c' %}">
-<meta property="article:author" content="@Wifiresult"/>>
+<meta property="article:author" content="@Wifiresult"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -70,6 +70,40 @@
   "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/graduation-job/#breadcrumb" }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Graduation (स्नातक) पास उम्मीदवार कौन-कौन सी सरकारी नौकरियों के लिए आवेदन कर सकते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "स्नातक पास उम्मीदवार UPSC, SSC CGL, State PSC, Bank PO/Clerk, Railways (Graduate posts), Defence (Officer entries), Teaching (TET/CTET), Assistant, Inspector और विभिन्न Central/State Govt Group-B/C पदों के लिए आवेदन कर सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "स्नातक के लिए नई सरकारी भर्तियाँ कहाँ और कैसे मिलेंगी?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "लेटेस्ट स्नातक-लेवल भर्तियाँ WifiResult के Graduation Jobs पेज पर नियमित रूप से अपडेट होती हैं — यहाँ आप अधिसूचना, पात्रता, महत्वपूर्ण तिथियाँ और ऑनलाइन आवेदन लिंक देख सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "स्नातक-लेवल सरकारी नौकरियों की सामान्य आयु सीमा और योग्यता क्या होती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "आम तौर पर न्यूनतम आयु 18–21 वर्ष और अधिकतम आयु 30–40 वर्ष तक होती है (पद, विभाग और आरक्षण के अनुसार बदलती है)। सामान्यतः मान्यता प्राप्त यूनिवर्सिटी से स्नातक होना आवश्यक है; कुछ पदों में विशिष्ट विषय/डिग्री या अनुभव मांगा जा सकता है।"
+      }
+    }
+  ]
+}
+</script>
+
 
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">

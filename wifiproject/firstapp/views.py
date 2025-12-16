@@ -83,7 +83,7 @@ def rojgarresult(request):
     return render (request, "jobs/rojgarresult.html", context)
 
 def fastjob(request):
-    jobs = Job.objects.all().order_by("-published_date")[:10]
+    jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
@@ -114,7 +114,7 @@ def fastjob(request):
 
 
 def fastjobsearchers(request):
-    jobs = Job.objects.all().order_by("-published_date")[:10]
+    jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
@@ -142,6 +142,61 @@ def fastjobsearchers(request):
         "latest_posts": latest_posts,
     }
     return render (request, "jobs/fastjobsearchers.html", context)
+
+
+def Sarkari(request):
+    jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    boxnames = Boxname.objects.all().order_by("-published_date")
+
+    # 2) chain se sabko jod do
+    mixed_objects = list(chain(jobs, results, admitcards, govtupdates))
+    # 3) sabko created_at ke hisaab se sort kar do (naya sabse upar)
+    mixed_objects = sorted(
+        mixed_objects,
+        key=lambda obj: obj.published_date,
+        reverse=True
+    )
+    # 4) agar 20 ya 30 hi dikhane hain:
+    latest_posts = mixed_objects[:12]
+
+    context = {
+        "published_time": timezone.now(),
+        "modified_time": timezone.now(),
+        "jobs": jobs,
+        "results": results,
+        "admitcards": admitcards,
+        "govtupdates": govtupdates,
+        "boxnames": boxnames,
+        "latest_posts": latest_posts,
+    }
+    return render (request, "jobs/Sarkari.html", context)
+
+def resultsarkari(request):
+    jobs = Job.objects.all().order_by("-published_date")[:20]
+    results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
+
+    # 2) chain se sabko jod do
+    mixed_objects = list(chain(jobs, results))
+    # 3) sabko created_at ke hisaab se sort kar do (naya sabse upar)
+    mixed_objects = sorted(
+        mixed_objects,
+        key=lambda obj: obj.published_date,
+        reverse=True
+    )
+    # 4) agar 20 ya 30 hi dikhane hain:
+    latest_posts = mixed_objects[:12]
+
+    context = {
+        "published_time": timezone.now(),
+        "modified_time": timezone.now(),
+        "jobs": jobs,
+        "results": results,
+        "latest_posts": latest_posts,
+    }
+    return render (request, "jobs/resultsarkari.html", context)
 
 
 
@@ -543,7 +598,7 @@ def sarkariresult2025(request):
     return render (request, "jobs/sarkariresult2025.html", context)
 
 def tools(request):
-  return render(request, "tool/tool_listing.html")
+  return render(request, "tool/tool_listing.html", {"today": date.today()})
 
 def agetool(request):
   latest_jobs = Job.objects.filter(status='published', is_active=True).order_by('-published_date')[:3]
@@ -565,6 +620,9 @@ def photosignature(request):
 
 def imagestopdfconverter(request):
     return render(request, "tool/imagestopdfconverter.html")
+
+def namedateonphoto(request):
+    return render(request, "tool/namedateonphoto.html")
 
 def job(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")
@@ -1335,6 +1393,7 @@ def html_sitemap(request):
   latest_govtupdates = Govtupdate.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]
   latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:5]  
   return render(request, 'mainfile/sitemap.html',{"latest_results": latest_results, "latest_jobs": latest_jobs, "latest_admitcards": latest_admitcards, 'latest_govtupdates': latest_govtupdates})
+
 
 def TermsConditions(request):
     latest_results = Result.objects.filter(status='published', is_active=True).order_by("-published_date")[:10]  # latest 10 job
@@ -2772,7 +2831,7 @@ def search(request):
 
 
 
-# sitemap.py (नई फाइल, या views.py में भी रख सकते हैं)
+# sitemap.xml
 from django.http import HttpResponse
 from django.utils import timezone
 
@@ -2781,8 +2840,9 @@ def sitemap_index_custom(request):
     lastmod = timezone.now().date().isoformat()
 
     # Absolute URLs बनाएं (slash की गड़बड़ से बचने के लिए rstrip)
-    index_url = request.build_absolute_uri("/sitemap-pages.xml/").rstrip("/")
-    post_url  = request.build_absolute_uri("/sitemap-posts.xml/").rstrip("/")
+    index_url = request.build_absolute_uri("/pages-sitemap.xml/").rstrip("/")
+    post_url  = request.build_absolute_uri("/posts-sitemap.xml/").rstrip("/")
+    news_url  = request.build_absolute_uri("/news-sitemap.xml/").rstrip("/")
 
     xml = f'''<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2792,6 +2852,10 @@ def sitemap_index_custom(request):
   </sitemap>
   <sitemap>
     <loc>{post_url}</loc>
+    <lastmod>{lastmod}</lastmod>
+  </sitemap>
+   <sitemap>
+    <loc>{news_url}</loc>
     <lastmod>{lastmod}</lastmod>
   </sitemap>
 </sitemapindex>'''

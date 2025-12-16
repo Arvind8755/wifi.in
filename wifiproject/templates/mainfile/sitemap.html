@@ -189,32 +189,19 @@
       <ul class="sitemap-list">
         <li><a href="{% url 'home' %}">Homepage</a> <span class="meta">Root</span></li>
         <li><a href="{% url 'job' %}">Latest Jobs</a> <span class="meta">Updated daily</span></li>
-        <li><a href="{% url 'all_india_govt_jobs' %}">All India Govt Jobs</a> <span class="meta">India Jobs</span></li>
-        <li><a href="{% url 'latest_govt_jobs' %}">Latest Govt Jobs India</a> <span class="meta">India Jobs</span></li>
-        <li><a href="{% url 'sarkarijobs' %}">Sarkari Jobs</a> <span class="meta">sarkari jobs</span></li>
+        {% comment %} <li><a href="{% url 'sarkarijobs' %}">Sarkari Jobs</a> <span class="meta">sarkari jobs</span></li>
         <li><a href="{% url 'vacancy' %}">Vacancy</a> <span class="meta">jobs</span></li>
         <li><a href="{% url 'onlineform' %}">Online Form</a> <span class="meta">form</span></li>
-<li><a href="{% url 'sarkariresult2025' %}">Sarkari Result 2025</a> <span class="meta">2025 jobs</span></li>
-<li><a href="{% url 'ljsr' %}">Latest Jobs Sarkari Result</a> <span class="meta">jobs</span></li>
-<li><a href="{% url 'srup' %}"> Sarkari Result Upcoming Vacancy</a> <span class="meta">jobs</span></li>
-<li><a href="{% url 'sarkarinokri' %}"> Sarkari Naukri</a> <span class="meta">jobs</span></li>
+<li><a href="{% url 'sarkarinokri' %}"> Sarkari Naukri</a> <span class="meta">jobs</span></li> {% endcomment %}
         <li><a href="{% url 'govtjobstoday' %}">Govt Jobs Today</a> <span class="meta">Today jobs</span></li>
         <li><a href="{% url 'result' %}">Results</a> <span class="meta">Updated daily</span></li>
-               <li><a href="{% url 'latestresult' %}">Latest Results</a> <span class="meta">Updated daily</span></li>
  <li><a href="{% url 'sarkariresult' %}">Sarkari Results</a> <span class="meta">Updated daily</span></li>
-      <li><a href="{% url 'sarkariresult2024' %}">Sarkari Result 2024</a> <span class="meta">Updated daily</span></li>
-  <li><a href="{% url 'latestsarkariresult' %}"> Latest Sarkari Results</a> <span class="meta">Updated daily</span></li>
                <li><a href="{% url 'boardresult' %}">Board Results</a> <span class="meta">Updated daily</span></li>
         <li><a href="{% url 'admitcard' %}">Admit Cards</a> <span class="meta">Updated daily</span></li>
-             <li><a href="{% url 'examdate' %}">Exam Date</a> <span class="meta">Updated daily</span></li>
              <li><a href="{% url 'sarkariexam' %}">Sarkari Exam</a> <span class="meta">Updated daily</span></li>
         <li><a href="{% url 'govtupdates' %}">Govt Updates</a> <span class="meta">Updated daily</span></li>
                 <li><a href="{% url 'search' %}">Search</a> <span class="meta">Filter</span></li>
- <li><a href="{% url 'latest_news' %}">Latest News</a> <span class="meta">News</span></li>
-  <li><a href="{% url 'latestsarkarinews' %}">Latest Sarkari News</a> <span class="meta">News</span></li>
- <li><a href="{% url 'sarkariresultnewupdate' %}">Latest Result New Update</a> <span class="meta">New</span></li>
  <li><a href="{% url 'blog' %}">Blog</a> <span class="meta">Blog</span></li>
-        <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a> <span class="meta">Updated daily</span></li>
         <li><a href="{% url 'about' %}">About Us</a> <span class="meta">Know us</span></li>
         <li><a href="{% url 'contact' %}">Contact</a> <span class="meta">Support</span></li>
         <li><a href="{% url 'PrivacyPolicy' %}">Privacy Policy</a> <span class="meta">Data Safety</span></li>
@@ -273,7 +260,7 @@
 <li><a href="{% url 'biharhelp' %}">Bihar Help</a> <span class="meta">All Category</span></li>
 <li><a href="{% url 'careerpower' %}">CareerPower</a> <span class="meta">All Category</span></li>
 <li><a href="{% url 'careers' %}">Careers</a> <span class="meta">All Category</span></li>
-<li><a href="{% url 'fast' %}">Fast</a> <span class="meta">All Category</span></li>
+{% comment %} <li><a href="{% url 'fast' %}">Fast</a> <span class="meta">All Category</span></li>
 <li><a href="{% url 'freejobalert' %}">Free Job Alert</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'governmentjobs' %}">Government Jobs</a> <span class="meta">All Category</span></li>
 <li><a href="{% url 'govtjobstoday' %}">Government Jobs Today</a> <span class="meta">All Category</span></li>
@@ -283,9 +270,9 @@
 <li><a href="{% url 'srup' %}"> Sarkari Result Upcoming Vacancy</a> <span class="meta">jobs</span></li>
 <li><a href="{% url 'vacancy' %}">Vacancy</a> <span class="meta">jobs</span></li>
 <li><a href="{% url 'onlineform' %}">Online Form</a> <span class="meta">All Category</span></li>
-<li><a href="{% url 'fastjobsearchers' %}">fastjobsearchers</a> <span class="meta">All Category</span></li>
+<li><a href="{% url 'fastjobsearchers' %}">fastjobsearchers</a> <span class="meta">All Category</span></li> {% endcomment %}
 
-<li><a href="{% url 'fastjob' %}">Fast Jobs</a> <span class="meta">Updated daily</span></li>
+{% comment %} <li><a href="{% url 'fastjob' %}">Fast Jobs</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'rojgarresult' %}">Rojgar Result</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'resultbharat' %}">Bharat Result</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'sarkariresult' %}">Sarkari Result</a> <span class="meta">Updated daily</span></li>
@@ -293,7 +280,7 @@
 <li><a href="{% url 'sarkariresult2025' %}">Sarkari Result 2025</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'sarkarinokri' %}">Sarkari Naukari</a> <span class="meta">Updated daily</span></li>
 <li><a href="{% url 'sarkarijobs' %}">Sarkari Jobs</a> <span class="meta">sarkari jobs</span></li>
-<li><a href="{% url 'wifiresultonline' %}">WifiResult Online</a> <span class="meta">jobs</span></li>
+<li><a href="{% url 'wifiresultonline' %}">WifiResult Online</a> <span class="meta">jobs</span></li> {% endcomment %}
 
           </ul>
         </div>
@@ -318,7 +305,7 @@
             <li><a href="{% url 'itiresult' %}">ITI Result</a></li>
             <li><a href="{% url 'ncvtmis' %}">NCVT MIS Result</a></li>
             <li><a href="{% url 'scvt' %}">SCVT ITI Result</a></li>
-            <li><a href="{% url 'latestsarkariresult' %}">Latest Sarkari Results</a></li>
+            {% comment %} <li><a href="{% url 'latestsarkariresult' %}">Latest Sarkari Results</a></li> {% endcomment %}
             <li><a href="{% url 'latestresult' %}">Latest Result</a></li>
             <li><a href="{% url 'sarkariresult2024' %}">Result Update</a></li>
             <li><a href="{% url 'sarkariresult' %}">Sarkari Result </a></li>
@@ -476,11 +463,11 @@
   {% endfor %}
 
         {% for admitcard in latest_admitcards %}
-        <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >S{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
+        <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
           {% endfor %}
 
           {% for govtupdate in latest_govtupdates %}
-        <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >S{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
+        <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
           {% endfor %}
 
       </ul>

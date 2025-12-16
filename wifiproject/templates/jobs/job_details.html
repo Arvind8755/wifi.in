@@ -45,9 +45,6 @@
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 {% endif %}
 <meta name="twitter:site" content="@WifiResult" />
-<meta name="twitter:creator" content="@arvindpal" />
-<meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Arvind Pal" />
 <meta name="twitter:label2" content="Time to read" />
 <meta name="twitter:data2" content="7 minutes" />
 <meta name="twitter:label3" content="Category">
@@ -183,6 +180,45 @@
     "name": "{{ jobs.title }}",
     "value": "{{ jobs.tag }}"
   }
+}
+</script>
+
+
+<!--NewsArticle Schema-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}"
+  },
+  "headline": "{{ jobs.clean_h1|escapejs }}",
+  "description": "{{ jobs.description }}",
+  "image": [
+    "{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}"
+  ],
+  "datePublished": "{{ jobs.published_date|date:'c' }}",
+  "dateModified": "{{ jobs.published_date|date:'c' }}",
+  "author": {
+  "@type": "Person",
+  "name": "{{ jobs.author|striptags }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo-600x120.webp",
+      "width": 600,
+      "height": 120
+    }
+  },
+  "articleSection": "Government Jobs",
+  "keywords": "{{ jobs.keywords }}",
+  "inLanguage": "en-IN",
+  "isAccessibleForFree": true
 }
 </script>
 

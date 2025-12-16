@@ -3,14 +3,14 @@
 {% load tz %}
 
 {% block seo %}
-<title>BiharHelp</title>
+<title>Bihar Help – Jobs, Results & Admit Cards</title>
 <meta name="description" content="State-specific Bihar page with job notifications, results, admit cards and helpline information.">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/bihar-help/">
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="WifiResult.com">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/bihar-help/">
-<meta property="og:title" content="BiharHelp">
+<meta property="og:title" content="Bihar Help – Jobs, Results & Admit Cards">
 <meta property="og:description" content="State-specific Bihar page with job notifications, results, admit cards and helpline information.">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
@@ -25,7 +25,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/bihar-help/">
-<meta name="twitter:title" content="BiharHelp">
+<meta name="twitter:title" content="Bihar Help – Jobs, Results & Admit Cards">
 <meta name="twitter:description" content="State-specific Bihar page with job notifications, results, admit cards and helpline information.">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta name="twitter:site" content="@WifiResult" />
@@ -56,7 +56,7 @@
   "@type": ["WebPage","CollectionPage"],
   "@id": "{{ request.scheme }}://{{ request.get_host }}/bihar-help/#webpage",
   "url": "{{ request.scheme }}://{{ request.get_host }}/bihar-help/",
-  "name": "BiharHelp",
+  "name": "Bihar Help – Jobs, Results & Admit Cards",
   "headline": "Latest Govt Jobs 2026",
   "description": "State-specific Bihar page with job notifications, results, admit cards and helpline information.",
   "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
@@ -78,7 +78,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
-    "name": "BiharHelp",
+    "name": "Bihar Help – Jobs, Results & Admit Cards",
     "itemListOrder": "https://schema.org/ItemListOrderDescending",
     "numberOfItems": {{ latest_posts|length }},
     "itemListElement": [

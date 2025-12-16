@@ -25,19 +25,14 @@ SECRET_KEY = 'django-insecure-q(3djmhgp52&yzedeikg415exg5p1@a-lk!_3%9jxh6s1sw5^7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# Production में जाते समय हटाना न भूलो 🚀
+# Production में जाते समय False Rakhna chahiyen;
 # PING_ALWAYS = False
-# DEBUG = False
 
-
-# PING_ALWAYS = True 
 DEBUG = True
 # DEBUG = False   # 404 template तभी दिखेगा जब DEBUG=False हो
 SITE_ID = 1  
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1", '3.80.59.222', "www.wifiresult.com", "wifiresult.com"]
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", '192.168.1.4', "www.wifiresult.com", "wifiresult.com"]
-# ALLOWED_HOSTS = ['10.12.125.253']
-
 
 # Application definition
 
@@ -340,3 +335,10 @@ USE_TZ = True
 
 # PDF ko same domain ke iframe me open karne ke liye
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+
+# pdf compress
+from django import forms
+
+class PDFUploadForm(forms.Form):
+    pdf_file = forms.FileField(label="Upload PDF")

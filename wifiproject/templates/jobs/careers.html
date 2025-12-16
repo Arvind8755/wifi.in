@@ -2,14 +2,15 @@
 {% load static %}
 
 {% block seo %} 
-<title>Careers</title>
+<title>Careers at WifiResult – Govt Job Career Guides & Exam Paths</title>
 <meta name="description" content="Explore careers at WifiResult. Join our team to help millions of students & job seekers with fast Sarkari Result, Govt Job Alerts & Exam Updates.">
+<meta name="keywords" content="government job careers, ssc career guide, banking jobs career, railway jobs career, sarkari career path">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/careers/">
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="WifiResult">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/careers/">
-<meta property="og:title" content="Careers">
+<meta property="og:title" content="Careers at WifiResult – Govt Job Career Guides & Exam Paths">
 <meta property="og:description" content="Explore careers at WifiResult. Join our team to help millions of students & job seekers with fast Sarkari Result, Govt Job Alerts & Exam Updates.">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
@@ -24,7 +25,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/careers/">
-<meta name="twitter:title" content="Careers">
+<meta name="twitter:title" content="Careers at WifiResult – Govt Job Career Guides & Exam Paths">
 <meta name="twitter:description" content="Explore careers at WifiResult. Join our team to help millions of students & job seekers with fast Sarkari Result, Govt Job Alerts & Exam Updates.">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta name="twitter:site" content="@wifiresult" />
@@ -64,7 +65,7 @@
   "@type": ["WebPage","CollectionPage"],
   "@id": "{{ request.scheme }}://{{ request.get_host }}/careers/#webpage",
   "url": "{{ request.scheme }}://{{ request.get_host }}/careers/",
-  "name": "Careers",
+  "name": "Careers at WifiResult – Govt Job Career Guides & Exam Paths",
   "headline": "Careers at WifiResult",
   "description": "Explore careers at WifiResult. Join our team to help millions of students & job seekers with fast Sarkari Result, Govt Job Alerts & Exam Updates.",
   "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
@@ -86,7 +87,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
-    "name": "Careers",
+    "name": "Careers at WifiResult – Govt Job Career Guides & Exam Paths",
     "itemListOrder": "https://schema.org/ItemListOrderDescending",
     "numberOfItems": {{ latest_posts|length }},
     "itemListElement": [

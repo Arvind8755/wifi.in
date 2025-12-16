@@ -4,6 +4,9 @@ from .views import JobPostCreateView, ResultPostCreateView, AdmitcardPostCreateV
 from .feeds import LatestAllFeed
 from django.views.decorators.cache import cache_page
 from .views import subscribe
+from django.views.generic import RedirectView
+
+from .views import pdfresizer
 
 urlpatterns = [
         path('', views.home, name='home'),
@@ -21,10 +24,14 @@ urlpatterns = [
         path("tools/", views.tools, name="tools"),
         path('tools/age-calculator/', views.agetool, name="agetool"),
         path("tools/image-resizer/", views.imageresizer, name="imageresizer"),
-        path('tools/pdf-compressor/', views.pdfresizer, name="pdfresizer"),
+        # path('tools/pdf-compressor/', views.pdfresizer, name="pdfresizer"),
+
+        path("tools/pdf-resizer/", pdfresizer, name="pdfresizer"),
+
         path('tools/resume-cv-maker/', views.resumecvmaker, name="resumecvmaker"),
         path('tools/photo-signature/', views.photosignature, name="photosignature"),
         path('tools/image-to-pdf/', views.imagestopdfconverter, name="imagestopdfconverter"),
+        path('tools/name-date-on-photo/', views.namedateonphoto, name="namedateonphoto"),
         
         path("latest-jobs/job/", JobPostCreateView.as_view(), name="job_add"),
         path('latest-jobs/', views.job, name='job'),
@@ -240,6 +247,8 @@ urlpatterns = [
         # path("notification/<slug:slug>/download/", views.notification_pdf_download, name="notification_pdf_download"),
 
         path('fastjobsearchers/', views.fastjobsearchers, name="fastjobsearchers"),
+        path('sarkari/', views.Sarkari, name="Sarkari"),
+        path("result-sarkari/", views.resultsarkari, name='resultsarkari'),
 
         path('subscriber/', subscribe, name='subscribe'),
         

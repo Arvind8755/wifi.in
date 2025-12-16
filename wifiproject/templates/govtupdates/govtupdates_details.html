@@ -44,9 +44,6 @@
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png">
 {% endif %}
 <meta name="twitter:site" content="@WifiResult" />
-<meta name="twitter:creator" content="@arvindpal" />
-<meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Arvind Pal" />
 <meta name="twitter:label2" content="Time to read" />
 <meta name="twitter:data2" content="7 minutes" />
 <meta name="twitter:label3" content="Category">
@@ -101,56 +98,56 @@
 }
 </script>
 
-<!--NewsArticle — main content schema -->
+
+<!--Article — result detail content -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"NewsArticle",
-  "@id":"{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.get_absolute_url }}#article",
-  "mainEntityOfPage":{
-    "@type":"WebPage",
-    "@id":"{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.get_absolute_url }}"
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
   },
-  "headline":"{{ govtupdates.h1|striptags|escapejs }}",
-  "alternativeHeadline":"{{ govtupdates.tag }}",
-  "description":"{{ govtupdates.description|truncatechars:200|escapejs }}",
-  "articleSection":"Govt Update",
-  "keywords": "{{ govtupdates.keywords }}",
-  {% if results.image %}
-"Image": {
-  "@type": "ImageObject",
-  "url": "{{ request.scheme }}://{{ request.get_host }}{{ results.image.url }}",
-  "width": {{ results.image.width }},
-  "height": {{ results.image.height }}
-},
-{% else %}
-"image": {
-  "@type": "ImageObject",
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
-    "width": 1200,
-    "height": 675
-},
-{% endif %}
-  "author":{
-    "@type":"Person",
-    "name":"{{ govtupdates.author|striptags }}"
+  "articleSection": "Govt Updates",
+  "headline": "{{ govtupdates.clean_h1|escapejs }}",
+  "alternativeHeadline": "{{ govtupdates.title|escapejs }}",
+  "description": "{{ govtupdates.description|truncatechars:300|escapejs }}",
+  "datePublished": "{{ govtupdates.published_date|date:'c' }}",
+  "dateModified": "{{ govtupdates.published_date|date:'c' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ govtupdates.author|striptags }}"
   },
-  "publisher":{
-    "@type":"Organization",
-    "@id":"{{ request.scheme }}://{{ request.get_host }}/#organization",
-    "name":"WifiResult",
-    "logo":{
-      "@type":"ImageObject",
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
-    "width": 1200,
-    "height": 675
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+    "name": "WifiResult",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo-600x120.webp",
+      "width": 600,
+      "height": 120
     }
   },
-  "datePublished":"{{ govtupdates.published_date|date:'c' }}",
-  "dateModified":"{{ govtupdates.published_date|date:'c' }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{{ govtupdates.image.url }}",
+    "width": {{ govtupdates.image.width }},
+    "height": {{ govtupdates.image.height }}
+  },
+  "isPartOf": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "{{ govtupdates.tag|escapejs }}"
+  },
+  "inLanguage": "en-IN",
   "isAccessibleForFree": true
 }
 </script>
+
 
 <!--FAQ Page schema -->
 

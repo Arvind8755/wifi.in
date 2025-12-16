@@ -45,9 +45,6 @@
 {% endif %}
 
 <meta name="twitter:site" content="@WifiResult" />
-<meta name="twitter:creator" content="@arvindpal" />
-<meta name="twitter:label1" content="Written by" />
-<meta name="twitter:data1" content="Arvind Pal" />
 <meta name="twitter:label2" content="Time to read" />
 <meta name="twitter:data2" content="7 minutes" />
 <meta name="twitter:label3" content="Category">
@@ -72,82 +69,51 @@
 <!--Article — result detail content -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"NewsArticle",
-  "@id":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#article",
-  "mainEntityOfPage":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
-  "articleSection":"Result Updates",
-  "headline":"{{ results.title|escapejs }}",
-  "alternativeHeadline":"{{ results.tag }}",
-  "description":"{{ results.description|truncatechars:300|escapejs }}",
-  "datePublished":"{{ results.published_date|date:'c' }}",
-  "dateModified":"{{ results.published_date|date:'c' }}",
-  "author": { "@type":"Person", "name":"{{ results.author|striptags }}" },
-  "publisher": {  "@type": "Organization", "@id":"{{ request.scheme }}://{{ request.get_host }}/#organization", "name": "WifiResult.com",
-  "logo": {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+  },
+  "articleSection": "Exam Results",
+  "headline": "{{ results.clean_h1|escapejs }}",
+  "alternativeHeadline": "{{ results.title|escapejs }}",
+  "description": "{{ results.description|truncatechars:300|escapejs }}",
+  "datePublished": "{{ results.published_date|date:'c' }}",
+  "dateModified": "{{ results.published_date|date:'c' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ results.author|striptags }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+    "name": "WifiResult",
+    "logo": {
       "@type": "ImageObject",
-      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png"
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo-600x120.webp",
+      "width": 600,
+      "height": 120
     }
   },
-
-  {% if results.image %}
-"image": {
-  "@type": "ImageObject",
-  "url": "{{ request.scheme }}://{{ request.get_host }}{{ results.image.url }}",
-  "width": {{ results.image.width }},
-  "height": {{ results.image.height }}
-}
-{% else %}
-"image": {
-  "@type": "ImageObject",
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
-    "width": 1200,
-    "height": 675
-}
-{% endif %}
-
-
-  "isPartOf": { "@id":"{{ request.scheme }}://{{ request.get_host }}/#website" },
-  "about": { "@type":"Thing", "name":"{{ results.title }}" 
-}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{{ results.image.url }}",
+    "width": {{ results.image.width }},
+    "height": {{ results.image.height }}
+  },
+  "isPartOf": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "{{ results.tag|escapejs }}"
+  },
+  "inLanguage": "en-IN",
+  "isAccessibleForFree": true
 }
 </script>
-
-
-
-<!--WebPage — page identity -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebPage",
-  "@id":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#webpage",
-  "url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
-  "name":"{{ results.title|escapejs }}",
-  "headline":"{{ results.h1|striptags|escapejs }}",
-  "description":"{{ results.description|truncatechars:300|escapejs }}",
-  "inLanguage":"en",
-  "isPartOf": { "@id":"{{ request.scheme }}://{{ request.get_host }}/#website" },
-  "primaryImageOfPage": {
-    "@type":"ImageObject",
-    {% if results.image %}
-  "url": "{{ request.scheme }}://{{ request.get_host }}{{ results.image.url }}",
-  "width": {{ results.image.width }},
-  "height": {{ results.image.height }}
-}
-{% else %}
-"image": {
-  "@type": "ImageObject",
-    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
-    "width": 1200,
-    "height": 675
-}
-{% endif %}
-
-  
-}
-</script>
-
-
 
 <!--FAQ Page schema -->
 
@@ -236,45 +202,6 @@
       "acceptedAnswer": { "@type": "Answer", "text": "{{ results.faq_a10 }}" }
     }
     {% endif %}
-  ]
-}
-</script>
-
-
-<!--how to check result schema-->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Check Result Online",
-  "description": "Step-by-step guide to check your result online from the official website.",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Visit official website",
-      "text": "First, open the official result website of the examination authority."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Go to the Results section",
-      "text": "Click on the Result or Latest Updates section from the homepage."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Select your exam",
-      "text": "Find and click on the link of the related exam result you want to check."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Enter required details",
-      "text": "Enter your Roll Number / Registration Number / Date of Birth if required."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Check & Download Result",
-      "text": "Click on the submit/view result button and check your marks. Download the score card or result PDF for future reference."
-    }
   ]
 }
 </script>
