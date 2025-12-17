@@ -6,37 +6,18 @@ from django.views.decorators.cache import cache_page
 from .views import subscribe
 from django.views.generic import RedirectView
 
-from .views import pdfresizer
-
 urlpatterns = [
         path('', views.home, name='home'),
         path('feed/', (LatestAllFeed()), name='site_feed'),  # Feed 
         
         path('rojgar-result/', views.rojgarresult, name="rojgarresult"),
-        path('fast-job/', views.fastjob, name="fastjob"),
         path('free-job-alert/', views.freejobalert, name='freejobalert'),
         path('result-bharat/', views.resultbharat, name='resultbharat'),
-        path('sarkari-naukri-2026/', views.sarkarinaukri2026, name='sarkarinaukri2026'),
         path('sarkari-jobs/', views.sarkarijobs, name='sarkarijobs'), # all sarkai jobs
-        path("careerpower/", views.careerpower, name="careerpower"),
         path("bihar-help/", views.biharhelp, name="biharhelp"),
-        path('free-job-alert-2024/', views.free_job_alert_2024, name='free_job_alert_2024'),
-
-        path("tools/", views.tools, name="tools"),
-        path('tools/age-calculator/', views.agetool, name="agetool"),
-        path("tools/image-resizer/", views.imageresizer, name="imageresizer"),
-        # path('tools/pdf-compressor/', views.pdfresizer, name="pdfresizer"),
-
-        path("tools/pdf-resizer/", pdfresizer, name="pdfresizer"),
-
-        path('tools/resume-cv-maker/', views.resumecvmaker, name="resumecvmaker"),
-        path('tools/photo-signature/', views.photosignature, name="photosignature"),
-        path('tools/image-to-pdf/', views.imagestopdfconverter, name="imagestopdfconverter"),
-        path('tools/name-date-on-photo/', views.namedateonphoto, name="namedateonphoto"),
         
         path("latest-jobs/job/", JobPostCreateView.as_view(), name="job_add"),
         path('latest-jobs/', views.job, name='job'),
-        path('recruitment/', views.recruitment, name='recruitment'),
 
         path('search/', views.search, name='search'),
         
@@ -48,14 +29,11 @@ urlpatterns = [
         
 
         path('all-india-govt-jobs/', views.all_india_govt_jobs, name='all_india_govt_jobs'), # allindiagovtjobs
-        path('latest-government-jobs/', views.latest_govt_jobs, name='latest_govt_jobs'), # latest govt jobs
         path('govt-jobs-today/', views.govtjobstoday, name='govtjobstoday'), # all  govt job today 
         path("latest-jobs/<slug:slug>/", views.job_detail, name="job_detail"),
         path('vacancy/', views.vacancy, name='vacancy'),
         path('online-form/', views.onlineform, name='onlineform'),
         path('sarkari-result-2025/', views.sarkariresult2025, name='sarkariresult2025'),
-        path('latest-jobs-sarkari-result/', views.ljsr, name='ljsr'),
-        path('sarkari-result-upcoming-vacancy/', views.srup, name='srup'),
         path('sarkari-naukri/', views.sarkarinokri, name="sarkarinokri"),
 
         path('results/', views.result, name='result'),
@@ -63,20 +41,9 @@ urlpatterns = [
         path('results/<slug:slug>/', views.result_detail, name='result_detail'),
 
         path('sarkari-result/', views.sarkariresult, name='sarkariresult'), # all sarkai results
-        path('latest-result/', views.latestresult, name='latestresult'), # Latest results
         path('sarkari-result-2024/', views.sarkariresult2024, name='sarkariresult2024'), # sarkariresult2024
-        path('latest-sarkari-result/', views.latestsarkariresult, name='latestsarkariresult'), # latestsarkariresult
         path('board-result/', views.boardresult, name='boardresult'), # boardresult
-        path("wifi-result/", views.wifiresult, name="wifiresult"),
-        path("fast/", views.fast, name="fast"),
-        path("wifi-result-online/", views.wifiresultonline, name="wifiresultonline"),
-        path("careerwill-sarkari-result/", views.careerwill, name=".careerwill"),
-        path("careers/", views.careers, name="careers"),
-
         path('iti-result/', views.itiresult, name="itiresult"),
-        path('ncvtmis/', views.ncvtmis, name="ncvtmis"),
-        path('scvt/', views.scvt, name="scvt"),
-
         
 
         path('admit-card/', views.admitcard, name='admitcard'),
@@ -94,12 +61,6 @@ urlpatterns = [
         path('scholarship/', views.scholarship, name='scholarship'),
         path('sarkari-yojana/', views.sarkariyojna, name='sarkariyojna'),
         path('syllabus/', views.syllabus, name='syllabus'),
-
-        #new
-        path('latest-news/', views.latestnews, name='latest_news'),
-        path('latest-sarkari-news/', views.latestsarkarinews, name='latestsarkarinews'),
-        path('sarkari-result-new-update/', views.sarkariresultnewupdate, name="sarkariresultnewupdate"),
-        path('blog/', views.blog, name='blog'),
 
 
         path('contact-us/', views.contact, name="contact"),
@@ -197,16 +158,8 @@ urlpatterns = [
         path('ssc-jobs/', views.sscjob, name='sscjob'),
         path('upsc-job/', views.upscjob, name='upscjob'), 
         path('government-teacher-jobs/', views.government_teacher_jobs, name='government_teacher_jobs'),
-
-        path('government-jobs/', views.governmentjobs, name='governmentjobs'),
-        path('jobs-by-education/', views.jobsbyeducation, name="jobsbyeducation"),
         path('exam-results/', views.examresults, name="examresults",),
         path('exam-dates/', views.examdate, name="examdate"),
-
-        path('education/', views.education, name="education"),
-
-        path("today-news/", views.todaynews, name="todaynews"),
-        path("india-results/", views.indiaresults, name="indiaresults"),
 
         
 # All pcs state  ----
@@ -242,19 +195,8 @@ urlpatterns = [
         path("ukpsc-jobs/", views.ukpsc_jobs, name="ukpsc_jobs"),
         path("west-bengal-wbpsc-jobs/", views.wbpsc_jobs, name="wbpsc_jobs"),
 
-        # Naya: PDF listing page
-        path("notifications/", views.notification_list, name="notification_list"),
-        path("notifications/<slug:slug>/", views.notification_detail, name="notification_detail"),
-        # path("notification/<slug:slug>/download/", views.notification_pdf_download, name="notification_pdf_download"),
-
-        path('fastjobsearchers/', views.fastjobsearchers, name="fastjobsearchers"),
         path('sarkari/', views.Sarkari, name="Sarkari"),
-        path("result-sarkari/", views.resultsarkari, name='resultsarkari'),
 
         path('subscriber/', subscribe, name='subscribe'),
-        
-        
-
-
 ] 
 
