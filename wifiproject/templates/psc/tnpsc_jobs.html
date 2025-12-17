@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block seo %} 
-  <title>TNPSC</title>
+  <title>TNPSC Jobs – Latest Tamil Nadu PSC Notifications</title>
   <meta name="description" content="TNPSC Jobs - Get latest Tamil Nadu Public Service Commission notifications for Group 1, Group 2, Group 4, VAO, Engineering, Assistant, Clerk & other posts.">
   <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/tnpsc-jobs/">
   <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="WifiResult.com">
   <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/tnpsc-jobs/">
-  <meta property="og:title" content="TNPSC">
+  <meta property="og:title" content="TNPSC Jobs – Latest Tamil Nadu PSC Notifications">
   <meta property="og:description" content="TNPSC Jobs - Get latest Tamil Nadu Public Service Commission notifications for Group 1, Group 2, Group 4, VAO, Engineering, Assistant, Clerk & other posts.">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
@@ -23,7 +23,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/tnpsc-jobs/">
-  <meta name="twitter:title" content="TNPSC">
+  <meta name="twitter:title" content="TNPSC Jobs – Latest Tamil Nadu PSC Notifications">
   <meta name="twitter:description" content="TNPSC Jobs - Get latest Tamil Nadu Public Service Commission notifications for Group 1, Group 2, Group 4, VAO, Engineering, Assistant, Clerk & other posts.">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
   <meta name="twitter:site" content="@WifiResult" />
@@ -53,7 +53,7 @@
     "@type":["WebPage","CollectionPage"],
     "@id":"{{ request.scheme }}://{{ request.get_host }}/tnpsc-jobs/#webpage",
     "url":"{{ request.scheme }}://{{ request.get_host }}/tnpsc-jobs/",
-    "name":"TNPSC",
+    "name":"TNPSC Jobs – Latest Tamil Nadu PSC Notifications",
     "headline":"TNPSC Jobs – Latest Tamil Nadu Public Service Commission Notifications 2026",
     "description":"TNPSC Jobs - Get latest Tamil Nadu Public Service Commission notifications for Group 1, Group 2, Group 4, VAO, Engineering, Assistant, Clerk & other posts.",
     "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
@@ -109,7 +109,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
-    "name": "TNPSC",
+    "name": "TNPSC Jobs – Latest Tamil Nadu PSC Notifications",
     "itemListOrder": "https://schema.org/ItemListOrderDescending",
     "numberOfItems": {{ latest_posts|length }},
     "itemListElement": [
@@ -179,12 +179,14 @@
   }
 
   /* Breaking News – New Color */
-  .breaking-news {
-    background: linear-gradient(90deg, #e1f5fe, #e8f5e9);
-    color: #01579b;
-    padding: 6px 0;
-    border-bottom: 1px solid #c5e1f5;
-  }
+.breaking-news {
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+  border-bottom: 2px solid #0f172a;
+}
   .breaking-news .icon {
     margin-right: 8px;
   }

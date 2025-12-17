@@ -1,20 +1,19 @@
-
-
-{% extends "base.html" %}
+  {% extends "base.html" %}
 {% load static %}
 
-    {% block seo %} 
-<title>Latest Govt Jobs 2026 – New Sarkari Job WifiResult.com</title>
-<meta name="description" content="Latest Govt Jobs 2026 Check New Government Vacancy, Online Form, Eligibility, Exam Date & All India Job Notifications at WifiResult.com.">
+{% block seo %} 
+<title>लेटेस्ट सरकारी नौकरियां 2026 – नई Sarkari Job | WifiResult.com</title>
+<meta name="description" content="लेटेस्ट सरकारी नौकरियां 2026 देखें – नई Government Vacancy, Online Form, Eligibility, Exam Date और All India Job Notifications सिर्फ WifiResult.com पर।">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/latest-jobs/">
-<!-- Open Graph / Facebook -->
+
+<!-- Open Graph -->
 <meta property="og:type" content="article"/>
-<meta property="og:site_name" content="WifiResult">
+<meta property="og:site_name" content="WifiResult.in">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-jobs/">
-<meta property="og:title" content="Latest Govt Jobs 2026 – New Sarkari Job WifiResult.com">
-<meta property="og:description" content="Latest Govt Jobs 2026 Check New Government Vacancy, Online Form, Eligibility, Exam Date & All India Job Notifications at WifiResult.com.">
+<meta property="og:title" content="लेटेस्ट सरकारी नौकरियां 2026 – नई Sarkari Job">
+<meta property="og:description" content="लेटेस्ट सरकारी नौकरियां 2026 – नई Govt Vacancy, Online Form, Eligibility, Exam Date और All India Job Updates।">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
-<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और जॉब अपडेट">
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="675" />
 <meta property="og:image:type" content="image/webp">
@@ -23,12 +22,10 @@
 <meta property="article:modified_time" content="{% now 'c' %}">
 <meta property="article:author" content="@Wifiresult"/>
 
-
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/latest-jobs/">
-<meta name="twitter:title" content="Latest Govt Jobs 2026 – New Sarkari Job WifiResult.com">
-<meta name="twitter:description" content="Latest Govt Jobs 2026 Check New Government Vacancy, Online Form, Eligibility, Exam Date & All India Job Notifications at WifiResult.com.">
+<meta name="twitter:title" content="लेटेस्ट सरकारी नौकरियां 2026">
+<meta name="twitter:description" content="नई Sarkari Naukri 2026 – Govt Jobs, Online Form, Eligibility, Exam Date।">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta name="twitter:site" content="@wifiresult" />
 <meta name="twitter:creator" content="@arvindpal" />
@@ -37,15 +34,48 @@
 <meta name="twitter:label2" content="Time to read" />
 <meta name="twitter:data2" content="6 minutes" />
 
-<!--BreadcrumbList Schema-->
+<!-- Breadcrumb Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "@id": "{{ request.scheme }}://{{ request.get_host }}/latest-jobs/#breadcrumb",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
-    { "@type": "ListItem", "position": 2, "name": "Latest Jobs", "item": "{{ request.scheme }}://{{ request.get_host }}/latest-jobs/" }
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "लेटेस्ट जॉब्स", "item": "{{ request.scheme }}://{{ request.get_host }}/latest-jobs/" }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "लेटेस्ट जॉब्स पेज पर क्या मिलता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर रोजाना अपडेट होने वाली नई सरकारी भर्तियां, नोटिफिकेशन, योग्यता, महत्वपूर्ण तिथियां और अप्लाई लिंक मिलते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या यहां दी गई सरकारी नौकरियां असली होती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, WifiResult पर सभी जॉब अपडेट केवल आधिकारिक सरकारी वेबसाइट और नोटिफिकेशन पर आधारित होते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं यहां से आवेदन कैसे कर सकता हूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हर जॉब के सामने Apply Online या Official Website का लिंक दिया होता है, जिससे आप सीधे आवेदन कर सकते हैं।"
+      }
+    }
   ]
 }
 </script>
@@ -73,58 +103,6 @@
   "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/latest-jobs/#breadcrumb" }
 }
 </script>
-
-<!-- FAQ (Schema) for /latest-jobs/ -->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Latest Jobs page par kya milta hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Is page par daily updated latest government vacancies, recruitment notifications, eligibility details, important dates, and official apply links list kiye jaate hain."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kya yahan listed jobs verified hoti hain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Haan, WifiResult par sabhi job notifications official government websites, recruitment boards aur departments dwara issue kiye gaye verified notices par based hote hain."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Main Latest Jobs page se apply kaise karoon?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Har job ke saamne 'Apply Online' ya 'Official Website' ka direct link diya hota hai. In links par click karke aap seedha official portal par jaakar application submit kar sakte hain."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Eligibility kaise check karoon?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Eligibility (qualification, age limit, experience) har job listing me mention hoti hai, aur saath me official notification PDF ka link bhi hota hai jisse aap details verify kar sakte hain."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Latest Jobs page kitni baar update hota hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Latest Jobs page rozana multiple times update hota hai jab bhi koi nayi government vacancy release hoti hai. Hum official notifications aate hi turant update kar dete hain."
-      }
-    }
-  ]
-}
-</script>
-
 
 <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
   <script type="application/ld+json">
@@ -172,9 +150,8 @@
   }
   </script>
 
- 
+{% endblock seo %}
 
-  {% endblock seo %}
 
   {% block style %}    
   
@@ -588,9 +565,9 @@
   <!-- Breadcrumb -->
   <div class="breadcrumb">
     <div class="container">
-      <a href="/">Home</a>
+      <a href="/">होम</a>
       <span>&gt;</span>
-      <span>Latest Jobs</span>
+      <span>लेटेस्ट नौकरियां</span>
     </div>
   </div>
 
@@ -598,15 +575,18 @@
 <div class="breaking-news">
   <marquee behavior="scroll" direction="left" scrollamount="6">
     <span class="icon">📢</span>  
-    <h1 class="headline"> Latest Govt Jobs 2026</h1>
+    <h1 class="headline">लेटेस्ट सरकारी नौकरी 2026</h1>
   </marquee>
 </div>
 <style>
 .breaking-news {
-  background: #f8d7da;
-  color: #721c24;
-  padding: 6px 0;
-  border-bottom: 1px solid #f1e3a2;}
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+  border-bottom: 2px solid #0f172a;
+}
 .breaking-news .icon {
   margin-right: 8px;}
 .breaking-news .headline {
@@ -625,7 +605,7 @@
       <!-- New Job Listing Box -->
       <div class="job-listing-container">
         <div class="job-listing-header">
-          <i class="fas fa-bell"></i> Latest Jobs
+ 🔔 लेटेस्ट नौकरियां
         </div>
         <ul class="job-list-compact p-0">  
           {% for job in page_obj %}
@@ -683,7 +663,7 @@
       <!-- Trending Topics Box -->
       <div class="trending-topics mobile-bottom">
         <div class="trending-header">
-          <i class="fas fa-fire"></i> Trending Topics
+          🔥 ट्रेंडिंग अपडेट
         </div>
         <div class="trending-list">
 
@@ -717,7 +697,7 @@
       <!-- Additional sidebar content can go here -->
       <div class="trending-topics">
         <div class="trending-header">
-          <i class="fas fa-bell"></i> Quick Alerts
+          <i class="fas fa-bell"></i> Quick अपडेट
         </div>
         <div class="trending-list">
 
@@ -742,7 +722,7 @@
  <!-- Website Information Section (Latest Jobs Page) -->
 <section class="website-info" id="latestjobs-info">
   <div class="container">
-    <h2>Latest Jobs 2025 – New Government Job Vacancies Updated Daily</h2>
+    <h2>नवीनतम नौकरियाँ 2026 – नई सरकारी नौकरी की रिक्तियाँ रोज़ाना अपडेट की जाती हैं</h2>
 
     <div class="info-content">
 
@@ -841,4 +821,4 @@
 </section>
 
 
-  {% endblock content %}
+  {% endblock content %}   

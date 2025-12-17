@@ -371,10 +371,40 @@ def resultbharat(request):
     }
     return render (request, "jobs/resultbharat.html", context)
 
-def sarkariresult(request):
+def sarkarinaukri2026(request):
     jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    admitcards = Admitcard.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
     govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:10]
+    boxnames = Boxname.objects.all().order_by("-published_date")
+
+    # 2) chain se sabko jod do
+    mixed_objects = list(chain(jobs, results, admitcards))
+    # 3) sabko created_at ke hisaab se sort kar do (naya sabse upar)
+    mixed_objects = sorted(
+        mixed_objects,
+        key=lambda obj: obj.published_date,
+        reverse=True
+    )
+    # 4) agar 20 ya 30 hi dikhane hain:
+    latest_posts = mixed_objects[:15]
+
+    context = {
+        "published_time": timezone.now(),
+        "modified_time": timezone.now(),
+        "jobs": jobs,
+        "results": results,
+        "admitcards": admitcards,
+        "govtupdates": govtupdates,
+        "boxnames": boxnames,
+        "latest_posts": latest_posts,
+    }
+    return render (request, "jobs/sarkarinaukri2026.html", context)
+
+def sarkariresult(request):
+    jobs = Job.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
+    results = Result.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
+    govtupdates = Govtupdate.objects.all().filter(status='published', is_active=True).order_by("-published_date")[:20]
     boxnames = Boxname.objects.all().order_by("-published_date")
 
         # 2) chain se sabko jod do
@@ -386,7 +416,7 @@ def sarkariresult(request):
         reverse=True
     )
     # 4) agar 20 ya 30 hi dikhane hain:
-    latest_posts = mixed_objects[:10]
+    latest_posts = mixed_objects[:20]
 
     context = {
         "published_time": timezone.now(),

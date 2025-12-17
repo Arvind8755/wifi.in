@@ -342,3 +342,22 @@ from django import forms
 
 class PDFUploadForm(forms.Form):
     pdf_file = forms.FileField(label="Upload PDF")
+
+
+# Admin Panal jazzmin library
+
+JAZZMIN_SETTINGS = {
+    # 🔷 Site Identity
+    "site_title": "WifiResult Admin",
+    "site_header": "WifiResult",
+    "site_brand": "WifiResult",
+    "welcome_sign": "Welcome to WifiResult Admin Panel",
+    "copyright": "WifiResult.com",
+
+    # 🔷 Browser Tab Title
+    "site_logo_classes": "img-circle",
+
+    # 🔷 Top Right User Menu
+    "user_avatar": None,
+}
+

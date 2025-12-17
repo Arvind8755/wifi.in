@@ -16,6 +16,7 @@ urlpatterns = [
         path('fast-job/', views.fastjob, name="fastjob"),
         path('free-job-alert/', views.freejobalert, name='freejobalert'),
         path('result-bharat/', views.resultbharat, name='resultbharat'),
+        path('sarkari-naukri-2026/', views.sarkarinaukri2026, name='sarkarinaukri2026'),
         path('sarkari-jobs/', views.sarkarijobs, name='sarkarijobs'), # all sarkai jobs
         path("careerpower/", views.careerpower, name="careerpower"),
         path("bihar-help/", views.biharhelp, name="biharhelp"),

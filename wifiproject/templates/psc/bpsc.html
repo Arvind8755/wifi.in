@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block seo %} 
-  <title>BPSC</title>
+  <title>BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies</title>
   <meta name="description" content="BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.">
   <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/">
   <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="WifiResult.com">
   <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/">
-  <meta property="og:title" content="BPSC">
+  <meta property="og:title" content="BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies">
   <meta property="og:description" content="BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.">
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
 <meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
@@ -24,7 +24,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/">
-  <meta name="twitter:title" content="BPSC">
+  <meta name="twitter:title" content="BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies">
   <meta name="twitter:description" content="BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
   <meta name="twitter:site" content="@WifiResult" />
@@ -54,8 +54,8 @@
     "@type":["WebPage","CollectionPage"],
     "@id":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/#webpage",
     "url":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/",
-    "name":"BPSC",
-    "headline":"BPSC Jobs – Latest Bihar Public Service Commission Notifications 2026",
+    "name":"BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies",
+    "headline":"BPSC Jobs 2026 – Latest Bihar Public Service Commission Notifications",
     "description":"BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.",
     "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
     "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
@@ -76,7 +76,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
-    "name": "BPSC",
+    "name": "BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies",
     "itemListOrder": "https://schema.org/ItemListOrderDescending",
     "numberOfItems": {{ latest_posts|length }},
     "itemListElement": [
@@ -183,12 +183,14 @@
   }
 
   /* Breaking News – New Color */
-  .breaking-news {
-    background: linear-gradient(90deg, #e1f5fe, #e8f5e9);
-    color: #01579b;
-    padding: 6px 0;
-    border-bottom: 1px solid #c5e1f5;
-  }
+.breaking-news {
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+  border-bottom: 2px solid #0f172a;
+}
   .breaking-news .icon {
     margin-right: 8px;
   }
@@ -500,7 +502,7 @@
   <div class="breaking-news">
     <marquee behavior="scroll" direction="left" scrollamount="6">
       <span class="icon">📢</span>  
-      <h1 class="headline">BPSC Jobs – Latest Bihar Public Service Commission Notifications 2026</h1>
+      <h1 class="headline">BPSC Jobs 2026 – Latest Bihar Public Service Commission Notifications</h1>
     </marquee>
   </div>
 

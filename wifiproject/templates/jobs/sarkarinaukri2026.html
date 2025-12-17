@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>Sarkari Naukri 2026 – Latest Govt Jobs, Results & Admit Cards</title>
+<meta name="description" content="Sarkari Naukri 2026: Get all upcoming government jobs, exam results, admit cards and notifications for 2026 with official links.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri-2026/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri-2026/">
+<meta property="og:title" content="Sarkari Naukri 2026 – Latest Govt Jobs, Results & Admit Cards">
+<meta property="og:description" content="All upcoming Sarkari Naukri 2026 updates in one place – Jobs, Results & Admit Cards.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sarkari Naukri 2026 – Latest Govt Jobs, Results & Admit Cards">
+<meta name="twitter:description" content="Latest Sarkari Naukri 2026 updates with official links.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+
+<!-- Breadcrumb -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BreadcrumbList",
+ "itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+  {"@type":"ListItem","position":2,"name":"Sarkari Naukri 2026","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri-2026/"}
+ ]
+}
+</script>
+
+ <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Sarkari Naukri 2026 – Latest Govt Jobs, Results & Admit Cards",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock seo %}
+
+{% block style %}
+<style>
+:root{
+ --sn-blue:#0d47a1;
+ --sn-red:#d32f2f;
+ --sn-dark:#081a3a;
+ --sn-bg:#f4f6ff;
+}
+
+body{background:var(--sn-bg)}
+
+.hero-2026{
+ background:linear-gradient(135deg,var(--sn-blue),var(--sn-red));
+ color:#fff;
+ border-radius:18px;
+ padding:32px 18px;
+ margin:14px 0 20px;
+ text-align:center;
+}
+.hero-2026 h1{font-weight:900;margin-bottom:8px}
+.hero-2026 p{opacity:.95}
+
+.stats{
+ display:flex;
+ gap:12px;
+ justify-content:center;
+ flex-wrap:wrap;
+ margin-top:14px;
+}
+.stat{
+ background:#fff;
+ color:#111;
+ padding:10px 16px;
+ border-radius:999px;
+ font-weight:800;
+ box-shadow:0 10px 22px rgba(0,0,0,.15)
+}
+
+.section-title{
+ margin:22px 0 10px;
+ font-weight:900;
+ font-size:20px;
+ color:#111;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:18px;
+}
+
+.box{
+ background:#fff;
+ border-radius:16px;
+ box-shadow:0 14px 30px rgba(0,0,0,.10);
+ overflow:hidden;
+}
+
+.box-head{
+ padding:14px 16px;
+ font-weight:900;
+ background:linear-gradient(90deg,#e3f2fd,#fff);
+ border-bottom:2px solid #e3f2fd;
+}
+
+.box-body{padding:14px}
+
+.box-body ul{list-style:none;margin:0;padding:0}
+.box-body li{padding:8px 0;border-bottom:1px dashed #ddd}
+.box-body li:last-child{border-bottom:none}
+.box-body a{text-decoration:none;color:#111}
+.box-body a:hover{color:var(--sn-blue)}
+
+.footer-info{
+ margin:26px 0;
+ padding:22px;
+ border-radius:18px;
+ background:linear-gradient(160deg,var(--sn-blue),var(--sn-dark));
+ color:#e6eeff;
+}
+.footer-info h2{font-size:22px;font-weight:900}
+.footer-info p{font-size:14px;line-height:1.7}
+.footer-info ul{font-size:14px;line-height:1.7}
+</style>
+{% endblock style %}
+
+{% block content %}
+
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Sarkari Naukri 2026</span>
+    </div>
+  </div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero-2026">
+    <h1>Sarkari Naukri 2026</h1>
+    <p>Upcoming Government Jobs, Results & Admit Cards – All in One Place</p>
+
+    <div class="stats">
+      <div class="stat">Latest Jobs 2026</div>
+      <div class="stat">Exam Results</div>
+      <div class="stat">Admit Cards</div>
+      <div class="stat">Verified Links</div>
+    </div>
+  </section>
+
+  <!-- CONTENT GRID -->
+  <div class="grid">
+
+    <div class="box">
+      <div class="box-head">📝 Upcoming Govt Jobs 2026</div>
+      <div class="box-body">
+        <ul>
+          {% for job in jobs %}
+          <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank">{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-head">📊 Sarkari Results 2026</div>
+      <div class="box-body">
+        <ul>
+          {% for result in results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank">{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-head">🎫 Admit Cards 2026</div>
+      <div class="box-body">
+        <ul>
+          {% for admitcard in admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank">{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INFO -->
+  <section class="footer-info">
+    <h2>Why Sarkari Naukri 2026 on WifiResult?</h2>
+    <p>
+      Sarkari Naukri 2026 page is designed specially for aspirants looking for
+      <strong>future government job opportunities, upcoming exams, results and admit cards</strong>.
+      All updates are verified from official sources before publishing.
+    </p>
+
+    <ul>
+      <li>✔ Central & State Govt Jobs 2026</li>
+      <li>✔ Exam Results & Merit Lists</li>
+      <li>✔ Admit Cards & Exam Dates</li>
+      <li>✔ Fast & Mobile Friendly Updates</li>
+    </ul>
+  </section>
+
+</div>
+
+{% endblock content %}
