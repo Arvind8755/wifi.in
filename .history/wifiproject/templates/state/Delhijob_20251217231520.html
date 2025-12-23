@@ -1,0 +1,1656 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>दिल्ली सरकारी नौकरियां</title>
+  <meta name="description" content="दिल्ली सरकारी नौकरियां - दिल्ली पुलिस, DSSSB, DDA, स्वास्थ्य विभाग और सभी दिल्ली सरकारी रिक्तियां खोजें। पात्रता, वेतन, सिलेबस और ऑनलाइन आवेदन लिंक प्राप्त करें।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/">
+<meta property="og:title" content="दिल्ली सरकारी नौकरियां">
+<meta property="og:description" content="दिल्ली सरकारी नौकरियां - दिल्ली पुलिस, DSSSB, DDA, स्वास्थ्य विभाग और सभी दिल्ली सरकारी रिक्तियां। पात्रता, वेतन, सिलेबस और ऑनलाइन आवेदन लिंक प्राप्त करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/">
+<meta name="twitter:title" content="दिल्ली सरकारी नौकरियां">
+<meta name="twitter:description" content="दिल्ली सरकारी नौकरियां - दिल्ली पुलिस, DSSSB, DDA, स्वास्थ्य विभाग और सभी दिल्ली सरकारी रिक्तियां। पात्रता, वेतन, सिलेबस और ऑनलाइन आवेदन लिंक प्राप्त करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "दिल्ली सरकारी नौकरियां", "item": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/" }
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/",
+  "name": "दिल्ली सरकारी नौकरियां",
+  "headline": "नवीनतम दिल्ली सरकारी नौकरियां 2026 – DSSSB, दिल्ली पुलिस और DDA रिक्तियां",
+  "description": "दिल्ली सरकारी नौकरियां - दिल्ली पुलिस, DSSSB, DDA, स्वास्थ्य विभाग और सभी दिल्ली सरकारी रिक्तियां खोजें। पात्रता, वेतन, सिलेबस और ऑनलाइन आवेदन लिंक प्राप्त करें।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/#breadcrumb" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "दिल्ली में कौन-सी सरकारी नौकरियां उपलब्ध हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "दिल्ली में सरकारी नौकरियां DSSSB, दिल्ली पुलिस, UPSC (दिल्ली आधारित पद), DDA, MCD, दिल्ली जल बोर्ड, स्वास्थ्य विभाग, शिक्षा विभाग, दिल्ली उच्च न्यायालय और जिला न्यायालयों तथा दिल्ली सरकार और केंद्र सरकार निकायों के अंतर्गत विभिन्न ग्रुप-A, ग्रुप-B, ग्रुप-C तथा ग्रुप-D पदों पर उपलब्ध होती हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "दिल्ली सरकारी नौकरियों के लिए ऑनलाइन आवेदन कैसे करें?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "उम्मीदवार DSSSB, दिल्ली पुलिस भर्ती वेबसाइट, DDA पोर्टल, MCD भर्ती साइट और विभाग-विशिष्ट पोर्टल के माध्यम से ऑनलाइन आवेदन कर सकते हैं। WifiResult के दिल्ली सरकारी नौकरी पेज पर अपडेटेड सरकारी नौकरी अधिसूचनाएं, पात्रता मानदंड, परीक्षा तिथियां और ऑनलाइन आवेदन लिंक नियमित रूप से उपलब्ध कराए जाते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "दिल्ली सरकारी नौकरियों की पात्रता मानदंड क्या हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "पात्रता पद के अनुसार अलग-अलग होती है और इसमें 10वीं, 12वीं, डिप्लोमा, स्नातक, स्नातकोत्तर, B.Ed या तकनीकी/प्रोफेशनल योग्यता की आवश्यकता हो सकती है। सामान्य आयु सीमा 18 से 32 वर्ष होती है, जिसमें OBC, SC, ST, EWS और अन्य आरक्षित श्रेणियों के लिए दिल्ली सरकार नियमों के अनुसार छूट लागू होती है।"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "दिल्ली सरकारी नौकरियां",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+       background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: linear-gradient(90deg, #0097a7, #1565c0);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+ 
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">नौकरियां</a>
+      <span>&gt;</span>
+      <span>नवीनतम दिल्ली सरकारी नौकरियां</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> नवीनतम दिल्ली सरकारी नौकरियां 2026 – DSSSB, दिल्ली पुलिस और DDA रिक्तियां</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+  border-bottom: 2px solid #0f172a;
+}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> नवीनतम दिल्ली सरकारी नौकरियां
+        </div>
+        <ul class="job-list-compact p-0">
+        
+  {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+           {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई दिल्ली सरकारी नौकरी लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई दिल्ली सरकारी नौकरी भर्ती आएगी, इस पेज पर तुरंत अपडेट कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+           
+        </ul>
+       
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग जॉब टॉपिक्स
+        </div>
+        <div class="trending-list">
+          
+{% with latest_results|length as result_count %}
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+           
+ {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+             </div>
+ {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </main>
+ <!-- Website Information Section -->
+<section class="website-info">
+  <div class="container">
+    <h2>दिल्ली सरकारी नौकरियां 2026 – दिल्ली में नवीनतम सरकारी रिक्तियां</h2>
+
+    <div class="info-content">
+
+      <div class="info-point">
+        <h3>नवीनतम दिल्ली सरकारी जॉब अधिसूचनाएं</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर उम्मीदवार DSSSB, UPSC (केंद्र सरकार दिल्ली पद), दिल्ली पुलिस, DDA, MCD, दिल्ली जल बोर्ड, दिल्ली स्वास्थ्य विभाग, शिक्षा विभाग, उच्च न्यायालय और जिला न्यायालयों तथा अन्य सरकारी संगठनों द्वारा जारी सबसे हाल की और सत्यापित <strong>दिल्ली सरकारी नौकरी</strong> अधिसूचनाएं देख सकते हैं। यह पेज रोजाना अपडेट किया जाता है ताकि उम्मीदवार दिल्ली में कोई महत्वपूर्ण भर्ती अवसर मिस न करें।
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>परीक्षा तिथियां, एडमिट कार्ड और भर्ती अलर्ट</h3>
+        <p>
+          सभी प्रमुख <strong>दिल्ली सरकारी परीक्षाओं</strong>, एडमिट कार्ड घोषणाओं और भर्ती शेड्यूल के बारे में अपडेट रहें। चाहे वह DSSSB शिक्षण और गैर-शिक्षण पद हों, दिल्ली पुलिस कांस्टेबल/SI भर्ती, DDA रिक्तियां, MCD पद या UPSC दिल्ली आधारित पद — हर आवश्यक अपडेट यहां तेजी से और सीधे डाउनलोड लिंक के साथ उपलब्ध कराया जाता है।
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>सिलेबस, पिछले पेपर और आधिकारिक उत्तर कुंजी</h3>
+        <p>
+          दिल्ली सरकारी परीक्षाओं की तैयारी करने वाले उम्मीदवार <strong>सिलेबस PDF, पिछले वर्ष के पेपर, मॉडल प्रश्न सेट और आधिकारिक उत्तर कुंजी</strong> डाउनलोड कर सकते हैं। ये संसाधन उम्मीदवारों को परीक्षा पैटर्न समझने और प्रतियोगी परीक्षाओं में बेहतर प्रदर्शन करने में मदद करते हैं।
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>सभी योग्यता स्तरों के लिए सरकारी नौकरियां</h3>
+        <p>
+          <strong>10वीं पास, 12वीं पास, स्नातक, डिप्लोमा/ITI धारक, इंजीनियर, शिक्षक, नर्स और कुशल पेशेवरों</strong> के लिए दिल्ली सरकारी रिक्तियां खोजें। दिल्ली सरकार और केंद्र सरकार विभाग हर साल कई क्षेत्रों में हजारों रिक्तियां जारी करते हैं, जो सभी शैक्षणिक पृष्ठभूमि वाले उम्मीदवारों के लिए अवसर प्रदान करते हैं।
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>दिल्ली सरकारी नौकरियों के लिए आपका वन-स्टॉप पोर्टल</h3>
+        <p>
+          <strong>wifiresult.com</strong> <strong>दिल्ली सरकारी नौकरियां 2026–2027</strong> के लिए आपका सबसे विश्वसनीय और उपयोगकर्ता-अनुकूल प्लेटफॉर्म है। नौकरी अधिसूचनाओं और परीक्षा कैलेंडर से लेकर एडमिट कार्ड, रिजल्ट, कटऑफ और आधिकारिक नोटिस तक — हर आवश्यक अपडेट एक आसान नेविगेशन सेक्शन में उपलब्ध है।
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; line-height:1.8; color:#555;">
+      हमारा लक्ष्य उम्मीदवारों को <strong>दिल्ली सरकार</strong> में मजबूत भविष्य बनाने में सहायता करना है। इस पेज को बुकमार्क करें ताकि आपको <strong>DSSSB भर्ती, दिल्ली पुलिस नौकरियां, शिक्षण और गैर-शिक्षण पद, DDA रिक्तियां, स्वास्थ्य विभाग नौकरियां, इंजीनियरिंग और तकनीकी पद</strong> और सभी आगामी दिल्ली सरकारी नौकरी अधिसूचनाओं के दैनिक अपडेट मिलते रहें।
+    </p>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Delhi Govt Jobs</title>
+<meta name="description" content="Delhi Govt Jobs - Find latest Delhi Police, DSSSB, DDA, Health Dept & all Delhi government vacancies. Get eligibility, salary, syllabus & apply online links.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/">
+<meta property="og:title" content="Delhi Govt Jobs">
+<meta property="og:description" content="Delhi Govt Jobs - Find latest Delhi Police, DSSSB, DDA, Health Dept & all Delhi government vacancies. Get eligibility, salary, syllabus & apply online links.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/">
+<meta name="twitter:title" content="Delhi Govt Jobs">
+<meta name="twitter:description" content="Delhi Govt Jobs - Find latest Delhi Police, DSSSB, DDA, Health Dept & all Delhi government vacancies. Get eligibility, salary, syllabus & apply online links.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Delhi Govt Jobs", "item": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/" }
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/",
+  "name": "Delhi Govt Jobs",
+  "headline": "Latest Delhi Govt Jobs 2026 – DSSSB, Delhi Police & DDA Vacancies",
+  "description": "Delhi Govt Jobs - Find latest Delhi Police, DSSSB, DDA, Health Dept & all Delhi government vacancies. Get eligibility, salary, syllabus & apply online links.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/delhi-govt-jobs/#breadcrumb" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What government jobs are available in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Government jobs in Delhi include vacancies through DSSSB, Delhi Police, UPSC (Delhi-based posts), DDA, MCD, Delhi Jal Board, Health Department, Education Department, High Court of Delhi, and various Group-A, Group-B, Group-C and Group-D posts under Delhi Government and Central Government bodies located in Delhi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I apply for Delhi government jobs online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Candidates can apply online through DSSSB, Delhi Police recruitment website, DDA portal, MCD recruitment site and department-specific portals. Updated government job notifications, eligibility criteria, exam dates and apply-online links are regularly provided on the Delhi Govt Jobs page of WifiResult."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the eligibility criteria for Delhi govt jobs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligibility differs depending on the post and may require 10th, 12th, Diploma, Graduation, Post-Graduation, B.Ed or technical/professional qualifications. The general age limit ranges from 18 to 32 years, with relaxations for OBC, SC, ST, EWS and other reserved categories as per Delhi Government rules."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Delhi Govt Jobs",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+   /* ===== Info Section  ===== */
+  .website-info {
+    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(255,255,255,0.96);
+    padding: 16px 18px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(148,163,184,0.4);
+    border: 1px solid rgba(148,163,184,0.5);
+    transition: transform 0.2s ease;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #1d4ed8;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span>Latest Delhi Govt Jobs</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest Delhi Govt Jobs 2026 – DSSSB, Delhi Police & DDA Vacancies</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+   color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> Latest Delhi Govt Jobs
+        </div>
+        <ul class="job-list-compact p-0">
+        
+  {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+           {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई  Delhi Govt Jobs लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई  Delhi Govt Jobs भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+           
+        </ul>
+       
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+          
+{% with latest_results|length as result_count %}
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+           
+ {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+             <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+             </div>
+ {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </main>
+ <!-- Website Information Section -->
+<section class="website-info">
+  <div class="container">
+    <h2>Delhi Govt Jobs 2026 – Latest Government Vacancies in Delhi</h2>
+
+    <div class="info-content">
+
+      <div class="info-point">
+        <h3>Latest Delhi Government Job Notifications</h3>
+        <p>
+          At <strong>wifiresult.com</strong>, candidates can explore the most recent and verified  
+          <strong>Delhi Govt Job</strong> notifications released by DSSSB, UPSC (Central Govt Delhi Posts),  
+          Delhi Police, DDA, MCD, Delhi Jal Board, Delhi Health Department,  
+          Education Department, High Court & District Courts, and other government organizations.  
+          This page is updated daily so aspirants never miss any important recruitment opportunity in Delhi.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Exam Dates, Admit Cards & Recruitment Alerts</h3>
+        <p>
+          Stay updated with all major <strong>Delhi Government Exams</strong>,  
+          admit card announcements, and recruitment schedules.  
+          Whether it’s DSSSB Teaching & Non-Teaching posts,  
+          Delhi Police Constable/SI recruitment, DDA vacancies, MCD posts,  
+          or UPSC Delhi-based positions — every essential update is provided here  
+          with quick and direct download links.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Syllabus, Previous Papers & Official Answer Keys</h3>
+        <p>
+          Aspirants preparing for Delhi govt exams can download  
+          <strong>syllabus PDFs, previous year papers, model question sets,  
+          and official answer keys</strong>.  
+          These resources help candidates understand exam patterns  
+          and perform better in competitive examinations.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Govt Jobs for All Qualification Levels</h3>
+        <p>
+          Explore wide-ranging Delhi govt vacancies suitable for  
+          <strong>10th pass, 12th pass, graduates, diploma/ITI holders, engineers, teachers, nurses,  
+          and skilled professionals</strong>.  
+          The Delhi Government and Central Government departments release thousands of vacancies  
+          every year across multiple sectors, offering opportunities for all educational backgrounds.
+        </p>
+      </div>
+
+      <div class="info-point">
+        <h3>Your One-Stop Portal for Delhi Govt Jobs</h3>
+        <p>
+          <strong>wifiresult.com</strong> is your most trusted and user-friendly platform for  
+          <strong>Delhi Govt Jobs 2026–2027</strong>.  
+          From job notifications and exam calendars to admit cards, results, cutoffs,  
+          and official notices — every essential update is available  
+          in one easy-to-navigate section.
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; line-height:1.8; color:#555;">
+      Our mission is to support aspirants in building a strong future in the  
+      <strong>Government of Delhi</strong>. Bookmark this page to receive daily updates on  
+      <strong>DSSSB Recruitment, Delhi Police Jobs, Teaching & Non-Teaching Posts,  
+      DDA Vacancies, Health Department Jobs, Engineering & Technical Posts</strong>  
+      and all upcoming Delhi government job notifications.
+    </p>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+   {% endcomment %}

@@ -1,0 +1,1562 @@
+{% extends "base.html" %}
+{% load static %}
+{% block seo %}
+<title>सरकारी रिजल्ट 2026 – सरकारी परीक्षा रिजल्ट, स्कोर कार्ड</title>
+<meta name="description" content="सरकारी रिजल्ट 2026 देखें, सरकारी परीक्षा रिजल्ट, स्कोर कार्ड, मेरिट लिस्ट, कट ऑफ और फाइनल सिलेक्शन। WifiResult.com पर आज के रिजल्ट अपडेट।">
+<meta name="keywords" content="सरकारी रिजल्ट, सरकारी परीक्षा रिजल्ट, नवीनतम रिजल्ट 2025, WifiResult, मेरिट लिस्ट, सरकारी परीक्षाएं">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/results/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/results">
+<meta property="og:title" content="सरकारी रिजल्ट 2026 – सरकारी परीक्षा रिजल्ट, स्कोर कार्ड">
+<meta property="og:description" content="सरकारी रिजल्ट 2026 देखें, सरकारी परीक्षा रिजल्ट, स्कोर कार्ड, मेरिट लिस्ट, कट ऑफ और फाइनल सिलेक्शन। WifiResult.com पर आज के रिजल्ट अपडेट।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/results/">
+<meta name="twitter:title" content="सरकारी रिजल्ट 2026 – सरकारी परीक्षा रिजल्ट, स्कोर कार्ड">
+<meta name="twitter:description" content="सरकारी रिजल्ट 2026 देखें, सरकारी परीक्षा रिजल्ट, स्कोर कार्ड, मेरिट लिस्ट, कट ऑफ और फाइनल सिलेक्शन। WifiResult.com पर आज के रिजल्ट अपडेट।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@wifiresult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="लिखित द्वारा" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="पढ़ने का समय" />
+<meta name="twitter:data2" content="7 मिनट" />
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/results/#breadcrumb",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "होम",
+    "item": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "रिजल्ट",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/results/"
+    }
+  ]
+}
+</script>
+<!--webpage + collectionpage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/results/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/results/",
+  "name": "सरकारी रिजल्ट 2026 – सरकारी परीक्षा रिजल्ट, स्कोर कार्ड",
+  "headline": "सरकारी रिजल्ट 2026",
+  "description": "सरकारी रिजल्ट 2026 देखें, सरकारी परीक्षा रिजल्ट, स्कोर कार्ड, मेरिट लिस्ट, कट ऑफ और फाइनल सिलेक्शन। WifiResult.com पर आज के रिजल्ट अपडेट।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/results/#breadcrumb" }
+}
+</script>
+<!-- FAQ (Schema) for /results/ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "रिजल्ट page par mujhe kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par sabse naye Sarkari Exam रिजल्ट, scorecards, merit lists, cutoff updates, selection lists aur official result PDFs list kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yeh results official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, WifiResult par sabhi results official government portals par publish hui notifications ke adhar par hi update kiye jaate hain. Verification ke liye har post me official link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apna result kaise download karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har result listing me 'Download Result', 'View Scorecard' ya 'Check Merit List' ka direct official link diya hota hai. Link par click karke aap seedha respective department ke portal par redirect ho jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cutoff marks aur merit list bhi milti hai kya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jee haan. Agar department cutoff marks, merit list, selection list ya scorecard release karta hai to WifiResult uska direct link aur details page par update kar deta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "रिजल्ट page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "रिजल्ट page din me kai baar update hota hai. Jaise hi kisi government department dwara koi naya result release hota hai, hum turant uski listing yahan update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "सरकारी रिजल्ट 2026 – सरकारी परीक्षा रिजल्ट, स्कोर कार्ड",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endblock seo %}
+  {% block style %}
+ 
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+   
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+   
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+   
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+   
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+   
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+   
+    .sidebar {
+      width: 300px;
+    }
+   
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .section-title i {
+      margin-right: 10px;
+    }
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+   
+    .job-listing-header {
+       background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+   
+    .job-list-compact {
+      list-style: none;
+    }
+   
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+   
+    .job-item:last-child {
+      border-bottom: none;
+    }
+   
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+   
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+   
+    .job-title:hover {
+      color: var(--primary);
+    }
+   
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+   
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+     
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+   
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+   
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+   
+    .trending-header {
+      background: linear-gradient(90deg, #0097a7, #1565c0);
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+   
+    .trending-list {
+      padding: 15px;
+    }
+   
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+   
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+   
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+   
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+   
+    .trending-content {
+      flex: 1;
+    }
+   
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+   
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+   
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+   
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .website-info h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .nav-container {
+        flex-direction: column;
+      }
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .main-nav a {
+        padding: 10px 15px;
+      }
+     
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+      .main-nav ul.active {
+        display: flex;
+      }
+      .main-nav li {
+        width: 100%;
+      }
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+     
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+     
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+     
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+   
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+     
+      font-size: 18px;
+    }
+     
+      .header-top-right a {
+        margin: 0 5px;
+      }
+     
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+   
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+  {% endblock style %}
+  {% block content %}
+ 
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>रिजल्ट</span>
+    </div>
+  </div>
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>
+    <h1 class="headline">सरकारी रिजल्ट 2026</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+  border-bottom: 2px solid #0f172a;
+}
+.breaking-news .icon {
+  margin-right: 8px;
+}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px; /* वही size रखा */
+  font-weight: 600; /* थोड़ा bold look */
+  margin: 0;
+}
+</style>
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+     
+     
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> रिजल्ट
+        </div>
+        <ul class="job-list-compact p-0">
+          {% for result in page_obj %}
+          <li class="job-item">
+            <a href="/results/{{ result.slug }}/" target="_blank" class="job-title">{{ result.title }}</a>
+            <span class="job-date">{{ result.published_date|date:"d M, Y" }}</span>
+          </li> {% endfor %}
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px;
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb;
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+             
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}"
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px;
+              background: linear-gradient(90deg, #f0f0f0, #fafafa);
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600;
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+    <span style="padding: 10px 20px; border-radius: 999px;
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4);
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px;
+              background: linear-gradient(90deg, #f0f0f0, #fafafa);
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600;
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+       
+        </ul>
+        {% comment %} <a href="#" class="view-all">View All Jobs <i class="fas fa-arrow-right"></i></a> {% endcomment %}
+      </div>
+     
+      <!-- Rest of your existing job cards would go here -->
+     
+    </div>
+   
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग जॉब टॉपिक्स
+        </div>
+        <div class="trending-list">
+  {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+     
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+              {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+            <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+         
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Website Information Section -->
+    <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>परीक्षा रिजल्ट और स्कोरकार्ड — नवीनतम सरकारी नौकरी रिजल्ट</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>रिजल्ट घोषणाएं</h3>
+          <p><strong>wifiresult.com</strong> पर आपको UPSC, SSC, IBPS, RRB, राज्य लोक सेवा आयोग और अन्य भर्ती संस्थाओं द्वारा जारी आधिकारिक रिजल्ट घोषणाएं और स्कोरकार्ड मिलेंगे। प्रत्येक रिजल्ट पोस्ट में स्पष्ट रूप से <strong>परीक्षा का नाम, फेज/शिफ्ट, रिजल्ट जारी करने की तारीख</strong> और आधिकारिक रिजल्ट PDF या पोर्टल का डायरेक्ट लिंक दिखाया जाता है।</p>
+        </div>
+        <div class="info-point">
+          <h3>रिजल्ट / स्कोरकार्ड कैसे डाउनलोड करें</h3>
+          <p>प्रत्येक रिजल्ट आर्टिकल में <strong>स्कोरकार्ड डाउनलोड करने, मेरिट लिस्ट देखने और मार्क्स चेक करने</strong> के लिए स्टेप-बाय-स्टेप निर्देश शामिल होते हैं। हम आधिकारिक पोर्टल पर व्यक्तिगत स्कोरकार्ड एक्सेस करने के लिए आवश्यक डिटेल्स जैसे <strong>रोल नंबर / रजिस्ट्रेशन नंबर और जन्म तिथि</strong> को भी हाइलाइट करते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>सिलेक्शन लिस्ट और मेरिट/रैंक लिस्ट</h3>
+          <p>जारी होने पर हम कंसोलिडेटेड मेरिट लिस्ट और प्रोविजनली सिलेक्टेड कैंडिडेट्स की लिस्ट प्रकाशित करते हैं। मल्टी-स्टेज परीक्षाओं के लिए हम <strong>प्रोविजनली सिलेक्टेड कैंडिडेट्स, फाइनल मेरिट लिस्ट, वेटलिस्ट</strong> और राज्य/श्रेणी-वार कटऑफ के लिए अलग-अलग लिस्ट दिखाते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>कटऑफ, नॉर्मलाइजेशन और स्कोर डिटेल्स</h3>
+          <p>प्रत्येक रिजल्ट एंट्री में <strong>श्रेणी-वार कटऑफ, सेक्शनल कटऑफ, स्कोर नॉर्मलाइजेशन मेथडोलॉजी</strong> (यदि लागू हो) और उदाहरण गणनाओं के बारे में विस्तृत जानकारी प्रदान की जाती है ताकि कैंडिडेट्स समझ सकें कि फाइनल स्कोर कैसे निकाले गए।</p>
+        </div>
+        <div class="info-point">
+          <h3>आंसर की और OMR शीट्स</h3>
+          <p>हम आधिकारिक प्रोविजनल और फाइनल आंसर की से लिंक करते हैं, और उपलब्ध होने पर <strong>OMR शीट्स कैसे डाउनलोड करें</strong> पर गाइडेंस प्रदान करते हैं और अपनी रिस्पॉन्स को आधिकारिक की से कंपेयर करके रिजल्ट घोषित होने से पहले अपना स्कोर अनुमानित करने की सलाह देते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>रिजल्ट चैलेंज और रीचेक</h3>
+          <p>यदि भर्ती संस्था चैलेंज, री-इवैल्यूएशन या रीचेकिंग की अनुमति देती है, तो हम <strong>प्रक्रिया, फीस, डेडलाइन</strong> और सटीक पोर्टल लिंक्स सूचीबद्ध करते हैं। हम रीचेक के बाद शिकायत निवारण और रिजल्ट अपडेट के लिए सामान्य टाइमलाइन भी समझाते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>स्कोरकार्ड डिटेल्स और सर्टिफिकेट डाउनलोड</h3>
+          <p>स्कोरकार्ड में अक्सर <strong>सब्जेक्ट-वार मार्क्स, क्वालीफाइंग स्टेटस, रजिस्ट्रेशन डिटेल्स</strong> और सर्टिफिकेट डाउनलोड लिंक्स शामिल होते हैं। हम वेरीफाई करने के लिए महत्वपूर्ण फील्ड्स (नाम, DOB, श्रेणी) और आधिकारिक स्कोरकार्ड प्रिंट करने के निर्देश बताते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>कटऑफ ट्रेंड्स और पिछले वर्ष का विश्लेषण</h3>
+          <p>कटऑफ प्रेडिक्ट करने में मदद के लिए हम प्रमुख परीक्षाओं के लिए <strong>पिछले वर्ष की कटऑफ, श्रेणी ट्रेंड्स</strong> और संक्षिप्त विश्लेषण प्रकाशित करते हैं — जो चांस अनुमानित करने और अगले स्टेप्स प्लान करने में उपयोगी है।</p>
+        </div>
+        <div class="info-point">
+          <h3>मेरिट बनाम डॉक्यूमेंट वेरिफिकेशन (DV) और अगले स्टेप्स</h3>
+          <p>मेरिट में सूचीबद्ध कैंडिडेट्स के लिए हम सामान्य <strong>डॉक्यूमेंट वेरिफिकेशन (DV) शेड्यूल, जॉइनिंग निर्देश, प्रोविजनल ऑफर लेटर्स</strong> और राज्य/विभाग-विशिष्ट ऑनबोर्डिंग निर्देशों के लिंक्स सूचीबद्ध करते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>आधिकारिक लिंक्स और PDF डाउनलोड</h3>
+          <p>प्रत्येक रिजल्ट पोस्ट में डायरेक्ट आधिकारिक लिंक्स शामिल होते हैं: <strong>रिजल्ट PDF, स्कोरकार्ड पोर्टल, आंसर की</strong> और कोई आधिकारिक करिगेंडम। हम हमेशा सलाह देते हैं कि रिजल्ट को नियोक्ता की आधिकारिक वेबसाइट पर वेरीफाई करें।</p>
+        </div>
+        <div class="info-point">
+          <h3>FAQs और ट्रबलशूटिंग</h3>
+          <p>सामान्य समस्याओं के जवाब: <em>अगर मेरा नाम/रोल नंबर गायब है तो क्या करें? री-इवैल्यूएशन कैसे रिक्वेस्ट करें? डुप्लीकेट स्कोरकार्ड कैसे प्राप्त करें?</em> प्रत्येक रिजल्ट आर्टिकल में FAQs चेक करें व्यक्तिगत मदद के लिए।</p>
+        </div>
+        <div class="info-point">
+          <h3>रिजल्ट अलर्ट्स और सब्सक्रिप्शन</h3>
+          <p>रिजल्ट घोषणाओं और आंसर की अपडेट के लिए इंस्टेंट ईमेल / टेलीग्राम / SMS अलर्ट्स सब्सक्राइब करें। केवल अपनी पसंदीदा कैटेगरी — बैंकिंग, रेलवे, टीचिंग, डिफेंस आदि — के लिए सब्सक्राइब करने हेतु फिल्टर्स का उपयोग करें।</p>
+        </div>
+      </div>
+      <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+        हमारा उद्देश्य सटीक और समय पर रिजल्ट अपडेट प्रदान करना है ताकि आप अपनी परीक्षा प्रोग्रेस और अगले स्टेप्स ट्रैक कर सकें। किसी विसंगति के लिए हमेशा रिजल्ट पेज पर लिंक्ड आधिकारिक नोटिफिकेशन PDF से क्रॉस-चेक करें।
+      </p>
+    </div>
+  </section>
+  {% endblock content %}
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+<title>Sarkari Results 2026 – Govt Exam Result, Score Card</title>
+<meta name="description" content="Check Sarkari Results 2026, Govt Exam Result, Score Card, Merit List, Cut Off & Final Selection. Today’s Result Updates at WifiResult.com.">
+<meta name="keywords" content="Sarkari Result, Govt Exam Results, Latest Results 2025, WifiResult, Merit List, Sarkari Exams">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/results/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/results">
+<meta property="og:title" content="Sarkari Results 2026 – Govt Exam Result, Score Card">
+<meta property="og:description" content="Check Sarkari Results 2026, Govt Exam Result, Score Card, Merit List, Cut Off & Final Selection. Today’s Result Updates at WifiResult.com.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/results/">
+<meta name="twitter:title" content="Sarkari Results 2026 – Govt Exam Result, Score Card">
+<meta name="twitter:description" content="Check Sarkari Results 2026, Govt Exam Result, Score Card, Merit List, Cut Off & Final Selection. Today’s Result Updates at WifiResult.com.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@wifiresult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="7 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/results/#breadcrumb",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Results",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/results/"
+    }
+  ]
+}
+</script>
+
+<!--webpage + collectionpage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/results/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/results/",
+  "name": "Sarkari Results 2026 – Govt Exam Result, Score Card",
+  "headline": "Sarkari Results 2026",
+  "description": "Check Sarkari Results 2026, Govt Exam Result, Score Card, Merit List, Cut Off & Final Selection. Today’s Result Updates at WifiResult.com.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/results/#breadcrumb" }
+}
+</script>
+
+<!-- FAQ (Schema) for /results/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Results page par mujhe kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par sabse naye Sarkari Exam Results, scorecards, merit lists, cutoff updates, selection lists aur official result PDFs list kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yeh results official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, WifiResult par sabhi results official government portals par publish hui notifications ke adhar par hi update kiye jaate hain. Verification ke liye har post me official link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apna result kaise download karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har result listing me 'Download Result', 'View Scorecard' ya 'Check Merit List' ka direct official link diya hota hai. Link par click karke aap seedha respective department ke portal par redirect ho jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cutoff marks aur merit list bhi milti hai kya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jee haan. Agar department cutoff marks, merit list, selection list ya scorecard release karta hai to WifiResult uska direct link aur details page par update kar deta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Results page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Results page din me kai baar update hota hai. Jaise hi kisi government department dwara koi naya result release hota hai, hum turant uski listing yahan update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Sarkari Results 2026 – Govt Exam Result, Score Card",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Results</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline">Sarkari Results 2026</h1>
+  </marquee>
+</div>
+
+<style>
+.breaking-news {
+  background: #f8d7da;
+   color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;
+}
+.breaking-news .icon {
+  margin-right: 8px;
+}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;
+}
+</style>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> Results
+        </div>
+        <ul class="job-list-compact p-0">
+          {% for result in page_obj %}
+          <li class="job-item">
+            <a href="/results/{{ result.slug }}/" target="_blank" class="job-title">{{ result.title }}</a>
+            <span class="job-date">{{ result.published_date|date:"d M, Y" }}</span>
+          </li>  {% endfor %}
+
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+
+        
+        </ul>
+
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+
+  {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for admitcard in latest_admitcards %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+        <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}  
+
+
+
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+
+        <div class="trending-list">
+
+              {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+            <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+
+
+          
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Website Information Section -->
+    <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>Exam Results & Scorecards — Latest Sarkari Naukri Results</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>Result Announcements</h3>
+          <p>On <strong>wifiresult.com</strong> you will find official result announcements and scorecards released by UPSC, SSC, IBPS, RRBs, State Public Service Commissions and other recruiting bodies. Each result post clearly shows the <strong>exam name, phase/shift, result release date</strong> and a direct link to the official result PDF or portal.</p>
+        </div>
+        <div class="info-point">
+          <h3>How to Download Result / Scorecard</h3>
+          <p>Every result article includes step-by-step instructions to <strong>download scorecards, view merit lists, and check marks</strong>. We also highlight required details like <strong>roll number / registration no. and date of birth</strong> needed to access individual scorecards on the official portal.</p>
+        </div>
+        <div class="info-point">
+          <h3>Selection Lists & Merit/Rank Lists</h3>
+          <p>We publish consolidated merit lists and provisionally selected candidate lists when released. For multi-stage exams, we show separate lists for <strong>provisionally selected candidates, final merit lists, waitlists</strong> and state-/category-wise cutoffs.</p>
+        </div>
+        <div class="info-point">
+          <h3>Cutoffs, Normalization & Score Details</h3>
+          <p>Each result entry provides detailed information about <strong>category-wise cutoffs, sectional cutoffs, score normalization methodology</strong> (if applicable) and example calculations so candidates can understand how final scores were derived.</p>
+        </div>
+        <div class="info-point">
+          <h3>Answer Keys & OMR Sheets</h3>
+          <p>We link to official provisional and final answer keys, and when available we provide guidance on <strong>how to download OMR sheets</strong> and compare your responses to the official key to estimate your score before the result is declared.</p>
+        </div>
+        <div class="info-point">
+          <h3>Result Challenges & Rechecks</h3>
+          <p>If the recruiting body allows challenges, re-evaluation or rechecking, we list the <strong>process, fees, deadlines</strong> and exact portal links. We also explain typical timelines for grievance redressal and result updates after rechecks.</p>
+        </div>
+        <div class="info-point">
+          <h3>Scorecard Details & Certificate Downloads</h3>
+          <p>Scorecards often include <strong>subject-wise marks, qualifying status, registration details</strong> and certificate download links. We point out important fields to verify (name, DOB, category) and instructions for printing official scorecards.</p>
+        </div>
+        <div class="info-point">
+          <h3>Cutoff Trends & Previous Year Analysis</h3>
+          <p>To help you predict cutoffs, we publish <strong>previous-year cutoffs, category trends</strong> and short analysis for major exams — useful for estimating chances and planning next steps.</p>
+        </div>
+        <div class="info-point">
+          <h3>Merit vs Document Verification (DV) & Next Steps</h3>
+          <p>For candidates listed in merit, we list the typical <strong>Document Verification (DV) schedule, joining instructions, provisional offer letters</strong> and links to state/department-specific onboarding instructions.</p>
+        </div>
+        <div class="info-point">
+          <h3>Official Links & PDF Downloads</h3>
+          <p>Each result post includes direct official links: <strong>Result PDF, Scorecard portal, Answer Key</strong> and any official corrigendum. We always advise verifying the result on the employer’s official website.</p>
+        </div>
+        <div class="info-point">
+          <h3>FAQs & Troubleshooting</h3>
+          <p>Common issues answered: <em>What to do if my name/roll no. is missing? How to request re-evaluation? How to get duplicate scorecard?</em> Check the FAQs in each result article for tailored help.</p>
+        </div>
+        <div class="info-point">
+          <h3>Result Alerts & Subscription</h3>
+          <p>Subscribe to instant Email / Telegram / SMS alerts for result announcements and answer key updates. Use filters to subscribe only to categories you care about — Banking, Railways, Teaching, Defence, etc.</p>
+        </div>
+      </div>
+      <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+        We aim to deliver accurate, timely result updates so you can track your exam progress and next steps. For any discrepancy always cross-check with the official notification PDF linked on the result page.
+      </p>
+    </div>
+  </section>
+
+
+  {% endblock content %} {% endcomment %}
