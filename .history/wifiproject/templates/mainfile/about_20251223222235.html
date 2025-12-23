@@ -1,0 +1,791 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>हमारे बारे में – विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल WifiResult.com</title>
+<meta name="description" content="WifiResult – भारत का विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल। यहां मिलती है तेज रिजल्ट, एडमिट कार्ड, उत्तर कुंजी, सिलेबस और सरकारी भर्ती अपडेट।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/about-us/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/about-us/">
+<meta property="og:title" content="हमारे बारे में – विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल WifiResult.com">
+<meta property="og:description" content="WifiResult – भारत का विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल। यहां मिलती है तेज रिजल्ट, एडमिट कार्ड, उत्तर कुंजी, सिलेबस और सरकारी भर्ती अपडेट।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/about-us/">
+<meta name="twitter:title" content="हमारे बारे में – विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल WifiResult.com">
+<meta name="twitter:description" content="WifiResult – भारत का विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल। यहां मिलती है तेज रिजल्ट, एडमिट कार्ड, उत्तर कुंजी, सिलेबस और सरकारी भर्ती अपडेट।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/about-us/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "हमारे बारे में", "item": "{{ request.scheme }}://{{ request.get_host }}/about-us/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/about-us/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/about-us/",
+  "name": "हमारे बारे में – विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल WifiResult.com",
+  "headline": "WifiResult.com के बारे में",
+  "description": "WifiResult – भारत का विश्वसनीय सरकारी रिजल्ट और सरकारी नौकरी पोर्टल। यहां मिलती है तेज रिजल्ट, एडमिट कार्ड, उत्तर कुंजी, सिलेबस और सरकारी भर्ती अपडेट।",
+  "inLanguage": "hi-IN",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/about-us/#breadcrumb" }
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+    <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* about center */
+    .about-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:28px;color:var(--dark)}
+    .lead{color:#6b7280;margin-bottom:18px;font-size:15px}
+
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section ul{color:#333;font-size:15px;line-height:1.55}
+    .policy-section ul{margin-left:18px;list-style:disc}
+
+    .note-box{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px 16px;border-radius:4px;margin:12px 0;color:#495057}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* Keep mobile order consistent with earlier request */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>हमारे बारे में</span>
+    </div>
+  </div>
+
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline"> WifiResult.com के बारे में</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+  padding: 6px 06px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Main Grid: left-sidebar | content (ABOUT) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="About page main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+           <li><a href="{% url 'policejobs' %}">पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+            <li><a href="{% url 'rajasthanpolice' %}">राजस्थान पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+              <li><a href="{% url 'uppolice' %}">UP पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'delhipolice' %}">दिल्ली पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षक नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियां</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">प्रवेश</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">पाठ्यक्रम</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">छात्रवृत्ति</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: ABOUT US content (replaces contact content) -->
+    <section class="content-area" aria-label="WifiResult के बारे में">
+      <div class="about-card" role="region" aria-labelledby="about-heading">
+        <div class="page-title">
+          <i class="fas fa-info-circle" style="color:var(--primary);font-size:24px"></i>
+          <h2 id="contact-heading">हमारे बारे में — WifiResult</h2>
+        </div>
+
+        <p class="lead">WifiResult भारत भर में सरकारी नौकरी अधिसूचनाएं, परीक्षा अलर्ट, एडमिट कार्ड अपडेट और रिजल्ट समय पर और सटीक रूप से प्रदान करने के लिए समर्पित है। हमारा उद्देश्य विश्वसनीय और व्यवस्थित भर्ती जानकारी चाहने वाले अभ्यर्थियों के लिए पहला पड़ाव बनना है।</p>
+
+        <!-- Mission -->
+        <section class="policy-section" aria-labelledby="mission">
+          <h3 id="mission">हमारा मिशन</h3>
+          <p>सत्यापित अधिसूचनाओं को एकत्र करके, संक्षिप्त गाइड प्रकाशित करके और अभ्यर्थियों को कुशलतापूर्वक तैयारी और आवेदन करने में मदद करने वाले टूल प्रदान करके सरकारी भर्ती जानकारी तक पहुंच को सरल बनाना।</p>
+        </section>
+
+        <!-- What we do -->
+        <section class="policy-section" aria-labelledby="what-we-do">
+          <h3 id="what-we-do">हम क्या करते हैं</h3>
+          <ul>
+            <li>केंद्रीय और राज्य सरकारी पोर्टलों से आधिकारिक नौकरी अधिसूचनाएं एकत्र करना।</li>
+            <li>संक्षिप्त सारांश, महत्वपूर्ण तिथियां, सिलेबस और आवेदन निर्देश प्रकाशित करना।</li>
+            <li>एडमिट कार्ड, रिजल्ट और कट-ऑफ के लिए समय पर अलर्ट प्रदान करना।</li>
+            <li>मुफ्त अध्ययन सामग्री, पिछले वर्ष के पेपर और परीक्षा टिप्स प्रदान करना।</li>
+          </ul>
+        </section>
+
+        <!-- Editorial Policy -->
+        <section class="policy-section" aria-labelledby="editorial-policy">
+          <h3 id="editorial-policy">संपादकीय नीति</h3>
+          <p>हम सटीकता और स्पष्टता को प्राथमिकता देते हैं। हमारी संपादकीय टीम प्रत्येक नौकरी अधिसूचना को संबंधित आधिकारिक स्रोत से क्रॉस-चेक करती है। जहां हम आधिकारिक दस्तावेजों का सारांश या व्याख्या करते हैं, वहां हम प्राथमिक अधिसूचना से स्पष्ट रूप से लिंक करते हैं और प्रकाशन तिथि शामिल करते हैं।</p>
+          <div class="note-box">
+            <strong>नोट:</strong> अंतिम और कानूनी रूप से बाध्यकारी जानकारी के लिए हमेशा जारी करने वाले प्राधिकरण की वेबसाइट पर आधिकारिक अधिसूचना देखें।
+          </div>
+        </section>
+
+        <!-- Privacy Policy (summary) -->
+        <section class="policy-section" aria-labelledby="privacy-policy">
+          <h3 id="privacy-policy">गोपनीयता नीति (सारांश)</h3>
+          <p>हम आपकी गोपनीयता का सम्मान करते हैं। यह सारांश मुख्य बिंदुओं का वर्णन करता है — पूरी गोपनीयता नीति पेज के नीचे लिंक से उपलब्ध है।</p>
+          <ul>
+            <li><strong>उद्देश्य:</strong> पूछताछ का जवाब देने, जॉब अलर्ट भेजने (सब्सक्राइब करने पर) और साइट अनुभव सुधारने के लिए।</li>
+            <li><strong>रखरखाव:</strong> हम संपर्क फॉर्म सबमिशन को जवाब देने के लिए आवश्यक समय तक रखते हैं (आमतौर पर 12–24 महीने), जब तक अन्यथा अनुरोध न किया जाए।</li>
+            <li><strong>साझा करना:</strong> हम व्यक्तिगत डेटा नहीं बेचते। हम डेटा सेवा प्रदाताओं (ईमेल, एनालिटिक्स) के साथ समझौते के तहत साझा कर सकते हैं ताकि आपका डेटा सुरक्षित रहे।</li>
+            <li><strong>आपके अधिकार:</strong> पहुंच, सुधार, हटाने के अनुरोध <a href="mailto:wifijobportal1@gmail.com">wifijobportal1@gmail.com</a> पर भेजें।</li>
+          </ul>
+        </section>
+
+        <!-- Cookies -->
+        <section class="policy-section" aria-labelledby="cookie-policy">
+          <h3 id="cookie-policy">कुकी नीति (सारांश)</h3>
+          <p>हम साइट कार्यक्षमता, एनालिटिक्स और व्यक्तिगत सामग्री के लिए कुकी और समान ट्रैकिंग तकनीकों का उपयोग करते हैं। अधिकांश कुकी सख्ती से आवश्यक हैं या उपयोग पैटर्न समझने में मदद करती हैं। आप अपने ब्राउज़र सेटिंग्स के माध्यम से कुकी प्रबंधित या ब्लॉक कर सकते हैं।</p>
+        </section>
+
+        <!-- Security -->
+        <section class="policy-section" aria-labelledby="security">
+          <h3 id="security">सुरक्षा</h3>
+          <p>हम रखे गए डेटा की सुरक्षा के लिए मानक सुरक्षा उपाय बनाए रखते हैं, जिसमें साइट ट्रैफिक के लिए SSL एन्क्रिप्शन शामिल है। हालांकि, कोई भी सिस्टम पूरी तरह सुरक्षित नहीं है — खुले फॉर्म या ईमेल के माध्यम से अत्यधिक संवेदनशील व्यक्तिगत जानकारी न भेजें।</p>
+        </section>
+
+        <!-- Advertising & Sponsored Content -->
+        <section class="policy-section" aria-labelledby="ads">
+          <h3 id="ads">विज्ञापन और प्रायोजित सामग्री</h3>
+          <p>कुछ पेजों पर प्रायोजित पोस्ट या डिस्प्ले विज्ञापन शामिल हो सकते हैं। प्रायोजित सामग्री स्पष्ट रूप से लेबल की जाती है। विज्ञापनदाता हमारे संपादकीय निर्णयों को प्रभावित नहीं करते; हम विज्ञापन और संपादकीय टीमों के बीच अलगाव बनाए रखते हैं।</p>
+        </section>
+
+        <!-- Third-party links -->
+        <section class="policy-section" aria-labelledby="third-party">
+          <h3 id="third-party">तृतीय-पक्ष लिंक</h3>
+          <p>हम कई बाहरी आधिकारिक साइटों (जैसे सरकारी भर्ती पोर्टल) से लिंक करते हैं। हम तृतीय-पक्ष साइटों की सामग्री, सटीकता या गोपनीयता प्रथाओं के लिए जिम्मेदार नहीं हैं — कृपया स्रोत साइट पर विवरण सत्यापित करें।</p>
+        </section>
+
+        <!-- Copyright / DMCA -->
+        <section class="policy-section" aria-labelledby="copyright">
+          <h3 id="copyright">कॉपीराइट और DMCA</h3>
+          <p>WifiResult पर सभी सामग्री या तो हमारी टीम द्वारा बनाई गई है या सार्वजनिक आधिकारिक अधिसूचनाओं के संदर्भ में प्रकाशित की गई है। यदि आपको लगता है कि कॉपीराइट सामग्री बिना अनुमति के पोस्ट की गई है, तो <a href="mailto:wifijobportal1@gmail.com">wifijobportal1@gmail.com</a> पर विवरण के साथ संपर्क करें ताकि हम जांच कर सकें और आवश्यकता पड़ने पर सामग्री हटा सकें।</p>
+        </section>
+
+        <!-- Accessibility -->
+        <section class="policy-section" aria-labelledby="accessibility">
+          <h3 id="accessibility">पहुंचयोग्यता</h3>
+          <p>हम साइट को सभी के लिए उपयोगी बनाने का प्रयास करते हैं। यदि आपको पहुंच बाधाएं (स्क्रीन रीडर समस्या, रंग कंट्रास्ट आदि) आती हैं, तो <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> पर विवरण भेजें और हम उन्हें ठीक करने का प्रयास करेंगे।</p>
+        </section>
+
+        <!-- Complaints & Grievances -->
+        <section class="policy-section" aria-labelledby="grievance">
+          <h3 id="grievance">शिकायतें और ग्रीवांस</h3>
+          <p>यदि आपको किसी पोस्ट, विज्ञापन या त्रुटि के बारे में शिकायत है, तो विषय में “Complaint” लिखकर <a href="mailto:wifijobportal1@gmail.com">wifijobportal1@gmail.com</a> पर ईमेल करें और संबंधित URL/स्क्रीनशॉट शामिल करें। हमारी टीम 2 कार्य दिवसों में प्राप्ति की पुष्टि करने और जटिलता के आधार पर 7–14 कार्य दिवसों में समाधान या जवाब देने का प्रयास करती है।</p>
+        </section>
+
+        <!-- Changes to policies -->
+        <section class="policy-section" aria-labelledby="changes">
+          <h3 id="changes">नीतियों में बदलाव</h3>
+          <p>हम समय-समय पर इन नीतियों को अपडेट कर सकते हैं। महत्वपूर्ण बदलाव इस पेज पर संशोधन तिथि के साथ सूचित किए जाएंगे। कृपया अपडेट के लिए कभी-कभी इस पेज की जांच करें।</p>
+        </section>
+
+        <div class="note-box">
+          <strong>संपर्क:</strong> कानूनी, संपादकीय या गोपनीयता पूछताछ के लिए <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> पर संपर्क करें।
+        </div>
+
+        <p class="small" style="margin-top:12px;color:#6b7280">अंतिम अपडेट: <strong>{{ today|date:"F j, Y" }}</strong></p>
+      </div>
+
+      <!-- Hidden dummy contact form (keeps existing page JS safe; not visible) -->
+      <form id="contactForm" style="display:none" aria-hidden="true">
+        <input name="name" type="text" />
+        <input name="email" type="email" />
+        <input name="phone" type="tel" />
+        <select name="subject"><option>Other</option></select>
+        <textarea name="message"></textarea>
+      </form>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+    <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता अनुसार नौकरियां</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">कोई भी स्नातक नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">कोई भी स्नातकोत्तर नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>About Us – Trusted Sarkari Result & Govt Job Portal WifiResult.com</title>
+<meta name="description" content="WifiResult – Bharat ka trusted Sarkari Result & Govt Job Portal. Yaha milti hai fast Result, Admit Card, Answer Key, Syllabus & Govt Recruitment Updates.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/about-us/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/about-us/">
+<meta property="og:title" content="About Us – Trusted Sarkari Result & Govt Job Portal WifiResult.com">
+<meta property="og:description" content="WifiResult – Bharat ka trusted Sarkari Result & Govt Job Portal. Yaha milti hai fast Result, Admit Card, Answer Key, Syllabus & Govt Recruitment Updates.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/about-us/">
+<meta name="twitter:title" content="About Us – Trusted Sarkari Result & Govt Job Portal WifiResult.com">
+<meta name="twitter:description" content="WifiResult – Bharat ka trusted Sarkari Result & Govt Job Portal. Yaha milti hai fast Result, Admit Card, Answer Key, Syllabus & Govt Recruitment Updates.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/about-us/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "About Us", "item": "{{ request.scheme }}://{{ request.get_host }}/about-us/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/about-us/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/about-us/",
+  "name": "About Us – Trusted Sarkari Result & Govt Job Portal WifiResult.com",
+  "headline": "About WifiResult.com",
+  "description": "WifiResult – Bharat ka trusted Sarkari Result & Govt Job Portal. Yaha milti hai fast Result, Admit Card, Answer Key, Syllabus & Govt Recruitment Updates.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/about-us/#breadcrumb" }
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+    <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* about center */
+    .about-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:28px;color:var(--dark)}
+    .lead{color:#6b7280;margin-bottom:18px;font-size:15px}
+
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section ul{color:#333;font-size:15px;line-height:1.55}
+    .policy-section ul{margin-left:18px;list-style:disc}
+
+    .note-box{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px 16px;border-radius:4px;margin:12px 0;color:#495057}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* Keep mobile order consistent with earlier request */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>About Us</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> About WifiResult.com</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-bullhorn"></i></strong> &nbsp;Need help? Visit our support or email <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (ABOUT) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="About page main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+           <li><a href="{% url 'policejobs' %}">Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+            <li><a href="{% url 'rajasthanpolice' %}">Rajasthan Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+              <li><a href="{% url 'uppolice' %}">UP Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'delhipolice' %}">Delhi Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: ABOUT US content (replaces contact content) -->
+    <section class="content-area" aria-label="About wifiresult">
+      <div class="about-card" role="region" aria-labelledby="about-heading">
+        <div class="page-title">
+          <i class="fas fa-info-circle" style="color:var(--primary);font-size:24px"></i>
+          <!-- keep id contact-heading so existing anchors (if any) still work -->
+          <h2 id="contact-heading">About Us — WifiResult</h2>
+        </div>
+
+        <p class="lead">WifiResult is dedicated to delivering timely and accurate government job notifications, exam alerts, admit card updates and results across India. We aim to be the first stop for candidates seeking reliable, well-organized recruitment information.</p>
+
+        <!-- Mission -->
+        <section class="policy-section" aria-labelledby="mission">
+          <h3 id="mission">Our Mission</h3>
+          <p>To simplify access to government recruitment information by aggregating verified notifications, publishing concise guides, and providing tools that help candidates prepare and apply efficiently.</p>
+        </section>
+
+        <!-- What we do -->
+        <section class="policy-section" aria-labelledby="what-we-do">
+          <h3 id="what-we-do">What We Do</h3>
+          <ul>
+            <li>Aggregate official job notifications from central and state government portals.</li>
+            <li>Publish summaries, important dates, syllabus and application instructions.</li>
+            <li>Provide timely alerts for admit cards, results and cut-offs.</li>
+            <li>Offer free study resources, previous year papers and exam tips.</li>
+          </ul>
+        </section>
+
+        <!-- Editorial Policy -->
+        <section class="policy-section" aria-labelledby="editorial-policy">
+          <h3 id="editorial-policy">Editorial Policy</h3>
+          <p>We prioritise accuracy and clarity. Our editorial team cross-checks each job notification with the respective official source before publishing. Where we summarize or interpret official documents, we clearly link back to the primary notification and include the publication date.</p>
+          <div class="note-box">
+            <strong>Note:</strong> For final and legally-binding information, always refer to the official notification on the issuing authority’s website.
+          </div>
+        </section>
+
+        <!-- Privacy Policy (summary) -->
+        <section class="policy-section" aria-labelledby="privacy-policy">
+          <h3 id="privacy-policy">Privacy Policy (Summary)</h3>
+          <p>We value your privacy. This summary describes the key points — the full privacy policy is available via the link at the bottom of the page.</p>
+          <ul>
+            <li><strong>Purpose:</strong> to respond to queries, send job alerts (if subscribed), and to improve site experience.</li>
+            <li><strong>Retention:</strong> we retain contact form submissions for as long as needed to respond (typically 12–24 months), unless otherwise requested.</li>
+            <li><strong>Sharing:</strong> we do not sell personal data. We may share data with service providers (email, analytics) under agreement to protect your data.</li>
+            <li><strong>Your rights:</strong> access, correction, deletion requests can be sent to <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>.</li>
+          </ul>
+        </section>
+
+        <!-- Cookies -->
+        <section class="policy-section" aria-labelledby="cookie-policy">
+          <h3 id="cookie-policy">Cookie Policy (Summary)</h3>
+          <p>We use cookies and similar tracking technologies for site functionality, analytics and personalized content. Most cookies are strictly necessary or help us understand usage patterns. You can manage or block cookies through your browser settings.</p>
+        </section>
+
+        <!-- Security -->
+        <section class="policy-section" aria-labelledby="security">
+          <h3 id="security">Security</h3>
+          <p>We maintain standard security measures to protect the data we hold, including SSL encryption for site traffic. However, no system is completely secure — avoid sending highly sensitive personal information through open forms or emails.</p>
+        </section>
+
+        <!-- Advertising & Sponsored Content -->
+        <section class="policy-section" aria-labelledby="ads">
+          <h3 id="ads">Advertising & Sponsored Content</h3>
+          <p>Some pages may include sponsored posts or display ads. Sponsored content is clearly labelled. Advertisers do not influence our editorial decisions; we maintain separation between advertising and editorial teams.</p>
+        </section>
+
+        <!-- Third-party links -->
+        <section class="policy-section" aria-labelledby="third-party">
+          <h3 id="third-party">Third-Party Links</h3>
+          <p>We link to many external official sites (e.g., government recruitment portals). We are not responsible for the content, accuracy or privacy practices of third-party sites — please verify details on the source site.</p>
+        </section>
+
+        <!-- Copyright / DMCA -->
+        <section class="policy-section" aria-labelledby="copyright">
+          <h3 id="copyright">Copyright & DMCA</h3>
+          <p>All content on WifiResult is either created by our team or published with reference to public official notifications. If you believe copyrighted material has been posted without authorization, please contact us at <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> with details so we can investigate and remove content if necessary.</p>
+        </section>
+
+        <!-- Accessibility -->
+        <section class="policy-section" aria-labelledby="accessibility">
+          <h3 id="accessibility">Accessibility</h3>
+          <p>We aim to make the site usable for everyone. If you encounter accessibility barriers (screen reader issues, color contrast problems, etc.), email us at <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> with details and we’ll work to address them.</p>
+        </section>
+
+        <!-- Complaints & Grievances -->
+        <section class="policy-section" aria-labelledby="grievance">
+          <h3 id="grievance">Complaints & Grievances</h3>
+          <p>If you have a complaint about a post, ad or error, email <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> with “Complaint” in the subject and include relevant URLs/screenshots. Our team aims to acknowledge receipt within 2 working days and resolve or respond within 7–14 working days depending on complexity.</p>
+        </section>
+
+        <!-- Changes to policies -->
+        <section class="policy-section" aria-labelledby="changes">
+          <h3 id="changes">Updates & Changes</h3>
+          <p>We may update these policies periodically. Significant changes will be notified on this page with the revision date. Please check this page occasionally for updates.</p>
+        </section>
+
+        <div class="note-box">
+          <strong>Contact:</strong> For legal, editorial or privacy enquiries contact <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>.
+        </div>
+
+        <p class="small" style="margin-top:12px;color:#6b7280">Last updated: <strong>{{ today|date:"F j, Y" }}</strong></p>
+      </div>
+
+      <!-- Hidden dummy contact form (keeps existing page JS safe; not visible) -->
+      <form id="contactForm" style="display:none" aria-hidden="true">
+        <input name="name" type="text" />
+        <input name="email" type="email" />
+        <input name="phone" type="tel" />
+        <select name="subject"><option>Other</option></select>
+        <textarea name="message"></textarea>
+      </form>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+    <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+   {% endcomment %}

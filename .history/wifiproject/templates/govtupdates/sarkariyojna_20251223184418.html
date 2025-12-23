@@ -1,0 +1,1660 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>सरकारी योजना | सरकारी योजनाएं, सब्सिडी और लाभ</title>
+  <meta name="description" content="सरकारी योजना: पीएम योजना, राज्य सरकार योजनाएं, सब्सिडी, पेंशन, राशन कार्ड, स्वास्थ्य और किसान योजना अपडेट। पात्रता, लाभ और आवेदन लिंक।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/">
+<meta property="og:title" content="सरकारी योजना | सरकारी योजनाएं, सब्सिडी और लाभ">
+<meta property="og:description" content="सरकारी योजना: पीएम योजना, राज्य सरकार योजनाएं, सब्सिडी, पेंशन, राशन कार्ड, स्वास्थ्य और किसान योजना अपडेट। पात्रता, लाभ और आवेदन लिंक।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/">
+<meta name="twitter:title" content="सरकारी योजना | सरकारी योजनाएं, सब्सिडी और लाभ">
+<meta name="twitter:description" content="सरकारी योजना: पीएम योजना, राज्य सरकार योजनाएं, सब्सिडी, पेंशन, राशन कार्ड, स्वास्थ्य और किसान योजना अपडेट। पात्रता, लाभ और आवेदन लिंक।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"सरकारी योजना","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/",
+  "name":"सरकारी योजना | सरकारी योजनाएं, सब्सिडी और लाभ",
+  "headline":"नवीनतम सरकारी योजना 2025 – सरकारी योजनाएं, सब्सिडी और लाभ",
+  "description":"सरकारी योजना: पीएम योजना, राज्य सरकार योजनाएं, सब्सिडी, पेंशन, राशन कार्ड, स्वास्थ्य और किसान योजना अपडेट। पात्रता, लाभ और आवेदन लिंक।",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/#breadcrumb"}
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /sarkari-yojana/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "सरकारी योजना पेज पर मुझे क्या-क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको केंद्र सरकार और राज्य सरकार की सभी योजनाएं, उनके लाभ, पात्रता मानदंड, आवश्यक दस्तावेज, आवेदन स्टेप्स और आधिकारिक वेबसाइट लिंक एक ही जगह पर मिलते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सरकारी योजना पेज पर दी गई जानकारी आधिकारिक होती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, यहां सूचीबद्ध सभी योजनाओं की जानकारी आधिकारिक सरकारी पोर्टल, मंत्रालयों और राज्य विभागों पर प्रकाशित अधिसूचनाओं और दिशानिर्देशों पर आधारित होती है। सत्यापन के लिए आधिकारिक लिंक भी दिया होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं किसी योजना के लिए आवेदन कैसे करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "आप अपनी योजना चुनकर उसके आधिकारिक वेबसाइट लिंक पर क्लिक करें। वहां आप ऑनलाइन रजिस्ट्रेशन, दस्तावेज अपलोड और सत्यापन स्टेप्स फॉलो करके योजना का फॉर्म भर सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सरकारी योजना पेज नियमित रूप से अपडेट होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, यह पेज रोजाना आधार पर अपडेट होता है। जैसे ही कोई नई योजना लॉन्च होती है या किसी मौजूदा योजना में अपडेट आता है, हम तुरंत उसकी नवीनतम जानकारी जोड़ देते हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "सरकारी योजना | सरकारी योजनाएं, सब्सिडी और लाभ",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+       background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: linear-gradient(90deg, #0097a7, #1565c0);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+       <span>&gt;</span>
+      <a href="{% url 'job' %}">नौकरियां</a>
+      <span>&gt;</span>
+      <span>सरकारी योजना</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> नवीनतम सरकारी योजना 2025 – सरकारी योजनाएं, सब्सिडी और लाभ</h1>
+  </marquee>
+</div>
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline">एडमिट कार्ड 2026 – नवीनतम सरकारी परीक्षा हॉल टिकट</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+  padding: 6px 06px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i>  सरकारी योजना
+        </div>
+        <ul class="job-list-compact">  
+
+ {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई सरकारी योजना लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई सरकारी योजना आएगी, इस पेज पर तुरंत अपडेट कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+
+        </ul>
+       
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग जॉब टॉपिक्स
+        </div>
+        <div class="trending-list">
+         {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+         {% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Website Information Section (Sarkari Yojana Page) -->
+<section class="website-info" id="yojana-info">
+  <div class="container">
+    <h2>नवीनतम सरकारी योजना 2026 – सरकारी कल्याण योजनाएं और ऑनलाइन आवेदन</h2>
+
+    <div class="info-content">
+
+      <!-- Yojana Updates -->
+      <div class="info-point">
+        <h3>नई सरकारी योजनाएं (केंद्र और राज्य)</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको भारत की सभी महत्वपूर्ण
+          <strong>सरकारी योजना 2025</strong> की जानकारी मिलती है —
+          चाहे वह <strong>केंद्र सरकार</strong> की कल्याण योजनाएं हों
+          या <strong>राज्य सरकार</strong> द्वारा जारी लाभकारी योजनाएं।
+          यहां प्रदान की जाती है पूरी और सत्यापित जानकारी।
+        </p>
+      </div>
+
+      <!-- Eligibility -->
+      <div class="info-point">
+        <h3>हर योजना के लिए पात्रता</h3>
+        <p>
+          हर योजना में <strong>कौन लाभ उठा सकता है?</strong> — यह सबसे जरूरी सवाल है।
+          इस पेज पर हम पात्रता को आसान भाषा में समझाते हैं:
+          <strong>आय मानदंड, आयु, लिंग, जाति, विकलांगता, छात्र श्रेणी,
+          किसान आवश्यकताएं</strong> आदि के अनुसार।
+        </p>
+      </div>
+
+      <!-- Registration & Apply -->
+      <div class="info-point">
+        <h3>ऑनलाइन आवेदन और रजिस्ट्रेशन प्रक्रिया</h3>
+        <p>
+          हर योजना पोस्ट में हम बताते हैं —
+          <strong>ऑनलाइन रजिस्ट्रेशन स्टेप्स, आवश्यक दस्तावेज, आवेदन लिंक,
+          सत्यापन, स्टेटस चेक</strong> और आधिकारिक पोर्टल विवरण,
+          ताकि उपयोगकर्ता बिना किसी भ्रम के लाभ प्राप्त कर सकें।
+        </p>
+      </div>
+
+      <!-- Benefits -->
+      <div class="info-point">
+        <h3>योजना लाभ और सब्सिडी</h3>
+        <p>
+          योजनाओं के <strong>लाभ</strong> को व्यावहारिक उदाहरण के साथ समझाया जाता है —
+          जैसे <strong>मासिक वित्तीय सहायता, स्कॉलरशिप, पेंशन,
+          स्वास्थ्य बीमा, मुफ्त राशन, लोन सब्सिडी, प्रशिक्षण, रोजगार सहायता</strong> आदि।
+        </p>
+      </div>
+
+      <!-- Yojanas Covered -->
+      <div class="info-point">
+        <h3>इस पेज पर कवर की गई योजनाएं</h3>
+        <p>
+          इस पेज पर कवर होती हैं —
+          <strong>पीएम किसान, आयुष्मान भारत, पीएम आवास योजना, उज्ज्वला योजना,
+          स्कॉलरशिप योजनाएं, पेंशन योजना, छात्र योजनाएं, राज्य कल्याण कार्यक्रम,
+          डिजिटल इंडिया योजनाएं</strong> और कई अन्य योजनाएं।
+        </p>
+      </div>
+
+      <!-- Required Documents -->
+      <div class="info-point">
+        <h3>आवश्यक दस्तावेज और सत्यापन</h3>
+        <p>
+          हर योजना में जरूरी दस्तावेजों की पूरी सूची दी जाती है:
+          <strong>आधार, आय प्रमाणपत्र, बैंक पासबुक, डोमिसाइल प्रमाणपत्र,
+          जाति प्रमाणपत्र, स्कूल/कॉलेज आईडी</strong> आदि —
+          ताकि आवेदन रिजेक्ट होने की संभावना न रहे।
+        </p>
+      </div>
+
+      <!-- One Stop Yojana Hub -->
+      <div class="info-point">
+        <h3>वन स्टॉप सरकारी योजना पोर्टल</h3>
+        <p>
+          <strong>/sarkari-yojana/</strong> पेज नागरिकों को सरकारी लाभ तक
+          आसानी से पहुंचाने के लिए बनाया गया है — जहां आपको
+          <strong>इसी एक जगह</strong> पर मिलती हैं सभी योजनाओं की
+          <strong>लॉन्च अपडेट, रजिस्ट्रेशन, अप्रूवल स्टेटस और सपोर्ट हेल्पलाइन</strong> की जानकारी।
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Sarkari Yojana | Government Schemes, Subsidy & Benefits</title>
+<meta name="description" content="Sarkari Yojana: PM Yojana, State Government Schemes, Subsidy, Pension, Ration Card, Health & Farmer Yojana updates. Eligibility, benefits & apply links.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/">
+<meta property="og:title" content="Sarkari Yojana | Government Schemes, Subsidy & Benefits">
+<meta property="og:description" content="Sarkari Yojana: PM Yojana, State Government Schemes, Subsidy, Pension, Ration Card, Health & Farmer Yojana updates. Eligibility, benefits & apply links.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/">
+<meta name="twitter:title" content="Sarkari Yojana | Government Schemes, Subsidy & Benefits">
+<meta name="twitter:description" content="Sarkari Yojana: PM Yojana, State Government Schemes, Subsidy, Pension, Ration Card, Health & Farmer Yojana updates. Eligibility, benefits & apply links.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Sarkari Yojana","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/",
+  "name":"Sarkari Yojana | Government Schemes, Subsidy & Benefits",
+  "headline":"Latest Sarkari Yojana 2025 – Government Schemes, Subsidy & Benefits",
+  "description":"Sarkari Yojana: PM Yojana, State Government Schemes, Subsidy, Pension, Ration Card, Health & Farmer Yojana updates. Eligibility, benefits & apply links.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-yojana/#breadcrumb"}
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /sarkari-yojana/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sarkari Yojana page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Central Government aur State Government ki sabhi yojnayein, unke benefits, eligibility criteria, required documents, application steps, aur official website links ek hi jagah par milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Sarkari Yojana page par di gayi jankari official hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi schemes ki information official government portals, ministries aur state departments par publish hue notifications aur guidelines par based hoti hai. Verification ke liye official link bhi diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main kisi scheme ke liye apply kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap apni scheme select karke uske official website link par click karein. Wahan aap online registration, document upload aur verification steps follow karke scheme kaform bhar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Sarkari Yojana page regularly update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, yeh page daily basis par update hota hai. Jaise hi koi new scheme launch hoti hai ya kisi existing scheme me update aata hai, hum turant uski latest information add kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Sarkari Yojana | Government Schemes, Subsidy & Benefits",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+       <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span>Sarkari Yojana</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest Sarkari Yojana 2025 – Government Schemes, Subsidy & Benefits</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i>  Sarkari Yojana
+        </div>
+        <ul class="job-list-compact">  
+
+ {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई Sarkari Yojana लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई Sarkari Yojana भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+
+        </ul>
+       
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+         {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+         {% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Website Information Section (Sarkari Yojana Page) -->
+<section class="website-info" id="yojana-info">
+  <div class="container">
+    <h2>Latest Sarkari Yojana 2026 – Government Welfare Schemes & Online Apply</h2>
+
+    <div class="info-content">
+
+      <!-- Yojana Updates -->
+      <div class="info-point">
+        <h3>New Government Schemes (Central & State)</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको भारत की सभी महत्वपूर्ण
+          <strong>Sarkari Yojana 2025</strong> की जानकारी मिलती है —
+          चाहे वह <strong>Central Government</strong> की welfare schemes हों
+          या <strong>State Government</strong> द्वारा जारी लाभकारी योजनाएं।
+          यहां प्रदान की जाती है पूरी और सत्यापित जानकारी।
+        </p>
+      </div>
+
+      <!-- Eligibility -->
+      <div class="info-point">
+        <h3>Eligibility for Each Yojana</h3>
+        <p>
+          हर योजना में <strong>कौन लाभ उठा सकता है?</strong> — यह सबसे जरूरी सवाल है।
+          इस पेज पर हम eligibility को आसान भाषा में समझाते हैं:
+          <strong>income criteria, age, gender, caste, disability, student category,
+          farmer requirements</strong> आदि के अनुसार।
+        </p>
+      </div>
+
+      <!-- Registration & Apply -->
+      <div class="info-point">
+        <h3>Online Apply & Registration Process</h3>
+        <p>
+          हर yojana पोस्ट में हम बताते हैं —
+          <strong>online registration steps, required documents, application link,
+          verification, status check</strong> और official portal details,
+          ताकि users बिना किसी confusion के benefit प्राप्त कर सकें।
+        </p>
+      </div>
+
+      <!-- Benefits -->
+      <div class="info-point">
+        <h3>Scheme Benefits & Subsidies</h3>
+        <p>
+          Schemes के <strong>benefits</strong> को practical example के साथ explain किया जाता है —
+          जैसे <strong>monthly financial support, scholarship, pension,
+          health insurance, free ration, loan subsidy, training, employment assistance</strong> आदि।
+        </p>
+      </div>
+
+      <!-- Yojanas Covered -->
+      <div class="info-point">
+        <h3>Schemes Covered in This Page</h3>
+        <p>
+          इस पेज पर cover होती हैं —
+          <strong>PM Kisan, Ayushman Bharat, PM Awas Yojana, Ujjwala Yojana,
+          Scholarship Schemes, Pension Yojana, Student Schemes, State Welfare Programs,
+          Digital India Schemes</strong> और कई अन्य योजनाएं।
+        </p>
+      </div>
+
+      <!-- Required Documents -->
+      <div class="info-point">
+        <h3>Required Documents & Verification</h3>
+        <p>
+          हर scheme में जरूरी दस्तावेजों की पूरी list दी जाती है:
+          <strong>Aadhaar, Income Certificate, Bank Passbook, Domicile Certificate,
+          Caste Certificate, School/College IDs</strong> आदि —
+          ताकि application reject होने की संभावना न रहे।
+        </p>
+      </div>
+
+      <!-- One Stop Yojana Hub -->
+      <div class="info-point">
+        <h3>One Stop Sarkari Yojana Portal</h3>
+        <p>
+          <strong>/sarkari-yojana/</strong> page citizens को government benefits तक
+          आसानी से पहुंचाने के लिए बनाया गया है — जहां आपको
+          <strong>इसी एक जगह</strong> पर मिलती हैं सभी योजनाओं की
+          <strong>launch update, registration, approval status & support helpline</strong> की जानकारी।
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      यदि आपकी पात्रता किसी सरकारी योजना में आती है,  
+      तो इस <strong>sarkari-yojana</strong> पेज को रोज़ check करें और किसी भी लाभकारी योजना को miss न करें।  
+      हम आपकी सुविधा और समझ के लिए हर जानकारी <strong>सही, सुरक्षित और तेज़</strong> तरीके से प्रदान करते हैं। 🌟
+    </p>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+   {% endcomment %}

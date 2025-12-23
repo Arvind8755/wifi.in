@@ -1,0 +1,807 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>सरकारी अपडेट 2026 – नवीनतम सरकारी समाचार और अधिसूचनाएं</title>
+<meta name="description" content="नवीनतम सरकारी अपडेट 2026: नई सरकारी अधिसूचनाएं, योजना समाचार, नीति परिवर्तन और महत्वपूर्ण सरकारी घोषणाएं। WifiResult.com पर दैनिक सरकारी अपडेट।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/govt-updates/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/govt-updates/">
+<meta property="og:title" content="सरकारी अपडेट 2026 – नवीनतम सरकारी समाचार और अधिसूचनाएं">
+<meta property="og:description" content="नवीनतम सरकारी अपडेट 2026: नई सरकारी अधिसूचनाएं, योजना समाचार, नीति परिवर्तन और महत्वपूर्ण सरकारी घोषणाएं। WifiResult.com पर दैनिक सरकारी अपडेट।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/govt-updates/">
+<meta name="twitter:title" content="सरकारी अपडेट 2026 – नवीनतम सरकारी समाचार और अधिसूचनाएं">
+<meta name="twitter:description" content="नवीनतम सरकारी अपडेट 2026: नई सरकारी अधिसूचनाएं, योजना समाचार, नीति परिवर्तन और महत्वपूर्ण सरकारी घोषणाएं। WifiResult.com पर दैनिक सरकारी अपडेट।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/govt-updates/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "सरकारी अपडेट", "item": "{{ request.scheme }}://{{ request.get_host }}/govt-updates/" }
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/govt-updates/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/govt-updates/",
+  "name": "सरकारी अपडेट 2026 – नवीनतम सरकारी समाचार और अधिसूचनाएं",
+  "headline": "सरकारी अपडेट 2026 – नवीनतम सरकारी अधिसूचनाएं",
+  "description": "नवीनतम सरकारी अपडेट 2026: नई सरकारी अधिसूचनाएं, योजना समाचार, नीति परिवर्तन और महत्वपूर्ण सरकारी घोषणाएं। WifiResult.com पर दैनिक सरकारी अपडेट।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/govt-updates/#breadcrumb" }
+}
+</script>
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "सरकारी अपडेट 2026 – नवीनतम सरकारी समाचार और अधिसूचनाएं",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+<!-- SEO-Optimized FAQ Schema for /govt-updates/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "सरकारी अपडेट पेज पर क्या-क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको नवीनतम सरकारी अधिसूचनाएं, नीति अपडेट, सर्कुलर, भर्ती समाचार, परीक्षा तिथियां, रिजल्ट और आधिकारिक घोषणाएं एक ही जगह पर मिल जाती हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सरकारी अपडेट पेज पर दिया गया डेटा आधिकारिक होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, सभी अपडेट आधिकारिक सरकारी विभागों, मंत्रालयों, भर्ती बोर्डों और सार्वजनिक नोटिस पर आधारित होते हैं। हम केवल सत्यापित आधिकारिक स्रोतों से ही जानकारी प्रकाशित करते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "सरकारी अपडेट पेज कितनी बार अपडेट होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह पेज रोजाना कई बार अपडेट होता है। जैसे ही कोई नई सरकारी अधिसूचना, भर्ती समाचार, परीक्षा अपडेट या नीति परिवर्तन जारी होता है, हम तुरंत उसकी डिटेल्स जोड़ देते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं यहां से आधिकारिक अधिसूचना PDF डाउनलोड कर सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, हर अपडेट के साथ आधिकारिक PDF नोटिस, सर्कुलर या प्रेस रिलीज का डायरेक्ट लिंक दिया होता है जिससे आप आसानी से डाउनलोड कर सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सरकारी अपडेट पेज पर राज्य स्तर की अधिसूचनाएं भी मिलती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, इस पेज पर केंद्रीय सरकार के साथ-साथ राज्य सरकारों के महत्वपूर्ण अपडेट, भर्ती नोटिस और सार्वजनिक घोषणाएं भी शामिल की जाती हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: linear-gradient(90deg, #0097a7, #1565c0);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>सभी सरकारी अपडेट</span>
+    </div>
+  </div>
+
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline">सरकारी अपडेट 2026 – नवीनतम सरकारी अधिसूचनाएं</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+  padding: 6px 06px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> नवीनतम सरकारी अपडेट
+        </div>
+        <ul class="job-list-compact p-0">
+            {% for govtupdate in page_obj %}
+          <li class="job-item">
+            <a href="/govt-updates/{{govtupdate.slug}}/" target="_blank" class="job-title">{{govtupdate.title}}</a>
+            <span class="job-date">{{ govtupdate.published_date|date:"d M, Y"}}</span></li>
+            {% endfor %}
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+        </ul>
+        {% comment %} <a href="#" class="view-all">View All Jobs <i class="fas fa-arrow-right"></i></a> {% endcomment %}
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग जॉब टॉपिक्स
+        </div>
+        <div class="trending-list">
+
+{% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %} 
+
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+
+{% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section (Govt Updates Page) -->
+<section class="website-info" id="govtupdates-info">
+  <div class="container">
+    <h2>नवीनतम सरकारी अपडेट – आधिकारिक अधिसूचनाएं, नीतियां और सार्वजनिक अलर्ट</h2>
+
+    <div class="info-content">
+
+      <!-- Govt Notification Updates -->
+      <div class="info-point">
+        <h3>आधिकारिक सरकारी अधिसूचनाएं और घोषणाएं</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर हम भारत सरकार (केंद्रीय और राज्य) द्वारा जारी
+          सभी <strong>महत्वपूर्ण घोषणाओं, नोटिस, गाइडलाइंस और सर्कुलर</strong> की जानकारी तुरंत उपलब्ध कराते हैं।
+          चाहे वह परीक्षा से जुड़ी अपडेट हो या भर्ती नीति में बदलाव — यहां आपको हर जरूरी अलर्ट सबसे पहले मिलता है।
+        </p>
+      </div>
+
+      <!-- Scheme & Yojana Updates -->
+      <div class="info-point">
+        <h3>नवीनतम योजनाएं, योजना और सब्सिडी अपडेट</h3>
+        <p>
+          इस पेज पर आपको विभिन्न <strong>सरकारी योजनाओं (योजना), छात्रवृत्ति, सब्सिडी</strong> और
+          नागरिक लाभ कार्यक्रमों की अपडेट मिलती हैं। पात्रता, रजिस्ट्रेशन प्रक्रिया और लाभ — सब कुछ आसानी से समझाया जाता है।
+        </p>
+      </div>
+
+      <!-- Exam Related Govt Notices -->
+      <div class="info-point">
+        <h3>परीक्षा, भर्ती और नीति अधिसूचनाएं</h3>
+        <p>
+          हम <strong>परीक्षा स्थगित / पुनर्निर्धारण नोटिस</strong>, 
+          <strong>भर्ती नियमों में बदलाव, आयु छूट, दस्तावेज आवश्यकताएं</strong>
+          जैसी अपडेट भी जोड़ते हैं, ताकि अभ्यर्थी किसी भी आधिकारिक बदलाव से चूक न जाएं।
+        </p>
+      </div>
+
+      <!-- Result / Merit List Alerts -->
+      <div class="info-point">
+        <h3>रिजल्ट, मेरिट लिस्ट और काउंसलिंग अलर्ट</h3>
+        <p>
+          यदि किसी भर्ती या प्रवेश में <strong>रिजल्ट जारी, मेरिट लिस्ट प्रकाशन या काउंसलिंग</strong> का शेड्यूल आता है —
+          हम तुरंत उसे इस पेज पर अपडेट करते हैं। साथ ही आधिकारिक डाउनलोड लिंक भी प्रदान किया जाता है।
+        </p>
+      </div>
+
+      <!-- Public Awareness Notice -->
+      <div class="info-point">
+        <h3>सार्वजनिक सलाह और जागरूकता नोटिस</h3>
+        <p>
+          सरकार द्वारा जारी <strong>सार्वजनिक अलर्ट, साइबर सुरक्षा दिशानिर्देश, परीक्षा धोखाधड़ी चेतावनी,
+          पात्रता सत्यापन नोटिस</strong> जैसी महत्वपूर्ण जानकारी यहां प्रकाशित की जाती है,
+          ताकि अभ्यर्थी सुरक्षित रहें और गलत जानकारी से बच सकें।
+        </p>
+      </div>
+
+      <!-- Fact Check & Authenticity -->
+      <div class="info-point">
+        <h3>प्रामाणिक जानकारी — आधिकारिक स्रोत आधारित</h3>
+        <p>
+          सरकारी अपडेट पेज की हर जानकारी <strong>आधिकारिक वेबसाइट,
+          प्रेस रिलीज, PDF अधिसूचनाओं</strong> और सत्यापित समाचार पर आधारित होती है।
+          हम उपयोगकर्ताओं को हमेशा प्रोत्साहित करते हैं कि वे अंतिम आवेदन या कार्रवाई से पहले आधिकारिक स्रोत अवश्य जांचें।
+        </p>
+      </div>
+
+      <!-- One Stop Govt Updates Hub -->
+      <div class="info-point">
+        <h3>वन-स्टॉप सरकारी अपडेट हब</h3>
+        <p>
+          <strong>/govt-updates/</strong> पेज उन सभी नागरिकों के लिए बनाया गया है जो
+          <strong>सरकारी नौकरियां + सार्वजनिक नोटिस + आधिकारिक बदलाव</strong> के बारे में अपडेटेड रहना चाहते हैं।
+          यहां से आपको हर महत्वपूर्ण सरकारी कार्रवाई की जानकारी संक्षिप्त, सरल भाषा में मिलती है।
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  {% endblock content %}

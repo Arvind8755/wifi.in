@@ -1,0 +1,407 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Cookie Policy – WifiResult</title>
+<meta name="description" content="Read the Cookie Policy of WifiResult to understand how cookies, analytics, and tracking technologies are used to improve your browsing experience and personalize content.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/cookie-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta http-equiv="Content-Language" content="en">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/cookie-policy/">
+<meta property="og:title" content="Cookie Policy – WifiResult">
+<meta property="og:description" content="Read the Cookie Policy of WifiResult to understand how cookies, analytics, and tracking technologies are used to improve your browsing experience and personalize content.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/cookie-policy/">
+<meta name="twitter:title" content="Cookie Policy – WifiResult">
+<meta name="twitter:description" content="Read the Cookie Policy of WifiResult to understand how cookies, analytics, and tracking technologies are used to improve your browsing experience and personalize content.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Cookie Policy", "item": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/",
+  "name": "Cookie Policy – WifiResult",
+  "headline": "Cookie Policy | How WifiResult Uses Cookies and Tracking Technologies",
+  "description": "Read the Cookie Policy of WifiResult to understand how cookies, analytics, and tracking technologies are used to improve your browsing experience and personalize content.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "about": {
+    "@type": "Thing",
+    "name": "Cookie Policy"
+  },
+  "mainEntity": {
+    "@type": "WebPageElement",
+    "name": "Cookie Policy Details",
+    "description": "Information on what cookies are, how WifiResult uses them, and how you can manage your cookie preferences."
+  }
+}
+</script>
+
+<!--LegalDocument (for Transparency & Compliance)-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Legislation",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/#legal",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/",
+  "name": "Cookie Policy – WifiResult",
+  "description": "This Cookie Policy explains how WifiResult uses cookies, analytics tools, and similar technologies to enhance user experience and website performance.",
+  "legislationType": "Privacy and Cookie Policy",
+  "jurisdiction": "IN",
+  "legislationIdentifier": "WIFIRESULT-COOKIE-POLICY-2026",
+  "publisher": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  }
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* editorial center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+
+
+
+    
+
+
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Cookie Policy</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+  <div class="breaking-newss">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <span class="icon"><i class="fas fa-bullhorn"></i></span>
+      <span class="headline">
+        Latest Govt Jobs 2025 - Apply Online
+      </span>
+    </marquee>
+  </div>
+
+  <style>
+    .breaking-newss {
+      background: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 8px 0;
+      border: 1px solid #f5c6cb;
+      margin-bottom: 15px;
+    }
+    .breaking-newss .icon {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+    .breaking-news .headline {
+      font-family: 'Arial', sans-serif;
+    }
+    
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-info-circle"></i></strong> &nbsp;This page explains how wifiresult.com uses cookies and your choices to manage them.
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (cookie policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Cookie policy main area">
+    <!-- Left Sidebar (same) -->
+     <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+           <li><a href="{% url 'policejobs' %}">Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+            <li><a href="{% url 'rajasthanpolice' %}">Rajasthan Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+              <li><a href="{% url 'uppolice' %}">UP Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'delhipolice' %}">Delhi Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: COOKIE POLICY content (only this part changed) -->
+    <section class="content-area" aria-label="Cookie policy and details">
+      <div class="editorial-card" role="region" aria-labelledby="cookie-heading">
+        <div class="page-title">
+          <i class="fas fa-cookie-bite" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="cookie-heading" style="font-size:18px;">Cookie Policy | How WifiResult Uses Cookies and Tracking Technologies</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>What Are Cookies?</h3>
+          <p>Cookies are small text files stored on your device by your web browser. They help websites remember your
+            preferences, understand how you use the site, and improve your overall experience.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>How We Use Cookies</h3>
+          <ul class="policy-list">
+            <li><strong>Essential Cookies:</strong> Required for core features like page navigation and basic security.
+              The website cannot function properly without these cookies.</li>
+            <li><strong>Performance &amp; Analytics:</strong> Help us understand how visitors use our site (e.g., most
+              visited pages, time on page) so we can improve content and navigation.</li>
+            <li><strong>Functional Cookies:</strong> Remember your preferences (such as language, last viewed pages)
+              to provide a more personalized experience.</li>
+            <li><strong>Advertising/Third-Party:</strong> When enabled, these may be used by our partners to deliver
+              relevant ads and measure the effectiveness of campaigns.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Types of Cookies We Set</h3>
+          <ul class="policy-list">
+            <li><strong>Session cookies:</strong> Temporary cookies that expire when you close the browser.</li>
+            <li><strong>Persistent cookies:</strong> Remain on your device for a set period or until deleted.</li>
+            <li><strong>First-party cookies:</strong> Set by wifiresult.com to support site functionality and analytics.</li>
+            <li><strong>Third-party cookies:</strong> Set by external services integrated on our site (e.g., analytics,
+              embedded media). These are governed by the respective providers’ policies.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Third-Party Cookies &amp; Services</h3>
+          <p>We may use trusted third-party services (for example, analytics or embedded content providers) that set
+            their own cookies. We do not control these cookies directly. Please review the respective providers’ cookie
+            or privacy policies for more information.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Managing Your Cookie Preferences</h3>
+          <p>You can manage or disable cookies through your browser settings. Note that blocking certain cookies may
+            affect site functionality.</p>
+          <ul class="policy-list">
+            <li><strong>Chrome:</strong> Settings &gt; Privacy and security &gt; Cookies and other site data</li>
+            <li><strong>Firefox:</strong> Settings &gt; Privacy &amp; Security &gt; Cookies and Site Data</li>
+            <li><strong>Edge:</strong> Settings &gt; Cookies and site permissions</li>
+            <li><strong>Safari (macOS):</strong> Preferences &gt; Privacy</li>
+            <li><strong>Android/iOS browsers:</strong> Refer to in-app privacy/cookie controls</li>
+          </ul>
+          <p>If we implement a cookie banner or preference center, you will be able to update your consent choices
+            directly from that interface.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Consent</h3>
+          <p>By continuing to use wifiresult.com, you consent to the placement of cookies on your device as described
+            in this policy. Where legally required, we will request your explicit consent through a cookie banner.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Changes to This Policy</h3>
+          <p>We may update this Cookie Policy from time to time to reflect changes in technology, law, or our practices.
+            Any updates will be posted on this page with a revised “Effective Date”.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Contact</h3>
+          <p>For questions about this Cookie Policy, reach us at <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>.
+            Please include relevant details such as page URL and your browser/device info if reporting a cookie issue.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Effective Date</h3>
+          <p>This Cookie Policy is effective from <strong>{% now "F j, Y" %}</strong>.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (same) -->
+       <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

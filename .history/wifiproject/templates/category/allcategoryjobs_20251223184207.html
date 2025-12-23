@@ -1,0 +1,2424 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>सभी श्रेणी सरकारी नौकरियां | नवीनतम सरकारी रिक्ति अपडेट – WifiResult</title>
+<meta name="description" content="सभी श्रेणी सरकारी नौकरियां 2026: बैंकिंग, SSC, UPSC, रेलवे, पुलिस, रक्षा, शिक्षक, राज्य सरकार और अन्य में नवीनतम सरकारी नौकरियां खोजें। आधिकारिक लिंक के साथ दैनिक अपडेटेड रिक्तियां।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/">
+<meta property="og:title" content="सभी श्रेणी सरकारी नौकरियां | नवीनतम सरकारी रिक्ति अपडेट – WifiResult">
+<meta property="og:description" content="सभी श्रेणी सरकारी नौकरियां 2026: बैंकिंग, SSC, UPSC, रेलवे, पुलिस, रक्षा, शिक्षक, राज्य सरकार और अन्य में नवीनतम सरकारी नौकरियां खोजें। आधिकारिक लिंक के साथ दैनिक अपडेटेड रिक्तियां।">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/">
+<meta name="twitter:title" content="सभी श्रेणी सरकारी नौकरियां | नवीनतम सरकारी रिक्ति अपडेट – WifiResult">
+<meta name="twitter:description" content="सभी श्रेणी सरकारी नौकरियां 2026: बैंकिंग, SSC, UPSC, रेलवे, पुलिस, रक्षा, शिक्षक, राज्य सरकार और अन्य में नवीनतम सरकारी नौकरियां खोजें। आधिकारिक लिंक के साथ दैनिक अपडेटेड रिक्तियां।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "सभी श्रेणी नौकरियां", "item": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/",
+  "name": "सभी श्रेणी सरकारी नौकरियां | नवीनतम सरकारी रिक्ति अपडेट – WifiResult",
+  "headline": "सभी श्रेणी सरकारी नौकरियां 2025 – नवीनतम सरकारी नौकरी और रिक्ति अपडेट",
+  "description": "सभी श्रेणी सरकारी नौकरियां 2026: बैंकिंग, SSC, UPSC, रेलवे, पुलिस, रक्षा, शिक्षक, राज्य सरकार और अन्य में नवीनतम सरकारी नौकरियां खोजें। आधिकारिक लिंक के साथ दैनिक अपडेटेड रिक्तियां।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#breadcrumb" }
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /all-category-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "सभी श्रेणी नौकरियां पेज पर मुझे क्या-क्या देखने को मिलता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको सभी प्रमुख सरकारी नौकरी श्रेणियां जैसे SSC, UPSC, बैंकिंग, रेलवे, रक्षा, पुलिस, शिक्षक, PSU, अप्रेंटिस और राज्य सरकारी नौकरियों की नवीनतम अधिसूचनाएं एक ही जगह पर मिलती हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सभी श्रेणी नौकरियां पेज पर सूचीबद्ध अधिसूचनाएं आधिकारिक होती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, यहां प्रकाशित सभी नौकरी अपडेट आधिकारिक सरकारी पोर्टल, भर्ती बोर्ड, सार्वजनिक क्षेत्र इकाइयों और सत्यापित अधिसूचनाओं से ही लिए जाते हैं। हर लिस्टिंग के साथ आधिकारिक PDF लिंक दिया होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं अपनी श्रेणी के अनुसार नौकरियां कैसे खोज सकता हूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "आप श्रेणी सूची में बैंकिंग, SSC, UPSC, रेलवे, रक्षा, शिक्षक, पुलिस या राज्य नौकरियां जैसे सेक्शन चुनकर अपनी पसंद के अनुसार नौकरियां फिल्टर कर सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सभी श्रेणी नौकरियां पेज में केंद्रीय और राज्य दोनों नौकरियां होती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, इस पेज पर केंद्रीय सरकारी भर्तियों के साथ-साथ सभी राज्यों की नवीनतम रिक्तियां भी शामिल की जाती हैं, ताकि उम्मीदवारों को एक ही पेज पर पूरी नौकरी कवरेज मिल सके।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "सभी श्रेणी नौकरियां पेज कितनी बार अपडेट होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह पेज रोजाना कई बार अपडेट होता है। जैसे ही किसी श्रेणी में नई अधिसूचना जारी होती है, उसका लिंक तुरंत सभी श्रेणी नौकरियां सेक्शन में जोड़ दिया जाता है।"
+      }
+    }
+  ]
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+ <style>
+
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Breaking News */
+    .breaking-news {
+      background: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 8px 0;
+      border: 1px solid #f5c6cb;
+      margin-bottom: 15px;
+    }
+
+    .breaking-news .icon {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .breaking-news .headline {
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Main Content Layout - GRID */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* default single column for mobile */
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    /* For large screens show left-sidebar / content / right-sidebar */
+    @media (min-width: 992px) {
+      .layout-grid {
+        grid-template-columns: 230px 1fr 300px;
+        align-items: start;
+      }
+
+      /* Ensure sidebars are visible on large screens and positioned left/right */
+      .left-sidebar {
+        order: 0;
+      }
+
+      .content-area {
+        order: 1;
+      }
+
+      .right-sidebar {
+        order: 2;
+      }
+    }
+
+    /* On smaller screens stack: content first, then left-sidebar and right-sidebar below content */
+    @media (max-width: 991px) {
+      .content-area {
+        order: 0;
+      }
+
+      .left-sidebar {
+        order: 1;
+      }
+
+      .right-sidebar {
+        order: 2;
+      }
+    }
+
+    .content-area {
+      min-width: 300px;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+      display: block;
+    }
+
+    /* Sidebar card styles (re-usable) */
+    .sidebar-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-card h4 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 18px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-list li a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-meta {
+      color: #6c757d;
+      font-size: 13px;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Article Styles (kept for compatibility) */
+    .job-article {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .job-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    .job-title {
+      color: var(--dark);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      color: #6c757d;
+      font-size: 14px;
+    }
+
+    .meta-item i {
+      margin-right: 8px;
+      color: var(--primary);
+    }
+
+    .apply-button {
+      display: inline-block;
+      background: linear-gradient(to right, var(--success), #0f6e3f);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .apply-button:hover {
+      background: linear-gradient(to right, #0f6e3f, var(--success));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-content {
+      margin-bottom: 25px;
+    }
+
+    .content-section {
+      margin-bottom: 25px;
+    }
+
+    .content-section h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    .info-table th,
+    .info-table td {
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    .info-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+      width: 30%;
+    }
+
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid var(--primary);
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .steps-list {
+      list-style-type: none;
+      counter-reset: step-counter;
+    }
+
+    .steps-list li {
+      margin-bottom: 15px;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .steps-list li:before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* Related Jobs */
+    .related-jobs {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .related-job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .related-job-item:last-child {
+      border-bottom: none;
+    }
+
+    .related-job-title {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-job-title:hover {
+      color: var(--primary);
+    }
+
+    .related-job-date {
+      color: #6c757d;
+      font-size: 14px;
+    }
+
+    /* STATES GRID - new styles */
+    .states-section {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .states-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .states-header h2 {
+      font-size: 22px;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* mobile: 2 per row */
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .states-grid {
+        grid-template-columns: repeat(4, 1fr); /* larger screens: 4 per row */
+      }
+    }
+
+    .state-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      padding: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .state-card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+    }
+
+    .state-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    /* Color variations using nth-child */
+    .states-grid .state-card:nth-child(1) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+    .states-grid .state-card:nth-child(2) { background: linear-gradient(90deg,#6a11cb,#2575fc); }
+    .states-grid .state-card:nth-child(3) { background: linear-gradient(90deg,#11998e,#38ef7d); }
+    .states-grid .state-card:nth-child(4) { background: linear-gradient(90deg,#f7971e,#ffd200); color:#222;}
+    .states-grid .state-card:nth-child(5) { background: linear-gradient(90deg,#fc4a1a,#f7b733); }
+    .states-grid .state-card:nth-child(6) { background: linear-gradient(90deg,#00c6ff,#0072ff); }
+    .states-grid .state-card:nth-child(7) { background: linear-gradient(90deg,#8e2de2,#4a00e0); }
+    .states-grid .state-card:nth-child(8) { background: linear-gradient(90deg,#ff5f6d,#ffc371); color:#222;}
+    .states-grid .state-card:nth-child(9) { background: linear-gradient(90deg,#43cea2,#185a9d); }
+    .states-grid .state-card:nth-child(10) { background: linear-gradient(90deg,#f953c6,#b91d73); }
+    .states-grid .state-card:nth-child(11) { background: linear-gradient(90deg,#00b09b,#96c93d); color:#222;}
+    .states-grid .state-card:nth-child(12) { background: linear-gradient(90deg,#e43a15,#e65245); }
+    .states-grid .state-card:nth-child(13) { background: linear-gradient(90deg,#3a7bd5,#00d2ff); color:#222;}
+    .states-grid .state-card:nth-child(14) { background: linear-gradient(90deg,#8e9eab,#eef2f3); color:#222;}
+    .states-grid .state-card:nth-child(15) { background: linear-gradient(90deg,#c6ffdd,#fbd786); color:#222;}
+    .states-grid .state-card:nth-child(16) { background: linear-gradient(90deg,#fbc2eb,#a6c1ee); }
+    .states-grid .state-card:nth-child(17) { background: linear-gradient(90deg,#30cfd0,#330867); }
+    .states-grid .state-card:nth-child(18) { background: linear-gradient(90deg,#fddb92,#d1fdff); color:#222;}
+    .states-grid .state-card:nth-child(19) { background: linear-gradient(90deg,#89f7fe,#66a6ff); }
+    .states-grid .state-card:nth-child(20) { background: linear-gradient(90deg,#fdfbfb,#ebedee); color:#222;}
+    .states-grid .state-card:nth-child(21) { background: linear-gradient(90deg,#ff9a9e,#fad0c4); color:#222;}
+    .states-grid .state-card:nth-child(22) { background: linear-gradient(90deg,#a1c4fd,#c2e9fb); color:#222;}
+    .states-grid .state-card:nth-child(23) { background: linear-gradient(90deg,#ffecd2,#fcb69f); color:#222;}
+    .states-grid .state-card:nth-child(24) { background: linear-gradient(90deg,#d4fc79,#96e6a1); color:#222;}
+    .states-grid .state-card:nth-child(25) { background: linear-gradient(90deg,#fceabb,#f8b500); color:#222;}
+    .states-grid .state-card:nth-child(26) { background: linear-gradient(90deg,#fdfcfb,#e2d1c3); color:#222;}
+    .states-grid .state-card:nth-child(27) { background: linear-gradient(90deg,#6dd5ed,#2193b0); }
+    .states-grid .state-card:nth-child(28) { background: linear-gradient(90deg,#ff7e5f,#feb47b); }
+
+    /* UTs (if present) will continue cycling colors */
+    .states-grid .state-card:nth-child(29) { background: linear-gradient(90deg,#b2fefa,#0ed2f7); color:#222;}
+    .states-grid .state-card:nth-child(30) { background: linear-gradient(90deg,#fbc2eb,#a6c1ee); }
+    .states-grid .state-card:nth-child(31) { background: linear-gradient(90deg,#ff9a9e,#fecfef); color:#222;}
+    .states-grid .state-card:nth-child(32) { background: linear-gradient(90deg,#cfd9df,#e2ebf0); color:#222;}
+    .states-grid .state-card:nth-child(33) { background: linear-gradient(90deg,#f6d365,#fda085); color:#222;}
+    .states-grid .state-card:nth-child(34) { background: linear-gradient(90deg,#f5f7fa,#c3cfe2); color:#222;}
+    .states-grid .state-card:nth-child(35) { background: linear-gradient(90deg,#89f7fe,#66a6ff); }
+    .states-grid .state-card:nth-child(36) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+    .states-grid .state-card:nth-child(37) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+    .states-grid .state-card:nth-child(38) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+
+    .state-note {
+      margin-top: 14px;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    
+    
+    
+    
+       /* Qualification & Category common tweaks */
+    .qualifications-section, .category-section { background:#fff; border-radius:var(--card-radius); padding:14px; }
+    .qual-header, .category-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+
+    /* Use auto-fit to be truly responsive */
+    .qualification-grid{ display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+    .qualification-card{ min-height:70px; border-radius:10px; display:flex; align-items:center; justify-content:center; padding:12px; background:linear-gradient(180deg,#fff,#fbfbfb); border:1px solid var(--border); cursor:pointer; text-align:center; }
+    .qualification-card a{ display:flex; flex-direction:column; gap:6px; align-items:center; justify-content:center; color:var(--dark); text-decoration:none; width:100%; height:100%; }
+    .qualification-card .q-icon{ font-size:18px; color:var(--primary); }
+    .qualification-label{ font-weight:700; font-size:14px; }
+    .qualification-sub{ font-size:12px; color:#666; }
+
+    .category-grid{ display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .category-card{ display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; border:1px solid var(--border); min-height:64px; text-decoration:none; color:inherit; }
+    .category-card .cat-icon{ width:46px; height:46px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#fff; border:1px solid var(--border); }
+    .category-title{ font-weight:800; font-size:14px; }
+    .category-meta{ font-size:12px; color:#666; }
+
+    /* Make cards larger on small screens and easier to tap */
+    @media(max-width:420px){
+      .qualification-card, .category-card{ padding:14px; min-height:72px; }
+      .qualification-label{ font-size:15px; }
+      .category-title{ font-size:15px; }
+      .search-box input{ padding:12px; }
+      .main-nav a{ padding:12px 8px; font-size:14px; }
+    }
+
+    
+    
+    
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .search-box {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0;
+      }
+
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .job-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .info-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .header-top-right a {
+        margin: 0 5px;
+      }
+
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .job-title {
+        font-size: 24px;
+      }
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ===== Info Section  ===== */
+  .website-info {
+    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">नौकरियां</a>
+      <span>&gt;</span>
+      <span> सभी श्रेणी नौकरियां</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> सभी श्रेणी सरकारी नौकरियां 2025 – नवीनतम सरकारी नौकरी और रिक्ति अपडेट</h1>
+  </marquee>
+</div>
+
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline">एडमिट कार्ड 2026 – नवीनतम सरकारी परीक्षा हॉल टिकट</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+  padding: 6px 06px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Main Content Grid: Left Sidebar | Content | Right Sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Main content and sidebars">
+    <!-- Left Sidebar -->
+  
+     <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षक नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियां</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+
+
+       <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">प्रवेश</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">पाठ्यक्रम</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">सरकारी योजना</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">छात्रवृत्ति</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+
+    <!-- Main Content Area (center) -->
+    <div class="content-area">
+
+ <!-- Category Section -->
+      <section class="category-section" aria-labelledby="cat-title" style="margin-top:12px;">
+        <div class="category-header">
+          <h2 id="cat-title">श्रेणी — Categories</h2>
+          <div style="font-size:13px;color:#666;">श्रेणी टैप करें नौकरियां फिल्टर करने के लिए</div>
+        </div>
+
+        <div class="category-grid" role="list">
+          <a class="category-card" role="listitem" href="{% url 'bankjob' %}">
+            <div class="cat-icon"><i class="fas fa-university"></i></div>
+            <div class="cat-content"><div class="category-title">बैंकिंग</div><div class="category-meta">5000+ रिक्तियां</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'sscjob' %}">
+            <div class="cat-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="cat-content"><div class="category-title">SSC</div><div class="category-meta">8000+ रिक्तियां</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'upscjob' %}">
+  <div class="cat-icon"><i class="fas fa-landmark"></i></div>
+  <div class="cat-content">
+    <div class="category-title">UPSC</div>
+    <div class="category-meta">500+ रिक्तियां</div>
+  </div>
+</a>
+
+
+          <a class="category-card" role="listitem" href="{% url 'railwayjob' %}">
+            <div class="cat-icon"><i class="fas fa-train"></i></div>
+            <div class="cat-content"><div class="category-title">रेलवे</div><div class="category-meta">10000+ रिक्तियां</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'government_teacher_jobs' %}">
+            <div class="cat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="cat-content"><div class="category-title">शिक्षक</div><div class="category-meta">2000+ रिक्तियां</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'defensejob' %}">
+            <div class="cat-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="cat-content"><div class="category-title">पुलिस / रक्षा</div><div class="category-meta">3000+ रिक्तियां</div></div>
+          </a>
+
+        <a class="category-card" role="listitem" href="{% url 'allcategoryjobs' %}">
+  <div class="cat-icon"><i class="fas fa-th-large"></i></div>
+  <div class="cat-content">
+    <div class="category-title">सभी श्रेणियां</div>
+    <div class="category-meta">सरकारी और प्राइवेट नौकरियां</div>
+  </div>
+</a>
+
+
+        </div>
+      </section>
+      
+
+      <!-- NEW: All States Grid -->
+      <section class="states-section" aria-labelledby="states-title">
+        <div class="states-header">
+          <h2 id="states-title">सभी भारत — राज्य और केंद्र शासित प्रदेश लिंक</h2>
+          <div style="font-size:14px;color:#666;">किसी भी राज्य/UT पर क्लिक करें, उस राज्य की सभी नौकरी रिक्तियां दिखेंगी</div>
+        </div>
+
+        <div class="states-grid" role="list" aria-label="भारतीय राज्यों और केंद्र शासित प्रदेशों की सूची">
+          <!-- States (28) -->
+          <div class="state-card" role="listitem"><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Assam' %}">असम</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Bihar' %}">बिहार</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Goa' %}">गोवा</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Gujarat' %}">गुजरात</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Haryana' %}">हरियाणा</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'JammuKashmir' %}">जम्मू और कश्मीर</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Jharkhand' %}">झारखंड</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Karnataka' %}">कर्नाटक</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Kerala' %}">केरल</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Maharashtra' %}">महाराष्ट्र</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Manipur' %}">मणिपुर</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Meghalaya' %}">मेघालय</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Mizoram' %}">मिजोरम</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Nagaland' %}">नागालैंड</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Odisha' %}">ओडिशा</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Punjab' %}">पंजाब</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Rajasthan' %}">राजस्थान</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Sikkim' %}">सिक्किम</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'TamilNadu' %}">तमिलनाडु</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Telangana' %}">तेलंगाना</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Tripura' %}">त्रिपुरा</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'upjob' %}">उत्तर प्रदेश</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Uttarakhand' %}">उत्तराखंड</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'WestBengal' %}">पश्चिम बंगाल</a></div>
+
+          <!-- Union Territories (8) -->
+          <div class="state-card" role="listitem"><a href="{% url 'AndamanNicobar' %}">अंडमान और निकोबार</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Chandigarh' %}">चंडीगढ़</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'DadraNagarHaveli' %}">दादरा और नगर हवेली</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'DamanDiu' %}">दमन और दीव</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Ladakh' %}">लद्दाख</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Lakshadweep' %}">लक्षद्वीप</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Delhi' %}">दिल्ली (NCT)</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Puducherry' %}">पुडुचेरी</a></div>
+        </div>
+
+        <p class="state-note">यह पेज सभी राज्य/केंद्र शासित प्रदेश से संबंधित नौकरी रिक्ति लिंक प्रदान करता है — किसी भी राज्य के लिंक पर क्लिक करने पर उस राज्य की संबंधित सभी सरकारी नौकरी रिक्तियां दिखेंगी।</p>
+      </section>
+      
+      
+      
+      
+       <!-- Qualification Section -->
+      <section class="qualifications-section" aria-labelledby="qual-title" style="margin-top:12px;">
+        <div class="qual-header">
+          <h2 id="qual-title">योग्यता — Qualifications</h2>
+          <div style="font-size:13px;color:#666;">टैप करके उस योग्यता की नौकरियां देखें</div>
+        </div>
+
+        <div class="qualification-grid" role="list">
+          <div class="qualification-card" role="listitem"><a href="{% url 'tenthjob' %}"><span class="q-icon"><i class="fas fa-school"></i></span><span class="qualification-label">10वीं / मैट्रिक</span><span class="qualification-sub"> हेल्पर</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'twellthjob' %}"><span class="q-icon"><i class="fas fa-user-graduate"></i></span><span class="qualification-label">12वीं / इंटरमीडिएट</span><span class="qualification-sub">क्लेरिकल, टेक्निकल</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'graduationjob' %}"><span class="q-icon"><i class="fas fa-graduation-cap"></i></span><span class="qualification-label">स्नातक</span><span class="qualification-sub">अधिकारी</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'diploma_jobs' %}"><span class="q-icon"><i class="fas fa-toolbox"></i></span><span class="qualification-label">डिप्लोमा</span><span class="qualification-sub">टेक्निशियन</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'itigovtjobs' %}"><span class="q-icon"><i class="fas fa-cog"></i></span><span class="qualification-label">ITI</span><span class="qualification-sub">स्किल्ड</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'apprenticejob' %}"><span class="q-icon"> <i class="fas fa-user-graduate"></i></span><span class="qualification-label">अप्रेंटिस नौकरी</span><span class="qualification-sub">स्किल्ड</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'postgraduaionjob' %}"><span class="q-icon"><i class="fas fa-university"></i></span><span class="qualification-label">स्नातकोत्तर</span><span class="qualification-sub">लेक्चरर</span></a></div>
+          
+<div class="qualification-card" role="listitem">
+  <a href="{% url 'engineering_jobs' %}">
+    <span class="q-icon"><i class="fas fa-cogs"></i></span>
+    <span class="qualification-label">इंजीनियरिंग नौकरियां</span>
+    <span class="qualification-sub">B.Tech, M.Tech, डिप्लोमा</span>
+  </a>
+</div>
+
+<div class="qualification-card" role="listitem">
+  <a href="{% url 'medical_jobs' %}">
+    <span class="q-icon"><i class="fas fa-user-md"></i></span>
+    <span class="qualification-label">मेडिकल नौकरियां</span>
+    <span class="qualification-sub">MBBS, नर्सिंग, फार्मा</span>
+  </a>
+</div>
+
+          <div class="qualification-card" role="listitem"><a href="{% url 'all_education' %}"><span class="q-icon"><i class="fas fa-sitemap"></i></span><span class="qualification-label">कोई भी योग्यता</span><span class="qualification-sub">सभी स्तर</span></a></div>
+        </div>
+      </section>
+      
+
+      <!-- Related Jobs (appears under main content on small screens or visible in right sidebar on large) -->
+      <div class="related-jobs">
+        <div class="section-title">
+          <i class="fas fa-briefcase"></i> समान नौकरियां
+        </div>
+
+         {% for job in latest_jobs %}
+        <div class="related-job-item">
+          <a href="/latest-jobs/{{ job.slug }}/" class="related-job-title">{{ job.title }}</a>
+          <span class="related-job-date">{{ job.published_date|date:"d M, Y" }}</span>
+        </div>
+        {% endfor %}
+      
+
+        <!-- NEW: Page description under Similar Jobs as requested -->
+        <div style="padding:16px 0 0; color:#555; font-size:14px; line-height:1.5;">
+          <strong>इस पेज के बारे में:</strong>
+          <p style="margin:8px 0 0;">
+            इस पेज में भारत के सभी राज्य/केंद्र शासित प्रदेश के तुरंत खुलने वाले लिंक दिए गए हैं — हर लिंक पर क्लिक करने से उस राज्य से संबंधित सभी नौकरी रिक्ति लिस्टिंग दिखेंगी। पेज का उद्देश्य राज्य-वार नौकरी खोज को सरल और तेज़ बनाना है।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+  
+      <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता अनुसार नौकरियां</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">कोई भी स्नातक नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">कोई भी स्नातकोत्तर नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admitcard/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Website Information Section (All Category Jobs Page) -->
+<section class="website-info">
+  <div class="container">
+    <h2>सभी श्रेणी नौकरियां 2026 – केंद्रीय और राज्य सरकारी रिक्तियां</h2>
+
+    <div class="info-content">
+
+      <!-- All Govt Categories -->
+      <div class="info-point">
+        <h3>एक ही जगह पर सभी सरकारी नौकरी श्रेणियां</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको सभी सरकारी भर्ती की जानकारी
+          <strong>एक ही जगह</strong> पर मिलती है — चाहे वह
+          <strong>रेलवे · SSC · UPSC · बैंक · रक्षा · पुलिस · शिक्षक · PSU
+          · राज्य सरकारी नौकरियां</strong> हों या कोई भी राष्ट्रीय स्तर की रिक्ति। 
+          हर अपडेट आधिकारिक स्रोतों से लिया जाता है सटीकता के लिए।
+        </p>
+      </div>
+
+      <!-- Qualification Wise Jobs -->
+      <div class="info-point">
+        <h3>योग्यता अनुसार नौकरियां – 8वीं से स्नातकोत्तर तक</h3>
+        <p>
+          इस पेज पर हर योग्यता वाले उम्मीदवारों के लिए अवसर उपलब्ध हैं:
+          <strong>8वीं पास, 10वीं पास, 12वीं पास, ITI, डिप्लोमा, स्नातक,
+          स्नातकोत्तर और प्रोफेशनल डिग्री नौकरियां</strong>। 
+          आप अपनी योग्यता और करियर लक्ष्य से पूरी तरह मेल खाती नौकरियां चुन सकते हैं।
+        </p>
+      </div>
+
+      <!-- Exam Calendar & Updates -->
+      <div class="info-point">
+        <h3>परीक्षा तिथियां, ऑनलाइन फॉर्म और एडमिट कार्ड</h3>
+        <p>
+          यहां पर आपको हर श्रेणी से जुड़े अपडेट मिलते हैं -
+          <strong>परीक्षा तिथियां, ऑनलाइन आवेदन लिंक, एडमिट कार्ड,
+          सिलेबस, उत्तर कुंजी और रिजल्ट</strong>।
+          हम सीधे आधिकारिक लिंक प्रदान करते हैं जिससे उपयोगकर्ताओं को समय बर्बाद न करना पड़े।
+        </p>
+      </div>
+
+      <!-- State & Central Jobs -->
+      <div class="info-point">
+        <h3>राज्य और केंद्रीय सरकारी नौकरियां</h3>
+        <p>
+          चाहे आप किसी <strong>केंद्रीय सरकारी नौकरी</strong> की तैयारी कर रहे हों —
+          जैसे <strong>UPSC, SSC, रेलवे, बैंक और रक्षा</strong> — या फिर
+          किसी <strong>राज्य स्तर भर्ती</strong> जैसे
+          <strong>पुलिस, शिक्षक, वन, स्वास्थ्य, राज्य PSC / SSC</strong> —
+          हर रिक्ति का संरचित विवरण इस पेज पर मिलता है।
+        </p>
+      </div>
+
+      <!-- Age & Category Relaxation -->
+      <div class="info-point">
+        <h3>आयु सीमा, श्रेणी छूट और पात्रता</h3>
+        <p>
+          हर पोस्ट में हम पूरी तरह से स्पष्ट पात्रता देते हैं:
+          <strong>आयु सीमा, श्रेणी छूट (SC/ST/OBC/EWS/PH),
+          योग्यता, परीक्षा चरण</strong> — जिससे आप तेजी से पात्रता जांच कर सकें।
+        </p>
+      </div>
+
+      <!-- Career Opportunities -->
+      <div class="info-point">
+        <h3>उम्मीदवारों के लिए सर्वश्रेष्ठ करियर अवसर</h3>
+        <p>
+          चाहे आप फ्रेशर हों या अनुभवी — यहां पर हर श्रेणी में आपको
+          <strong>उत्कृष्ट सरकारी करियर विकल्प</strong> मिलेंगे।
+          नौकरी अलर्ट आपको मदद करते हैं कि आप समय रहते आवेदन कर पाएं और कोई अवसर न चूकें।
+        </p>
+      </div>
+
+      <!-- One Stop Government Jobs Hub -->
+      <div class="info-point">
+        <h3>वन स्टॉप सरकारी नौकरी पोर्टल</h3>
+        <p>
+          <strong>सभी-श्रेणी-नौकरियां</strong> हर उम्मीदवार के लिए पूरा हब है।
+          <strong>wifiresult.com</strong> सुनिश्चित करता है कि आप हर भर्ती अपडेट, आधिकारिक PDF,
+          ऑनलाइन फॉर्म लिंक, चयन प्रक्रिया और अंतिम रिजल्ट — सब कुछ आसानी से पा सकें।
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>All Category Govt Jobs | Latest Government Vacancy Updates – WifiResult</title>
+<meta name="description" content="All Category Govt Jobs 2026: Find latest government jobs across Banking, SSC, UPSC, Railway, Police, Defence, Teaching, State Govt & more. Daily updated vacancies with official links.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/">
+<meta property="og:title" content="All Category Govt Jobs | Latest Government Vacancy Updates – WifiResult">
+<meta property="og:description" content="All Category Govt Jobs 2026: Find latest government jobs across Banking, SSC, UPSC, Railway, Police, Defence, Teaching, State Govt & more. Daily updated vacancies with official links.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/">
+<meta name="twitter:title" content="All Category Govt Jobs | Latest Government Vacancy Updates – WifiResult">
+<meta name="twitter:description" content="All Category Govt Jobs 2026: Find latest government jobs across Banking, SSC, UPSC, Railway, Police, Defence, Teaching, State Govt & more. Daily updated vacancies with official links.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "All Category Jobs", "item": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/",
+  "name": "All Category Govt Jobs | Latest Government Vacancy Updates – WifiResult",
+  "headline": "All Category Govt Jobs 2025 – Latest Sarkari Naukri & Vacancy Updates",
+  "description": "All Category Govt Jobs 2026: Find latest government jobs across Banking, SSC, UPSC, Railway, Police, Defence, Teaching, State Govt & more. Daily updated vacancies with official links.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/all-category-jobs/#breadcrumb" }
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /all-category-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "All Category Jobs page par mujhe kya-kya dekhne ko milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko sabhi major government job categories jaise SSC, UPSC, Banking, Railway, Defence, Police, Teacher, PSU, Apprentice aur State Government Jobs ke latest notifications ek hi jagah par milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya All Category Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan published sabhi job updates official government portals, recruitment boards, public sector units aur verified notifications se hi liye jaate hain. Har listing ke saath official PDF link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apni category ke according jobs kaise search karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap category list me Banking, SSC, UPSC, Railway, Defence, Teacher, Police ya State Jobs jaise sections choose karke apni preference ke hisab se jobs filter kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya All Category Jobs page me central aur state dono jobs hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, is page par central government recruitments ke saath-saath sabhi states ki latest vacancies bhi include ki jaati hain, taki candidates ko complete job coverage ek hi page par mil sake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "All Category Jobs page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page rozana multiple times update hota hai. Jaise hi kisi category me new notification release hoti hai, uska link turant All Category Jobs section me add kar diya jata hai."
+      }
+    }
+  ]
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+ <style>
+
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Breaking News */
+    .breaking-news {
+      background: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 8px 0;
+      border: 1px solid #f5c6cb;
+      margin-bottom: 15px;
+    }
+
+    .breaking-news .icon {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .breaking-news .headline {
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Main Content Layout - GRID */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* default single column for mobile */
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    /* For large screens show left-sidebar / content / right-sidebar */
+    @media (min-width: 992px) {
+      .layout-grid {
+        grid-template-columns: 230px 1fr 300px;
+        align-items: start;
+      }
+
+      /* Ensure sidebars are visible on large screens and positioned left/right */
+      .left-sidebar {
+        order: 0;
+      }
+
+      .content-area {
+        order: 1;
+      }
+
+      .right-sidebar {
+        order: 2;
+      }
+    }
+
+    /* On smaller screens stack: content first, then left-sidebar and right-sidebar below content */
+    @media (max-width: 991px) {
+      .content-area {
+        order: 0;
+      }
+
+      .left-sidebar {
+        order: 1;
+      }
+
+      .right-sidebar {
+        order: 2;
+      }
+    }
+
+    .content-area {
+      min-width: 300px;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+      display: block;
+    }
+
+    /* Sidebar card styles (re-usable) */
+    .sidebar-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-card h4 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 18px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-list li a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-meta {
+      color: #6c757d;
+      font-size: 13px;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Article Styles (kept for compatibility) */
+    .job-article {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .job-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    .job-title {
+      color: var(--dark);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      color: #6c757d;
+      font-size: 14px;
+    }
+
+    .meta-item i {
+      margin-right: 8px;
+      color: var(--primary);
+    }
+
+    .apply-button {
+      display: inline-block;
+      background: linear-gradient(to right, var(--success), #0f6e3f);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .apply-button:hover {
+      background: linear-gradient(to right, #0f6e3f, var(--success));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-content {
+      margin-bottom: 25px;
+    }
+
+    .content-section {
+      margin-bottom: 25px;
+    }
+
+    .content-section h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    .info-table th,
+    .info-table td {
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    .info-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+      width: 30%;
+    }
+
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid var(--primary);
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .steps-list {
+      list-style-type: none;
+      counter-reset: step-counter;
+    }
+
+    .steps-list li {
+      margin-bottom: 15px;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .steps-list li:before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* Related Jobs */
+    .related-jobs {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .related-job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .related-job-item:last-child {
+      border-bottom: none;
+    }
+
+    .related-job-title {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-job-title:hover {
+      color: var(--primary);
+    }
+
+    .related-job-date {
+      color: #6c757d;
+      font-size: 14px;
+    }
+
+    /* STATES GRID - new styles */
+    .states-section {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .states-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .states-header h2 {
+      font-size: 22px;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* mobile: 2 per row */
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .states-grid {
+        grid-template-columns: repeat(4, 1fr); /* larger screens: 4 per row */
+      }
+    }
+
+    .state-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      padding: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .state-card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+    }
+
+    .state-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    /* Color variations using nth-child */
+    .states-grid .state-card:nth-child(1) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+    .states-grid .state-card:nth-child(2) { background: linear-gradient(90deg,#6a11cb,#2575fc); }
+    .states-grid .state-card:nth-child(3) { background: linear-gradient(90deg,#11998e,#38ef7d); }
+    .states-grid .state-card:nth-child(4) { background: linear-gradient(90deg,#f7971e,#ffd200); color:#222;}
+    .states-grid .state-card:nth-child(5) { background: linear-gradient(90deg,#fc4a1a,#f7b733); }
+    .states-grid .state-card:nth-child(6) { background: linear-gradient(90deg,#00c6ff,#0072ff); }
+    .states-grid .state-card:nth-child(7) { background: linear-gradient(90deg,#8e2de2,#4a00e0); }
+    .states-grid .state-card:nth-child(8) { background: linear-gradient(90deg,#ff5f6d,#ffc371); color:#222;}
+    .states-grid .state-card:nth-child(9) { background: linear-gradient(90deg,#43cea2,#185a9d); }
+    .states-grid .state-card:nth-child(10) { background: linear-gradient(90deg,#f953c6,#b91d73); }
+    .states-grid .state-card:nth-child(11) { background: linear-gradient(90deg,#00b09b,#96c93d); color:#222;}
+    .states-grid .state-card:nth-child(12) { background: linear-gradient(90deg,#e43a15,#e65245); }
+    .states-grid .state-card:nth-child(13) { background: linear-gradient(90deg,#3a7bd5,#00d2ff); color:#222;}
+    .states-grid .state-card:nth-child(14) { background: linear-gradient(90deg,#8e9eab,#eef2f3); color:#222;}
+    .states-grid .state-card:nth-child(15) { background: linear-gradient(90deg,#c6ffdd,#fbd786); color:#222;}
+    .states-grid .state-card:nth-child(16) { background: linear-gradient(90deg,#fbc2eb,#a6c1ee); }
+    .states-grid .state-card:nth-child(17) { background: linear-gradient(90deg,#30cfd0,#330867); }
+    .states-grid .state-card:nth-child(18) { background: linear-gradient(90deg,#fddb92,#d1fdff); color:#222;}
+    .states-grid .state-card:nth-child(19) { background: linear-gradient(90deg,#89f7fe,#66a6ff); }
+    .states-grid .state-card:nth-child(20) { background: linear-gradient(90deg,#fdfbfb,#ebedee); color:#222;}
+    .states-grid .state-card:nth-child(21) { background: linear-gradient(90deg,#ff9a9e,#fad0c4); color:#222;}
+    .states-grid .state-card:nth-child(22) { background: linear-gradient(90deg,#a1c4fd,#c2e9fb); color:#222;}
+    .states-grid .state-card:nth-child(23) { background: linear-gradient(90deg,#ffecd2,#fcb69f); color:#222;}
+    .states-grid .state-card:nth-child(24) { background: linear-gradient(90deg,#d4fc79,#96e6a1); color:#222;}
+    .states-grid .state-card:nth-child(25) { background: linear-gradient(90deg,#fceabb,#f8b500); color:#222;}
+    .states-grid .state-card:nth-child(26) { background: linear-gradient(90deg,#fdfcfb,#e2d1c3); color:#222;}
+    .states-grid .state-card:nth-child(27) { background: linear-gradient(90deg,#6dd5ed,#2193b0); }
+    .states-grid .state-card:nth-child(28) { background: linear-gradient(90deg,#ff7e5f,#feb47b); }
+
+    /* UTs (if present) will continue cycling colors */
+    .states-grid .state-card:nth-child(29) { background: linear-gradient(90deg,#b2fefa,#0ed2f7); color:#222;}
+    .states-grid .state-card:nth-child(30) { background: linear-gradient(90deg,#fbc2eb,#a6c1ee); }
+    .states-grid .state-card:nth-child(31) { background: linear-gradient(90deg,#ff9a9e,#fecfef); color:#222;}
+    .states-grid .state-card:nth-child(32) { background: linear-gradient(90deg,#cfd9df,#e2ebf0); color:#222;}
+    .states-grid .state-card:nth-child(33) { background: linear-gradient(90deg,#f6d365,#fda085); color:#222;}
+    .states-grid .state-card:nth-child(34) { background: linear-gradient(90deg,#f5f7fa,#c3cfe2); color:#222;}
+    .states-grid .state-card:nth-child(35) { background: linear-gradient(90deg,#89f7fe,#66a6ff); }
+    .states-grid .state-card:nth-child(36) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+    .states-grid .state-card:nth-child(37) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+    .states-grid .state-card:nth-child(38) { background: linear-gradient(90deg,#ff6b6b,#ff8e53); }
+
+    .state-note {
+      margin-top: 14px;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    
+    
+    
+    
+       /* Qualification & Category common tweaks */
+    .qualifications-section, .category-section { background:#fff; border-radius:var(--card-radius); padding:14px; }
+    .qual-header, .category-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+
+    /* Use auto-fit to be truly responsive */
+    .qualification-grid{ display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+    .qualification-card{ min-height:70px; border-radius:10px; display:flex; align-items:center; justify-content:center; padding:12px; background:linear-gradient(180deg,#fff,#fbfbfb); border:1px solid var(--border); cursor:pointer; text-align:center; }
+    .qualification-card a{ display:flex; flex-direction:column; gap:6px; align-items:center; justify-content:center; color:var(--dark); text-decoration:none; width:100%; height:100%; }
+    .qualification-card .q-icon{ font-size:18px; color:var(--primary); }
+    .qualification-label{ font-weight:700; font-size:14px; }
+    .qualification-sub{ font-size:12px; color:#666; }
+
+    .category-grid{ display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .category-card{ display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; border:1px solid var(--border); min-height:64px; text-decoration:none; color:inherit; }
+    .category-card .cat-icon{ width:46px; height:46px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:#fff; border:1px solid var(--border); }
+    .category-title{ font-weight:800; font-size:14px; }
+    .category-meta{ font-size:12px; color:#666; }
+
+    /* Make cards larger on small screens and easier to tap */
+    @media(max-width:420px){
+      .qualification-card, .category-card{ padding:14px; min-height:72px; }
+      .qualification-label{ font-size:15px; }
+      .category-title{ font-size:15px; }
+      .search-box input{ padding:12px; }
+      .main-nav a{ padding:12px 8px; font-size:14px; }
+    }
+
+    
+    
+    
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .search-box {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0;
+      }
+
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .job-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .info-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .header-top-right a {
+        margin: 0 5px;
+      }
+
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .job-title {
+        font-size: 24px;
+      }
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ===== Info Section  ===== */
+  .website-info {
+    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(255,255,255,0.96);
+    padding: 16px 18px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(148,163,184,0.4);
+    border: 1px solid rgba(148,163,184,0.5);
+    transition: transform 0.2s ease;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #1d4ed8;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span> All Category Jobs</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> All Category Govt Jobs 2025 – Latest Sarkari Naukri & Vacancy Updates</h1>
+  </marquee>
+</div>
+
+<style>
+.breaking-news {
+  background: #f8d7da;
+   color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;
+}
+.breaking-news .icon {
+  margin-right: 8px;
+}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;
+}
+</style>
+
+  <!-- Main Content Grid: Left Sidebar | Content | Right Sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Main content and sidebars">
+    <!-- Left Sidebar -->
+  
+     <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+
+
+       <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt Updated</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Sarkari Yojna</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+
+    <!-- Main Content Area (center) -->
+    <div class="content-area">
+
+ <!-- Category Section -->
+      <section class="category-section" aria-labelledby="cat-title" style="margin-top:12px;">
+        <div class="category-header">
+          <h2 id="cat-title">Category — श्रेणियाँ</h2>
+          <div style="font-size:13px;color:#666;">Tap category to filter jobs</div>
+        </div>
+
+        <div class="category-grid" role="list">
+          <a class="category-card" role="listitem" href="{% url 'bankjob' %}">
+            <div class="cat-icon"><i class="fas fa-university"></i></div>
+            <div class="cat-content"><div class="category-title">Banking</div><div class="category-meta">5000+ Vacancies</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'sscjob' %}">
+            <div class="cat-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="cat-content"><div class="category-title">SSC</div><div class="category-meta">8000+ Vacancies</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'upscjob' %}">
+  <div class="cat-icon"><i class="fas fa-landmark"></i></div>
+  <div class="cat-content">
+    <div class="category-title">UPSC</div>
+    <div class="category-meta">500+ Vacancies</div>
+  </div>
+</a>
+
+
+          <a class="category-card" role="listitem" href="{% url 'railwayjob' %}">
+            <div class="cat-icon"><i class="fas fa-train"></i></div>
+            <div class="cat-content"><div class="category-title">Railways</div><div class="category-meta">10000+ Vacancies</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'government_teacher_jobs' %}">
+            <div class="cat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="cat-content"><div class="category-title">Teaching</div><div class="category-meta">2000+ Vacancies</div></div>
+          </a>
+
+          <a class="category-card" role="listitem" href="{% url 'defensejob' %}">
+            <div class="cat-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="cat-content"><div class="category-title">Police / Defence</div><div class="category-meta">3000+ Vacancies</div></div>
+          </a>
+
+        <a class="category-card" role="listitem" href="{% url 'allcategoryjobs' %}">
+  <div class="cat-icon"><i class="fas fa-th-large"></i></div>
+  <div class="cat-content">
+    <div class="category-title">All Categories</div>
+    <div class="category-meta">Govt & Private Jobs</div>
+  </div>
+</a>
+
+
+        </div>
+      </section>
+      
+
+      <!-- NEW: All States Grid -->
+      <section class="states-section" aria-labelledby="states-title">
+        <div class="states-header">
+          <h2 id="states-title">All India — राज्य (State) & Union Territory Links</h2>
+          <div style="font-size:14px;color:#666;">Click किसी भी राज्य/UT पर, उस राज्य की सभी job vacancies दिखेंगी</div>
+        </div>
+
+        <div class="states-grid" role="list" aria-label="List of Indian states and union territories">
+          <!-- States (28) -->
+          <div class="state-card" role="listitem"><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Assam' %}">Assam</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Bihar' %}">Bihar</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Chhattisgarh' %}">Chhattisgarh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Goa' %}">Goa</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Gujarat' %}">Gujarat</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Haryana' %}">Haryana</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'JammuKashmir' %}">JammuKashmir</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Jharkhand' %}">Jharkhand</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Karnataka' %}">Karnataka</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Kerala' %}">Kerala</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Maharashtra' %}">Maharashtra</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Manipur' %}">Manipur</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Meghalaya' %}">Meghalaya</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Mizoram' %}">Mizoram</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Nagaland' %}">Nagaland</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Odisha' %}">Odisha</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Punjab' %}">Punjab</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Rajasthan' %}">Rajasthan</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Sikkim' %}">Sikkim</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'TamilNadu' %}">Tamil Nadu</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Telangana' %}">Telangana</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Tripura' %}">Tripura</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'upjob' %}">Uttar Pradesh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Uttarakhand' %}">Uttarakhand</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'WestBengal' %}">WestBengal</a></div>
+
+          <!-- Union Territories (8) -->
+          <div class="state-card" role="listitem"><a href="{% url 'AndamanNicobar' %}">Andaman & Nicobar</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Chandigarh' %}">Chandigarh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'DadraNagarHaveli' %}">Dadra & Nagar Haveli</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'DamanDiu' %}">Daman & Diu</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Ladakh' %}">Ladakh</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Lakshadweep' %}">Lakshadweep</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Delhi' %}">Delhi (NCT)</a></div>
+          <div class="state-card" role="listitem"><a href="{% url 'Puducherry' %}">Puducherry</a></div>
+        </div>
+
+        <p class="state-note">यह पेज सभी राज्य/Union Territory से संबंधित job vacancy लिंक प्रदान करता है — किसी भी राज्य के लिंक पर क्लिक करने पर उस राज्य की संबंधित सभी Sarkari job vacancies दिखेंगी।</p>
+      </section>
+      
+      
+      
+      
+       <!-- Qualification Section -->
+      <section class="qualifications-section" aria-labelledby="qual-title" style="margin-top:12px;">
+        <div class="qual-header">
+          <h2 id="qual-title">Qualification — योग्यताएँ</h2>
+          <div style="font-size:13px;color:#666;">Tap करके उस qualification के jobs देखें</div>
+        </div>
+
+        <div class="qualification-grid" role="list">
+          <div class="qualification-card" role="listitem"><a href="{% url 'tenthjob' %}"><span class="q-icon"><i class="fas fa-school"></i></span><span class="qualification-label">10th / Matric</span><span class="qualification-sub"> Helper</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'twellthjob' %}"><span class="q-icon"><i class="fas fa-user-graduate"></i></span><span class="qualification-label">12th / Intermediate</span><span class="qualification-sub">Clerical, Technical</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'graduationjob' %}"><span class="q-icon"><i class="fas fa-graduation-cap"></i></span><span class="qualification-label">Graduate</span><span class="qualification-sub">Officers</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'diploma_jobs' %}"><span class="q-icon"><i class="fas fa-toolbox"></i></span><span class="qualification-label">Diploma</span><span class="qualification-sub">Technician</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'itigovtjobs' %}"><span class="q-icon"><i class="fas fa-cog"></i></span><span class="qualification-label">ITI</span><span class="qualification-sub">Skilled</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'apprenticejob' %}"><span class="q-icon"> <i class="fas fa-user-graduate"></i></span><span class="qualification-label">Apprentice Job</span><span class="qualification-sub">Skilled</span></a></div>
+          <div class="qualification-card" role="listitem"><a href="{% url 'postgraduaionjob' %}"><span class="q-icon"><i class="fas fa-university"></i></span><span class="qualification-label">Postgraduate</span><span class="qualification-sub">Lecturer</span></a></div>
+          
+<div class="qualification-card" role="listitem">
+  <a href="{% url 'engineering_jobs' %}">
+    <span class="q-icon"><i class="fas fa-cogs"></i></span>
+    <span class="qualification-label">Engineering Jobs</span>
+    <span class="qualification-sub">B.Tech, M.Tech, Diploma</span>
+  </a>
+</div>
+
+<div class="qualification-card" role="listitem">
+  <a href="{% url 'medical_jobs' %}">
+    <span class="q-icon"><i class="fas fa-user-md"></i></span>
+    <span class="qualification-label">Medical Jobs</span>
+    <span class="qualification-sub">MBBS, Nursing, Pharma</span>
+  </a>
+</div>
+
+          <div class="qualification-card" role="listitem"><a href="{% url 'all_education' %}"><span class="q-icon"><i class="fas fa-sitemap"></i></span><span class="qualification-label">Any Qualification</span><span class="qualification-sub">All Levels</span></a></div>
+        </div>
+      </section>
+      
+
+      <!-- Related Jobs (appears under main content on small screens or visible in right sidebar on large) -->
+      <div class="related-jobs">
+        <div class="section-title">
+          <i class="fas fa-briefcase"></i> Similar Jobs
+        </div>
+
+         {% for job in latest_jobs %}
+        <div class="related-job-item">
+          <a href="/latest-jobs/{{ job.slug }}/" class="related-job-title">{{ job.title }}</a>
+          <span class="related-job-date">{{ job.published_date|date:"d M, Y" }}</span>
+        </div>
+        {% endfor %}
+      
+
+        <!-- NEW: Page description under Similar Jobs as requested -->
+        <div style="padding:16px 0 0; color:#555; font-size:14px; line-height:1.5;">
+          <strong>इस पेज के बारे में:</strong>
+          <p style="margin:8px 0 0;">
+            इस पेज में India के सभी राज्य/Union Territory के तुरंत खुलने वाले लिंक दिए गए हैं — हर लिंक पर क्लिक करने से उस राज्य से संबंधित सभी job vacancy listings दिखेंगी। पेज का उद्देश्य राज्य-वार job खोज को सरल और तेज़ बनाना है।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+  
+      <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admitcard/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Website Information Section (All Category Jobs Page) -->
+<section class="website-info">
+  <div class="container">
+    <h2>All Category Jobs 2026 – Central & State Government Vacancies</h2>
+
+    <div class="info-content">
+
+      <!-- All Govt Categories -->
+      <div class="info-point">
+        <h3>All Government Job Categories in One Place</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको सभी government recruitment की जानकारी
+          <strong>एक ही जगह</strong> पर मिलती है — चाहे वह
+          <strong>Railway · SSC · UPSC · Bank · Defense · Police · Teacher · PSU
+          · State Government Jobs</strong> हों या कोई भी national-level vacancy. 
+          Every update is collected from official sources for accuracy.
+        </p>
+      </div>
+
+      <!-- Qualification Wise Jobs -->
+      <div class="info-point">
+        <h3>Qualification Wise Jobs – 8th से Graduate तक</h3>
+        <p>
+          इस पेज पर हर qualification के candidates के लिए opportunities उपलब्ध हैं:
+          <strong>8th Pass, 10th Pass, 12th Pass, ITI, Diploma, Graduate,
+          Post Graduate & Professional Degree Jobs</strong>. 
+          You can choose jobs that perfectly match your qualification & career goals.
+        </p>
+      </div>
+
+      <!-- Exam Calendar & Updates -->
+      <div class="info-point">
+        <h3>Exam Dates, Online Forms & Admit Cards</h3>
+        <p>
+          यहां पर आपको हर category से जुड़े updates मिलते हैं -
+          <strong>exam dates, online application links, admit cards,
+          syllabus, answer keys और results</strong>.
+          हम direct official links provide करते हैं जिससे users को time waste न करना पड़े।
+        </p>
+      </div>
+
+      <!-- State & Central Jobs -->
+      <div class="info-point">
+        <h3>State & Central Government Jobs</h3>
+        <p>
+          चाहे आप किसी <strong>central government job</strong> की तैयारी कर रहे हों —
+          जैसे <strong>UPSC, SSC, Railway, Banks & Defense</strong> — या फिर
+          किसी <strong>state level recruitment</strong> जैसे
+          <strong>Police, Teacher, Forest, Health, State PSC / SSC</strong> —
+          हर vacancy का structured detail इस पेज पर मिलता है।
+        </p>
+      </div>
+
+      <!-- Age & Category Relaxation -->
+      <div class="info-point">
+        <h3>Age Limit, Category Relaxation & Eligibility</h3>
+        <p>
+          हर पोस्ट में हम पूरी तरह से explained eligibility देते हैं:
+          <strong>age limit, category relaxation (SC/ST/OBC/EWS/PH),
+          qualification, exam stages</strong> — जिससे आप fast eligibility check कर सकें।
+        </p>
+      </div>
+
+      <!-- Career Opportunities -->
+      <div class="info-point">
+        <h3>Best Career Opportunities for Aspirants</h3>
+        <p>
+          चाहे आप fresher हों या experienced — यहां पर हर category में आपको
+          <strong>excellent government career options</strong> मिलेंगे।
+          Job alerts आपको help करते हैं कि आप समय रहते apply कर पाएं और कोई opportunity miss न हो।
+        </p>
+      </div>
+
+      <!-- One Stop Government Jobs Hub -->
+      <div class="info-point">
+        <h3>One Stop Government Jobs Portal</h3>
+        <p>
+          <strong>all-category-jobs</strong> is a complete hub for every aspirant.
+          <strong>wifiresult.com</strong> ensures आप हर recruitment update, official PDF,
+          online form link, selection प्रक्रिया और final result — सब कुछ आसानी से पा सकें।
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      यदि आप <strong>Government Job</strong> का dream देखते हैं — तो इस
+      <strong>All Category Jobs</strong> page को bookmark कर लें।  
+      यहां सभी important <strong>Govt Job Alerts 2026</strong> — एक ही जगह — simple language में उपलब्ध हैं।  
+      रोज़ check करें और अपनी तैयारी winning direction में रखें! 💪🚀
+    </p>
+  </div>
+</section>
+
+
+
+  {% endblock content %}
+   {% endcomment %}
