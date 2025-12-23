@@ -420,13 +420,14 @@
       gap: 20px;
     }
 
-    .info-point {
-      background: white;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
 
     .info-point:hover {
       transform: translateY(-5px);
@@ -439,11 +440,11 @@
       display: block;
     }
 
-    .info-point h3 {
-      color: #dc3545;
-      margin-bottom: 15px;
-      font-size: 20px;
-    }
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
 
     .info-point p {
       color: #6c757d;
@@ -560,86 +561,7 @@
       white-space: nowrap;
       border: 0;
     }
-
-     /* ===== Info Section  ===== */
-  .website-info {
-    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
-    padding: 20px 0 24px;
-    margin: 10px 0;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
-  }
-  .website-info h2 {
-    color: #0f172a;
-    text-align: center;
-    margin-bottom: 18px;
-    font-size: 22px;
-    font-weight: 800;
-    position: relative;
-    padding-bottom: 12px;
-  }
-  .website-info h2:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 140px;
-    height: 3px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
-  }
-  .info-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .info-point {
-    background: rgba(255,255,255,0.96);
-    padding: 16px 18px;
-    border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(148,163,184,0.4);
-    border: 1px solid rgba(148,163,184,0.5);
-    transition: transform 0.2s ease;
-  }
-  .info-point:hover {
-    transform: translateY(-3px);
-  }
-  .info-point h3 {
-    color: #1d4ed8;
-    margin-bottom: 6px;
-    font-size: 14px;
-  }
-  .info-point p {
-    color: #4b5563;
-    line-height: 1.6;
-    font-size: 13px;
-  }
-  .website-info p.bottom-text {
-    margin-top: 14px;
-    text-align: center;
-    color: #374151;
-    line-height: 1.7;
-    font-size: 13px;
-  }
-
-  @media (max-width: 576px) {
-    .website-info h2 {
-      font-size: 18px;
-    }
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
+ 
   </style>
 
   {% endblock style %}
