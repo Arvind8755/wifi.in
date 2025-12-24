@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards</title>
+<meta name="description" content="Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
+<meta property="og:title" content="Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards">
+<meta property="og:description" content="Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
+<meta name="twitter:title" content="Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards">
+<meta name="twitter:description" content="Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult">
+<meta name="twitter:creator" content="@WifiResult">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Arvind Pal">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="6 minutes">
+<meta name="twitter:label3" content="Category">
+<meta name="twitter:data3" content="Rojgar Result">
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Rojgar Result","item":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/",
+  "name":"Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards",
+  "headline":"Rojgar Result – Latest Govt Jobs & Sarkari Result Updates",
+  "description":"Rojgar Result – Get latest government results, government job alerts, admit cards, answer keys and exam updates from All India Recruitment Board.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#breadcrumb"}
+}
+</script>
+
+<!--  SEO-Optimized FAQ Schema for /rojgar-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Rojgar Result page par mujhe kya-kya results milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko latest Sarkari Exam Results, scorecards, merit lists, cutoff updates aur official result notifications milti hain. Yeh page central, state aur departmental exams ke sabhi results cover karta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main apna Rojgar Result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap apne exam ke saamne diye gaye 'Check Result' ya 'View Scorecard' link par click karein. Yeh aapko official result portal par redirect karega jahan roll number ya registration number dal kar aap apna result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Rojgar Result page par listed result links official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, Rojgar Result section me publish sabhi links official government portals, recruitment boards aur exam conducting authorities se verify karke hi add kiye jaate hain. Har result listing ke saath official PDF link bhi diya hota hai."
+      }
+    }
+  ]
+}
+</script>
+
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Rojgar Result – Latest Sarkari Results, Jobs & Admit Cards",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is shown on the Rojgar Result page?",
+      "acceptedAnswer":{"@type":"Answer","text":"This page lists latest government job notifications, exam results, admit cards and official govt updates in one place."}
+    },
+    {
+      "@type":"Question",
+      "name":"How often is the Rojgar Result page updated?",
+      "acceptedAnswer":{"@type":"Answer","text":"Multiple times a day as soon as new official notices are released."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can I apply directly from WifiResult?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Each item includes direct official links for applying, downloading PDFs, or checking results."}
+    }
+  ]
+}
+</script>
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Palette tweak for Rojgar Result */
+  :root{
+    --rr-primary:#6610f2; /* purple */
+    --rr-accent:#20c997;  /* teal */
+    --rr-warm:#ff6b6b;    /* coral */
+  }
+
+  /* Hero */
+  .hero-rr{background:linear-gradient(120deg,var(--rr-primary),var(--rr-accent));color:#fff;padding:24px 0;position:relative;overflow:hidden;border-radius:10px}
+  .hero-rr:after{content:'';position:absolute;inset:-40%;background:radial-gradient(closest-side,rgba(255,255,255,.12),transparent 60%);transform:rotate(18deg)}
+  .hero-rr .wrap{position:relative;z-index:1}
+  .hero-rr h1{font-size:1.9rem;margin:0 0 10px}
+  .hero-rr p{margin:0;color:#f8f9fa}  
+  .hero-rr .quick-link.ck-content a {margin:0;color:#6610f2;}  
+
+  /* Quick Links (kept same logic) */
+  .quick-links-container{width:100%;overflow-x:auto;padding:8px 0;margin:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:10px; text-decoration:none; color:#111; font-weight:600; box-shadow:0 6px 18px rgba(16,24,40,.08); transition:.25s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-2px)}
+  .quick-link.ck-content a{color:inherit;text-decoration:none}
+  .quick-link.ck-content a:hover{text-decoration:underline}
+
+  /* Cards */
+  .section-title{background:linear-gradient(90deg,var(--rr-primary),var(--rr-warm));color:#fff;padding:10px 14px;border-radius:8px;margin:16px 0;display:flex;align-items:center;gap:8px}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(16,24,40,.06);transition:transform .25s}
+  .card:hover{transform:translateY(-4px)}
+  .card-header{background:linear-gradient(90deg,var(--rr-primary),var(--rr-accent));color:#fff;padding:12px 14px;font-weight:700}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px solid #f1f3f5}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#212529;text-decoration:none}
+  .job-list a:hover{color:var(--rr-primary)}
+
+  /* Info blocks */
+  .info-wrap{padding:20px 0}
+  .highlight{background:linear-gradient(180deg,#ffffff,#f7f9fc);border-left:4px solid var(--rr-accent);padding:16px;border-radius:10px;margin:16px 0;box-shadow:0 6px 16px rgba(6,6,6,.04)}
+  .highlight h4{margin:0 0 8px;color:var(--rr-primary)}
+
+  /* FAQ */
+  #faq{margin-top:10px}
+  .faq-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+  .faq-list{list-style:none;margin:0;padding:0}
+  .faq-item{border-bottom:1px dashed #ececec;padding:12px 0}
+  .faq-item:last-child{border-bottom:0}
+  .question{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+  .question h3{font-size:16px;margin:0;color:#0f172a}
+  .toggle{width:32px;height:32px;border-radius:8px;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;background:#fff}
+  .answer{margin-top:8px;display:none;color:#374151}
+
+  /* PAGE BOTTOM INFO – Rojgar Result (WifiResult) */
+  .rr-footer-info{
+    margin:16px 0 24px;
+    padding:18px 16px 16px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#f3f0ff,#e6fffa);
+    border:1px solid rgba(102,16,242,.16);
+    box-shadow:0 16px 32px rgba(15,23,42,.08);
+    font-size:13px;
+  }
+  .rr-footer-info h2{
+    margin:0 0 8px;
+    font-size:20px;
+    font-weight:800;
+    color:#1f2937;
+  }
+  .rr-footer-info h3{
+    margin:12px 0 6px;
+    font-size:15px;
+    font-weight:700;
+    color:#6610f2;
+  }
+  .rr-footer-info p{
+    margin:4px 0 6px;
+    line-height:1.6;
+    color:#374151;
+  }
+  .rr-footer-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1.4fr;
+    gap:16px;
+    margin-top:6px;
+  }
+  .rr-footer-info ul{
+    margin:0;
+    padding-left:18px;
+    line-height:1.6;
+  }
+  .rr-footer-tagline{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed rgba(0,0,0,.12);
+    font-size:12px;
+    color:#111827;
+  }
+  .rr-footer-disclaimer{
+    font-size:12px;
+    margin-top:6px;
+    color:#4b5563;
+  }
+  .rr-highlight{
+    font-weight:700;
+    color:#ff6b6b;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width:768px){
+    .hero-rr h1{font-size:1.4rem}
+    .rr-footer-grid{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .rr-footer-info{
+      padding:14px 12px;
+      border-radius:14px;
+    }
+    .rr-footer-info h2{
+      font-size:18px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Rojgar Result</span>
+    </div>
+  </div>
+
+<section class="hero-rr">
+  <div class="container wrap">
+    <h1>Rojgar Result – Latest Govt Jobs & Sarkari Result Updates</h1>
+    <p>Daily updates for government jobs, exam dates, answer keys and results. Curated by WifiResult.</p>
+
+    <div class="quick-links-container">
+      <div class="quick-links">
+        {% for boxname in boxnames %}
+          <div class="quick-link ck-content">{{ boxname.box1|safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <!-- Lists (logic unchanged) -->
+  <div class="section-title"><span>Trending Updates</span></div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header">Latest Jobs</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}" target="_blank" >View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Latest Results</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Admit Cards</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}" target="_blank" >View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Govt Updates</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for govtupdate in govtupdates %}
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'govtupdates' %}" target="_blank" >View All Govt Updates →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Informational copy (kept concise) -->
+  <section class="info-wrap">
+    <div class="highlight">
+      <h4>Rojgar Result 2026 – What you get here</h4>
+      <p>Instant updates for Sarkari Exams across Banking, Railways, Defence, SSC, UPSC and State PSCs. Check notification PDFs, eligibility, dates, syllabus, admit cards and final results.</p>
+    </div>
+    <div class="highlight">
+      <h4>Why choose WifiResult’s Rojgar Result?</h4>
+      <p>Verified links from official portals, clean categorization, and SEO-friendly pages for quick discovery. We prioritize accuracy and speed to keep you ahead.</p>
+    </div>
+    <div class="highlight">
+      <h4>Popular categories</h4>
+      <p>12th Pass Jobs, Graduate Jobs, Bank Jobs, Railway Jobs, Defence Jobs, State Govt Jobs, Admit Cards, Answer Keys, Results.</p>
+    </div>
+  </section>
+
+  <!-- FAQs (interactive) -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="faq-card">
+      <h2 id="faq-heading">Rojgar Result – FAQs</h2>
+      <ul class="faq-list" id="faq-list">
+        <li class="faq-item">
+          <div class="question" data-index="1" tabindex="0">
+            <h3>Is this the official government website?</h3>
+            <div class="toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="answer"><p>No. This is an informational page on WifiResult. We link to official websites for applying and downloading PDFs.</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="2" tabindex="0">
+            <h3>Where can I find official notifications?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>Open any post and scroll to <b>Important Links</b> – you’ll find direct links to the department’s portal or PDF.</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="3" tabindex="0">
+            <h3>How frequently is this page updated?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>We update whenever new official notices, admit cards, answer keys or results are released.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAGE BOTTOM INFORMATION – About Rojgar Result page on WifiResult -->
+  <section class="rr-footer-info">
+    <h2>Rojgar Result – WifiResult पर आपका भरोसेमंद Sarkari Result पेज</h2>
+    <p>
+      <span class="rr-highlight">Rojgar Result</span> पेज पर हम कोशिश करते हैं कि 
+      <strong>नवीनतम सरकारी नौकरियाँ (Govt Jobs), Results, Admit Cards और Answer Keys</strong> 
+      आपको एक ही जगह पर साफ़ और आसान भाषा में मिलें। अगर आप रोज़ कई sites खोलकर 
+      <strong>Sarkari Result / Rojgar Result</strong> देखना चाहते हैं, तो WifiResult का यह पेज आपके लिए 
+      <strong>single stop solution</strong> है।
+    </p>
+
+    <div class="rr-footer-grid">
+      <div>
+        <h3>इस Rojgar Result पेज पर क्या मिलेगा?</h3>
+        <ul>
+          <li><strong>Latest Govt Job Notifications</strong> – post नाम, विभाग, क्वालिफिकेशन, age limit और fees के साथ।</li>
+          <li><strong>Exam Results & Merit List</strong> – short summary और official result / score card links के साथ।</li>
+          <li><strong>Admit Card & Exam Date Updates</strong> – किस exam का admit card आया, direct download links के साथ।</li>
+          <li><strong>Answer Keys & Objection Notice</strong> – official answer key PDF और objection dates की जानकारी।</li>
+          <li>सभी updates को हम <strong>All India Recruitment Boards</strong> की official websites से verify करने की कोशिश करते हैं।</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Important Notice & Disclaimer</h3>
+        <p>
+          WifiResult (<strong>wifiresult.com</strong>) किसी भी सरकारी विभाग, आयोग या संस्था की 
+          <strong>official वेबसाइट नहीं</strong> है। यह एक informational पोर्टल है जो 
+          <strong>official notifications / पोर्टल</strong> के आधार पर जानकारी publish करता है।
+        </p>
+        <ul>
+          <li>किसी भी form को भरने या फीस जमा करने से पहले हमेशा <strong>official notification PDF</strong> ध्यान से पढ़ें।</li>
+          <li>Final, सटीक और legally valid जानकारी के लिए संबंधित विभाग/बोर्ड की <strong>official website</strong> को ही मानें।</li>
+          <li>किसी भी टाइपिंग mistake, अपडेट में देरी या data mismatch की स्थिति में WifiResult जिम्मेदार नहीं होगा।</li>
+        </ul>
+        <p class="rr-footer-disclaimer">
+          यदि आपको इस पेज पर कोई जानकारी गलत, पुरानी या अधूरी लगे, तो आप contact page के माध्यम से हमें बता सकते हैं, 
+          ताकि हम उसे जल्द से जल्द update कर सकें।
+        </p>
+      </div>
+    </div>
+
+    <p class="rr-footer-tagline">
+      🔔 <strong>TIP:</strong> इस <span class="rr-highlight">Rojgar Result</span> पेज को bookmark कर लें – 
+      ताकि Govt Jobs, Sarkari Results, Admit Cards और Answer Keys देखने के लिए 
+      हर बार <strong>नई वेबसाइट search करने की ज़रूरत न पड़े</strong>।
+    </p>
+  </section>
+
+</main>
+
+<script>
+  (function(){
+    const items=document.querySelectorAll('.faq-item');
+    items.forEach(item=>{
+      const q=item.querySelector('.question');
+      const toggle=item.querySelector('.toggle');
+      const ans=item.querySelector('.answer');
+      q.addEventListener('click',()=>{
+        const isOpen=ans.style.display==='block';
+        document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
+        document.querySelectorAll('.faq-item .toggle').forEach(t=>t.textContent='+');
+        if(!isOpen){ans.style.display='block';toggle.textContent='−';}
+      });
+      q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+    });
+  })();
+</script>
+{% endblock content %}

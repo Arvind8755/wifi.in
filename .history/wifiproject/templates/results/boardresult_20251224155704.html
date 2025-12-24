@@ -1,0 +1,795 @@
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+<title>Board Results 2026 | CBSE, UP Board, Bihar Board, MP Board</title>
+<meta name="description" content="Check all India board exam results including CBSE, UP Board, Bihar Board, MP Board, and other state education boards. Download marksheets and scorecards instantly on WifiResult.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/board-result/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/board-result/">
+<meta property="og:title" content="Board Results 2026 | CBSE, UP Board, Bihar Board, MP Board">
+<meta property="og:description" content="Check all India board exam results including CBSE, UP Board, Bihar Board, MP Board, and other state education boards. Download marksheets and scorecards instantly on WifiResult.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/board-result/">
+<meta name="twitter:title" content="Board Results 2026 | CBSE, UP Board, Bihar Board, MP Board">
+<meta name="twitter:description" content="Check all India board exam results including CBSE, UP Board, Bihar Board, MP Board, and other state education boards. Download marksheets and scorecards instantly on WifiResult.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Board Results", "item": "{{ request.scheme }}://{{ request.get_host }}/board-result/" }
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/board-result/",
+  "name": "Board Results 2026 | CBSE, UP Board, Bihar Board, MP Board",
+  "headline": "Latest Board Results 2026 – High School, Intermediate & Class 12 Results",
+  "description": "Check all India board exam results including CBSE, UP Board, Bihar Board, MP Board, and other state education boards. Download marksheets and scorecards instantly on WifiResult.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#breadcrumb" }
+}
+</script>
+
+<!-- Human-Written, SEO-Optimized FAQ Schema for /board-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Board Result page par mujhe kaun-se board exam results milte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko CBSE, ICSE, UP Board, Bihar Board, Rajasthan Board, MP Board, Haryana Board, aur anya state boards ke latest 10th aur 12th exam results ka official update milta hai. Saare links official board websites se liye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Board exam ka result kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Result check karne ke liye apne board ka naam list me dhundhe aur 'Check Result' button par click karein. Aap official board website par redirect ho jaayenge jahan roll number, school code ya registration number dal kar result dekh sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Board Result page par diya gaya data 100% official hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, Board Result page par sirf wahi updates publish kiye jaate hain jo respective education boards ki official websites par announce ho chuke hote hain. Verification ke liye har result ke saath official link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Board Result page kitni baar update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yeh page exam season ke dauran kai baar update hota hai. Jaise hi kisi board ka 10th ya 12th result release hota hai, hum kuch hi minutes me yahan uska direct link aur full details update kar dete hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Board Results 2026 | CBSE, UP Board, Bihar Board, MP Board",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+{% endblock seo %}
+
+{% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+       background: #9C0D0D;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #9C0D0D;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section (Board Result Info) */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: #9C0D0D;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #9C0D0D;
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #9C0D0D;
+  }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+  .info-point h3 {
+    color: #9C0D0D;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .website-info h2 {
+        font-size: 18px;
+      }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Board Result</span>
+    </div>
+  </div>
+
+
+ <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline" style="display: flex; justify-content: center; text-align: center;"> Latest Board Results 2026 – High School, Intermediate & Class 12 Results </h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      <!-- Board Result Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i>Board Result
+        </div>
+        <ul class="job-list-compact p-0">
+          
+          {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'result_detail' post.slug %}"  target="_blank" class="job-title">{{ post.title }}</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+           {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई HPPSC लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई HPPSC भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        
+
+          <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+            <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+                        border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+              {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" 
+                 style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+                        background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+                        border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+                        transition: all 0.3s ease;">
+                ← Previous
+              </a>
+              {% endif %}
+
+              <span style="padding: 10px 20px; border-radius: 999px; 
+                           background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                           color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+                {{ page_obj.number }}
+              </span>
+
+              {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" 
+                 style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+                        background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+                        border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+                        transition: all 0.3s ease;">
+                Next →
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+          
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter }}</div>
+                <div class="trending-content">
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+                  <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+                <div class="trending-content">
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+                  <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+
+        </div>
+      </div>
+      
+      <!-- Quick Alerts -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+          {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Board Result Information Section (About this page) -->
+  <section class="website-info">
+    <div class="container">
+      <h2>Board Results – CBSE, State Boards & All India Result Updates on WifiResult</h2>
+      <div class="info-content">
+        
+        <div class="info-point">
+          <h3>What is the Board Result Page on WifiResult?</h3>
+          <p>
+            <strong>/board-result/</strong> page par aapko <strong>CBSE, UP Board, Bihar Board, MP Board</strong>  
+            aur all India state boards ke <strong>High School (Class 10) & Intermediate / Class 12 results</strong>  
+            ek hi jagah par milte hain. Yahan se aap <strong>official result link, marksheet download page, scorecard  
+            aur toppers list</strong> tak direct pahunch sakte hain – bina alag-alag website search kiye.
+          </p>
+        </div>
+
+        <div class="info-point">
+          <h3>Kaun-kaun se Board Results yahan cover hote hain?</h3>
+          <p>
+            WifiResult Board Result page par hum mainly ye boards cover karte hain:  
+            <strong>CBSE, UPMSP (UP Board), BSEB (Bihar Board), MP Board, Rajasthan Board, Maharashtra Board,  
+            Haryana Board, Punjab Board, Jharkhand Board</strong> aur anya state education boards.  
+            Saath hi kuch <strong>Open Schooling Boards & Central level exams</strong> ke results bhi yahan list kiye jaate hain.
+          </p>
+        </div>
+
+        <div class="info-point">
+          <h3>Result Check karne ka Step-by-Step Process</h3>
+          <p>
+            Har result post mein hum <strong>step-by-step guide</strong> dete hain jisme aapko bataya jata hai ki  
+            official website par jaakar <strong>roll number, school code ya registration no. dal kar marksheet kaise download karein</strong>.  
+            Kai posts mein hum <strong>direct result link (Direct Link to Check Result)</strong> bhi provide karte hain  
+            taki students ko server par time waste na ho.
+          </p>
+        </div>
+
+        <div class="info-point">
+          <h3>Revaluation, Scrutiny & Compartment Information</h3>
+          <p>
+            Sirf result hi nahi, balki kai boards ke liye hum <strong>revaluation / rechecking form, scrutiny process,  
+            compartment / improvement exam</strong> se judi official notifications bhi cover karte hain.  
+            Isse students ko result ke baad ka pura process samajhne mein madad milti hai –  
+            <strong>kab form aayega, last date kya hai, fees kitni hai</strong> etc.
+          </p>
+        </div>
+
+        <div class="info-point">
+          <h3>WifiResult &amp; Sarkari Job Preparation</h3>
+          <p>
+            Board result ke baad students ka agla focus hota hai <strong>college admission, entrance exams  
+            ya sarkari job preparation</strong> par. WifiResult par aap <strong>board result ke saath-saath  
+            latest Sarkari Naukri, admit card, syllabus, answer key</strong> bhi dekh sakte hain.  
+            Yani <strong>Result se lekar Sarkari Job tak</strong> ki journey mein ye page aapka reliable partner hai.
+          </p>
+        </div>
+
+        <div class="info-point">
+          <h3>Important Disclaimer – Board Result Information</h3>
+          <p>
+            <strong>wifiresult.com</strong> ek <strong>private Sarkari Job & Result information portal</strong> hai,  
+            koi bhi <strong>Government website ya official board portal nahi</strong>.  
+            Yahan dikhaye gaye saare <strong>board results, dates, links aur notice details</strong>  
+            public domain / official websites se liye gaye hote hain aur sirf <strong>information purpose</strong> ke liye hote hain.  
+            Kisi bhi mark, correction, revaluation ya admission decision se pehle  
+            aapko hamesha <strong>concerned education board ki official website</strong> par published notice hi final maanna chahiye.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock content %} {% endcomment %}

@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Advertising Policy – WifiResult</title>
+<meta name="description" content="Read WifiResult's Advertising Policy to understand how we manage sponsored content, Google Ads, affiliate links, and third-party advertisements with full transparency.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/advertising-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:locale" content="en_IN">
+<meta http-equiv="Content-Language" content="en">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/advertising-policy/">
+<meta property="og:title" content="Advertising Policy – WifiResult">
+<meta property="og:description" content="Read WifiResult's Advertising Policy to understand how we manage sponsored content, Google Ads, affiliate links, and third-party advertisements with full transparency.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/advertising-policy/">
+<meta name="twitter:title" content="Advertising Policy – WifiResult">
+<meta name="twitter:description" content="Read WifiResult's Advertising Policy to understand how we manage sponsored content, Google Ads, affiliate links, and third-party advertisements with full transparency.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+  <!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Advertising Policy", "item": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/",
+  "name": "Advertising Policy – WifiResult",
+  "headline": "Advertising Policy – Transparency & Sponsorship Guidelines",
+  "description": "Read WifiResult's Advertising Policy to understand how we manage sponsored content, Google Ads, affiliate links, and third-party advertisements with full transparency.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "datePublished": "2025-01-01",
+  "dateModified": "2025-11-11",
+  "mainEntity": {
+    "@type": "CreativeWork",
+    "name": "WifiResult Advertising Policy",
+    "about": "Transparency in online advertisements, Google AdSense and affiliate links",
+    "text": "This policy outlines how WifiResult displays advertisements, handles affiliate partnerships, and maintains separation between editorial and promotional content."
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  }
+}
+</script>
+
+<!--FAQPage — (optional)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does WifiResult display Google Ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. WifiResult displays contextually relevant ads via Google AdSense, ensuring they do not interfere with user experience or mislead users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do advertisements influence editorial content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Advertisements and editorial content are completely separated. We never allow advertisers to influence our posts or recruitment updates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WifiResult use affiliate links?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Occasionally, we may use affiliate links for products or services we recommend. Such links do not affect our impartiality or rankings."
+      }
+    }
+  ]
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* policy center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Advertising Policy</span>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Advertising policy main area">
+    <!-- Left Sidebar (same) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+           <li><a href="{% url 'policejobs' %}">Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+            <li><a href="{% url 'rajasthanpolice' %}">Rajasthan Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+              <li><a href="{% url 'uppolice' %}">UP Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'delhipolice' %}">Delhi Police Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: ADVERTISING POLICY content -->
+    <section class="content-area" aria-label="Advertising policy and details">
+      <div class="editorial-card" role="region" aria-labelledby="advertising-heading">
+        <div class="page-title">
+          <i class="fas fa-rectangle-ad" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="advertising-heading" style="font-size:18px;">Advertising Policy – Transparency & Sponsorship Guidelines</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>Purpose</h3>
+          <p>At WifiResult, ads help us keep the service free while maintaining high standards of accuracy for government
+            job updates. This Advertising Policy explains how we display ads, how they are labelled, what we do <em>not</em> allow,
+            and how we comply with Google AdSense and industry standards.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Ad Labelling &amp; Separation</h3>
+          <ul class="policy-list">
+            <li>All advertisements are clearly labelled as <strong>“Ad”</strong>, <strong>“Advertisement”</strong>, or <strong>“Sponsored”</strong>.</li>
+            <li>Ads are visually separated from editorial content via spacing and/or borders so users can distinguish them easily.</li>
+            <li>We do not place ads within headlines or in ways that mislead users to click.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Placement &amp; Density</h3>
+          <ul class="policy-list">
+            <li>We follow the <strong>Better Ads Standards</strong> (no intrusive pop-ups that block content, no auto-playing audio ads).</li>
+            <li>Ad density is controlled to keep a good reading experience; we avoid excessive ads above the fold.</li>
+            <li>Clickable areas are not disguised as content. We never encourage accidental clicks (“Click here to proceed”, deceptive arrows, etc.).</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Prohibited Content (Zero-Tolerance)</h3>
+          <ul class="policy-list">
+            <li>No ads related to illegal activities, adult content, hate speech, or deceptive financial schemes.</li>
+            <li>No malware, forced downloads, or ads that mimic system/antivirus warnings.</li>
+            <li>No ads that lead to pages with excessive, disruptive, or misleading experiences.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Third-Party Networks &amp; Cookies</h3>
+          <ul class="policy-list">
+            <li>We may use third-party ad networks such as <strong>Google AdSense</strong> to serve ads.</li>
+            <li>These partners may use cookies or similar technologies to show more relevant ads. Users can manage preferences using the
+              <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a> and browser controls.</li>
+            <li>Our use of cookies and personal data is covered in our <a href="{% url "PrivacyPolicy" %}">Privacy Policy</a>.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Children’s Policy</h3>
+          <ul class="policy-list">
+            <li>WifiResult is intended for general audiences. We do not knowingly target ads to children under 13 years of age.</li>
+            <li>Where applicable, we implement <strong>limited ads</strong> or disable personalised ads to comply with children’s privacy laws (e.g., COPPA-like principles).</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Affiliate &amp; Sponsored Disclosures</h3>
+          <ul class="policy-list">
+            <li>From time to time, we may include affiliate links or sponsored placements. Such content is clearly disclosed as <strong>“Sponsored”</strong> or <strong>“Affiliate”</strong>.</li>
+            <li>Editorial independence is maintained — advertising does not influence our recruitment coverage or conclusions.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>User Privacy &amp; Data</h3>
+          <ul class="policy-list">
+            <li>We minimise data collection for ad serving and comply with applicable privacy laws.</li>
+            <li>Users may opt-out of personalised ads via ad settings or consent tools (where implemented).</li>
+            <li>See our <a href="{% url "PrivacyPolicy" %}">Privacy Policy</a> for details on data, retention and user rights.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Policy Compliance &amp; Reporting Bad Ads</h3>
+          <ul class="policy-list">
+            <li>We continuously monitor ad placements and performance for policy compliance.</li>
+            <li>If you encounter a misleading or harmful advertisement, please report it with a screenshot and URL.</li>
+            <li><strong>Report to:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> (Subject: “Ad Complaint”).</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Changes to This Policy</h3>
+          <p>We may revise this Advertising Policy to reflect updates in Google AdSense requirements or industry standards. Material changes will
+            be posted on this page with an updated effective date.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Contact</h3>
+          <ul class="policy-list">
+            <li><strong>Email:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>Business Hours:</strong> Mon–Sat, 10:00 AM – 6:00 PM IST</li>
+            <li><strong>Address:</strong> New Moradabad, India</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Right Sidebar (same) -->
+       <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

@@ -1,0 +1,598 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>सरकारी नौकरी | नवीनतम सरकारी रिक्तियाँ, एडमिट कार्ड, रिजल्ट</title>
+<meta name="description" content="सरकारी नौकरी 2026: नवीनतम सरकारी रिक्तियाँ, एडमिट कार्ड, रिजल्ट, उत्तर कुंजी एवं अधिसूचनाएँ। WifiResult द्वारा तेज़ और सत्यापित अपडेट।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/">
+<meta name="author" content="WifiResult संपादकीय टीम">
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/">
+<meta property="og:title" content="सरकारी नौकरी | नवीनतम सरकारी रिक्तियाँ, एडमिट कार्ड, रिजल्ट">
+<meta property="og:description" content="सरकारी नौकरी 2026: नवीनतम सरकारी रिक्तियाँ, एडमिट कार्ड, रिजल्ट, उत्तर कुंजी एवं अधिसूचनाएँ। WifiResult द्वारा तेज़ और सत्यापित अपडेट।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/">
+<meta name="twitter:title" content="सरकारी नौकरी | नवीनतम सरकारी रिक्तियाँ, एडमिट कार्ड, रिजल्ट">
+<meta name="twitter:description" content="सरकारी नौकरी 2026: नवीनतम सरकारी रिक्तियाँ, एडमिट कार्ड, रिजल्ट, उत्तर कुंजी एवं अधिसूचनाएँ। WifiResult द्वारा तेज़ और सत्यापित अपडेट।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="लिखने वाले" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="पढ़ने में समय" />
+<meta name="twitter:data2" content="6 मिनट" />
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "सरकारी नौकरी", "item": "{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/" }
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/",
+  "name": "सरकारी नौकरी",
+  "headline": "सरकारी नौकरी 2025 – नवीनतम सरकारी नौकरी अधिसूचनाएँ एवं ऑनलाइन फॉर्म",
+  "description": "सरकारी नौकरी - नवीनतम सरकारी नौकरियाँ, ऑनलाइन फॉर्म, रिजल्ट, पात्रता, सिलेबस एवं अधिसूचनाएँ खोजें। सभी विभागों से दैनिक अपडेटेड सरकारी जॉब अलर्ट।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/sarkari-naukri/#breadcrumb" }
+}
+</script>
+
+<!-- FAQ (Schema) for /sarkari-naukri/ - Top 5 FAQs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "सरकारी नौकरी पेज पर मुझे क्या-क्या मिलता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर नवीनतम सरकारी नौकरी अधिसूचनाएँ, रिक्ति विवरण, पात्रता मानदंड, महत्वपूर्ण तिथियाँ, आधिकारिक आवेदन लिंक, एडमिट कार्ड/रिजल्ट अपडेट और संबंधित PDF सूचीबद्ध किए जाते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं कैसे आवेदन कर सकता/सकती हूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हर जॉब लिस्टिंग में 'Apply Online' या 'Official Link' दिया होता है जो आपको सीधा संबंधित विभाग के आधिकारिक पोर्टल पर ले जाता है। आवेदन निर्देश और आवश्यक दस्तावेज़ वहाँ दिए जाते हैं — हमेशा आधिकारिक अधिसूचना ध्यान से पढ़ें।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "पात्रता और आयु सीमा कैसे सत्यापित करूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "पात्रता (शैक्षिक योग्यता, आयु सीमा, अनुभव) हर अधिसूचना में स्पष्ट दी होती है। WifiResult पर दिए गए 'Official PDF' लिंक से मूल अधिसूचना खोलकर विवरण सत्यापित करना सबसे अच्छा तरीका है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "जॉब अलर्ट या नई अधिसूचनाओं के लिए साइनअप कैसे करूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यदि वेबसाइट पर न्यूज़लेटर/सब्सक्रिप्शन उपलब्ध है तो ईमेल से सब्सक्राइब कर सकते हैं। साथ ही ब्राउज़र नोटिफिकेशन अनुमति दें या सोशल चैनल (Telegram/WhatsApp/Facebook) फॉलो करें जहाँ हम तुरंत अपडेट शेयर करते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "चयन प्रक्रिया, सिलेबस और कट-ऑफ की जानकारी मिलती है क्या?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हाँ। जब आधिकारिक अधिसूचना में सिलेबस, चयन चरण (लिखित, इंटरव्यू, स्किल टेस्ट), कट-ऑफ और मेरिट लिस्ट जारी होते हैं, हम उनकी प्रतियां, सारांश और आधिकारिक लिंक इस पेज पर प्रदान कर देते हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ItemList — Latest Mixed Updates -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+  "name": "सरकारी नौकरी",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": {{ latest_posts|length }},
+  "itemListElement": [
+    {% for post in latest_posts %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "item": {
+        "@type": "BlogPosting",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "headline": "{{ post.title|escapejs }}",
+        "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+        "datePublished": "{{ post.published_date|date:'c' }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ post.author|striptags|escapejs }}"
+        }{% if post.image %}
+        , "image": {
+          "@type": "ImageObject",
+          "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+          "width": {{ post.image.width }},
+          "height": {{ post.image.height }}
+        }{% endif %},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+        }
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+{% endblock seo %}
+
+{% block style %}    
+  
+    <style>
+   .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:18px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* center */
+    .policy-card{background:#fff;padding:10px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:0}
+    .page-title h1{font-size:26px;color:var(--dark)}
+
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile ordering (keep as before) */
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>सरकारी नौकरी</span>
+    </div>
+  </div>
+
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline" style="display: flex; justify-content: center; text-align: center;" >सरकारी नौकरी – नवीनतम सरकारी नौकरी अधिसूचनाएँ एवं ऑनलाइन फॉर्म</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Main Grid: left-sidebar | content (title only) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Jobs listing main area">
+    <!-- Left Sidebar (as-is) -->
+    <aside class="left-sidebar" aria-label="Left sidebar">
+      <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षक नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सभी राज्य PSC</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'psc_all_states' %}">भारत में सभी PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'appsc' %}">APPSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'arunachal_appsc_jobs' %}">अरुणाचल PPSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'apsc' %}">असम PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'bpsc' %}">BPSC</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'cgpsc' %}">छत्तीसगढ़ PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'goapsc' %}">गोवा PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'gpsc' %}">गुजरात PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'hpsc' %}">हरियाणा PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'hppsc' %}">हिमाचल प्रदेश PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'jkpsc' %}"> जम्मू एवं कश्मीर PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'jpsc' %}">झारखंड PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'kpsc' %}"> कर्नाटक PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'kerala_job' %}">केरल PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'mppsc_jobs' %}">मध्य प्रदेश PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'mpsc_jobs' %}">महाराष्ट्र PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'manipur_jobs' %}">मणिपुर PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">प्रवेश</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">पाठ्यक्रम</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">छात्रवृत्ति</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Center: TITLE ONLY (no extra content) -->
+    <section class="content-area" aria-label="Job Listings">
+      <div class="policy-card" role="region" aria-labelledby="jobs-heading">
+        <div class="page-title">
+          <i class="fas fa-briefcase" style="color:var(--primary);font-size:24px"></i>
+          <h2 id="jobs-heading" style="font-size:18px;">नवीनतम सरकारी नौकरियाँ – सरकारी नौकरी अपडेट</h2>
+        </div>
+        
+        
+        
+        <ul class="sidebar-list">
+
+
+            {% for job in page_obj %}
+          <li class="news-item">{% if jobs.image %}
+          <img src="{{ jobs.image.url }}" alt="{{ jobs.image_alt|default:jobs.title }}" loading="lazy" style="max-width:100%; height:auto; display:block; margin:0 auto;">{% endif %}
+            <div>
+              <div class="news-title">
+                <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+              </div>
+              <div class="news-meta" style="font-size:13px;"><i class="far fa-clock"></i> {{ job.published_date|date:"d M, Y" }} &nbsp;•&nbsp; <i class="far fa-folder"></i> नौकरियाँ</div>
+            </div>
+          </li>
+{% endfor %}   
+
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}  
+
+        </ul>
+        
+      </div>
+    </section>
+
+
+    <!-- Right Sidebar (as-is) -->
+    <aside class="right-sidebar" aria-label="Right sidebar">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी स्नातकोत्तर नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Website Information Section (Sarkari Naukri Page) -->
+<section class="website-info" id="sarkarinaukri-info">
+  <div class="container">
+    <h2>सभी सरकारी नौकरी – भारत में नवीनतम सरकारी नौकरी रिक्तियाँ</h2>
+
+    <div class="info-content">
+
+      <!-- What is covered on this page -->
+      <div class="info-point">
+        <h3>एक ही जगह पर नवीनतम सरकारी नौकरी</h3>
+        <p>
+          <strong>wifiresult.com</strong> के <strong>/sarkari-naukri/</strong> पेज पर आपको
+          पूरे भारत की <strong>नवीनतम सरकारी नौकरी रिक्तियाँ</strong> की जानकारी एक जगह मिलती है –
+          केंद्रीय सरकार, राज्य सरकार, PSU, कोर्ट, विश्वविद्यालय, पुलिस, रक्षा, बैंक और कई अन्य विभागों से जुड़ी भर्तियाँ।
+        </p>
+      </div>
+
+      <!-- Central + State Government Jobs -->
+      <div class="info-point">
+        <h3>केंद्रीय एवं राज्य सरकारी नौकरियाँ</h3>
+        <p>
+          यह पेज कवर करता है –
+          <strong>UPSC, SSC, रेलवे, बैंक, रक्षा, केंद्रीय मंत्रालय</strong> जैसी
+          <strong>केंद्रीय सरकारी नौकरियाँ</strong> के साथ-साथ  
+          <strong>राज्य PSC, राज्य SSC, पुलिस, शिक्षा, स्वास्थ्य, राजस्व, स्थानीय निकाय</strong> जैसी
+          <strong>राज्य सरकारी रिक्तियाँ</strong> की जानकारी भी।  
+          आप आसानी से देख सकते हैं कि आपके राज्य में कौन-कौन सी नई भर्तियाँ निकली हैं।
+        </p>
+      </div>
+
+      <!-- Qualification wise coverage -->
+      <div class="info-point">
+        <h3>योग्यता के अनुसार सरकारी नौकरी</h3>
+        <p>
+          सरकारी नौकरी सिर्फ स्नातकों के लिए नहीं है –  
+          इस पेज पर नौकरियाँ उपलब्ध हैं:
+          <strong>8वीं पास, 10वीं पास, 12वीं पास, ITI, डिप्लोमा, स्नातक, स्नातकोत्तर,
+          B.Tech/BE, B.Ed, B.Sc/B.Com, MBBS, LLB</strong> और अन्य व्यावसायिक कोर्स के लिए भी।  
+          आप अपनी योग्यता के अनुसार जल्दी उपयुक्त नौकरियाँ चुन सकते हैं।
+        </p>
+      </div>
+
+      <!-- Category / Sector wise -->
+      <div class="info-point">
+        <h3>क्षेत्र के अनुसार सरकारी नौकरियाँ – पुलिस, शिक्षक, बैंक, रेलवे</h3>
+        <p>
+          सरकारी क्षेत्र में अलग-अलग कैरियर विकल्प मौजूद हैं –  
+          <strong>पुलिस एवं रक्षा, शिक्षक एवं लेक्चरर, बैंकिंग, रेलवे, प्रशासनिक सेवाएँ,
+          इंजीनियरिंग, स्वास्थ्य, कोर्ट एवं न्यायपालिका, PSU एवं अप्रेंटिसशिप</strong> आदि।  
+          हम अलग-अलग श्रेणियों में इन सरकारी नौकरियों को वर्गीकृत करते हैं ताकि खोज आसान हो।
+        </p>
+      </div>
+
+      <!-- Important Details in listing -->
+      <div class="info-point">
+        <h3>संक्षिप्त फॉर्मेट में महत्वपूर्ण जॉब विवरण</h3>
+        <p>
+          हर सरकारी नौकरी लिस्टिंग में आपको मिलता है –  
+          <strong>पोस्ट नाम, विभाग/संगठन, कुल रिक्तियाँ, योग्यता,
+          आयु सीमा (संक्षिप्त), अंतिम तिथि, अधिसूचना PDF एवं आवेदन ऑनलाइन लिंक</strong>.  
+          इससे आपको हर जॉब खोलने से पहले ही मूल विचार हो जाता है।
+        </p>
+      </div>
+
+      <!-- Security of Govt Job -->
+      <div class="info-point">
+        <h3>सरकारी नौकरी क्यों? – जॉब सुरक्षा एवं लाभ</h3>
+        <p>
+          सरकारी नौकरियाँ आज भी लाखों युवाओं की पहली पसंद हैं क्योंकि इनमें मिलते हैं –
+          <strong>जॉब सुरक्षा, निश्चित वेतन, भत्ते, पेंशन / NPS लाभ,
+          चिकित्सा सुविधा, अवकाश लाभ</strong> और सामाजिक सम्मान।  
+          इस पेज की मदद से आप ऐसी स्थिर और सुरक्षित सरकारी नौकरी ढूंढ सकते हैं।
+        </p>
+      </div>
+
+      <!-- Free & Trusted Information -->
+      <div class="info-point">
+        <h3>मुफ्त, भरोसेमंद एवं आधिकारिक स्रोत आधारित जानकारी</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर दी गई सारी सरकारी नौकरी जानकारी  
+          <strong>आधिकारिक अधिसूचनाएँ, सरकारी पोर्टल और भर्ती बोर्ड</strong> पर आधारित होती है।  
+          हम किसी भी प्रकार की रजिस्ट्रेशन फीस या छिपे शुल्क नहीं लेते –  
+          हमारा काम केवल <strong>सही जानकारी + आधिकारिक लिंक</strong> तक आपको पहुँचाना है।
+        </p>
+      </div>
+
+      <!-- Preparation angle -->
+      <div class="info-point">
+        <h3>गंभीर सरकारी नौकरी उम्मीदवारों के लिए सहायक</h3>
+        <p>
+          यह पेज उन सभी छात्रों और उम्मीदवारों के लिए है जो  
+          <strong>गंभीर तरीके से सरकारी नौकरी की तैयारी</strong> कर रहे हैं।  
+          यहाँ से आप <strong>नई रिक्तियाँ, परीक्षा तिथियाँ, ऑनलाइन फॉर्म, एडमिट कार्ड, सिलेबस, रिजल्ट</strong>  
+          तक की पूरी भर्ती यात्रा को ट्रैक कर सकते हैं – चरणबद्ध तरीके से।
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      यदि आपका लक्ष्य एक मजबूत और सुरक्षित <strong>सरकारी नौकरी</strong> पाना है,  
+      तो इस <strong>/sarkari-naukri/</strong> पेज को रोज़ाना देखें।  
+      यहां से शुरू करें अपनी <strong>सरकारी नौकरी यात्रा </strong> 
+      सही जानकारी, सही समय पर, बिल्कुल आपके हाथों में। 💼🇮🇳
+    </p>
+  </div>
+</section>
+<style>
+   /* ===== Info Section – Defence + Police Focus ===== */
+  .website-info {
+    background: linear-gradient(135deg, #eff6ff 0, #e0f2fe 30%, #dcfce7 70%, #fef9c3 100%);
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+    color: #9C0D0D;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #9C0D0D
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #9C0D0D;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+  {% endblock content %}
+  

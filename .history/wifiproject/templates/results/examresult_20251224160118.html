@@ -1,0 +1,687 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<title>बोर्ड रिजल्ट 2026 | सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड</title>
+<meta name="description" content="सभी भारत बोर्ड परीक्षा रिजल्ट चेक करें जिसमें सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड और अन्य राज्य शिक्षा बोर्ड शामिल हैं। WifiResult पर मार्कशीट और स्कोरकार्ड तुरंत डाउनलोड करें।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/board-result/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/board-result/">
+<meta property="og:title" content="बोर्ड रिजल्ट 2026 | सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड">
+<meta property="og:description" content="सभी भारत बोर्ड परीक्षा रिजल्ट चेक करें जिसमें सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड और अन्य राज्य शिक्षा बोर्ड शामिल हैं। WifiResult पर मार्कशीट और स्कोरकार्ड तुरंत डाउनलोड करें।">
+<meta name="keywords" content="WiFiResult, सरकारी रिजल्ट, सरकारी नौकरी, सरकारी जॉब्स, एडमिट कार्ड, उत्तर कुंजी, सरकारी परीक्षा, सरकारी रिजल्ट 2025, सरकारी जॉब पोर्टल, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/board-result/">
+<meta name="twitter:title" content="बोर्ड रिजल्ट 2026 | सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड">
+<meta name="twitter:description" content="सभी भारत बोर्ड परीक्षा रिजल्ट चेक करें जिसमें सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड और अन्य राज्य शिक्षा बोर्ड शामिल हैं। WifiResult पर मार्कशीट और स्कोरकार्ड तुरंत डाउनलोड करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 मिनट" />
+
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "बोर्ड रिजल्ट", "item": "{{ request.scheme }}://{{ request.get_host }}/board-result/" }
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/board-result/",
+  "name": "बोर्ड रिजल्ट 2026 | सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड",
+  "headline": "नवीनतम बोर्ड रिजल्ट 2026 – हाई स्कूल, इंटरमीडिएट और कक्षा 12 रिजल्ट",
+  "description": "सभी भारत बोर्ड परीक्षा रिजल्ट चेक करें जिसमें सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड और अन्य राज्य शिक्षा बोर्ड शामिल हैं। WifiResult पर मार्कशीट और स्कोरकार्ड तुरंत डाउनलोड करें।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/board-result/#breadcrumb" }
+}
+</script>
+
+<!-- Human-Written, SEO-Optimized FAQ Schema for /board-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "बोर्ड रिजल्ट पेज पर मुझे कौन-कौन से बोर्ड एग्जाम रिजल्ट मिलते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको सीबीएसई, आईसीएसई, यूपी बोर्ड, बिहार बोर्ड, राजस्थान बोर्ड, एमपी बोर्ड, हरियाणा बोर्ड और अन्य राज्य बोर्ड्स के लेटेस्ट 10वीं और 12वीं एग्जाम रिजल्ट का ऑफिशियल अपडेट मिलता है। सारे लिंक ऑफिशियल बोर्ड वेबसाइट्स से लिए जाते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "बोर्ड एग्जाम का रिजल्ट कैसे चेक करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "रिजल्ट चेक करने के लिए अपने बोर्ड का नाम लिस्ट में ढूंढें और 'चेक रिजल्ट' बटन पर क्लिक करें। आप ऑफिशियल बोर्ड वेबसाइट पर रीडायरेक्ट हो जाएंगे जहां रोल नंबर, स्कूल कोड या रजिस्ट्रेशन नंबर डालकर रिजल्ट देख सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या बोर्ड रिजल्ट पेज पर दिया गया डेटा 100% ऑफिशियल होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, बोर्ड रिजल्ट पेज पर सिर्फ वही अपडेट्स पब्लिश किए जाते हैं जो संबंधित शिक्षा बोर्ड की ऑफिशियल वेबसाइट पर घोषित हो चुके होते हैं। वेरिफिकेशन के लिए हर रिजल्ट के साथ ऑफिशियल लिंक दिया होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "बोर्ड रिजल्ट पेज कितनी बार अपडेट होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह पेज एग्जाम सीजन के दौरान कई बार अपडेट होता है। जैसे ही किसी बोर्ड का 10वीं या 12वीं रिजल्ट रिलीज होता है, हम कुछ ही मिनटों में यहां उसका डायरेक्ट लिंक और पूरी डिटेल्स अपडेट कर देते हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "बोर्ड रिजल्ट 2026 | सीबीएसई, यूपी बोर्ड, बिहार बोर्ड, एमपी बोर्ड",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+{% endblock seo %}
+
+{% block style %}
+  <style>
+    /* Grid layout: desktop 6 columns, tablet 3, mobile 2 */
+    .jobs-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; align-items: start; }
+    .job-card { background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.04);text-align:center; }
+    .job-thumb { width:100%; height:150px; display:block; overflow:hidden; }
+    .job-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .job-title { padding:12px 10px;font-weight:700;font-size:14px;color:var(--dark); text-decoration:none; display:block; }
+
+    /* Pagination wrapper */
+    .pagination-wrap { margin-top:22px; display:flex; justify-content:center; gap:12px; }
+
+    /* Responsive breakpoints */
+    @media (max-width: 1200px) { .jobs-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 992px)  { .jobs-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 576px)  { .jobs-grid { grid-template-columns: repeat(2, 1fr); } .job-thumb{height:120px;} .job-title{font-size:13px;} }
+
+    /* Small helper */
+    .container { max-width:1200px; margin:0 auto; padding:0 16px; }
+
+    /* Exam Results Info Section */
+    .exam-info-wrap{
+      padding:24px 0 36px;
+    }
+    .exam-info h2{
+      text-align:center;
+      font-size:24px;
+      margin-bottom:24px;
+      color: #9C0D0D;
+      position:relative;
+      padding-bottom:10px;
+    }
+    .exam-info h2:after{
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:80px;
+      height:3px;
+      background: #9C0D0D;
+    }
+    .exam-info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .exam-info-box{
+      background:#ffffff;
+      border-radius:10px;
+      padding:18px 16px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);border-left: 3px solid #9C0D0D;
+    }
+    .exam-info-box h3{
+      font-size:18px;
+      margin:0 0 8px;
+      color:#9C0D0D;
+    }
+    .exam-info-box p{
+      margin:0;
+      font-size:0.94rem;
+      line-height:1.6;
+      color:#4b5563;
+    }
+    .exam-info-note{
+      margin-top:18px;
+      text-align:center;
+      font-size:0.9rem;
+      color:#4b5563;
+      line-height:1.7;
+    }
+    @media(max-width:576px){
+      .exam-info h2{font-size:19px;}
+    }
+  </style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>परीक्षा रिजल्ट</span>
+    </div>
+  </div>
+
+  <main class="container" style="padding:22px 0;">
+    <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <h1 style="margin:0;font-size:22px;margin-left:3px;">परीक्षा रिजल्ट 2026 – नवीनतम सरकारी और बोर्ड रिजल्ट चेक करें</h1>
+      <div style="color:#6c757d;font-size:13px;margin-right:5px;">अपडेटेड: {% now "d M, Y" %}</div>
+    </header>
+
+    <!-- Grid of result cards (image on top, title below). No aside -- full-width grid -->
+    <section class="jobs-grid">
+      {% for result in page_obj %}
+      <article class="job-card">
+        <a href="{{ result.get_absolute_url }}"  target="_blank" class="job-thumb" aria-label="{{ result.title }}">
+          {% if result.image %}
+            <img src="{{ result.image.url }}" alt="{{ result.title }}">
+          {% else %}
+            <img src="{% static 'images/default-job.jpg' %}" alt="{{ result.title }}">
+          {% endif %}
+        </a>
+        <a href="{{ result.get_absolute_url }}" target="_blank" class="job-title">{{ result.title|truncatechars:45 }}</a>
+      </article>
+      {% endfor %}
+    </section>
+
+    <!-- Fancy pagination -->
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+      <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+                  border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+                  box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" 
+           style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+                  background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+                  border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+                  transition: all 0.3s ease;">
+          ← पिछला
+        </a>
+        {% endif %}
+
+        <span style="padding: 10px 20px; border-radius: 999px; 
+                     background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                     color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+          {{ page_obj.number }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" 
+           style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+                  background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+                  border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+                  transition: all 0.3s ease;">
+          अगला →
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Fancy Exam Results Information Section (About this page) -->
+  <section class="exam-info-wrap">
+    <div class="exam-info container">
+      <h2>परीक्षा रिजल्ट – सरकारी और एंट्रेंस एग्जाम रिजल्ट हब WifiResult पर</h2>
+
+      <div class="exam-info-grid">
+        <div class="exam-info-box">
+          <h3>Exam Results Page क्या है?</h3>
+          <p>
+            <strong>/exam-results/</strong> पेज पर आपको <strong>सरकारी जॉब्स, एंट्रेंस एग्जाम, यूनिवर्सिटी  
+            एग्जाम और कॉम्पिटिटिव एग्जाम</strong> के लेटेस्ट रिजल्ट एक ही जगह पर मिलते हैं।  
+            यहां से आप <strong>ऑफिशियल रिजल्ट लिंक, स्कोरकार्ड डाउनलोड पेज, कट-ऑफ नोटिस  
+            और मेरिट लिस्ट PDF</strong> तक जल्दी पहुंच सकते हैं – बिना अलग-अलग वेबसाइट सर्च किए।
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>कौन-कौन से रिजल्ट यहां लिस्ट होते हैं?</h3>
+          <p>
+            इस पेज पर हम मुख्य रूप से <strong>SSC, UPSC, रेलवे, बैंक (IBPS, SBI), पुलिस, रक्षा,  
+            राज्य PCS, यूनिवर्सिटी एग्जाम, एंट्रेंस टेस्ट (JEE/NEET लेवल) और अन्य सरकारी  
+            भर्ती एग्जाम</strong> के रिजल्ट दिखाते हैं। जो भी नया रिजल्ट पब्लिश होता है,  
+            उसका <strong>अपडेटेड लिंक और शॉर्ट इन्फो</strong> यहीं पर ऐड किया जाता है।
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>रिजल्ट कैसे चेक करें – स्टेप बाय स्टेप</h3>
+          <p>
+            हर रिजल्ट पोस्ट में हम <strong>स्टेप-बाय-स्टेप गाइड</strong> देते हैं जिसमें बताया जाता है कि  
+            ऑफिशियल वेबसाइट पर जाकर <strong>एप्लीकेशन नंबर / रोल नंबर / डेट ऑफ बर्थ</strong> से  
+            स्कोरकार्ड कैसे डाउनलोड करें। कई पोस्ट में आपको <strong>“डायरेक्ट रिजल्ट लिंक”</strong>  
+            भी मिलता है जिससे आप सीधा रिजल्ट पेज पर रीडायरेक्ट हो सकते हैं।
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>कट-ऑफ, स्कोरकार्ड और मेरिट लिस्ट डिटेल्स</h3>
+          <p>
+            सिर्फ रिजल्ट डिक्लेयर होने की जानकारी ही नहीं, बल्कि कई एग्जाम के लिए हम  
+            <strong>कैटेगरी-वाइज कट-ऑफ, स्कोरकार्ड इंस्ट्रक्शंस, नॉर्मलाइजेशन डिटेल्स,  
+            मेरिट लिस्ट PDF, वेटिंग लिस्ट</strong> जैसे पॉइंट्स भी कवर करते हैं।  
+            इससे स्टूडेंट्स को <strong>सिलेक्शन चांस और नेक्स्ट प्रोसेस</strong> समझने में मदद मिलती है।
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>रिजल्ट के बाद क्या करें?</h3>
+          <p>
+            रिजल्ट के बाद आगे क्या प्रोसेस है – <strong>डॉक्यूमेंट वेरिफिकेशन, PET/PST,  
+            इंटरव्यू, काउंसलिंग, जॉइनिंग, री-एग्जाम या रिवैल्यूएशन</strong> – ये सब चीजें  
+            रिलेटेड पोस्ट में एक्सप्लेन की जाती हैं। आप एग्जाम रिजल्ट के साथ-साथ  
+            <strong>लेटेस्ट एडमिट कार्ड, नई वैकेंसी और सिलेबस</strong> सेक्शन भी WifiResult पर देख सकते हैं।
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>महत्वपूर्ण डिस्क्लेमर – एग्जाम रिजल्ट</h3>
+          <p>
+            <strong>wifiresult.com</strong> किसी भी <strong>सरकारी विभाग, कमीशन या बोर्ड</strong> की  
+            ऑफिशियल वेबसाइट नहीं है। यहां दिखाए गए <strong>रिजल्ट, कट-ऑफ, PDF, लिंक  
+            और तिथियां</strong> सिर्फ <strong>इन्फॉर्मेशन / अवेयरनेस</strong> के लिए होते हैं, जो आम तौर पर  
+            संबंधित अथॉरिटी की <strong>ऑफिशियल वेबसाइट / पब्लिक नोटिस / PDF</strong> पर आधारित होते हैं।  
+            फाइनल और वैलिड जानकारी हमेशा <strong>ऑफिशियल पोर्टल पर पब्लिश्ड अपडेट</strong> ही होगी।
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+{% endblock content %}
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<title>Exam Results 2026 — Latest Govt & Board Results</title>
+<meta name="description" content="Get instant access to the latest exam results 2026 — government, board and university results. Search by exam name, roll number and download scorecards.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/exam-results/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/exam-results/">
+<meta property="og:title" content="Exam Results 2026 — Latest Govt & Board Results">
+<meta property="og:description" content="Get instant access to the latest exam results 2026 — government, board and university results. Search by exam name, roll number and download scorecards.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/exam-results//">
+<meta name="twitter:title" content="Exam Results 2026 — Latest Govt & Board Results">
+<meta name="twitter:description" content="Get instant access to the latest exam results 2026 — government, board and university results. Search by exam name, roll number and download scorecards.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/exam-results/#breadcrumb",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Exam Results",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/exam-results/"
+    }
+  ]
+}
+</script>
+
+<!---webpage + collection page-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/exam-results/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/exam-results/",
+  "name": "Exam Results 2026 — Latest Govt & Board Results",
+  "headline": "Exam Results 2026 – Check Latest Govt & Board Results",
+  "description": "Get instant access to the latest exam results 2026 — government, board and university results. Search by exam name, roll number and download scorecards.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/exam-results/#breadcrumb" }
+}
+</script>
+
+{% endblock seo %}
+
+{% block style %}
+  <style>
+    /* Grid layout: desktop 6 columns, tablet 3, mobile 2 */
+    .jobs-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; align-items: start; }
+    .job-card { background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.04);text-align:center; }
+    .job-thumb { width:100%; height:150px; display:block; overflow:hidden; }
+    .job-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .job-title { padding:12px 10px;font-weight:700;font-size:14px;color:var(--dark); text-decoration:none; display:block; }
+
+    /* Pagination wrapper */
+    .pagination-wrap { margin-top:22px; display:flex; justify-content:center; gap:12px; }
+
+    /* Responsive breakpoints */
+    @media (max-width: 1200px) { .jobs-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 992px)  { .jobs-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 576px)  { .jobs-grid { grid-template-columns: repeat(2, 1fr); } .job-thumb{height:120px;} .job-title{font-size:13px;} }
+
+    /* Small helper */
+    .container { max-width:1200px; margin:0 auto; padding:0 16px; }
+
+    /* Exam Results Info Section */
+    .exam-info-wrap{
+      padding:24px 0 36px;
+    }
+    .exam-info h2{
+      text-align:center;
+      font-size:24px;
+      margin-bottom:24px;
+      color: #9C0D0D;
+      position:relative;
+      padding-bottom:10px;
+    }
+    .exam-info h2:after{
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:80px;
+      height:3px;
+      background: #9C0D0D;
+    }
+    .exam-info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .exam-info-box{
+      background:#ffffff;
+      border-radius:10px;
+      padding:18px 16px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);border-left: 3px solid #9C0D0D;
+    }
+    .exam-info-box h3{
+      font-size:18px;
+      margin:0 0 8px;
+      color:#9C0D0D;
+    }
+    .exam-info-box p{
+      margin:0;
+      font-size:0.94rem;
+      line-height:1.6;
+      color:#4b5563;
+    }
+    .exam-info-note{
+      margin-top:18px;
+      text-align:center;
+      font-size:0.9rem;
+      color:#4b5563;
+      line-height:1.7;
+    }
+    @media(max-width:576px){
+      .exam-info h2{font-size:19px;}
+    }
+  </style>
+{% endblock style %}
+
+{% block content %}
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Exam Results</span>
+    </div>
+  </div>
+
+  <main class="container" style="padding:22px 0;">
+    <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <h1 style="margin:0;font-size:22px;margin-left:3px;">Exam Results 2026 – Check Latest Govt & Board Results</h1>
+      <div style="color:#6c757d;font-size:13px;margin-right:5px;">Updated: {% now "d M, Y" %}</div>
+    </header>
+
+    <!-- Grid of result cards (image on top, title below). No aside -- full-width grid -->
+    <section class="jobs-grid">
+      {% for result in page_obj %}
+      <article class="job-card">
+        <a href="{{ result.get_absolute_url }}"  target="_blank" class="job-thumb" aria-label="{{ result.title }}">
+          {% if result.image %}
+            <img src="{{ result.image.url }}" alt="{{ result.title }}">
+          {% else %}
+            <img src="{% static 'images/default-job.jpg' %}" alt="{{ result.title }}">
+          {% endif %}
+        </a>
+        <a href="{{ result.get_absolute_url }}" target="_blank" class="job-title">{{ result.title|truncatechars:45 }}</a>
+      </article>
+      {% endfor %}
+    </section>
+
+    <!-- Fancy pagination -->
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+      <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+                  border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+                  box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" 
+           style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+                  background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+                  border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+                  transition: all 0.3s ease;">
+          ← Previous
+        </a>
+        {% endif %}
+
+        <span style="padding: 10px 20px; border-radius: 999px; 
+                     background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                     color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+          {{ page_obj.number }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" 
+           style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+                  background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+                  border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+                  transition: all 0.3s ease;">
+          Next →
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Exam Results Information Section (About this page) -->
+  <section class="exam-info-wrap">
+    <div class="exam-info container">
+      <h2>Exam Results – Sarkari & Entrance Exam Result Hub on WifiResult</h2>
+
+      <div class="exam-info-grid">
+        <div class="exam-info-box">
+          <h3>Exam Results Page kya hai?</h3>
+          <p>
+            <strong>/exam-results/</strong> page par aapko <strong>Government Jobs, Entrance Exams, University  
+            Exams aur Competitive Exams</strong> ke latest results ek hi jagah par milte hain.  
+            Yahan se aap <strong>official result link, scorecard download page, cut-off notice  
+            aur merit list PDF</strong> tak jaldi pahunch sakte hain – bina alag-alag website search kiye.
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>Kaun-kaun se Results yahan list hote hain?</h3>
+          <p>
+            Is page par hum mainly <strong>SSC, UPSC, Railway, Bank (IBPS, SBI), Police, Defence,  
+            State PCS, University Exams, Entrance Tests (JEE/NEET level) aur anya Sarkari  
+            Bharti exams</strong> ke results show karte hain. Jo bhi naya result publish hota hai,  
+            uska <strong>updated link & short info</strong> yahin par add kiya jata hai.
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>Result kaise check karein – Step by Step</h3>
+          <p>
+            Har result post mein hum <strong>step-by-step guide</strong> dete hain jisme bataya jata hai ki  
+            official website par jaakar <strong>application number / roll number / date of birth</strong> se  
+            scorecard kaise download karein. Kai posts mein aapko <strong>“Direct Result Link”</strong>  
+            bhi milta hai jisse aap seedha result page par redirect ho sakte hain.
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>Cut-Off, Scorecard & Merit List details</h3>
+          <p>
+            Sirf result declare hone ki information hi nahi, balki kai exams ke liye hum  
+            <strong>category-wise cut-off, scorecard instructions, normalisation details,  
+            merit list PDF, waiting list</strong> jaise points bhi cover karte hain.  
+            Isse students ko <strong>selection chance aur next process</strong> samajhne mein help milti hai.
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>Result ke baad kya karein?</h3>
+          <p>
+            Result ke baad aage kya process hai – <strong>document verification, PET/PST,  
+            interview, counselling, joining, re-exam ya revaluation</strong> – ye sab cheezein  
+            bhi related posts mein explain ki jati hain. Aap exam result ke saath-saath  
+            <strong>latest admit card, new vacancy & syllabus</strong> sections bhi WifiResult par dekh sakte hain.
+          </p>
+        </div>
+
+        <div class="exam-info-box">
+          <h3>Important Disclaimer – Exam Results</h3>
+          <p>
+            <strong>wifiresult.com</strong> kisi bhi <strong>Government Department, Commission ya Board</strong> ki  
+            official website nahi hai. Yahan dikhaye gaye <strong>results, cut-offs, PDFs, links  
+            & dates</strong> sirf <strong>information / awareness</strong> ke liye hote hain, jo aam taur par  
+            concerned authority ki <strong>official website / public notice / PDF</strong> par based hote hain.  
+            Final & valid information hamesha <strong>official portal par published update</strong> hi hogi.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock content %} {% endcomment %}

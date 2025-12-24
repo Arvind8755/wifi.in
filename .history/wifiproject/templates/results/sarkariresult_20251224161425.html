@@ -1,0 +1,495 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>सरकारी रिजल्ट | नवीनतम सरकारी नौकरी और रिजल्ट – WifiResult</title>
+<meta name="description" content="2025-26 के सभी सरकारी रिजल्ट अपडेट प्राप्त करें जिसमें सरकारी नौकरी, परीक्षा परिणाम, एडमिट कार्ड, उत्तर कुंजी और आधिकारिक नोटिफिकेशन शामिल हैं। WifiResult के साथ अपडेट रहें – आपका विश्वसनीय जॉब पोर्टल।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari-result/">
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-result/">
+<meta property="og:title" content="सरकारी रिजल्ट | नवीनतम सरकारी नौकरी और रिजल्ट – WifiResult">
+<meta property="og:description" content="2025-26 के सभी सरकारी रिजल्ट अपडेट प्राप्त करें जिसमें सरकारी नौकरी, परीक्षा परिणाम, एडमिट कार्ड, उत्तर कुंजी और आधिकारिक नोटिफिकेशन शामिल हैं। WifiResult के साथ अपडेट रहें – आपका विश्वसनीय जॉब पोर्टल।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari-result/">
+<meta name="twitter:title" content="सरकारी रिजल्ट | नवीनतम सरकारी नौकरी और रिजल्ट – WifiResult">
+<meta name="twitter:description" content="2025-26 के सभी सरकारी रिजल्ट अपडेट प्राप्त करें जिसमें सरकारी नौकरी, परीक्षा परिणाम, एडमिट कार्ड, उत्तर कुंजी और आधिकारिक नोटिफिकेशन शामिल हैं। WifiResult के साथ अपडेट रहें – आपका विश्वसनीय जॉब पोर्टल।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult">
+<meta name="twitter:creator" content="@WifiResult">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="अरविंद पाल">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="6 मिनट">
+
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-result/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"सरकारी रिजल्ट","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari-result/"}
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-result/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari-result/",
+  "name":"सरकारी रिजल्ट | नवीनतम सरकारी नौकरी और रिजल्ट – WifiResult",
+  "headline":"सरकारी रिजल्ट 2025 – नवीनतम सरकारी नौकरी, रिजल्ट और एडमिट कार्ड",
+  "description":"2025-26 के सभी सरकारी रिजल्ट अपडेट प्राप्त करें जिसमें सरकारी नौकरी, परीक्षा परिणाम, एडमिट कार्ड, उत्तर कुंजी और आधिकारिक नोटिफिकेशन शामिल हैं। WifiResult के साथ अपडेट रहें – आपका विश्वसनीय जॉब पोर्टल।",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari-result/#breadcrumb"},
+  "hasPart":[
+    {"@type":"CollectionPage","name":"नौकरियाँ"},
+    {"@type":"CollectionPage","name":"रिजल्ट"},
+    {"@type":"CollectionPage","name":"एडमिट कार्ड"},
+    {"@type":"CollectionPage","name":"सरकारी अपडेट"}
+  ]
+}
+</script>
+
+<!-- Human-Written FAQ (Schema) for /sarkari-result/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "सरकारी रिजल्ट पेज पर मुझे क्या-क्या देखने को मिलता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको नवीनतम सरकारी परीक्षा परिणाम, स्कोरकार्ड, मेरिट लिस्ट, कटऑफ अपडेट और आधिकारिक PDF नोटिफिकेशन एक जगह पर मिल जाते हैं। सारे रिजल्ट आधिकारिक स्रोतों से वेरिफाई करके ही अपडेट किए जाते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या सरकारी रिजल्ट पेज पर दिए गए लिंक आधिकारिक होते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, यहां दिए गए सारे रिजल्ट लिंक आधिकारिक सरकारी पोर्टल से ही लिए जाते हैं। हम सिर्फ रीडायरेक्ट लिंक प्रदान करते हैं, रिजल्ट डाउनलोड हमेशा आधिकारिक वेबसाइट पर ही होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं अपना रिजल्ट कैसे चेक करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "आप लिस्ट में अपनी परीक्षा का नाम ढूंढकर 'चेक रिजल्ट' या 'डाउनलोड स्कोरकार्ड' लिंक पर क्लिक करें। लिंक आपको सीधे उस विभाग की आधिकारिक साइट पर ले जाएगा जहां आप रोल नंबर या रजिस्ट्रेशन नंबर डालकर रिजल्ट देख सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "कटऑफ मार्क्स और मेरिट लिस्ट भी मिल जाती है क्या?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "अगर किसी परीक्षा की कटऑफ, मेरिट लिस्ट या सिलेक्शन लिस्ट आधिकारिक रूप से जारी होती है, तो हम तुरंत उसका डायरेक्ट लिंक सरकारी रिजल्ट पेज पर अपडेट कर देते हैं। आप आसानी से PDF डाउनलोड करके देख सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "सरकारी रिजल्ट पेज कितनी बार अपडेट होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह पेज रोजाना कई बार अपडेट किया जाता है। जैसे ही कोई नया रिजल्ट सरकारी वेबसाइट पर पब्लिश होता है, हम उसे कुछ ही मिनटों में लिस्ट में ऐड कर देते हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "सरकारी रिजल्ट | नवीनतम सरकारी नौकरी और रिजल्ट – WifiResult",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* SarkariResult.com-inspired palette */
+  :root{
+    --sr-red:#d32f2f;     /* primary red */
+    --sr-deep:#b71c1c;    /* deep red */
+    --sr-dark:#111111;    /* header/footer dark */
+    --sr-ink:#212121;     /* text */
+    --sr-gold:#ffc107;    /* accent */
+    --sr-bg:#fff7f7;      /* subtle page tint */
+  }
+
+  /* Header & Footer overrides (map to your site classes) */
+  .header-top, header, .nav-container, .main-nav{background:linear-gradient(90deg,var(--sr-dark), var(--sr-deep)) !important;}
+  .main-nav a, .header-top a{color:#fff !important}
+  .logo-container a{color:#fff !important}
+  footer, .site-footer{background:linear-gradient(180deg,var(--sr-dark), #000) !important; color:#f1f1f1}
+  footer a, .site-footer a{color:var(--sr-gold) !important}
+
+  .logo-text p {
+    color: white; 
+}
+
+  body{background:var(--sr-bg); color:var(--sr-ink)}
+
+  /* HERO */
+  .hero-sr{position:relative;color:#fff;border-radius:16px;overflow:hidden;margin:10px 0 16px;background:linear-gradient(135deg,var(--sr-red),var(--sr-deep));}
+  .hero-sr .overlay{position:absolute;inset:0;background:
+    radial-gradient(120px 120px at 12% 18%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(180px 180px at 82% 10%, rgba(255,255,255,.12), transparent 60%),
+    linear-gradient(120deg, rgba(255,255,255,.12), transparent 45%)}
+  .hero-sr .wrap{position:relative;z-index:1;padding:24px 0}
+  .hero-sr h1{margin:0 0 6px;font-weight:900}
+  .hero-sr p{margin:0;color:#ffeaea}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+  .chip:nth-child(1){border:2px solid var(--sr-gold)}
+  .chip:nth-child(2){border:2px solid #ef9a9a}
+  .chip:nth-child(3){border:2px solid #ef5350}
+
+  /* Quick Links */
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+
+  /* Section Title */
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:#111}
+  .section-pill{padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #ffcccc}
+  .title-accent{background:linear-gradient(90deg,var(--sr-red),var(--sr-gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* Cards */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,#fff,#fff0f0);border-bottom:2px solid #ffd6d6;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--sr-red),var(--sr-gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #efefef}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--sr-red)}
+
+  /* Force 3 cards per row on mobile */
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(3,1fr);gap:2px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:11px}
+  }
+
+  /* === Sarkari Result Page Info Section === */
+  .sr-info-wrap{
+    padding:24px 0 40px;
+  }
+  .sr-info-inner{
+    background:radial-gradient(circle at top left,#ffffff 0,#ffe6e6 45%,#ffecec 100%);
+    border-radius:18px;
+    box-shadow:0 14px 36px rgba(15,23,42,.16);
+    padding:22px 18px;
+  }
+  .sr-info-head{
+    text-align:center;
+    margin-bottom:18px;
+  }
+  .sr-info-head h2{
+    margin:0 0 6px;
+    font-size:24px;
+    font-weight:800;
+    background:#9C0D0D;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .sr-info-head p{
+    margin:0;
+    font-size:.95rem;
+    color:#9C0D0D;
+  }
+  .sr-info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+    margin-top:10px;
+  }
+  .sr-info-card{
+    background:rgba(255,255,255,0.96);
+    border-radius:12px;
+    padding:14px 13px;
+    box-shadow:0 10px 24px rgba(15,23,42,.10);
+    position:relative;
+    overflow:hidden;
+  }
+  .sr-info-card:before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    padding:1px;
+    background:linear-gradient(120deg,rgba(211,47,47,0.45),rgba(255,193,7,0.25),rgba(239,83,80,0.25));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+  }
+  .sr-info-card h3{
+    margin:0 0 6px;
+    font-size:16px;
+    font-weight:700;
+    color:#111827;
+  }
+  .sr-info-card p{
+    margin:0;
+    font-size:.9rem;
+    line-height:1.55;
+    color:#4b5563;
+  }
+  .sr-info-note{
+    margin-top:18px;
+    font-size:.9rem;
+    color:#374151;
+    text-align:center;
+    line-height:1.7;
+  }
+  .sr-info-note strong{
+    color:var(--sr-red);
+  }
+  @media(max-width:576px){
+    .sr-info-head h2{font-size:19px;}
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>सरकारी रिजल्ट</span>
+    </div>
+  </div>
+
+
+<section class="hero-sr">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <h1>सरकारी रिजल्ट – नवीनतम सरकारी नौकरी, रिजल्ट और उत्तर कुंजी</h1>
+    <p>तेज़ और भरोसेमंद सरकारी भर्ती/परिणाम अपडेट्स—आधिकारिक लिंक के साथ।</p>
+    <div class="chips">
+      <a href="/" class="text-decoration-none"><span class="chip">वेरिफाइड लिंक</span></a>
+      <a href=" " class="text-decoration-none"><span class="chip">PDF</span></a>
+      <a href="{% url 'psc_all_states' %}" class="text-decoration-none"><span class="chip">सभी PSC</span></a>
+    </div>
+
+    <div class="quick-links-container">
+      <div class="quick-links">
+        {% for boxname in boxnames %}
+          <div class="quick-link ck-content">{{ boxname.box1|safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title"><span class="section-pill">संपादक की पसंद</span><span class="title-accent">सरकारी रिजल्ट अपडेट</span></div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>नवीनतम नौकरियाँ</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}" target="_blank" >सभी नौकरियाँ देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>नवीनतम रिजल्ट</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}" target="_blank" >सभी रिजल्ट देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>सरकारी अपडेट</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for govtupdate in govtupdates %}
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'govtupdates' %}" target="_blank" >सभी सरकारी अपडेट देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Sarkari Result Page Information Section -->
+<section class="sr-info-wrap">
+  <div class="container">
+    <div class="sr-info-inner">
+      <div class="sr-info-head">
+        <h2>सरकारी रिजल्ट पेज क्या है? – WifiResult का केंद्रीय सरकारी नौकरी और रिजल्ट हब</h2>
+         
+      </div>
+
+      <div class="sr-info-grid">
+        <div class="sr-info-card">
+          <h3>1. इस पेज पर क्या-क्या मिलता है?</h3>
+          <p>
+            यहां आपको <strong>नवीनतम नौकरियाँ, नवीनतम रिजल्ट, सरकारी अपडेट</strong> जैसे महत्वपूर्ण ब्लॉक
+            डायरेक्ट दिखते हैं। SSC, UPSC, रेलवे, बैंक, पुलिस, राज्य सरकार, शिक्षण,
+            रक्षा और अन्य विभागों की <strong>नई वैकेंसी, रिजल्ट, एडमिट कार्ड, उत्तर कुंजी</strong>
+            का शॉर्टकट यहीं से मिल जाता है।
+          </p>
+        </div>
+
+        <div class="sr-info-card">
+          <h3>2. सरकारी रिजल्ट पेज का इस्तेमाल कैसे करें?</h3>
+          <p>
+            • ऊपर हीरो सेक्शन में दिए गए <strong>क्विक लिंक</strong> से आप डायरेक्ट महत्वपूर्ण श्रेणी
+            पेज (नवीनतम नौकरियाँ, रिजल्ट, एडमिट कार्ड, सरकारी अपडेट) पर जा सकते हैं। <br>
+            • नीचे वाले कार्ड में <strong>नवीनतम नौकरियाँ / नवीनतम रिजल्ट / सरकारी अपडेट</strong> की छोटी लिस्ट
+            दिखती है – टाइटल पर क्लिक करते ही पूरी डिटेल पेज खुल जाता है। <br>
+            • अगर आप किसी भी एक सेगमेंट की पूरी लिस्ट देखना चाहते हैं, तो <strong>“सभी देखें…”</strong>
+            लिंक से पूरी श्रेणी पेज खोलें।
+          </p>
+        </div>
+
+        <div class="sr-info-card">
+          <h3>3. यह पेज, दूसरे पेज से अलग कैसे है?</h3>
+          <p>
+            /sarkari-result/ पेज एक <strong>ओवरव्यू या डैशबोर्ड</strong> जैसा काम करता है।
+            यहां से आप:
+            <br>• <strong>/latest-jobs/</strong> जैसी समर्पित नौकरी लिस्ट पर जा सकते हैं,
+            <br>• <strong>/results/</strong> से सारे परीक्षा परिणाम देख सकते हैं,
+            <br>• <strong>/admit-card/</strong> और <strong>/govt-updates/</strong> जैसे पेज पर
+            डायरेक्ट नेविगेट कर सकते हैं।
+          </p>
+        </div>
+
+        <div class="sr-info-card">
+          <h3>4. सरकारी नौकरी की तैयारी करने वालों के लिए क्या फायदा?</h3>
+          <p>
+            अगर आप सरकारी नौकरी की तैयारी कर रहे हैं, तो हर रोज अलग-अलग पेज खोलने की
+            जरूरत नहीं। बस इस <strong>सरकारी रिजल्ट हब</strong> को खोलकर आप:
+            <br>• देख सकते हैं <strong>आज क्या नई वैकेंसी आई</strong>,
+            <br>• कौन-सा <strong>रिजल्ट घोषित हुआ</strong>,
+            <br>• कौन-से <strong>सरकारी अपडेट / नोटिस</strong> पब्लिश हुए।
+          </p>
+        </div>
+
+        <div class="sr-info-card">
+          <h3>5. आधिकारिक लिंक और वेरिफिकेशन</h3>
+          <p>
+            WifiResult पर जो भी <strong>नौकरी, रिजल्ट, एडमिट कार्ड, उत्तर कुंजी</strong> दिखाई जाती है,
+            उसके साथ हम हमेशा <strong>आधिकारिक वेबसाइट / आधिकारिक PDF</strong> का लिंक देने की
+            कोशिश करते हैं। फिर भी <strong>अंतिम पुष्टि के लिए</strong> आपको हमेशा
+            <strong>संबंधित विभाग की आधिकारिक साइट</strong> पर जाकर नोटिफिकेशन और
+            रिजल्ट दोबारा वेरिफाई करना चाहिए।
+          </p>
+        </div>
+
+        <div class="sr-info-card">
+          <h3>6. महत्वपूर्ण नोटिस और डिस्क्लेमर</h3>
+          <p>
+            <strong>wifiresult.com</strong> किसी भी <strong>सरकारी संगठन, मंत्रालय, विभाग
+            या परीक्षा बोर्ड</strong> की आधिकारिक वेबसाइट नहीं है। यह एक <strong>इन्फॉर्मेशन पोर्टल</strong>
+            है जो सरकारी नौकरी और परीक्षाओं से जुड़ी जानकारी <strong>आधिकारिक स्रोतों</strong> के
+            आधार पर प्रस्तुत करता है। कोई भी <strong>फॉर्म भरना, फीस जमा करना, दस्तावेज़ सत्यापन,
+            काउंसलिंग या कानूनी कार्रवाई</strong> करने से पहले हमेशा <strong>आधिकारिक पोर्टल</strong>
+            पर उपलब्ध नवीनतम नोटिस और दिशानिर्देशों को ही अंतिम मानें।
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
+
+ 

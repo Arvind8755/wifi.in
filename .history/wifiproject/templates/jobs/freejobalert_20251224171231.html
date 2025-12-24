@@ -1,0 +1,410 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>Free Job Alert | Govt Jobs, Results, Admit Cards & Updates</title>
+<meta name="description" content="Get instant free job alerts for latest government jobs, admit cards and official updates from SSC, UPSC, Railway, Banking, Defence and State departments.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/free-job-alert/">
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/free-job-alert/">
+<meta property="og:title" content="Free Job Alert | Govt Jobs, Results, Admit Cards & Updates">
+<meta property="og:description" content="Get instant free job alerts for latest government jobs, admit cards and official updates from SSC, UPSC, Railway, Banking, Defence and State departments.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/free-job-alert/">
+<meta name="twitter:title" content="Free Job Alert | Govt Jobs, Results, Admit Cards & Updates">
+<meta name="twitter:description" content="Get instant free job alerts for latest government jobs, admit cards and official updates from SSC, UPSC, Railway, Banking, Defence and State departments.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult">
+<meta name="twitter:creator" content="@WifiResult">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Arvind Pal">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="6 minutes">
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Free Job Alert","item":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/",
+  "name":"Free Job Alert | Govt Jobs, Results, Admit Cards & Updates",
+  "headline":"Free Job Alert – Latest Govt Jobs, Results, Admit Cards & Govt Updates",
+  "description":"Get instant free job alerts for latest government jobs, admit cards and official updates from SSC, UPSC, Railway, Banking, Defence and State departments.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#breadcrumb"},
+  "hasPart":[
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#jobs"},
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#results"},
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#admit-cards"},
+    {"@type":"CollectionPage","@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#govt-updates"}
+  ]
+}
+</script>
+
+<!-- FAQ (Schema) for /free-job-alert/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Free Job Alert kaise kaam karta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free Job Alert service aapko email, SMS ya browser notifications ke through latest government job updates aur important deadlines free me bhejti hai. Aap apni preference (state, category, education) set karke sirf relevant alerts prapt kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Free Job Alert ke liye signup kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free Job Alert page par apna email ya mobile number aur preferred job categories enter karke subscribe karein. Confirmation ke baad aapko selected channels par regular alerts milne lagenge. Unsubscribe option hamesha available hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya Free Job Alert me diye gaye links official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, jo alerts hum bhejte hain unme diye gaye 'Apply' ya 'Official Notification' links sarkari portals ya verified recruitment websites par lead karte hain. Hum sirf verified sources se hi alerts generate karte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Free Job Alert | Govt Jobs, Results, Admit Cards & Updates",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+<!-- FAQ Schema (short) -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/free-job-alert/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is covered under Free Job Alert on WifiResult?",
+      "acceptedAnswer":{"@type":"Answer","text":"This page lists fresh government job notifications, official results, admit cards and verified government updates in one place."}
+    },
+    {
+      "@type":"Question",
+      "name":"How frequently is the Free Job Alert page updated?",
+      "acceptedAnswer":{"@type":"Answer","text":"It is updated multiple times a day whenever new official notifications are released."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can I apply directly from WifiResult?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Each listing provides direct official links to apply online, download results, admit cards or read the official notice."}
+    }
+  ]
+}
+</script>
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    /* FreeJobAlert-inspired palette */
+    --fja-orange:#ff6f00;  /* vivid orange */
+    --fja-red:#e53935;     /* strong red */
+    --fja-deep:#1f3a93;    /* deep blue */
+    --fja-cream:#fff7e6;   /* soft background tint */
+  }
+
+  /* HERO: bold ribbon + diagonals */
+  .hero-fja{position:relative;color:#111;border-radius:14px;overflow:hidden;margin:8px 0 14px;background:linear-gradient(135deg,var(--fja-orange),var(--fja-red));}
+  .hero-fja .overlay{position:absolute;inset:0;background:
+    linear-gradient(120deg,rgba(255,255,255,.16),transparent 40%),
+    radial-gradient(120px 120px at 80% 10%, rgba(255,255,255,.22), transparent 60%)}
+  .hero-fja .wrap{position:relative;z-index:1;padding:22px 0;color:#fff}
+  .hero-fja h1{margin:0 0 6px;font-weight:700}
+  .ribbon{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 26px rgba(16,24,40,.16)}
+  .ribbon .dot{width:8px;height:8px;border-radius:50%;background:var(--fja-red)}
+
+  /* QUICK LINKS */
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:1px 14px;padding-top: 15px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+  .quick-link.ck-content a{color:inherit;text-decoration:none}
+  .quick-link.ck-content a:hover{text-decoration:underline}
+
+  /* SECTION LABEL */
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:var(--fja-deep)}
+  .chip{padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,var(--fja-cream));border:1px solid #ffe0b2}
+
+  /* CARDS */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,var(--fja-cream),#fff);border-bottom:2px solid #ffe0b2;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--fja-orange),var(--fja-red));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #ececec}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--fja-red)}
+
+  /* INFO BLOCKS with orange border glow */
+  .info-wrap{padding:6px 0 20px}
+  .highlight{background:#fff;border-radius:12px;padding:16px;box-shadow:0 10px 24px rgba(16,24,40,.08);margin:16px 0;border:2px solid #ffe0b2}
+  .highlight h4{margin:0 0 8px;color:var(--fja-deep)}
+
+  /* FAQ */
+  #faq{margin-top:10px}
+  .faq-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 12px 28px rgba(15,23,42,.10)}
+  .faq-list{list-style:none;margin:0;padding:0}
+  .faq-item{border-bottom:1px dashed #ececec;padding:12px 0}
+  .faq-item:last-child{border-bottom:0}
+  .question{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+  .question h3{font-size:16px;margin:0;color:#0f172a}
+  .toggle{width:32px;height:32px;border-radius:10px;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;background:#fff}
+  .answer{margin-top:8px;display:none;color:#374151}
+
+  @media (max-width:768px){.hero-fja h1{font-size:1.20rem}}
+  /* Force 2 cards per row on mobile */
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(2,1fr);gap:2px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:12px}
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>Free Job Alert</span>
+    </div>
+  </div>
+
+<section class="hero-fja">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <span class="ribbon"><span class="dot"></span> Free Job Alert • Daily Updates</span>
+    <h1>Free Job Alert – Latest Govt Jobs, Results, Admit Cards & Govt Updates</h1>
+    <p style="color:#fff;opacity:.95">तेज़ और भरोसेमंद सरकारी नौकरी अपडेट्स—official links के साथ।</p>
+
+    <div class="quick-links-container">
+      <div class="quick-links">
+        {% for boxname in boxnames %}
+          <div class="quick-link ck-content">{{ boxname.box1|safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title"><a href=" "><span class="chip">All Updates</span></a>  <a href="{% url 'freejobalert' %}  target="_blank" "><span>Free Job Alert Updates</span></a></div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>Latest Jobs</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">View All Jobs →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Latest Results</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">View All Results →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Admit Cards</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">View All Admit Cards →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>Govt Updates</span></div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for govtupdate in govtupdates %}
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'govtupdates' %}">View All Govt Updates →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info blocks -->
+  <section class="info-wrap">
+    <div class="highlight">
+      <h4>Free Job Alert 2026 – क्या मिलेगा?</h4>
+      <p>Banking, Railways, Defence, SSC, UPSC व State PSCs की तेज़ अपडेट्स—notification PDF, eligibility, dates, syllabus, admit cards और results सब एक ही जगह।</p>
+    </div>
+    <div class="highlight">
+      <h4>क्यों चुनें WifiResult का Free Job Alert?</h4>
+      <p>Accuracy + Speed: verified official links, साफ categorization और mobile-first UX।</p>
+    </div>
+    <div class="highlight">
+      <h4>Popular Sections</h4>
+      <p>12th Pass, Graduate Jobs, Bank Jobs, Railway, Defence, State Govt, Admit Cards, Answer Keys, Results.</p>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="faq-card">
+      <h2 id="faq-heading">Free Job Alert – FAQs</h2>
+      <ul class="faq-list" id="faq-list">
+        <li class="faq-item">
+          <div class="question" data-index="1" tabindex="0">
+            <h3>What is covered under Free Job Alert on WifiResult?</h3>
+            <div class="toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="answer"><p>This page lists fresh government job notifications, official results, admit cards and verified government updates in one place.</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="2" tabindex="0">
+            <h3>How frequently is the Free Job Alert page updated?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>It is updated multiple times a day whenever new official notifications are released.</p></div>
+        </li>
+        <li class="faq-item">
+          <div class="question" data-index="3" tabindex="0">
+            <h3>Can I apply directly from WifiResult?</h3>
+            <div class="toggle">+</div>
+          </div>
+          <div class="answer"><p>Yes. Each listing provides direct official links to apply online, download results, admit cards or read the official notice.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function(){
+    const items=document.querySelectorAll('.faq-item');
+    items.forEach(item=>{
+      const q=item.querySelector('.question');
+      const toggle=item.querySelector('.toggle');
+      const ans=item.querySelector('.answer');
+      q.addEventListener('click',()=>{
+        const isOpen=ans.style.display==='block';
+        document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
+        document.querySelectorAll('.faq-item .toggle').forEach(t=>t.textContent='+');
+        if(!isOpen){ans.style.display='block';toggle.textContent='−';}
+      });
+      q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+    });
+  })();
+</script>
+{% endblock content %} 

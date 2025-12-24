@@ -1,0 +1,608 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+
+{% block seo %}
+<title>लॉगिन – WifiResult</title>
+<meta name="description" content="WifiResult में लॉगिन करें और अपना डैशबोर्ड एक्सेस करें। सरकारी नौकरियां, एडमिट कार्ड, रिजल्ट और परीक्षा अपडेट तुरंत प्राप्त करें।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/login/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/login/">
+<meta property="og:title" content="लॉगिन – WifiResult">
+<meta property="og:description" content="WifiResult में लॉगिन करें और अपना डैशबोर्ड एक्सेस करें। सरकारी नौकरियां, एडमिट कार्ड, रिजल्ट और परीक्षा अपडेट तुरंत प्राप्त करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/login/">
+<meta name="twitter:title" content="लॉगिन – WifiResult">
+<meta name="twitter:description" content="WifiResult में लॉगिन करें और अपना डैशबोर्ड एक्सेस करें। सरकारी नौकरियां, एडमिट कार्ड, रिजल्ट और परीक्षा अपडेट तुरंत प्राप्त करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/login/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "लॉगिन", "item": "{{ request.scheme }}://{{ request.get_host }}/login/" }
+  ]
+}
+</script>
+
+<!--WebPage Schema with LoginAction-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/login/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/login/",
+  "name": "लॉगिन – WifiResult",
+  "headline": "WifiResult में लॉगिन करें – अपना डैशबोर्ड एक्सेस करें",
+  "description": "WifiResult में लॉगिन करें और व्यक्तिगत सरकारी नौकरी अलर्ट, रिजल्ट तथा परीक्षा नोटिफिकेशन प्राप्त करें। सुरक्षित लॉगिन और यूजर डैशबोर्ड।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "hi-IN",
+  "potentialAction": {
+    "@type": "LoginAction",
+    "target": "{{ request.scheme }}://{{ request.get_host }}/login/",
+    "name": "यूजर लॉगिन"
+  }
+}
+</script>
+{% endblock seo %}
+
+{% block style %}
+<style>
+  .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+  .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+  /* GRID layout */
+  .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+  @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+  /* sidebars */
+  .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+  .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .sidebar-list{list-style:none;padding:0;margin:0}
+  .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+  .sidebar-list li a{color:#222;text-decoration:none}
+  .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+  /* center card (login) */
+  .auth-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+  .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .page-title h1{font-size:26px;color:var(--dark)}
+  .auth-note{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px 14px;border-radius:6px;margin-bottom:16px;color:#333}
+
+  .form-row{margin-bottom:14px}
+  .form-row label{display:block;margin-bottom:6px;color:#222;font-weight:600}
+  .form-row input{width:100%;padding:11px 12px;border:1.5px solid var(--border);border-radius:8px;outline:none}
+  .form-row input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(220,53,69,.15)}
+  .form-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:8px;padding:10px 16px;cursor:pointer;text-decoration:none;font-weight:600}
+  .btn-primary{background:linear-gradient(90deg,var(--primary),#c82333);color:#fff}
+  .btn-light{background:#f1f3f5;color:#222;border:1px solid var(--border)}
+  .helper-links{display:flex;justify-content:space-between;margin-top:12px;font-size:14px}
+  .helper-links a{color:var(--secondary);text-decoration:none}
+  .helper-links a:hover{text-decoration:underline}
+
+  .social-row{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+  @media(min-width:480px){ .social-row{grid-template-columns:1fr 1fr} }
+
+  @media (max-width: 991px) {
+    .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+    .content-area { order: 0 !important; width: 100%; }
+    .left-sidebar { order: 1 !important; width: 100%; }
+    .right-sidebar { order: 2 !important; width: 100%; }
+    .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="{% url 'home' %}" style="color:#0d6efd;text-decoration:none">होम</a> 
+    <span style="margin:0 8px;color:#6c757d">&gt;</span>
+    <span>लॉगिन</span>
+  </div>
+</div>
+
+<!-- Main Grid -->
+<main class="layout-grid container" role="main" aria-label="लॉगिन मुख्य क्षेत्र">
+  <!-- Left Sidebar -->
+  <aside class="left-sidebar" aria-label="बायां साइडबार - राज्य नौकरियां और श्रेणियां">
+    <div class="sidebar-card" id="latest-category-card">
+      <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणियां</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card" id="state-jobs-card">
+      <h4><i class="fas fa-map-marker-alt"></i> राज्यवार नौकरियां</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <!-- आप चाहें तो बाकी राज्यों को भी हिंदी में जोड़ सकते हैं -->
+      </ul>
+    </div>
+
+    <div class="sidebar-card" id="latest-category-card">
+      <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'answerkey' %}">आंसर की</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Center: Login Form -->
+  <section class="content-area" aria-label="लॉगिन फॉर्म">
+    <div class="auth-card" role="region" aria-labelledby="login-heading">
+      <div class="page-title">
+        <i class="fas fa-right-to-bracket" style="color:var(--primary);font-size:24px"></i>
+        <h1 id="login-heading">WifiResult लॉगिन</h1>
+      </div>
+
+      <div class="auth-note" role="note">
+        <strong>स्वागत है!</strong> जारी रखने के लिए लॉगिन करें। या <a href="{% url 'signup' %}" style="color:var(--secondary);text-decoration:none">नया खाता बनाएं</a>।
+      </div>
+
+      <form method="post" autocomplete="on">
+        <h3 style="margin-bottom:10px; font-size:27px; color:#dc3545;text-align:center;">WifiResult.in पर लॉगिन करें</h3>
+
+        <!-- Messages -->
+        {% if messages %}
+          {% for message in messages %}
+            <div style="background:rgb(226, 108, 108); padding: 10px; color: white; margin-bottom: 10px; text-align:center; border-radius:5px;">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        {% csrf_token %}
+
+        <div class="form-row">
+          <label for="username">यूजरनेम</label>
+          <input type="text" placeholder="यूजरनेम डालें" id="username" name="username" required autocomplete="username">
+        </div>
+
+        <div class="form-row">
+          <label for="password">पासवर्ड</label>
+          <input type="password" placeholder="पासवर्ड" id="password" name="password" required autocomplete="current-password">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-right-to-bracket"></i> लॉगिन करें</button>
+          <a class="btn btn-light" href="{% url 'signup' %}">खाता बनाएं</a>
+        </div>
+
+        <div class="helper-links">
+          <a href="{% url 'password_reset' %}">पासवर्ड भूल गए?</a>
+          <span>नया यूजर? <a href="{% url 'signup' %}">साइन अप करें</a></span>
+        </div>
+      </form>
+
+      <div class="social-row" style="margin-top:18px">
+        <a class="btn btn-light" href="{% url 'social:begin' 'google-oauth2' %}"><i class="fab fa-google"></i> Google से जारी रखें</a>
+        <a class="btn btn-light" href="{% url 'social:begin' 'github' %}"><i class="fab fa-github"></i> GitHub से जारी रखें</a>
+      </div>
+
+      <div class="auth-note" style="margin-top:16px">
+        लॉगिन करने पर आप हमारी <a href="{% url 'TermsConditions' %}" style="color:var(--secondary);text-decoration:none">शर्तों</a> और <a href="{% url 'PrivacyPolicy' %}" style="color:var(--secondary);text-decoration:none">प्राइवेसी पॉलिसी</a> से सहमत होते हैं।
+      </div>
+    </div>
+  </section>
+
+  <!-- Right Sidebar -->
+  <aside class="right-sidebar" aria-label="दायां साइडबार - योग्यता अनुसार नौकरियां और नवीनतम अपडेट">
+    <div class="sidebar-card" id="latest-job-card">
+      <h4><i class="fas fa-bolt"></i> योग्यता अनुसार नौकरियां</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'all_education' %}">सभी योग्यता</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'itigovtjobs' %}">ITI नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'graduationjob' %}">स्नातक नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'postgraduaionjob' %}">स्नातकोत्तर नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card" id="similar-jobs-card">
+      <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+      <ul class="sidebar-list">
+        {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank">{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="sidebar-card" id="similar-jobs-card">
+      <h4><i class="fas fa-id-card"></i> नवीनतम एडमिट कार्ड</h4>
+      <ul class="sidebar-list">
+        {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank">{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+</main>
+
+{% endblock content %}
+
+
+{% comment %} {% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+
+    {% block seo %} 
+<title>Login – WifiResult</title>
+<meta name="description" content="Sign up for WifiResult to get instant government job alerts, admit cards, and result updates directly in your dashboard.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/login/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/login/">
+<meta property="og:title" content="Login – WifiResult">
+<meta property="og:description" content="Sign up for WifiResult to get instant government job alerts, admit cards, and result updates directly in your dashboard.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/login/">
+<meta name="twitter:title" content="Login – WifiResult">
+<meta name="twitter:description" content="Sign up for WifiResult to get instant government job alerts, admit cards, and result updates directly in your dashboard.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/login/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Login", "item": "{{ request.scheme }}://{{ request.get_host }}/login/" }
+  ]
+}
+</script>
+
+
+  <!--WebPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/login/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/login/",
+  "name": "Login – WifiResult",
+  "headline": "Login to WifiResult – Access Your Dashboard & Updates",
+  "description": "Login to your WifiResult account to get personalized government job alerts, results, and exam notifications. Secure login and user dashboard access.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "LoginAction",
+    "target": "{{ request.scheme }}://{{ request.get_host }}/login/",
+    "name": "User Login"
+  }
+}
+</script>
+
+
+
+  <!--WebPage (RegisterAction)-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/login/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/login/",
+  "name": "Login – WifiResult",
+  "headline": "Create Your WifiResult Account – Free Govt Job Alerts",
+  "description": "Sign up for WifiResult to get instant government job alerts, admit cards, and result updates directly in your dashboard.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "RegisterAction",
+    "target": "{{ request.scheme }}://{{ request.get_host }}/login/",
+    "name": "User Registration"
+  }
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+
+<style>
+ .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* center card (login) */
+    .auth-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .auth-note{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px 14px;border-radius:6px;margin-bottom:16px;color:#333}
+
+    .form-row{margin-bottom:14px}
+    .form-row label{display:block;margin-bottom:6px;color:#222;font-weight:600}
+    .form-row input{width:100%;padding:11px 12px;border:1.5px solid var(--border);border-radius:8px;outline:none}
+    .form-row input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(220,53,69,.15)}
+    .form-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:8px;padding:10px 16px;cursor:pointer;text-decoration:none;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--primary),#c82333);color:#fff}
+    .btn-light{background:#f1f3f5;color:#222;border:1px solid var(--border)}
+    .helper-links{display:flex;justify-content:space-between;margin-top:12px;font-size:14px}
+    .helper-links a{color:var(--secondary);text-decoration:none}
+    .helper-links a:hover{text-decoration:underline}
+
+    .social-row{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+    @media(min-width:480px){ .social-row{grid-template-columns:1fr 1fr} }
+
+    
+    @media(max-width:576px){ .date-time{display:none} }
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+ 
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="{% url 'home' %}" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Login</span>
+    </div>
+  </div>
+
+
+
+  <!-- Main Grid: left-sidebar | content (login) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Login main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+
+
+       <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt Updated</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Sarkari Yojna</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: LOGIN content -->
+    <section class="content-area" aria-label="Login form">
+      <div class="auth-card" role="region" aria-labelledby="login-heading">
+        <div class="page-title">
+          <i class="fas fa-right-to-bracket" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="login-heading">WiFiResult Login</h1>
+        </div>
+
+        <div class="auth-note" role="note">
+          <strong>Welcome!</strong> Log in to continue. Or <a href="{% url 'signup' %}" style="color:var(--secondary);text-decoration:none">Create a new account</a>.
+        </div>
+
+        <form method="post" autocomplete="on">
+          <h3 style="margin-bottom:10px; font-size:27px; color:#dc3545;text-align:center;">WiFiResult.in Login Here</h3>
+
+          <!-- Display messages -->
+          {% if messages %}
+            {% for message in messages %}
+              <div style="background:rgb(226, 108, 108); padding: 10px; color: white; margin-bottom: 10px; text-align:center; border-radius:5px;">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          {% csrf_token %}
+
+          <div class="form-row">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" id="username" name="username" required autocomplete="username">
+          </div>
+
+          <div class="form-row">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password" required autocomplete="current-password">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-right-to-bracket"></i> Log In</button>
+            <a class="btn btn-light" href="{% url 'signup' %}">Create account</a>
+          </div>
+
+          <div class="helper-links">
+            <a href="{% url 'signup' %}">Forgot password?</a>
+            <span>New user? <a href="{% url 'signup' %}">Signup</a></span>
+          </div>
+        </form>
+
+        <div class="social-row" style="margin-top:18px">
+          <a class="btn btn-light" href="{% url 'signup' %}"><i class="fab fa-google"></i> Continue with Google</a>
+          <a class="btn btn-light" href="{% url 'signup' %}"><i class="fab fa-github"></i> Continue with GitHub</a>
+        </div>
+
+        <div class="auth-note" style="margin-top:16px">
+          By signing in, you agree to our <a href="{% url 'TermsConditions' %}" style="color:var(--secondary);text-decoration:none">Terms</a> and <a href="{% url 'PrivacyPolicy' %}" style="color:var(--secondary);text-decoration:none">Privacy Policy</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+     <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+
+  {% endblock content %} {% endcomment %}

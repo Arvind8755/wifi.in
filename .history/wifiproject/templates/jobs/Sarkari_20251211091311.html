@@ -1,0 +1,357 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>Sarkari — Govt Jobs, Results, Admit Cards & Notices</title>
+<meta name="description" content="Sarkari — centralized page for government job notifications, admit cards, results and official updates. Clean, mobile-first layout with verified links and quick filters." />
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sarkari/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari/">
+<meta property="og:title" content="Sarkari — Govt Jobs, Results, Admit Cards & Notices">
+<meta property="og:description" content="Sarkari — centralized page for government job notifications, admit cards, results and official updates. Clean, mobile-first layout with verified links and quick filters." />
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sarkari/">
+<meta name="twitter:title" content="Sarkari — Govt Jobs, Results, Admit Cards & Notices">
+<meta name="twitter:description" content="Sarkari — centralized page for government job notifications, admit cards, results and official updates. Clean, mobile-first layout with verified links and quick filters.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+<!-- JSON-LD: WebPage + Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari/",
+  "name":"Sarkari — Govt Jobs, Results, Admit Cards & Notices",
+  "breadcrumb":{
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+      {"@type":"ListItem","position":2,"name":"Sarkari","item":"{{ request.scheme }}://{{ request.get_host }}/sarkari/"}
+    ]
+  }
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/sarkari/",
+  "name":"Sarkari — Govt Jobs, Results, Admit Cards & Notices",
+  "headline":"Result Bharat: Latest Govt Jobs, Sarkari Results & Admit Cards",
+  "description":"Sarkari — centralized page for government job notifications, admit cards, results and official updates. Clean, mobile-first layout with verified links and quick filters.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "hasPart": [
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari/#jobs-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari/#results-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari/#admitcards-list"}
+  ],
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/sarkari/#breadcrumb"}
+}
+</script>
+
+  <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Sarkari — Govt Jobs, Results, Admit Cards & Notices",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    --sk-bg:#0f172a;       /* deep navy */
+    --sk-card:#ffffff;     /* card bg */
+    --sk-accent:#ff6b00;   /* warm orange */
+    --sk-accent-2:#00a86b; /* teal */
+    --sk-muted:#6b7280;    /* muted text */
+  }
+
+  /* Page layout */
+  .sarkari-hero{background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(10,12,20,.92));color:#fff;padding:22px;border-radius:12px;margin:8px 0}
+  .sarkari-hero h1{font-size:1.25rem;margin:0 0 8px}
+  .sarkari-hero p{margin:0;color:rgba(255,255,255,.85)}
+
+  .container{max-width:1100px;margin:0 auto;padding:0 14px}
+  .grid-3{display:grid;grid-template-columns:1fr 360px;gap:20px}
+
+  /* Filters */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .filter{background:var(--sk-card);padding:8px 10px;border-radius:10px;font-weight:700;color:#0b1220;box-shadow:0 8px 20px rgba(2,6,23,.06)}
+
+  /* Cards & lists */
+  .list-card{background:var(--sk-card);border-radius:12px;padding:12px;box-shadow:0 12px 32px rgba(2,6,23,.06)}
+  .list-card h3{margin:0 0 10px;font-size:1rem;color:#0b1220}
+  .sarkari-list{list-style:none;padding:0;margin:0}
+  .sarkari-list li{padding:10px 0;border-bottom:1px dashed #eee}
+  .sarkari-list li:last-child{border-bottom:0}
+  .sarkari-list a{color:#0b1220;text-decoration:none}
+  .sarkari-meta{font-size:12px;color:var(--sk-muted)}
+
+  /* State quick grid */
+  .state-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
+  .state-tile{background:linear-gradient(180deg,#fff,#f8fafc);padding:10px;border-radius:10px;text-align:center;font-weight:700}
+
+  /* Right column */
+  .right-column .sticky{position:sticky;top:90px}
+  .highlight-cta{background:linear-gradient(90deg,var(--sk-accent),var(--sk-accent-2));color:#fff;padding:12px;border-radius:12px;text-align:center;font-weight:800}
+
+  /* FAQ */
+  #sarkari-faq .faq-item{padding:10px 0;border-bottom:1px dashed #eee}
+  #sarkari-faq .question{font-weight:800;color:#0b1220;cursor:pointer}
+  #sarkari-faq .answer{display:none;color:var(--sk-muted);margin-top:6px}
+
+  @media (max-width:900px){.grid-3{grid-template-columns:1fr}}
+</style>
+{% endblock style %}
+
+{% block content %}
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" style="margin:10px 0;color:var(--sk-muted)">
+      <a href="/">Home</a> &nbsp;›&nbsp; <span>Sarkari</span>
+    </nav>
+
+    <section class="sarkari-hero">
+      <div class="wrap">
+        <h1>Sarkari — Latest Govt Jobs, Results & Admit Cards</h1>
+        <p>एक साफ़ और organized पेज जहाँ से आप state-wise और sector-wise सीधे official links पा सकते हैं। Quick filter से तुरंत अपनी योग्यता के अनुसार job देखें।</p>
+ 
+      </div>
+    </section>
+
+    <main class="grid-3" style="margin-top:18px">
+      <section>
+        <!-- Latest mixed list -->
+        <div class="list-card">
+          <h3>Top Sarkari Updates — Latest</h3>
+          <ul class="sarkari-list" id="sarkari-latest">
+            {% for post in latest_posts %}
+              <li>
+                <a href="{{ post.get_absolute_url }}" target="_blank">{{ post.title }}</a>
+                <div class="sarkari-meta">{{ post.published_date|date:'d M, Y' }} • {{ post.category }}</div>
+              </li>
+            {% empty %}
+              <li>No updates found.</li>
+            {% endfor %}
+          </ul>
+        <div style="margin-top:10px;text-align:right"><a href=" ">See all updates →</a></div>  
+        </div>
+
+        <!-- Section: By Category -->
+        <div class="list-card" style="margin-top:16px">
+          <h3>By Category</h3>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="filter" href="{% url "bankjob" %}">Banking</a>
+            <a class="filter" href="{% url "railwayjob" %}">Railways</a>
+            <a class="filter" href="{% url "defensejob" %}">Defence</a>
+            <a class="filter" href="{% url "psc_all_states" %}">State PSCs</a>
+          </div>
+        </div>
+
+        <!-- State Quick Tiles -->
+        <div class="list-card" style="margin-top:16px">
+          <h3>State-wise Quick Links</h3>
+          <div class="state-grid">
+            {% for state in states %}
+              <a class="state-tile" href="{% url 'state_jobs' state.slug %}">{{ state.name }}</a>
+            {% endfor %}
+       <a class="state-tile" href="{% url 'AndhraPradesh' %}">Andhra Pradesh</a> 
+       <a class="state-tile" href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh</a> 
+       <a class="state-tile"  href="{% url 'Assam' %}">Assam</a> 
+       <a class="state-tile" href="{% url 'Bihar' %}">Bihar</a> 
+          <a class="state-tile" href="{% url 'Chhattisgarh' %}">Chhattisgarh</a> 
+        <a class="state-tile" href="{% url 'Goa' %}">Goa</a> 
+          <a class="state-tile" href="{% url 'Gujarat' %}">Gujarat</a> 
+          <a class="state-tile" href="{% url 'Haryana' %}">Haryana</a> 
+       <a class="state-tile" href="{% url 'HimachalPradesh' %}">Himachal Pradesh</a> 
+           <a class="state-tile" href="{% url 'JammuKashmir' %}">JammuKashmir</a> 
+        <a class="state-tile" href="{% url 'Jharkhand' %}">Jharkhand</a> 
+         <a class="state-tile" href="{% url 'Karnataka' %}">Karnataka</a> 
+        <a class="state-tile" href="{% url 'Kerala' %}">Kerala</a> 
+           <a class="state-tile" href="{% url 'MadhyaPradesh' %}">Madhya Pradesh</a> 
+       <a class="state-tile" href="{% url 'Maharashtra' %}">Maharashtra</a> 
+      <a class="state-tile" href="{% url 'Manipur' %}">Manipur</a> 
+          <a class="state-tile" href="{% url 'Meghalaya' %}">Meghalaya</a> 
+           <a class="state-tile" href="{% url 'Mizoram' %}">Mizoram</a> 
+          <a class="state-tile"  href="{% url 'Nagaland' %}">Nagaland</a> 
+          <a class="state-tile" href="{% url 'Odisha' %}">Odisha</a> 
+         <a class="state-tile" href="{% url 'Punjab' %}">Punjab</a> 
+      <a class="state-tile" href="{% url 'Rajasthan' %}">Rajasthan</a> 
+          <a class="state-tile" href="{% url 'Sikkim' %}">Sikkim</a> 
+     <a class="state-tile" href="{% url 'TamilNadu' %}">Tamil Nadu</a> 
+          <a class="state-tile" href="{% url 'Telangana' %}">Telangana</a> 
+          <a class="state-tile" href="{% url 'Tripura' %}">Tripura</a> 
+          <a class="state-tile" href="{% url 'upjob' %}">Uttar Pradesh</a> 
+          <a class="state-tile" href="{% url 'Uttarakhand' %}">Uttarakhand</a> 
+          <a class="state-tile" href="{% url 'WestBengal' %}">WestBengal</a> 
+
+          <!-- Union Territories (8) -->
+           <a class="state-tile" href="{% url 'AndamanNicobar' %}">Andaman & Nicobar</a> 
+           <a class="state-tile" href="{% url 'Chandigarh' %}">Chandigarh</a> 
+        <a class="state-tile" href="{% url 'DadraNagarHaveli' %}">Dadra & Nagar Haveli</a> 
+        <a class="state-tile" href="{% url 'DamanDiu' %}">Daman & Diu</a> 
+         <a class="state-tile" href="{% url 'Ladakh' %}">Ladakh</a> 
+           <a class="state-tile" href="{% url 'Lakshadweep' %}">Lakshadweep</a> 
+         <a class="state-tile" href="{% url 'Delhi' %}">Delhi (NCT)</a> 
+         <a class="state-tile" href="{% url 'Puducherry' %}">Puducherry</a> 
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="sarkari-faq" class="list-card" style="margin-top:16px">
+          <h3>FAQs</h3>
+          <div class="faq-item">
+            <div class="question" data-index="1">क्या यह official वेबसाइट है?</div>
+            <div class="answer">नहीं। WifiResult एक informational portal है — हम official PDFs और apply links provide करते हैं।</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" data-index="2">मैं किस तरह notification verify करूं?</div>
+            <div class="answer">हर पोस्ट में official PDF/department link दिया रहता है — उसे खोलकर terms &amp; eligibility verify करें।</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" data-index="3">Job alerts कैसे मिलें?</div>
+            <div class="answer">हमारे newsletter या free job alert पर sign up करके तुरंत नोटिफिकेशन पा सकते हैं।</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="right-column">
+        <div class="sticky">
+          <div class="highlight-cta list-card">
+            <div style="font-size:14px">Apply Quick</div>
+            <div style="font-size:18px;margin-top:6px">Top 10 Active Applications</div>
+            <div style="margin-top:10px;font-size:13px"><a href="" style="color:#fff;text-decoration:underline">Go to apply list</a></div>
+          </div>
+
+          <div class="list-card" style="margin-top:12px">
+            <h3>Latest Results</h3>
+            <ul class="sarkari-list">
+              {% for result in results|slice:":6" %}
+                <li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a><div class="sarkari-meta">{{ result.published_date|date:'d M, Y' }}</div></li>
+              {% endfor %}
+            </ul>
+            <div style="margin-top:8px;text-align:right"><a href="{% url 'result' %}">More results →</a></div>
+          </div>
+
+          <div class="list-card" style="margin-top:12px">
+            <h3>Admit Cards</h3>
+            <ul class="sarkari-list">
+              {% for admitcard in admitcards|slice:":6" %}
+                <li><a href="{{ admitcard.get_absolute_url }}">{{ admitcard.title }}</a></li>
+              {% endfor %}
+            </ul>
+            <div style="margin-top:8px;text-align:right"><a href="{% url 'admitcard' %}">All admit cards →</a></div>
+          </div>
+
+          <div class="list-card" style="margin-top:12px">
+            <h3>Important Notices</h3>
+            <ul class="sarkari-list">
+              {% for note in govtupdates|slice:":6" %}
+                <li><a href="{{ note.get_absolute_url }}">{{ note.title }}</a></li>
+              {% endfor %}
+            </ul>
+            <div style="margin-top:8px;text-align:right"><a href="{% url 'govtupdates' %}">All notices →</a></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Page Footer Info -->
+    <section style="margin-top:18px">
+      <div class="list-card">
+        <h3>About Sarkari page</h3>
+        <p class="sarkari-meta">Sarkari page पर हम official notifications को organized तरीके से present करते हैं — ताकि आप quickly पढ़कर apply/ download कर सकें। Always check official PDFs before applying.</p>
+      </div>
+    </section>
+  </div>
+
+<script>
+  (function(){
+    // Simple FAQ toggle
+    document.querySelectorAll('#sarkari-faq .faq-item .question').forEach(q=>{
+      q.addEventListener('click',function(){
+        const a=this.nextElementSibling;
+        const open = a.style.display==='block';
+        document.querySelectorAll('#sarkari-faq .answer').forEach(x=>x.style.display='none');
+        if(!open) a.style.display='block';
+      });
+      q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+    });
+  })();
+</script>
+
+{% endblock content %} 

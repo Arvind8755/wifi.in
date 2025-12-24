@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>रिजल्ट भारत – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड</title>
+<meta name="description" content="रिजल्ट भारत पर सभी नवीनतम सरकारी नौकरी अधिसूचनाएँ, सरकारी परीक्षा परिणाम और एडमिट कार्ड एक ही जगह ब्राउज़ करें।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/result-bharat/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/result-bharat/">
+<meta property="og:title" content="रिजल्ट भारत – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड">
+<meta property="og:description" content="रिजल्ट भारत पर सभी नवीनतम सरकारी नौकरी अधिसूचनाएँ, सरकारी परीक्षा परिणाम और एडमिट कार्ड एक ही जगह ब्राउज़ करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/result-bharat/">
+<meta name="twitter:title" content="रिजल्ट भारत – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड">
+<meta name="twitter:description" content="रिजल्ट भारत पर सभी नवीनतम सरकारी नौकरी अधिसूचनाएँ, सरकारी परीक्षा परिणाम और एडमिट कार्ड एक ही जगह ब्राउज़ करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="लिखने वाले" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="पढ़ने में समय" />
+<meta name="twitter:data2" content="6 मिनट" />
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"रिजल्ट भारत","item":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/"}
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/",
+  "name":"रिजल्ट भारत – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड",
+  "headline":"रिजल्ट भारत: नवीनतम सरकारी नौकरियाँ, सरकारी रिजल्ट एवं एडमिट कार्ड",
+  "description":"रिजल्ट भारत पर सभी नवीनतम सरकारी नौकरी अधिसूचनाएँ, सरकारी परीक्षा परिणाम और एडमिट कार्ड एक ही जगह ब्राउज़ करें।",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "hasPart": [
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#jobs-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#results-list"},
+    {"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#admitcards-list"}
+  ],
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#breadcrumb"}
+}
+</script>
+
+<!-- ItemList — Latest Mixed Updates -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+  "name": "रिजल्ट भारत – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": {{ latest_posts|length }},
+  "itemListElement": [
+    {% for post in latest_posts %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "item": {
+        "@type": "BlogPosting",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "headline": "{{ post.title|escapejs }}",
+        "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+        "datePublished": "{{ post.published_date|date:'c' }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ post.author|striptags|escapejs }}"
+        }{% if post.image %}
+        , "image": {
+          "@type": "ImageObject",
+          "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+          "width": {{ post.image.width }},
+          "height": {{ post.image.height }}
+        }{% endif %},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+        }
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<!--FAQPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/result-bharat/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"WifiResult पर रिजल्ट भारत क्या है?",
+      "acceptedAnswer":{"@type":"Answer","text":"रिजल्ट भारत एक एकीकृत पेज है जहां आपको नवीनतम सरकारी नौकरी अधिसूचनाएँ, परीक्षा परिणाम और एडमिट कार्ड एक ही जगह मिलते हैं।"}
+    },
+    {
+      "@type":"Question",
+      "name":"क्या ये अपडेट आधिकारिक हैं?",
+      "acceptedAnswer":{"@type":"Answer","text":"हाँ। सभी पोस्ट आधिकारिक अधिसूचनाओं/पोर्टल पर आधारित हैं। हम प्रत्यक्ष स्रोत और आवेदन/डाउनलोड लिंक शामिल करते हैं।"}
+    },
+    {
+      "@type":"Question",
+      "name":"रिजल्ट भारत कितनी बार अपडेट होता है?",
+      "acceptedAnswer":{"@type":"Answer","text":"दिन में कई बार, जब भी प्राधिकरण द्वारा नई नौकरी अधिसूचनाएँ, रिजल्ट या एडमिट कार्ड जारी किए जाते हैं।"}
+    }
+  ]
+}
+</script>
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root{
+    --br-primary:#0d47a1;
+    --br-danger:#e53935;
+    --br-amber:#ffb300;
+    --br-navy:#062b6f;
+    --br-bg:#f7f9ff;
+  }
+
+  .header-top, header, .nav-container, .main-nav{background:linear-gradient(90deg,var(--br-primary), var(--br-danger)) !important;}
+  .main-nav a, .header-top a{color:#fff !important}
+  footer, .site-footer{background:linear-gradient(180deg,var(--br-navy), #081a3a) !important; color:#dbe4ff}
+  body{background:var(--br-bg)}
+
+  .logo-text p {
+    color: white;
+  }
+
+  .hero-br{position:relative;color:#fff;border-radius:16px;overflow:hidden;margin:10px 0 16px;background:linear-gradient(135deg,var(--br-primary),var(--br-danger));}
+  .hero-br .overlay{position:absolute;inset:0;background:radial-gradient(120px 120px at 12% 18%, rgba(255,255,255,.18), transparent 60%),radial-gradient(180px 180px at 82% 10%, rgba(255,255,255,.14), transparent 60%)}
+  .hero-br .wrap{position:relative;z-index:1;padding:24px 0}
+  .hero-br h1{margin:0 0 6px;font-weight:900}
+  .hero-br p{margin:0;color:#f1f5ff}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:800;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+
+  .quick-links-container{width:100%;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:12px; text-decoration:none; color:#111; font-weight:700; box-shadow:0 10px 26px rgba(16,24,40,.10); transition:.22s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-3px)}
+
+  .section-title{display:flex;align-items:center;gap:10px;margin:16px 0;font-weight:900;color:#111}
+  .section-pill{padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,#fff4e0);border:1px solid #ffe0a3}
+  .title-accent{background:linear-gradient(90deg,var(--br-primary),var(--br-danger));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 28px rgba(16,24,40,.10);transition:transform .22s}
+  .card:hover{transform:translateY(-3px)}
+  .card-header{background:linear-gradient(90deg,#fff,#f8fbff);border-bottom:2px solid #e3f2fd;color:#111;padding:12px 14px;font-weight:900}
+  .card-header span{background:linear-gradient(90deg,var(--br-primary),var(--br-amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px dashed #e3e3e3}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#111;text-decoration:none}
+  .job-list a:hover{color:var(--br-primary)}
+
+  /* Footer info section for /result-bharat/ */
+  .rb-footer-info{
+    margin: 10px 0 20px;
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+    background: linear-gradient(145deg,#0d47a1,#081a3a);
+    color:#e3edff;
+    box-shadow:0 16px 32px rgba(6,27,69,.45);
+  }
+  .rb-footer-info h2{
+    font-size:20px;
+    margin:0 0 8px;
+    font-weight:800;
+    letter-spacing:.3px;
+  }
+  .rb-footer-info h3{
+    font-size:15px;
+    margin:14px 0 6px;
+    font-weight:700;
+    color:#ffeb99;
+  }
+  .rb-footer-info p{
+    margin:4px 0 6px;
+    line-height:1.6;
+    font-size:13px;
+  }
+  .rb-footer-grid{
+    display:grid;
+    grid-template-columns:2fr 2fr;
+    gap:14px;
+    margin-top:8px;
+  }
+  .rb-footer-info ul{
+    margin:0;
+    padding-left:18px;
+    font-size:13px;
+    line-height:1.6;
+  }
+  .rb-footer-tagline{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid rgba(255,255,255,.18);
+    font-size:12px;
+    opacity:.9;
+  }
+  .rb-footer-disclaimer{
+    font-size:12px;
+    margin-top:6px;
+    opacity:.9;
+  }
+  .rb-highlight{
+    font-weight:700;
+    color:#ffe082;
+  }
+
+  @media (max-width: 600px){
+    .card-grid{grid-template-columns:repeat(3,1fr);gap:2px}
+    .card-header{padding:10px 12px}
+    .card-body{padding:10px}
+    .job-list a{font-size:11px}
+
+    .rb-footer-grid{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .rb-footer-info{
+      padding:14px 10px 12px;
+      border-radius:12px;
+    }
+    .rb-footer-info h2{
+      font-size:17px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>रिजल्ट भारत</span>
+    </div>
+  </div>
+
+<section class="hero-br">
+  <div class="overlay"></div>
+  <div class="container wrap">
+    <h1>रिजल्ट भारत: नवीनतम सरकारी नौकरियाँ, सरकारी रिजल्ट एवं एडमिट कार्ड</h1>
+    <p>तेज़ और भरोसेमंद सरकारी परीक्षा परिणाम एवं भर्तियाँ — आधिकारिक लिंक के साथ।</p>
+    <div class="chips">
+     <a href="/" class="text-white text-decoration-none"> <span class="chip">तेज़ रिजल्ट</span></a> 
+     <a href=" " class="text-white text-decoration-none">  <span class="chip">सत्यापित लिंक</span></a> 
+     <a href="/" class="text-white text-decoration-none">  <span class="chip">रोज़ाना अपडेट</span></a> 
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <div class="section-title">
+    <span class="section-pill">संपादक की पसंद</span>
+    <span class="title-accent">भारत रिजल्ट अपडेट</span>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header"><span>नवीनतम नौकरियाँ</span></div>
+      <div class="card-body">
+        <ul class="job-list" id="jobs-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}">सभी नौकरियाँ देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>नवीनतम रिजल्ट</span></div>
+      <div class="card-body">
+        <ul class="job-list" id="results-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">सभी रिजल्ट देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><span>एडमिट कार्ड</span></div>
+      <div class="card-body">
+        <ul class="job-list" id="admitcards-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}">सभी एडमिट कार्ड देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {# ---- PAGE FOOTER INFORMATION BLOCK (above global footer) ---- #}
+  <section class="rb-footer-info">
+    <h2>WifiResult पर रिजल्ट भारत – आपका भरोसेमंद सरकारी रिजल्ट साथी</h2>
+    <p>
+      <span class="rb-highlight">रिजल्ट भारत</span> सेक्शन पर हम भारत भर की 
+      <strong>नवीनतम सरकारी नौकरियाँ, परीक्षा परिणाम, एडमिट कार्ड और महत्वपूर्ण अधिसूचनाएँ</strong> 
+      एक ही जगह पर दिखाने की कोशिश करते हैं। यहां दी गई हर अपडेट को 
+      आधिकारिक स्रोत (जैसे आयोग, बोर्ड, विश्वविद्यालय, बैंक आदि की वेबसाइट) से सत्यापित करके ही प्रकाशित किया जाता है।
+    </p>
+
+    <div class="rb-footer-grid">
+      <div>
+        <h3>इस पेज पर आपको क्या मिलेगा?</h3>
+        <ul>
+          <li>नवीनतम <strong>सरकारी रिजल्ट / भारत रिजल्ट</strong> अपडेट एक ही जगह।</li>
+          <li>केंद्र एवं राज्य स्तर की सरकारी नौकरियों की जानकारी — पात्रता, आयु सीमा, शुल्क आदि के साथ।</li>
+          <li>एडमिट कार्ड डाउनलोड लिंक आधिकारिक वेबसाइट संदर्भ के साथ।</li>
+          <li>रिजल्ट, उत्तर कुंजी, कट-ऑफ और अन्य परीक्षा अपडेट की संक्षिप्त एवं स्पष्ट जानकारी।</li>
+          <li>मोबाइल-अनुकूल अनुभव ताकि आप कभी भी, कहीं से भी अपडेट देख सकें।</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>महत्वपूर्ण सूचना एवं अस्वीकरण</h3>
+        <p>
+          WifiResult किसी भी सरकारी विभाग, आयोग या परीक्षा संस्था का आधिकारिक पोर्टल नहीं है। 
+          हम एक <strong>सूचना प्रदान करने वाली वेबसाइट</strong> हैं जो सार्वजनिक डोमेन में उपलब्ध 
+          आधिकारिक अधिसूचनाओं के आधार पर सामग्री तैयार करती है।
+        </p>
+        <ul>
+          <li>आवेदन करने से पहले हमेशा <strong>आधिकारिक अधिसूचना PDF</strong> ध्यान से पढ़ें।</li>
+          <li>फॉर्म भरने, शुल्क जमा करने या किसी भी निर्णय से पहले 
+              संबंधित विभाग की आधिकारिक वेबसाइट पर जाएँ।</li>
+          <li>किसी भी टाइपिंग/त्रुटि के लिए वेबसाइट जिम्मेदार नहीं होगी; अंतिम जानकारी हमेशा आधिकारिक साइट से ही मानें।</li>
+        </ul>
+        <p class="rb-footer-disclaimer">
+          यदि आपको इस पेज पर कोई पुरानी या गलत जानकारी मिलती है, तो आप हमें संपर्क अनुभाग के माध्यम से सूचित कर सकते हैं, 
+          ताकि हम उसे जल्द से जल्द अपडेट कर सकें।
+        </p>
+      </div>
+    </div>
+
+    <p class="rb-footer-tagline">
+      🔔 टिप: रिजल्ट भारत पेज को बुकमार्क कर लें — ताकि आपको <span class="rb-highlight">सरकारी रिजल्ट, भारत रिजल्ट, 
+      नवीनतम सरकारी नौकरियाँ एवं एडमिट कार्ड</span> अपडेट के लिए अलग-अलग साइट्स पर भटकना न पड़े।
+    </p>
+  </section>
+
+</main>
+{% endblock content %}
