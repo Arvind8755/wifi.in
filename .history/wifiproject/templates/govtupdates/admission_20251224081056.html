@@ -1,0 +1,1626 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>एडमिशन : ऑनलाइन फॉर्म, एंट्रेंस एग्जाम, UG/PG एडमिशन</title>
+  <meta name="description" content="एडमिशन : नवीनतम UG/PG एडमिशन, एंट्रेंस एग्जाम फॉर्म, यूनिवर्सिटी एडमिशन नोटिफिकेशन, काउंसलिंग अपडेट और ऑनलाइन आवेदन लिंक प्राप्त करें। रोजाना अपडेट।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/admission/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/admission/">
+<meta property="og:title" content="एडमिशन : ऑनलाइन फॉर्म, एंट्रेंस एग्जाम, UG/PG एडमिशन">
+<meta property="og:description" content="एडमिशन : नवीनतम UG/PG एडमिशन, एंट्रेंस एग्जाम फॉर्म, यूनिवर्सिटी एडमिशन नोटिफिकेशन, काउंसलिंग अपडेट और ऑनलाइन आवेदन लिंक प्राप्त करें। रोजाना अपडेट।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/admission/">
+<meta name="twitter:title" content="एडमिशन : ऑनलाइन फॉर्म, एंट्रेंस एग्जाम, UG/PG एडमिशन">
+<meta name="twitter:description" content="एडमिशन : नवीनतम UG/PG एडमिशन, एंट्रेंस एग्जाम फॉर्म, यूनिवर्सिटी एडमिशन नोटिफिकेशन, काउंसलिंग अपडेट और ऑनलाइन आवेदन लिंक। रोजाना अपडेट।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/admission/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"एडमिशन","item":"{{ request.scheme }}://{{ request.get_host }}/admission/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/admission/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/admission/",
+  "name":"एडमिशन : ऑनलाइन फॉर्म, एंट्रेंस एग्जाम, UG/PG एडमिशन",
+  "headline":"नवीनतम एडमिशन 2025 – ऑनलाइन फॉर्म, एंट्रेंस एग्जाम और यूनिवर्सिटी नोटिफिकेशन",
+  "description":"एडमिशन : नवीनतम UG/PG एडमिशन, एंट्रेंस एग्जाम फॉर्म, यूनिवर्सिटी एडमिशन नोटिफिकेशन, काउंसलिंग अपडेट और ऑनलाइन आवेदन लिंक प्राप्त करें। रोजाना अपडेट।",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/admission/#breadcrumb"}
+}
+</script>
+
+
+<!--SEO-Optimized FAQ Schema for /admission/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "एडमिशन पेज पर मुझे क्या-क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको यूनिवर्सिटी एडमिशन, कॉलेज एडमिशन, एंट्रेंस एग्जाम, काउंसलिंग शेड्यूल, कटऑफ लिस्ट, मेरिट लिस्ट और आधिकारिक नोटिफिकेशन PDF की नवीनतम अपडेट मिलती हैं। सभी डिटेल्स सत्यापित आधिकारिक स्रोतों से ली जाती हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या यहां सूचीबद्ध एडमिशन अपडेट आधिकारिक होते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, सभी एडमिशन अपडेट यूनिवर्सिटी, कॉलेज, एंट्रेंस एग्जाम अथॉरिटी, राज्य काउंसलिंग बोर्ड और आधिकारिक सरकारी पोर्टल पर प्रकाशित नोटिफिकेशन के आधार पर ही अपडेट किए जाते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "एडमिशन प्रोसेस, पात्रता और आवश्यक दस्तावेज कैसे चेक करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हर एडमिशन अपडेट के साथ पात्रता मानदंड, आवेदन स्टेप्स, आवश्यक दस्तावेज, फीस डिटेल्स और महत्वपूर्ण तिथियां उल्लेख होती हैं। पूरी जानकारी के लिए आप आधिकारिक नोटिफिकेशन PDF भी डाउनलोड कर सकते हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "एडमिशन : ऑनलाइन फॉर्म, एंट्रेंस एग्जाम, UG/PG एडमिशन",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+       background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+     background: linear-gradient(90deg, #0097a7, #1565c0);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+       <span>&gt;</span>
+      <a href="{% url 'job' %}">नौकरियां</a>
+      <span>&gt;</span>
+      <span>नवीनतम एडमिशन</span>
+    </div>
+  </div>
+
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline"  >नवीनतम एडमिशन 2025 – ऑनलाइन फॉर्म, एंट्रेंस एग्जाम और यूनिवर्सिटी नोटिफिकेशन</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+  padding: 6px 06px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> नवीनतम एडमिशन
+        </div>
+        <ul class="job-list-compact">  
+
+{% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई एडमिशन लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई एडमिशन भर्ती आएगी, इस पेज पर तुरंत अपडेट कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+      
+        </ul>
+     
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग जॉब टॉपिक्स
+        </div>
+        <div class="trending-list">
+         {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+         {% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+ <!-- Website Information Section (Admission Page) -->
+<section class="website-info">
+  <div class="container">
+    <h2>ऑल इंडिया कॉलेज और यूनिवर्सिटी एडमिशन 2026 – नवीनतम एंट्रेंस अपडेट</h2>
+
+    <div class="info-content">
+
+      <!-- Latest Admission Forms -->
+      <div class="info-point">
+        <h3>नवीनतम एडमिशन फॉर्म 2026</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको <strong>कॉलेज एडमिशन, यूनिवर्सिटी एडमिशन,
+          डिप्लोमा एडमिशन, इंजीनियरिंग, मेडिकल, मैनेजमेंट</strong> और सभी महत्वपूर्ण 
+          <strong>एंट्रेंस एग्जाम 2025</strong> के आवेदन की जानकारी मिलती है — वह भी आधिकारिक लिंक के साथ।
+        </p>
+      </div>
+
+      <!-- Courses Information -->
+      <div class="info-point">
+        <h3>UG, PG, डिप्लोमा और प्रोफेशनल कोर्स</h3>
+        <p>
+          यह पेज विभिन्न प्रोग्राम्स के एडमिशन को कवर करता है जैसे:
+          <strong>BA, B.Sc, B.Com, BBA, BCA, B.Tech, MBBS, B.Pharma, ITI,
+          डिप्लोमा, नर्सिंग, पैरामेडिकल</strong> और  
+          <strong>PG कोर्स जैसे MA, M.Com, M.Sc, MBA, MCA</strong> आदि। 
+          हर कोर्स के लिए पात्रता और महत्वपूर्ण तिथियां स्पष्ट रूप से बताई जाती हैं।
+        </p>
+      </div>
+
+      <!-- Entrance Exams -->
+      <div class="info-point">
+        <h3>एंट्रेंस एग्जाम ऑनलाइन आवेदन</h3>
+        <p>
+          टॉप लेवल एंट्रेंस एग्जाम के साथ अपडेट रहें जैसे:
+          <strong>NEET, JEE Main, CUET UG/PG, CAT, MAT, CLAT, GATE, UGC NET,
+          पॉलिटेक्निक प्रवेश परीक्षा</strong> और कई राज्य-स्तरीय प्रवेश परीक्षाएं।
+          यहां आपको <strong>ऑनलाइन फॉर्म, परीक्षा तिथि, सिलेबस, एडमिट कार्ड और रिजल्ट</strong> लिंक भी मिलते हैं।
+        </p>
+      </div>
+
+      <!-- Eligibility & Documents -->
+      <div class="info-point">
+        <h3>पात्रता और आवश्यक दस्तावेज</h3>
+        <p>
+          हर एडमिशन पोस्ट में हम स्पष्ट रूप से उल्लेख करते हैं:
+          <strong>पात्रता मानदंड, आयु सीमा (जहां लागू हो), चयन प्रक्रिया और 
+          आवश्यक दस्तावेज</strong> जैसे मार्कशीट, ID प्रूफ, माइग्रेशन, जाति प्रमाणपत्र आदि,
+          जिससे आवेदन में कोई गलती न हो।
+        </p>
+      </div>
+
+      <!-- Government Schemes & Scholarships -->
+      <div class="info-point">
+        <h3>स्कॉलरशिप और काउंसलिंग सपोर्ट</h3>
+        <p>
+          कई एडमिशन प्रोसेस में <strong>काउंसलिंग और सीट अलॉटमेंट</strong> शामिल होते हैं।
+          हम आधिकारिक काउंसलिंग शेड्यूल की जानकारी के साथ-साथ 
+          <strong>स्कॉलरशिप स्कीम</strong> और फीस कन्सेशन अपडेट भी शेयर करते हैं।
+        </p>
+      </div>
+
+      <!-- Selection & Merit List -->
+      <div class="info-point">
+        <h3>मेरिट लिस्ट और फाइनल अलॉटमेंट</h3>
+        <p>
+          यूनिवर्सिटी और कॉलेज द्वारा जारी <strong>मेरिट लिस्ट, कट-ऑफ, रैंक लिस्ट,
+          काउंसलिंग कॉल लेटर</strong> और फाइनल एडमिशन अपडेट की पूरी जानकारी यहां उपलब्ध होती है —
+          सीधे आधिकारिक डाउनलोड लिंक के साथ।
+        </p>
+      </div>
+
+      <!-- One Stop Admission Portal -->
+      <div class="info-point">
+        <h3>वन स्टॉप एडमिशन और एंट्रेंस हब</h3>
+        <p>
+          <strong>wifiresult.com</strong> आपकी सुविधा के लिए सभी <strong>एडमिशन और एंट्रेंस</strong> अपडेट 
+          एक ही प्लेटफ़ॉर्म पर उपलब्ध कराता है — जिससे आपको अलग-अलग वेबसाइट विजिट नहीं करनी पड़ती।
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  {% endblock content %}
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Admission : Online Form, Entrance Exams, UG/PG Admissions</title>
+<meta name="description" content="Admission : Get latest UG/PG admissions, entrance exam forms, university admission notifications, counselling updates & apply online links. Updated daily.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/admission/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/admission/">
+<meta property="og:title" content="Admission : Online Form, Entrance Exams, UG/PG Admissions">
+<meta property="og:description" content="Admission : Get latest UG/PG admissions, entrance exam forms, university admission notifications, counselling updates & apply online links. Updated daily.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/admission/">
+<meta name="twitter:title" content="Admission : Online Form, Entrance Exams, UG/PG Admissions">
+<meta name="twitter:description" content="Admission : Get latest UG/PG admissions, entrance exam forms, university admission notifications, counselling updates & apply online links. Updated daily.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/admission/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Admission","item":"{{ request.scheme }}://{{ request.get_host }}/admission/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/admission/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/admission/",
+  "name":"Admission : Online Form, Entrance Exams, UG/PG Admissions",
+  "headline":"Latest Admission 2025 – Online Forms, Entrance Exams & University Notifications",
+  "description":"Admission : Get latest UG/PG admissions, entrance exam forms, university admission notifications, counselling updates & apply online links. Updated daily.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/admission/#breadcrumb"}
+}
+</script>
+
+
+<!--SEO-Optimized FAQ Schema for /admission/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Admission page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko university admissions, college admissions, entrance exams, counselling schedules, cutoff lists, merit lists aur official notification PDFs ki latest updates milti hain. Sabhi details verified official sources se li jaati hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya yahan listed admission updates official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, saare admission updates universities, colleges, entrance exam authorities, state counselling boards aur official government portals par publish hui notifications ke adhar par hi update kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Admission process, eligibility aur required documents kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har admission update ke saath eligibility criteria, application steps, required documents, fee details aur important dates mention hote hain. Full details ke liye aap official notification PDF bhi download kar sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Admission : Online Form, Entrance Exams, UG/PG Admissions",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+       <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span>Latest Admission</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest Admission 2025 – Online Forms, Entrance Exams & University Notifications</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> Latest Admission
+        </div>
+        <ul class="job-list-compact">  
+
+{% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई Admission लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई Admission भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+      
+        </ul>
+     
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+         {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+         {% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+ <!-- Website Information Section (Admission Page) -->
+<section class="website-info">
+  <div class="container">
+    <h2>All India College & University Admission 2026 – Latest Entrance Updates</h2>
+
+    <div class="info-content">
+
+      <!-- Latest Admission Forms -->
+      <div class="info-point">
+        <h3>Latest Admission Forms 2026</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको <strong>College Admission, University Admission,
+          Diploma Admission, Engineering, Medical, Management</strong> और सभी महत्वपूर्ण 
+          <strong>Entrance Exams 2025</strong> की आवेदन जानकारी मिलती है — वह भी official links के साथ।
+        </p>
+      </div>
+
+      <!-- Courses Information -->
+      <div class="info-point">
+        <h3>UG, PG, Diploma & Professional Courses</h3>
+        <p>
+          This page covers admissions for a wide range of programs such as:
+          <strong>BA, B.Sc, B.Com, BBA, BCA, B.Tech, MBBS, B.Pharma, ITI,
+          Diploma, Nursing, Paramedical</strong> and  
+          <strong>PG Courses like MA, M.Com, M.Sc, MBA, MCA</strong> आदि। 
+          हर course के लिए eligibility और important dates clearly बताए जाते हैं।
+        </p>
+      </div>
+
+      <!-- Entrance Exams -->
+      <div class="info-point">
+        <h3>Entrance Exams Apply Online</h3>
+        <p>
+          Stay updated with top level entrance exams जैसे:
+          <strong>NEET, JEE Main, CUET UG/PG, CAT, MAT, CLAT, GATE, UGC NET,
+          Polytechnic प्रवेश परीक्षा</strong> और कई state-level प्रवेश परीक्षाएं।
+          यहां आपको <strong>online form, exam date, syllabus, admit card और result</strong> links भी मिलते हैं।
+        </p>
+      </div>
+
+      <!-- Eligibility & Documents -->
+      <div class="info-point">
+        <h3>Eligibility & Required Documents</h3>
+        <p>
+          हर admission पोस्ट में हम clearly mention करते हैं:
+          <strong>eligibility criteria, age limit (जहां लागू हो), selection process और 
+          required documents</strong> जैसे marksheet, ID proof, migration, caste certificate etc.,
+          जिससे आवेदन में कोई गलती न हो।
+        </p>
+      </div>
+
+      <!-- Government Schemes & Scholarships -->
+      <div class="info-point">
+        <h3>Scholarship & Counselling Support</h3>
+        <p>
+          कई admission processes में <strong>counselling & seat allotment</strong> शामिल होते हैं।
+          हम official counselling schedules की जानकारी के साथ-साथ 
+          <strong>scholarship schemes</strong> और fee concession updates भी share करते हैं।
+        </p>
+      </div>
+
+      <!-- Selection & Merit List -->
+      <div class="info-point">
+        <h3>Merit List & Final Allotment</h3>
+        <p>
+          University & Colleges द्वारा जारी <strong>merit list, cut-off, rank list,
+          counselling call letters</strong> और final admission updates की पूरी जानकारी यहां उपलब्ध होती है —
+          direct official download links के साथ।
+        </p>
+      </div>
+
+      <!-- One Stop Admission Portal -->
+      <div class="info-point">
+        <h3>One Stop Admission & Entrance Hub</h3>
+        <p>
+          <strong>wifiresult.com</strong> आपकी सुविधा के लिए सभी <strong>Admission & Entrance</strong> updates 
+          एक ही प्लेटफ़ॉर्म पर उपलब्ध कराता है — जिससे आपको अलग-अलग websites visit नहीं करनी पड़ती।
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      यदि आप 2026 में किसी <strong>College, University, Diploma, Professional Course</strong>
+      या <strong>Entrance Exam</strong> के लिए apply करना चाहते हैं, तो इस 
+      <strong>Admission</strong> page को bookmark करें।  
+      यहां आपको रोज़ाना मिलेंगे **India के सबसे तेज़ Admission Updates** — आसान और सही जानकारी के साथ! 🎓✨
+    </p>
+  </div>
+</section>
+
+
+
+
+  {% endblock content %}
+   {% endcomment %}

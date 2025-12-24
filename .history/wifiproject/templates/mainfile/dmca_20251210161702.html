@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>DMCA Policy – WifiResult</title>
+<meta name="description" content="Read WifiResult’s DMCA Policy regarding content removal requests and copyright compliance. Learn how to report copyright infringement under the Digital Millennium Copyright Act (DMCA).">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/dmca/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/dmca/">
+<meta property="og:title" content="DMCA Policy – WifiResult">
+<meta property="og:description" content="Read WifiResult’s DMCA Policy regarding content removal requests and copyright compliance. Learn how to report copyright infringement under the Digital Millennium Copyright Act (DMCA).">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/dmca/">
+<meta name="twitter:title" content="DMCA Policy – WifiResult">
+<meta name="twitter:description" content="Read WifiResult’s DMCA Policy regarding content removal requests and copyright compliance. Learn how to report copyright infringement under the Digital Millennium Copyright Act (DMCA).">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/dmca/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "DMCA Policy", "item": "{{ request.scheme }}://{{ request.get_host }}/dmca/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/dmca/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/dmca/",
+  "name": "DMCA Policy – WifiResult",
+  "headline": "DMCA Copyright Policy – WifiResult",
+  "description": "Read WifiResult’s DMCA Policy regarding content removal requests and copyright compliance. Learn how to report copyright infringement under the Digital Millennium Copyright Act (DMCA).",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "publisher": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+  },
+  "inLanguage": "en",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "breadcrumb": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/dmca/#breadcrumb"
+  }
+}
+</script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+    <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* policy center */
+    .policy-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:18px}
+    .policy-section h3{color:var(--primary);margin-bottom:8px}
+    .policy-section p, .policy-section li{color:#333;margin-bottom:10px}
+    .policy-list{margin-left:18px}
+    .code-box{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px;border-radius:6px;font-family:monospace;font-size:14px;white-space:pre-wrap}
+
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile ordering (keep as before) */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>DMCA Policy</span>
+    </div>
+  </div>
+
+  <!-- Breaking news (kept as before) -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-bullhorn"></i></strong> &nbsp;Need help? Check our DMCA policy below or email us at <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (DMCA policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="DMCA page main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: DMCA Policy Content -->
+    <section class="content-area" aria-label="DMCA Policy and procedures">
+      <div class="policy-card" role="region" aria-labelledby="dmca-heading">
+        <div class="page-title">
+          <i class="fas fa-file-invoice" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="dmca-heading">DMCA Copyright Policy – WifiResult</h1>
+        </div>
+
+        <div class="policy-section">
+          <p><strong>Effective date:</strong>  {{ today|date:"F j, Y" }}</p>
+          <p>wifiresult.com respects the intellectual property rights of others and expects its users to do the same. This DMCA Policy explains how copyright owners may report alleged infringement on our site, how we respond to notices, and how users can submit a counter-notice if they believe content was removed in error.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Scope</h3>
+          <p>This policy applies to content hosted or displayed on wifiresult.com (including articles, images, videos, attachments, or other user-submitted material). It is intended to comply with the United States Digital Millennium Copyright Act ("DMCA") and similar laws in other jurisdictions.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>How to submit a DMCA Takedown Notice</h3>
+          <p>If you believe that your copyrighted work has been posted on wifiresult.com without authorization, please send a written DMCA takedown notice to our designated agent. Your notice must be a written communication that includes substantially the following information:</p>
+          <ol class="policy-list">
+            <li>A physical or electronic signature of the copyright owner or a person authorized to act on their behalf.</li>
+            <li>Identification of the copyrighted work claimed to have been infringed. If multiple works are involved, provide a representative list.</li>
+            <li>Identification of the material that is claimed to be infringing (e.g., URL(s) on wifiresult.com where the material appears).</li>
+            <li>Information reasonably sufficient to permit wifiresult.com to contact you (name, address, telephone number, and email address).</li>
+            <li>A statement that you have a good faith belief that the use of the material is not authorized by the copyright owner, its agent, or the law.</li>
+            <li>A statement that the information in the notification is accurate, and under penalty of perjury, that you are the copyright owner or authorized to act on the owner's behalf.</li>
+          </ol>
+
+          <p>Please send DMCA notices to the following email and postal address (electronic submission is preferred):</p>
+
+          <div class="code-box">
+DMCA Agent: DMCA Team, WifiResult
+Email: wifiresult3@gmail.com
+Mail: WifiResult — DMCA Agent
+      Connaught Place, New Delhi, India
+</div>
+
+          <p><em>Note:</em> Email is the fastest method. Include “DMCA Notice” in the subject line and provide all required elements in the body of the message.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>What happens after we receive a takedown notice?</h3>
+          <p>On receipt of a compliant notice, we will:</p>
+          <ul class="policy-list">
+            <li>Remove or disable access to the allegedly infringing content.</li>
+            <li>Notify the user who posted the content and provide the user with a copy of the notice (or a summary) and information on how to submit a counter-notice.</li>
+            <li>Log the report and retain records for a reasonable period.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>How to submit a Counter-Notice</h3>
+          <p>If you are the content poster and you believe your content was removed by mistake or misidentification, you may submit a counter-notification. Your counter-notice must include the following:</p>
+          <ol class="policy-list">
+            <li>Your name, address, telephone number, and email address.</li>
+            <li>Identification of the material that was removed and the location at which the material appeared before removal (e.g., URL).</li>
+            <li>A statement under penalty of perjury that you have a good faith belief that the material was removed as a result of mistake or misidentification of the material to be removed.</li>
+            <li>A statement that you consent to the jurisdiction of the appropriate federal court in the district where your address is located (or if you are outside the U.S., that you will accept service of process from the person who provided the original DMCA notice), and that you will accept service of process from the notifying party.</li>
+            <li>Your physical or electronic signature.</li>
+          </ol>
+
+          <p>Send counter-notices to: <strong>wifiresult3@gmail.com</strong> with subject line “DMCA Counter-Notice”.</p>
+
+          <p>Upon receipt of a proper counter-notice, and unless the original complaining party files a court action seeking a restraining order, we may restore the removed material in accordance with applicable law (e.g., after 10–14 business days), and will notify both parties of our action.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Repeat infringer policy</h3>
+          <p>We have adopted and reasonably implemented a policy that provides for the termination, in appropriate circumstances, of accounts of users who are repeat infringers. We may, in our sole discretion, terminate accounts where a user has multiple infringing notices or engages in a pattern of infringing behavior.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Good faith and misrepresentation</h3>
+          <p>Anyone who knowingly materially misrepresents that material is infringing may be liable for damages (including costs and attorney’s fees). If you knowingly misrepresent a claim, wifiresult.com may pursue any remedies available to it, including legal remedies.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Templates (copy and paste)</h3>
+
+          <h4>Takedown Notice Template</h4>
+          <div class="code-box">
+[Your Full Legal Name]
+[Your Address]
+[Your Phone Number]
+[Your Email Address]
+
+Date: [insert date]
+
+To: DMCA Agent, WifiResult (wifiresult3@gmail.com)
+
+I, the undersigned, state under penalty of perjury that:
+
+1. I am the owner (or an agent authorized to act on behalf of the owner) of the exclusive rights to the copyrighted work described below.
+2. The material that I claim is infringing is located at: [insert URL(s) on wifiresult.com].
+3. The copyrighted work I claim has been infringed is: [describe the copyrighted work].
+4. I have a good faith belief that the use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.
+5. The information in this notification is accurate, and I declare, under penalty of perjury, that I am the copyright owner or authorized to act on the owner's behalf.
+
+Signature: ______________________
+Name: [print name]
+</div>
+
+          <h4>Counter-Notice Template</h4>
+          <div class="code-box">
+[Your Full Legal Name]
+[Your Address]
+[Your Phone Number]
+[Your Email Address]
+
+Date: [insert date]
+
+To: DMCA Agent, WifiResult (wifiresult3@gmail.com)
+
+I hereby state under penalty of perjury that:
+
+1. I am the owner or authorized to act on behalf of the owner of the material that was removed.
+2. The material was removed by mistake or misidentification.
+3. The material at issue was located at: [insert original URL on wifiresult.com].
+4. I consent to the jurisdiction of [insert appropriate federal court, or state court if outside U.S.] and accept service of process from the person who provided the original DMCA notice.
+
+Signature: ______________________
+Name: [print name]
+</div>
+        </div>
+
+        <div class="policy-section">
+          <h3>Additional notes</h3>
+          <ul class="policy-list">
+            <li>We may require verification of ownership in certain cases.</li>
+            <li>We do not provide legal advice—if you are unsure about your rights, consult a qualified attorney.</li>
+            <li>This policy may be updated from time to time; the posted effective date above indicates when it was last revised.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Small footer-like note -->
+      <div style="margin-top:18px" class="policy-card">
+        <h4 style="color:var(--primary);margin-bottom:8px"><i class="fas fa-info-circle"></i> Contact for DMCA Issues</h4>
+        <p class="small">For DMCA notices or counter-notices, email: <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>. For general inquiries: <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>.</p>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+      <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

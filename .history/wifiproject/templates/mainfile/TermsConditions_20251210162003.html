@@ -1,0 +1,421 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Terms and Conditions – WifiResult</title>
+<meta name="description" content="Read the Terms and Conditions of WifiResult.com, outlining the usage policies, content ownership, and user responsibilities for accessing government job updates, results, and news.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/">
+<meta property="og:title" content="Terms and Conditions – WifiResult">
+<meta property="og:description" content="Read the Terms and Conditions of WifiResult.com, outlining the usage policies, content ownership, and user responsibilities for accessing government job updates, results, and news.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/">
+<meta name="twitter:title" content="Terms and Conditions – WifiResult">
+<meta name="twitter:description" content="Read the Terms and Conditions of WifiResult.com, outlining the usage policies, content ownership, and user responsibilities for accessing government job updates, results, and news.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Terms and Conditions", "item": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/",
+  "name": "Terms and Conditions – WifiResult",
+  "headline": "Terms and Conditions | WifiResult.com",
+  "description": "Read the Terms and Conditions of WifiResult.com, outlining the usage policies, content ownership, and user responsibilities for accessing government job updates, results, and news.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "mainEntity": {
+    "@type": "CreativeWork",
+    "name": "WifiResult Terms and Conditions",
+    "text": "This page explains the legal terms, acceptable use, and content policy governing WifiResult.com and its services."
+  }
+}
+</script>
+
+<!--AboutPage Variant (Optional)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/#aboutpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/",
+  "name": "Terms and Conditions – WifiResult",
+  "description": "Official Terms and Conditions page of WifiResult.com detailing content use, disclaimer, privacy, and contact information.",
+  "mainEntityOfPage": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/",
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en"
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+     .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* terms center */
+    .terms-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .terms-card h1{font-size:26px;color:var(--dark);margin-bottom:8px}
+    .terms-section{margin-bottom:20px}
+    .terms-section h2{font-size:18px;color:var(--primary);margin-bottom:8px}
+    .terms-section p, .terms-section li{color:#333;font-size:15px;margin-bottom:8px}
+    .terms-section ul{margin-left:18px;margin-bottom:8px}
+    .small{font-size:14px;color:#6c757d}
+
+  
+    /* MOBILE ORDER FIX: ensure content appears first */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Terms & Conditions</span>
+    </div>
+  </div>
+
+  <!-- Breaking News Marquee (kept as before) -->
+  <div class="breaking-newss">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <span class="icon"><i class="fas fa-address-card"></i></span>
+      <span class="headline">
+      Latest Govt Jobs 2025 - Apply Online
+      </span>
+    </marquee>
+  </div>
+
+  <style>
+  .breaking-newss {
+    background: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 0;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+  }
+  .breaking-newss .icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .breaking-news .headline {
+    font-family: 'Arial', sans-serif;
+  }
+  </style>
+
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-bullhorn"></i></strong> &nbsp;Need help? Check our policies or email <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (terms) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Terms page main area">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: TERMS & CONDITIONS (replaced content) -->
+    <section class="content-area" aria-label="Terms and Conditions">
+      <div class="terms-card" role="region" aria-labelledby="contact-heading">
+        <!-- kept id contact-heading to avoid changing existing anchors/scripts -->
+        <h1 id="contact-heading">Terms and Conditions | WifiResult.com</h1>
+
+        <div class="terms-section">
+          <h2>1. Introduction</h2>
+          <p>Welcome to wifiresult.com. These Terms &amp; Conditions ("Terms") govern your use of our website and services. By accessing or using the Site you agree to be bound by these Terms, our Privacy Policy, and any additional terms that may apply to specific sections of the Site or to products and services available through the Site.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>2. Who We Are</h2>
+          <p>wifiresult.com is an information portal that publishes government job notifications, admit cards, results and related content. The Site provides informational content only and is not an official government agency.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>3. Use of the Site</h2>
+          <ul>
+            <li>You agree to use the Site only for lawful purposes and not to engage in any activity that interferes with or restricts use of the Site by others.</li>
+            <li>You must not attempt to gain unauthorized access to any portion of the Site, other accounts, computer systems or networks connected to the Site.</li>
+            <li>Where the Site permits you to post or upload content (comments, messages, resumes, etc.), you must ensure you own the rights to that content or are authorized to post it.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>4. Content &amp; Accuracy</h2>
+          <p>We strive to publish accurate and up-to-date information but do not guarantee completeness or correctness. Job notifications, dates and eligibility requirements are provided for informational purposes only. Always verify details on the official recruiting organization's website before applying. We are not responsible for any loss or inconvenience caused by reliance on the Site's content.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>5. Intellectual Property</h2>
+          <p>All content on the Site (text, graphics, logos, images, audio, video, downloads, data compilations and software) is the property of wifiresult.com or its content suppliers and is protected by copyright, trademark and other intellectual property laws. You may view and print individual pages for personal, non-commercial use only. Any other use requires prior written permission.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>6. User Contributions</h2>
+          <p>If you submit content to the Site (comments, user posts, messages), you grant wifiresult.com a worldwide, non-exclusive, royalty-free, transferable license to use, reproduce, modify, publish, translate and distribute such content in any media. You represent and warrant that you have the right to grant this license and that your content does not infringe any third party rights or applicable law.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>7. Prohibited Conduct</h2>
+          <p>Examples of prohibited conduct include but are not limited to:</p>
+          <ul>
+            <li>Posting unlawful, obscene, hateful, threatening or abusive material.</li>
+            <li>Uploading viruses or malicious code.</li>
+            <li>Using the Site to harvest data or contact details of other users without consent.</li>
+            <li>Impersonating another person or providing false information.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>8. External Links</h2>
+          <p>The Site may contain links to third-party websites. These links are provided solely for convenience and do not imply endorsement. We have no control over third-party sites and are not responsible for their content, privacy practices or services. Visiting external sites is at your own risk.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>9. Advertisements &amp; Sponsored Content</h2>
+          <p>We may display advertisements or sponsored content. Sponsored content is identified as such. We do not guarantee the products or services advertised, and any transaction you enter into with an advertiser is between you and the advertiser.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>10. Disclaimers</h2>
+          <p>THE SITE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, WIFIRESULT.COM DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>11. Limitation of Liability</h2>
+          <p>IN NO EVENT SHALL WIFIRESULT.COM OR ITS AFFILIATES, AGENTS OR SUPPLIERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF THE SITE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR AGGREGATE LIABILITY FOR CLAIMS ARISING OUT OF OR RELATED TO THE SITE SHALL NOT EXCEED THE AMOUNT PAID, IF ANY, BY YOU TO USE THE SITE.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>12. Indemnification</h2>
+          <p>You agree to indemnify, defend and hold harmless wifiresult.com, its officers, directors, employees and agents from and against any claims, liabilities, damages, losses and expenses (including legal fees) arising out of or in any way connected with your access to or use of the Site, your violation of these Terms, or your violation of the rights of another.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>13. Data Protection &amp; Privacy</h2>
+          <p>Our Privacy Policy explains how we collect and use your personal information. By using the Site you consent to our collection and use of personal information as described in the Privacy Policy. If you submit personal data via contact forms, we will use it to respond to your inquiries and for the purposes described at the time of collection.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>14. Third-Party Services &amp; APIs</h2>
+          <p>The Site may integrate third-party services (e.g., Google Maps). Your use of such services is subject to the third party's terms and privacy policies. We are not responsible for the performance or content of third-party services.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>15. Termination</h2>
+          <p>We may suspend or terminate your access to the Site at any time, with or without notice, for any conduct that we believe violates these Terms or is harmful to other users, our business, or third parties.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>16. Changes to Terms</h2>
+          <p>We may update these Terms from time to time. The updated Terms will be posted on this page with a revised effective date. Continued use of the Site after changes means you accept the updated Terms.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>17. Governing Law &amp; Dispute Resolution</h2>
+          <p>These Terms are governed by the laws of India. Any dispute arising out of or relating to these Terms or your use of the Site shall be subject to the exclusive jurisdiction of the courts located in New Delhi, India, unless otherwise agreed in writing.</p>
+        </div>
+
+        <div class="terms-section">
+          <h2>18. Contact Information</h2>
+          <p>If you have questions about these Terms, please contact us:</p>
+          <ul>
+            <li>Email: <a href="wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li>Phone: +91 8755xxxxxx</li>
+            <li>Address: Connaught Place / New Delhi, India</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h2>19. Miscellaneous</h2>
+          <ul>
+            <li>If any provision of these Terms is held invalid or unenforceable, that provision will be struck and the remaining provisions will remain in force.</li>
+            <li>These Terms, together with the Privacy Policy and any other legal notices published by us, constitute the entire agreement between you and wifiresult.com concerning the Site.</li>
+          </ul>
+        </div>
+
+        <p class="small">Last updated: <strong>{{ today|date:"F j, Y" }}</strong></p>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+    <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

@@ -1,0 +1,444 @@
+  {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>HTML Sitemap – WifiResult.com</title>
+<meta name="description" content="Explore the complete sitemap of WifiResult.com. Browse all categories including Govt Jobs, Results, Admit Cards, Answer Keys, Syllabus, Admissions, Scholarships and more.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/sitemap.html/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/sitemap.html/">
+<meta property="og:title" content="HTML Sitemap – WifiResult.com">
+<meta property="og:description" content="Explore the complete sitemap of WifiResult.com. Browse all categories including Govt Jobs, Results, Admit Cards, Answer Keys, Syllabus, Admissions, Scholarships and more.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/sitemap.html/">
+<meta name="twitter:title" content="HTML Sitemap – WifiResult.com">
+<meta name="twitter:description" content="Explore the complete sitemap of WifiResult.com. Browse all categories including Govt Jobs, Results, Admit Cards, Answer Keys, Syllabus, Admissions, Scholarships and more.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+  <!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/sitemap.html/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Sitemap",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/sitemap.html/"
+    }
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/sitemap.html/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/sitemap.html/",
+  "name": "HTML Sitemap – WifiResult.com",
+  "headline": "WifiResult HTML Sitemap – Find All Pages at One Place",
+  "description": "Explore the complete sitemap of WifiResult.com. Browse all categories including Govt Jobs, Results, Admit Cards, Answer Keys, Syllabus, Admissions, Scholarships and more.",
+  "isPartOf": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "publisher": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/sitemap.html/#breadcrumb"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebSite",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  }
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    
+    :root {
+      --primary: #dc3545;
+      --secondary: #0d6efd;
+      --accent: #ffc107;
+      --dark: #212529;
+      --light: #f8f9fa;
+      --border: #dee2e6;
+      --success: #198754;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: #f5f5f5; color: #333; line-height: 1.6; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+    /* Breadcrumb */
+    .breadcrumb { padding: 15px 0; background: #f8f9fa; }
+    .breadcrumb .container { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+    .breadcrumb a { color: var(--secondary); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+
+    /* Page header */
+    .page-header { background:#fff; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.08); padding:24px; margin:18px 0; }
+    .page-header h1 { font-size:28px; color:var(--dark); margin-bottom:8px; }
+    .page-sub { color:#6c757d; }
+
+    /* Sections */
+    .section { background:#fff; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.08); padding:20px; margin:18px 0; }
+    .section-title { background: linear-gradient(to right, var(--primary), #c82333); color:#fff; padding:10px 15px; margin:-20px -20px 15px; border-radius:8px 8px 0 0; display:flex; align-items:center; gap:10px; }
+
+    .columns { display:grid; grid-template-columns: repeat(1, 1fr); gap:18px; }
+    @media (min-width:768px){ .columns{ grid-template-columns: repeat(2, 1fr);} }
+    @media (min-width:1100px){ .columns{ grid-template-columns: repeat(3, 1fr);} }
+
+    .sitemap-list { list-style:none; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+    .sitemap-list li { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 14px; border-bottom:1px solid var(--border); }
+    .sitemap-list li:last-child { border-bottom:none; }
+    .sitemap-list a { color: var(--dark); text-decoration:none; font-weight:500; }
+    .sitemap-list a:hover { color: var(--primary); }
+    .meta { color:#6c757d; font-size:13px; white-space:nowrap; }
+
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; background:#dc3545; border:1px solid var(--border); }
+
+    /* Top banner */
+.top-hero{background:linear-gradient(90deg, rgba(11,94,215,0.06), rgba(255,122,89,0.03));border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.logo{width:56px;height:56px;border-radius:10px;overflow:hidden;flex:0 0 56px}
+.logo img{width:100%;height:100%;object-fit:contain}
+.hero-content h1{font-size:22px;margin-bottom:6px}
+.hero-content p{color:var(--muted);font-size:14px}
+.badge-pill{display:inline-block;background:#fff;padding:6px 10px;border-radius:999px;border:1px solid var(--border);font-size:13px;color:#0b5ed7}
+
+.logo {
+    width: 196px;
+}
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>HTML Sitemap</span>
+    </div>
+  </div>
+
+    <div class="top-hero">
+    <div class="logo">
+      <img src="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png" alt="WifiResult logo">
+    </div>
+    <div class="hero-content">
+      <h1>HTML Sitemap</h1>
+      <p class="section-desc">All important sections, categories and latest content of WifiResult.com — neatly organized for users and search engines.</p>
+    </div>
+    <div style="margin-left:auto">
+      <span class="badge-pill">Last updated: <strong style="margin-left:8px">{% now "d M Y" %}</strong></span>
+    </div>
+  </div>
+
+  <!-- Sitemap Sections -->
+  <main class="container" role="main">
+    <!-- Important Pages -->
+    <section class="section" aria-labelledby="imp-pages">
+      <div class="section-title"><i class="fas fa-link"></i> <h2 id="imp-pages">Important Pages</h2></div>
+      <ul class="sitemap-list">
+        <li><a href="{% url 'home' %}">Homepage</a> <span class="meta">Root</span></li>
+        <li><a href="{% url 'job' %}">Latest Jobs</a> <span class="meta">Updated daily</span></li>
+        <li><a href="{% url 'govtjobstoday' %}">Govt Jobs Today</a> <span class="meta">Today jobs</span></li>
+        <li><a href="{% url 'result' %}">Results</a> <span class="meta">Updated daily</span></li>
+ <li><a href="{% url 'sarkariresult' %}">Sarkari Results</a> <span class="meta">Updated daily</span></li>
+               <li><a href="{% url 'boardresult' %}">Board Results</a> <span class="meta">Updated daily</span></li>
+        <li><a href="{% url 'admitcard' %}">Admit Cards</a> <span class="meta">Updated daily</span></li>
+             <li><a href="{% url 'sarkariexam' %}">Sarkari Exam</a> <span class="meta">Updated daily</span></li>
+        <li><a href="{% url 'govtupdates' %}">Govt Updates</a> <span class="meta">Updated daily</span></li>
+                <li><a href="{% url 'search' %}">Search</a> <span class="meta">Filter</span></li>
+        <li><a href="{% url 'about' %}">About Us</a> <span class="meta">Know us</span></li>
+        <li><a href="{% url 'contact' %}">Contact</a> <span class="meta">Support</span></li>
+        <li><a href="{% url 'PrivacyPolicy' %}">Privacy Policy</a> <span class="meta">Data Safety</span></li>
+        <li><a href="{% url 'TermsConditions' %}">Terms & Conditions</a> <span class="meta">User Agreement</span></li>
+        <li><a href="{% url 'dmca' %}">DMCA</a> <span class="meta">Legal Safety</span></li>
+        <li><a href="{% url 'hyperlinkpolicy' %}">Hyperlink Policy</a> <span class="meta">link Policy</span></li>
+        <li><a href="{% url 'disclaimer' %}">Disclaimer</a> <span class="meta">Legal Disclaimer</span></li>
+        <li><a href="{% url 'FactCheckingPolicy' %}">Fact-Checking & Corrections Policy</a> <span class="meta">Editorial Integrity</span></li>
+        <li><a href="{% url 'editorialpolicy' %}">Editorial Policy </a> <span class="meta">Publishing Rules</span></li>
+        <li><a href="{% url 'AdvertisingPolicy' %}">Advertising Policy  </a> <span class="meta">Ad Disclosure</span></li>
+        <li><a href="{% url 'grievanceofficer' %}">Grievance Officer </a> <span class="meta">Complaint Handling</span></li>
+        <li><a href="{% url 'cookiepolicy' %}">Cookie Policy </a> <span class="meta">Browser Privacy</span></li>
+        <li><a href="{% url 'signup' %}">Sing Up </a><span class="meta">signup</span></li>
+        <li><a href="{% url 'login' %}">Login </a><span class="meta">login</span></li>
+      </ul>
+    </section>
+
+    <!-- Latest Sections -->
+    <section class="section" aria-labelledby="latest-sections">
+      <div class="section-title"><i class="fas fa-bolt"></i> <h2 id="latest-sections">Latest Sections</h2></div>
+      <div class="columns">
+        <div>
+          <h3 class="muted">Jobs</h3>
+          <ul class="sitemap-list">
+            <!-- Replace sample links with dynamic ones -->
+            <li><a href="{% url 'job' %}">All Latest Jobs</a> <span class="meta">Updated daily</span></li>
+
+            <li><a href="{% url 'bankjob' %}">Banking Jobs</a> <span class="meta">IBPS, SBI, RBI</span></li>
+            <li><a href="{% url 'sscjob' %}">SSC Jobs</a> <span class="meta">CGL, CHSL, MTS</span></li>
+            <li><a href="{% url 'railwayjob' %}">Railway Jobs</a> <span class="meta">RRB, RRC</span></li>
+            <li><a href="{% url 'defensejob' %}">Defense Jobs</a> <span class="meta">Army, Navy, Air Force</span></li>
+            <li><a href="{% url 'upscjob' %}">UPSC Jobs</a> <span class="meta">IAS, NDA, CDS</span></li>
+            <li><a href="{% url 'government_teacher_jobs' %}">Teaching Jobs</a> <span class="meta">TET/NET</span></li>
+             <li><a href="{% url 'tenthjob' %}">10th Pass Govt Jobs</a> <span class="meta">Matric, High School</span></li>
+             <li><a href="{% url 'twellthjob' %}">12th Pass Govt Jobs</a> <span class="meta">Intermediate, Senior Secondary</span></li>
+             <li><a href="{% url 'graduationjob' %}">Graduation Job 2025</a> <span class="meta">BA, BSc, BCom</span></li>
+             <li><a href="{% url 'postgraduaionjob' %}">Post Graduation Jobs 2025</a> <span class="meta">MA, MSc, MBA</span></li>
+             <li><a href="{% url 'diploma_jobs' %}">Diploma Govt Jobs</a> <span class="meta">ITI, Polytechnic, JE</span></li>
+             <li><a href="{% url 'engineering_jobs' %}">Engineering Govt Jobs</a> <span class="meta">B.Tech, PSU, JE, AE</span></li>
+             <li><a href="{% url 'medical_jobs' %}">Medical Govt Jobs</a> <span class="meta">AIIMS, NHM, Staff Nurse</span></li>
+             <li><a href="{% url 'itigovtjobs' %}">ITI Govt Jobs</a> <span class="meta">Apprentice, Technician, Trade</span></li>
+<li><a href="{% url 'apprenticejob' %}">Apprentice Jobs</a> <span class="meta">Railway, DRDO, BHEL</span></li>
+<li><a href="{% url 'all_education' %}">All Education Govt Jobs</a> <span class="meta">All Education</span></li>
+<li><a href="{% url 'allcategoryjobs' %}">All Category Govt Jobs</a> <span class="meta">All Category</span></li>
+
+<li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a> <span class="meta">Central Jobs</span></li>
+<li><a href="{% url 'all_india_govt_jobs' %}">All India Govt Jobs</a> <span class="meta">India Jobs</span></li>
+<li><a href="{% url 'biharhelp' %}">Bihar Help</a> <span class="meta">All Category</span></li>
+
+          </ul>
+        </div>
+        <div>
+          <h3 class="muted">Admit Cards</h3>
+          <ul class="sitemap-list">
+            <li><a href="{% url 'admitcard'%}">All Admit Cards</a></li>
+            <li><a href="{% url 'admitcard'%}">SSC Admit Card</a></li>
+            <li><a href="{% url 'admitcard'%}">Bank Admit Card</a></li>
+            <li><a href="{% url 'admitcard'%}">Railway Admit Card</a></li>
+             <li><a href="{% url 'examdate'%}">Exam Date</a></li>
+              <li><a href="{% url 'sarkariexam'%}">Sarkari Exam</a></li>
+            
+          </ul>
+        </div>
+        <div>
+          <h3 class="muted">Results</h3>
+          <ul class="sitemap-list">
+            <li><a href="{% url 'result' %}">All Results</a></li>
+            <li><a href="{% url 'examresults' %}">Exam Result</a></li>
+            <li><a href="{% url 'boardresult' %}">Board Result</a></li>
+            <li><a href="{% url 'itiresult' %}">ITI Result</a></li>
+            <li><a href="{% url 'ncvtmis' %}">NCVT MIS Result</a></li>
+            <li><a href="{% url 'scvt' %}">SCVT ITI Result</a></li>
+            {% comment %} <li><a href="{% url 'latestsarkariresult' %}">Latest Sarkari Results</a></li> {% endcomment %}
+            <li><a href="{% url 'latestresult' %}">Latest Result</a></li>
+            <li><a href="{% url 'sarkariresult2024' %}">Result Update</a></li>
+            <li><a href="{% url 'sarkariresult' %}">Sarkari Result </a></li>
+          </ul>
+        </div>
+
+           <div>
+          <h3 class="muted">Category</h3>
+          <ul class="sitemap-list">
+            <li><a href="{% url 'allcategoryjobs' %}">All Category JObs</a></li>
+            <li><a href="{% url 'bankjob' %}">Bank Jobs</a></li>
+            <li><a href="{% url 'defensejob' %}">Defense Jobs</a></li>
+            <li><a href="{% url 'government_teacher_jobs' %}">Government Teacher Jobs</a></li>
+            <li><a href="{% url 'delhipolice' %}">Delhi Police JObs</a></li>
+            <li><a href="{% url 'policejobs' %}">Police Jobs</a></li>
+            <li><a href="{% url 'railwayjob' %}">RailWay Jobs</a></li>
+            <li><a href="{% url 'rajasthanpolice' %}">Rajasthan Police Jobs</a></li>
+            <li><a href="{% url 'sscjob' %}">SSC Jobs</a></li>
+            <li><a href="{% url 'upscjob' %}">UPSC Jobs</a></li>
+            <li><a href="{% url 'uppolice' %}">UP Police Jobs</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+       <div>
+          <h3 class="muted">Govt updates</h3>
+          <ul class="sitemap-list">
+            <li><a href="{% url 'govtupdates' %}">All Govt Updates</a></li>
+            <li><a href="{% url 'admission' %}">Admission</a></li>
+            <li><a href="{% url 'syllabus' %}">Syllabus</a></li>
+            <li><a href="{% url 'answerkey' %}">Answer key</a></li>
+            <li><a href="{% url 'scholarship' %}">Scholarship</a></li>
+            <li><a href="{% url 'sarkariyojna' %}">sarkari Yojna</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- State-wise Jobs -->
+    <section class="section" aria-labelledby="state-jobs">
+      <div class="section-title"><i class="fas fa-map-marker-alt"></i> <h2 id="state-jobs">State-wise Jobs</h2></div>
+      <div class="columns">
+        <ul class="sitemap-list">
+    <li><a href="{% url 'all-state-govt-job' %}">All State Government Jobs</a></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh  Government Jobs</a></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh  Government Jobs</a></li>
+          <li><a href="{% url 'Assam' %}">Assam  Government Jobs</a></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Government Jobs</a></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh  Government Jobs</a></li>
+          <li><a href="{% url 'Goa' %}">Goa  Government Jobs</a></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat  Government Jobs</a></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Jobs</a></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Jobs</a></li>
+          <li><a href="{% url 'JammuKashmir' %}">JammuKashmir  Government Jobs</a></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Jobs</a></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Jobs</a></li>  
+        </ul>
+
+        <ul class="sitemap-list">
+          <li><a href="{% url 'Kerala' %}">Kerala Government Jobs</a></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Government Jobs</a></li>
+          <li><a href="{% url 'Manipur' %}">Mainpur Government Jobs</a></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Government Jobs</a></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Government Jobs</a></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Government Jobs</a></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Government Jobs</a></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Government Jobs</a></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Government Jobs</a></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Government Jobs</a></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Government Jobs</a></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Government Jobs</a></li> 
+        </ul>
+
+        <ul class="sitemap-list">
+          <li><a href="{% url 'Tripura' %}">Tripura Government Jobs</a></li>
+          <li><a href="{% url 'upjob' %}">Uttar Pradesh Government Jobs</a></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Government Jobs</a></li>
+          <li><a href="{% url 'WestBengal' %}">WestBengal Government Jobs</a></li>
+          <li><a href="{% url 'AndamanNicobar' %}"> Andaman & Nicobar Government Jobs</a></li>
+          <li><a href="{% url 'Chandigarh' %}">Chandigarh Government Jobs</a></li>
+          <li><a href="{% url 'DadraNagarHaveli' %}">Dadra & Nagar Haveli Government Jobs</a></li>
+          <li><a href="{% url 'DamanDiu' %}">Daman & Diu Government Jobs</a></li>
+          <li><a href="{% url 'Ladakh' %}">Ladakh Government Jobs</a></li>
+          <li><a href="{% url 'Lakshadweep' %}">Lakssadweep Government Jobs</a></li>
+          <li><a href="{% url 'Delhi' %}">Delhi Government Jobs</a></li>
+          <li><a href="{% url 'Puducherry' %}">Punducherry Government Jobs</a></li>  
+        </ul>
+
+      </div>
+    </section>
+
+
+        <!-- State-wise Jobs -->
+    <section class="section" aria-labelledby="state-jobs">
+      <div class="section-title"><i class="fas fa-landmark"></i> <h2 id="state-jobs"> PSC Jobs</h2></div>
+      <div class="columns">
+        <ul class="sitemap-list">
+    <li><a href="{% url 'psc_all_states' %}">All State PSC</a></li>
+          <li><a href="{% url 'appsc' %}">Andhra Pradesh PSC</a></li>
+          <li><a href="{% url 'arunachal_appsc_jobs' %}">Arunachal Pradesh  PSC</a></li>
+          <li><a href="{% url 'apsc' %}">Assam  PSC</a></li>
+          <li><a href="{% url 'bpsc' %}">Bihar PSC</a></li>
+          <li><a href="{% url 'cgpsc' %}">Chhattisgarh PSC</a></li>
+          <li><a href="{% url 'goapsc' %}">Goa PSC</a></li>
+          <li><a href="{% url 'gpsc' %}">Gujarat PSC</a></li>
+          <li><a href="{% url 'hpsc' %}">Haryana PSC</a></li>
+          <li><a href="{% url 'hppsc' %}">Himachal PSC</a></li>
+        </ul>
+
+        <ul class="sitemap-list">
+          <li><a href="{% url 'jkpsc' %}">JammuKashmir PSC</a></li>
+          <li><a href="{% url 'jpsc' %}">Jharkhand PSC</a></li>
+          <li><a href="{% url 'kpsc' %}">Karnataka PSC</a></li>  
+          <li><a href="{% url 'kerala_job' %}">Kerala PSC</a></li>
+          <li><a href="{% url 'mppsc_jobs' %}">Madhya PSC</a></li>
+          <li><a href="{% url 'mpsc_jobs' %}">Maharashtra PSC</a></li>
+          <li><a href="{% url 'manipur_jobs' %}">Mainpur PSC</a></li>
+          <li><a href="{% url 'meghalaya_jobs' %}">Meghalaya PSC</a></li> 
+            <li><a href="{% url 'mizoram_jobs' %}">Mizoram PSC</a></li>
+          <li><a href="{% url 'nagaland_jobs' %}">Nagaland PSC</a></li>
+        </ul>
+
+        <ul class="sitemap-list">
+        
+          <li><a href="{% url 'opsc_jobs' %}" target="_blank" >Odisha PSC</a></li>
+          <li><a href="{% url 'punjab_jobs' %}" target="_blank" >Punjab PSC</a></li>
+          <li><a href="{% url 'rpsc_jobs' %}" target="_blank" >Rajasthan PSC</a></li>
+          <li><a href="{% url 'sikkim_jobs' %}" target="_blank" >Sikkim PSC</a></li>
+          <li><a href="{% url 'tnpsc_jobs' %}" target="_blank" >Tamil Nadu PSC</a></li>
+          <li><a href="{% url 'telangana_jobs' %}" target="_blank" >Telangana PSC</a></li>
+          <li><a href="{% url 'tripura_jobs' %}" target="_blank" >Tripura PSC</a></li>
+          <li><a href="{% url 'uppsc_jobs' %}" target="_blank" >Uttar Pradesh PSC</a></li>
+          <li><a href="{% url 'ukpsc_jobs' %}" target="_blank" >Uttarakhand PSC</a></li>
+          <li><a href="{% url 'wbpsc_jobs' %}" target="_blank" >WestBengal PSC</a></li>
+  
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- Latest 50 URLs (placeholder structure) -->
+    <section class="section" aria-labelledby="latest-urls">
+      <div class="section-title"><i class="fas fa-list"></i> <h2 id="latest-urls">Latest Updates (URLs)</h2></div>
+      
+      <ul class="sitemap-list" id="latestList">
+{% for job in latest_jobs %}
+        <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a> <span class="meta">Jobs</span></li>
+        {% endfor %}
+
+        {% for result in latest_results %}
+        <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a> <span class="meta">Result</span></li>
+  {% endfor %}
+
+        {% for admitcard in latest_admitcards %}
+        <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a> <span class="meta">Admit Card</span></li>
+          {% endfor %}
+
+          {% for govtupdate in latest_govtupdates %}
+        <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a> <span class="meta">Govt Update</span></li>
+          {% endfor %}
+
+      </ul>
+    </section>
+
+  </main>
+
+
+  {% endblock content %}
+ 

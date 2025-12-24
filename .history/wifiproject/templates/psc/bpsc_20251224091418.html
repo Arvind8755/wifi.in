@@ -1,0 +1,648 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies</title>
+  <meta name="description" content="BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/">
+  <meta property="og:title" content="BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies">
+  <meta property="og:description" content="BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/">
+  <meta name="twitter:title" content="BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies">
+  <meta name="twitter:description" content="BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+      {"@type":"ListItem","position":2,"name":"BPSC Jobs","item":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/"}
+    ]
+  }
+  </script>
+
+  <!--WebPage + CollectionPage-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":["WebPage","CollectionPage"],
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/#webpage",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/",
+    "name":"BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies",
+    "headline":"BPSC Jobs 2026 – Latest Bihar Public Service Commission Notifications",
+    "description":"BPSC Jobs - Get latest Bihar Public Service Commission (BPSC) notifications for CCE, School Teacher (TRE), Judiciary, Officers & other posts.",
+    "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+    "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+    "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/bpsc-jobs/#breadcrumb"}
+  }
+  </script>
+
+  <!-- ItemList — Latest BPSC Posts -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "BPSC Jobs – Bihar Public Service Commission CCE, TRE & Vacancies",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %},
+          "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+<!--SEO-Optimized FAQ Schema for /bpsc-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "BPSC Jobs page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Bihar BPSC ki latest recruitments jaise CCE Exam, BPSC Teacher Vacancy, BAO, BHO, Assistant, AE/JE Engineering Posts, Agriculture aur Administrative Services ke notifications, eligibility, exam dates aur official apply links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya BPSC Jobs page par listed notifications official hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi BPSC job updates official BPSC portal, Bihar Government circulars aur Gazette notifications par based hote hain. Har job listing ke saath official notification PDF link diya hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "BPSC exams ke liye eligibility aur syllabus kaise check karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligibility, age limit, reservation rules, exam pattern aur selection stages har listing me mention hote hain. Aap official BPSC notification PDF download karke detailed syllabus aur complete eligibility criteria bhi dekh sakte hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* Breadcrumb – Soft Blue Style */
+  .breadcrumb {
+    padding: 14px 0;
+    background: linear-gradient(90deg, #e3f2fd, #f5f9ff);
+    margin-bottom: 0;
+    border-bottom: 1px solid #d0e2ff;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .breadcrumb a {
+    color: #0d47a1;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 8px;
+    color: #6c757d;
+  }
+
+  /* Breaking News – New Color */
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+
+  /* Main Content Layout */
+  .main-content {
+    padding: 15px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 300px;
+  }
+  .sidebar {
+    width: 320px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Job Listings – Card Design */
+  .job-listing-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 35, 52, 0.08);
+    margin-bottom: 25px;
+    border: 1px solid #e3f2fd;
+  }
+  .job-listing-header {
+     background: linear-gradient(90deg, #1565c0, #00bcd4);
+    padding: 14px 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .job-listing-header i {
+    font-size: 18px;
+  }
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 16px;
+    border-bottom: 1px solid #edf2fb;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+  }
+  .job-item:last-child {
+    border-bottom: none;
+  }
+  .job-item:hover {
+    background-color: #f5f9ff;
+    transform: translateY(-1px);
+  }
+  .job-title {
+    flex: 1;
+    color: #102a43;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    font-size: 14px;
+  }
+  .job-title:hover {
+    color: #1565c0;
+  }
+  .job-date {
+    color: #6c757d;
+    font-size: 13px;
+    min-width: 110px;
+    text-align: right;
+  }
+  @media (max-width: 768px) {
+    .job-date {
+      display: none;
+    }
+    .job-item {
+      padding: 11px 13px;
+    }
+  }
+
+  /* Sidebar – Trending / Quick Alerts */
+  .trending-topics {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 35, 52, 0.06);
+    margin-bottom: 22px;
+    border: 1px solid #e6ecff;
+  }
+  .trending-header {
+    background: linear-gradient(90deg, #0097a7, #1565c0);
+    color: #ffffff;
+    padding: 13px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+  }
+  .trending-header i {
+    font-size: 17px;
+  }
+  .trending-list {
+    padding: 12px 14px;
+  }
+  .trending-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f3ff;
+  }
+  .trending-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 16px;
+    font-weight: 700;
+    color: #b0bec5;
+    margin-right: 10px;
+    min-width: 24px;
+  }
+  .trending-item:nth-child(-n+3) .trending-number {
+    color: #1565c0;
+  }
+  .trending-content {
+    flex: 1;
+  }
+  .trending-content a {
+    color: #102a43;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .trending-content a:hover {
+    color: #0d47a1;
+  }
+  .trending-meta {
+    font-size: 10px;
+    color: #78909c;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  @media (max-width: 992px) {
+    .trending-topics.mobile-bottom {
+      order: 99;
+      margin-top: 20px;
+    }
+  }
+
+  /* Website Info Section – BPSC Focus */
+  .website-info {
+    background: linear-gradient(120deg, #f5f7fb, #e8f0ff);
+    padding: 25px 0 30px;
+    margin: 5px 0 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(15, 35, 52, 0.05);
+  }
+  .website-info h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #00bcd4;
+    border-radius: 999px;
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #1565c0;
+  }
+  .info-point:nth-child(2n) {
+    border-left-color: #00bcd4;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15, 35, 52, 0.08);
+  }
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .info-point p {
+    color: #546e7a;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  /* Page About Section (Footer ke upar) */
+  .page-about-section {
+    padding: 24px 0 30px;
+    background: #ffffff;
+  }
+  .page-about-card {
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    border-radius: 10px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 6px 22px rgba(15, 35, 52, 0.07);
+    border: 1px solid #d1e2ff;
+  }
+  .page-about-title {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #0d47a1;
+    font-weight: 700;
+  }
+  .page-about-subtitle {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #37474f;
+    font-weight: 500;
+  }
+  .page-about-text {
+    font-size: 14px;
+    color: #546e7a;
+    line-height: 1.8;
+  }
+  .page-about-text strong {
+    color: #0d47a1;
+  }
+  .page-about-list {
+    margin: 12px 0 0;
+    padding-left: 18px;
+    font-size: 14px;
+    color: #455a64;
+  }
+  .page-about-list li {
+    margin-bottom: 5px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>BPSC Jobs</span>
+    </div>
+  </div>
+
+  <!-- Breaking News Marquee -->
+  <div class="breaking-news">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <span class="icon">📢</span>  
+      <h1 class="headline">BPSC Jobs 2026 – Latest Bihar Public Service Commission Notifications</h1>
+    </marquee>
+  </div>
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline" style="display: flex; justify-content: center; text-align: center;">लेटेस्ट सरकारी नौकरी 2026 </h1>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      <!-- BPSC Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-university"></i> BPSC Latest Notifications
+        </div>
+        <ul class="job-list-compact">
+          {% for job in page_obj %}
+          <li class="job-item">
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
+            <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
+          </li>
+          {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई BPSC लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई BPSC भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+          <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <!-- Results / Admit Card Sidebar -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Results & Admit Cards
+        </div>
+        <div class="trending-list">
+          {% with latest_results|length as result_count %}
+            {% for result in latest_results %}
+            <div class="trending-item">
+              <div class="trending-number">{{ forloop.counter }}</div>
+              <div class="trending-content">
+                <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+                <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+            <div class="trending-item">
+              <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
+              <div class="trending-content">
+                <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+                <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+
+      <!-- Quick Alerts -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Govt Quick Alerts
+        </div>
+        <div class="trending-list">
+          {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section – BPSC focused -->
+  <section class="website-info">
+    <div class="container">
+      <h2>BPSC Jobs 2026 – Bihar Public Service Commission Updates</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>All BPSC Notifications in One Place</h3>
+          <p>On <strong>wifiresult.com</strong>, you can check all latest <strong>Bihar Public Service Commission (BPSC)</strong> notifications including <strong>Combined Competitive Examinations (CCE), School Teacher (TRE), Assistant Engineer, Judicial Services, Lecturer, Professor</strong> and other major recruitments.</p>
+        </div>
+        <div class="info-point">
+          <h3>Vacancy & Eligibility Details</h3>
+          <p>Har BPSC notification ke saath hum <strong>post-wise vacancy, age limit, educational qualification, reservation rules</strong> aur important eligibility conditions mention karne ki koshish karte hain, taki Bihar ke aspirants ko decision lene me asani ho.</p>
+        </div>
+        <div class="info-point">
+          <h3>BPSC CCE, TRE & Other Exams Info</h3>
+          <p>Yahan se aapko <strong>BPSC CCE, Teacher Recruitment (TRE), AE, Judiciary</strong> aur dusre exams ke liye <strong>exam dates, syllabus PDF, exam pattern, admit card release</strong> aur result se judi important updates bhi mil sakti hain.</p>
+        </div>
+        <div class="info-point">
+          <h3>Bihar Government Jobs Coverage</h3>
+          <p>BPSC ke alawa hum Bihar state ke anya departments jaise <strong>Education, Health, Police, Engineering, Secretariat & Boards</strong> se judi important govt jobs ko bhi cover karne ki koshish karte hain.</p>
+        </div>
+        <div class="info-point">
+          <h3>Reliable Portal for Bihar Aspirants</h3>
+          <p><strong>wifiresult.com</strong> ka aim hai ki <strong>Bihar Govt job seekers</strong> ko ek simple, fast aur clean portal mile jahan woh <strong>BPSC jobs 2026, notifications, online form, admit cards & results</strong> ek jagah dekh saken.</p>
+        </div>
+      </div>
+    
+    </div>
+  </section>
+ 
+{% endblock content %}

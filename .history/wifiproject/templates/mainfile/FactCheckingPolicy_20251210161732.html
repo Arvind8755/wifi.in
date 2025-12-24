@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Fact-Checking and Corrections Policy – WifiResult</title>
+<meta name="description" content="Learn how WifiResult verifies information before publication and the procedure for requesting corrections or updates. We ensure accurate and transparent reporting of all government job and exam data.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/">
+<meta property="og:title" content="Fact-Checking and Corrections Policy – WifiResult">
+<meta property="og:description" content="Learn how WifiResult verifies information before publication and the procedure for requesting corrections or updates. We ensure accurate and transparent reporting of all government job and exam data.">
+<meta name="keywords" content="WiFiResult, Sarkari Result, Sarkari Naukri, Govt Jobs, Admit Card, Answer Key, Sarkari Exam, Sarkari Result 2025, Sarkari Job Portal, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/">
+<meta name="twitter:title" content="Fact-Checking and Corrections Policy – WifiResult">
+<meta name="twitter:description" content="Learn how WifiResult verifies information before publication and the procedure for requesting corrections or updates. We ensure accurate and transparent reporting of all government job and exam data.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Fact-Checking and Corrections Policy",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/"
+    }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/",
+  "name": "Fact-Checking and Corrections Policy – WifiResult",
+  "headline": "WifiResult Fact-Checking and Corrections Policy",
+  "description": "Learn how WifiResult verifies information before publication and the procedure for requesting corrections or updates. We ensure accurate and transparent reporting of all government job and exam data.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "mainEntity": {
+    "@type": "Article",
+    "headline": "Fact-Checking and Corrections Policy",
+    "author": { "@type": "Organization", "name": "WifiResult Editorial Team" },
+    "datePublished": "{% now 'c' %}",
+    "dateModified": "{% now 'c' %}",
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" }
+  }
+}
+</script>
+
+<!--FAQPage — optional but recommended (adds transparency + E-E-A-T score)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does WifiResult verify information before publishing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every update is cross-checked with official government notifications, press releases, and verified sources before being published. Our editorial team reviews the data for accuracy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can users request a correction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you find any factual error, you can email us at wifiresult3@gmail.com with relevant proof or official reference. Corrections are reviewed and updated within 24–48 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when a correction is made?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a correction or clarification is issued, we update the article, mention the change at the bottom, and record the date of modification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WifiResult follow a fact-checking code of conduct?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. WifiResult adheres to ethical standards of accuracy, transparency, and accountability, ensuring all information is verified through official documents or sources."
+      }
+    }
+  ]
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:250px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* editorial center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:20px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+    footer{background:var(--dark);color:#fff;padding:36px 0;margin-top:30px}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .copyright{text-align:center;margin-top:18px;color:#cfcfcf;font-size:14px}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Fact-Checking & Corrections Policy</span>
+    </div>
+  </div>
+
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-info-circle"></i></strong> &nbsp;This page explains how wifiresult.com verifies information and publishes transparent corrections.
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Fact-check & corrections main area">
+    <!-- Left Sidebar (same) -->
+    <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: FACT-CHECKING & CORRECTIONS POLICY -->
+    <section class="content-area" aria-label="Fact-checking and corrections policy content">
+      <div class="editorial-card" role="region" aria-labelledby="policy-heading">
+        <div class="page-title">
+          <i class="fas fa-check-circle" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="policy-heading">WifiResult Fact-Checking and Corrections Policy</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>Purpose</h3>
+          <p>WifiResult का लक्ष्य है कि हर post में दी गई जानकारी <strong>सटीक, समय पर</strong> और <strong>आधिकारिक स्रोतों</strong> पर आधारित हो। यह नीति बताती है कि हम जानकारी कैसे सत्यापित करते हैं, अपडेट कैसे करते हैं और त्रुटि मिलने पर पारदर्शी तरीके से सुधार कैसे प्रकाशित करते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Fact-Checking Standards</h3>
+          <ul class="policy-list">
+            <li><strong>Primary Sources First:</strong> Official websites/notifications (जैसे <em>ssc.nic.in</em>, <em>ibps.in</em>, राज्य PSC/विभागीय पोर्टल) को प्राथमिकता।</li>
+            <li><strong>Two-Point Verification:</strong> किसी भी महत्वपूर्ण जानकारी (तिथियाँ, रिक्तियाँ, पात्रता, link) को कम से कम 2 विश्वसनीय स्रोतों से मिलान।</li>
+            <li><strong>Direct Linking:</strong> जहाँ संभव हो, “Official Notification” PDF/वेबपेज का सीधा लिंक दिया जाता है।</li>
+            <li><strong>Timestamp & Updates:</strong> पोस्ट के शीर्ष/तल पर “Last Updated” समय दिखाया जा सकता है ताकि परिवर्तन स्पष्ट रहें।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Source Hierarchy (विश्वसनीयता क्रम)</h3>
+          <ol class="policy-list">
+            <li>Official notification PDFs / Gazette / recruitment portals</li>
+            <li>Ministry/agency की press release या site update</li>
+            <li>Official social handles (जब official site/PDF से cross-link हो)</li>
+            <li>Reputed govt repositories/archives</li>
+          </ol>
+          <p>यदि किसी सूचना का <strong>official confirmation pending</strong> हो, तो उसे स्पष्ट रूप से provisional के रूप में मार्क किया जाता है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Pre-Publication Workflow</h3>
+          <ol class="policy-list">
+            <li>Official स्रोत से notification/notice प्राप्त करना</li>
+            <li>Key facts निकालना: महत्वपूर्ण तिथियाँ, रिक्तियाँ, fee, पात्रता, selection process, links</li>
+            <li>Cross-verify (दो जगह से मिलान) + टाइपो/संख्या/तिथि की जाँच</li>
+            <li>“Official Links” जोड़ना और draft को editor review के लिए भेजना</li>
+            <li>Publish करते समय schema/SEO meta और accessibility जाँच</li>
+          </ol>
+        </div>
+
+        <div class="policy-section">
+          <h3>Post-Publication Monitoring</h3>
+          <ul class="policy-list">
+            <li>Official sites पर updates/ corrigendum के लिए periodic checks</li>
+            <li>User reports के आधार पर re-verification</li>
+            <li>Important exams के लिए auto-reminders (admit card/result release windows) ताकि समय पर अपडेट हो</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Corrections Policy (सुधार नीति)</h3>
+          <p>त्रुटि पाई जाने पर हम पारदर्शी तरीके से सुधार करते हैं:</p>
+          <ul class="policy-list">
+            <li><strong>Minor fixes (टाइपो/फॉर्मैट):</strong> तुरंत ठीक किए जाते हैं, सामान्यतः correction note की आवश्यकता नहीं।</li>
+            <li><strong>Substantive changes (तिथि/संख्या/लिंक):</strong> पोस्ट में <em>“Updated on: DD MMM YYYY — Correction:”</em> नोट जोड़ा जाता है।</li>
+            <li><strong>Retraction/Withdrawals:</strong> यदि सूचना आधिकारिक रूप से बदल दी गई/रद्द है, तो आर्टिकल में prominent notice + कारण + official reference दिया जाता है।</li>
+          </ul>
+          <p><strong>Turnaround Time:</strong> कामकाजी दिनों में corrections का लक्ष्य <strong>24–48 घंटे</strong> के भीतर। Urgent items (exam date/ admit card link) को <strong>प्राथमिकता</strong> दी जाती है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>How to Request a Correction</h3>
+          <p>किसी भी गलती/मिसिंग official link की सूचना दें:</p>
+          <ul class="policy-list">
+            <li><strong>Email:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>Include:</strong> Article URL, समस्या का संक्षिप्त विवरण, official source link/ PDF (यदि उपलब्ध)।</li>
+          </ul>
+          <p>हम आपकी रिपोर्ट प्राप्त होने के <strong>24–48 घंटे</strong> में कार्रवाई/उत्तर देने का प्रयास करते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Transparency Practices</h3>
+          <ul class="policy-list">
+            <li>महत्वपूर्ण अपडेट के लिए correction note/ changelog शामिल किया जा सकता है।</li>
+            <li>Affiliate/sponsored content को स्पष्ट रूप से “Sponsored”/“Advertisement” के रूप में चिह्नित किया जाता है।</li>
+            <li>Editorial decisions विज्ञापनदाताओं से स्वतंत्र हैं (conflict-of-interest disclosure लागू)।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>User-Generated Content & Safety</h3>
+          <p>टिप्पणियाँ/सबमिशन में दिए गए दावे प्रकाशित होने से पहले मॉडरेशन से गुजरते हैं। किसी भी संवेदनशील/भ्रामक सामग्री को प्रकाशित नहीं किया जाता।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Legal & Limitations</h3>
+          <p>हम सटीकता का सर्वोत्तम प्रयास करते हैं, किंतु आधिकारिक दस्तावेज़/वेबसाइट ही अंतिम एवं बाध्यकारी स्रोत हैं। उपयोगकर्ता को आवेदन/फीस/पात्रता के अंतिम निर्णय हेतु हमेशा <strong>official notification</strong> देखने की सलाह दी जाती है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Quick Official Links</h3>
+          <ul class="policy-list">
+            <li><strong>Examples:</strong> <a href="https://ssc.gov.in/" target="_blank" rel="noopener">ssc.nic.in</a>, <a href="https://ibps.in" target="_blank" rel="noopener">ibps.in</a>, <a href="https://www.india.gov.in" target="_blank" rel="noopener">india.gov.in</a></li>
+            <li><strong>Corrections Contact:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Right Sidebar (same) -->
+        <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

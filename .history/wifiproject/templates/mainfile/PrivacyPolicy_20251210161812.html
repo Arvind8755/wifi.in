@@ -1,0 +1,431 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+    {% block seo %} 
+<title>Privacy Policy – WifiResult</title>
+<meta name="description" content="This Privacy Policy explains how WifiResult collects, uses, and protects personal information of its users. Learn about cookies, data handling, and user rights.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/privacy-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/privacy-policy/">
+<meta property="og:title" content="wPrivacy Policy – WifiResult">
+<meta property="og:description" content="This Privacy Policy explains how WifiResult collects, uses, and protects personal information of its users. Learn about cookies, data handling, and user rights.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/privacy-policy/">
+<meta name="twitter:title" content="Privacy Policy – WifiResult">
+<meta name="twitter:description" content="This Privacy Policy explains how WifiResult collects, uses, and protects personal information of its users. Learn about cookies, data handling, and user rights.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/",
+  "name": "Privacy Policy – WifiResult",
+  "headline": "Privacy Policy of WifiResult.com",
+  "description": "This Privacy Policy explains how WifiResult collects, uses, and protects personal information of its users. Learn about cookies, data handling, and user rights.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/#breadcrumb" }
+}
+</script>
+
+<!--Legal + Contact Metadata (optional but recommended)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "provider": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "wifiresult3@gmail.com",
+      "availableLanguage": ["en", "hi"]
+    }
+  },
+  "areaServed": "IN",
+  "serviceType": "Online Job and Exam Information Portal",
+  "termsOfService": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/",
+  "privacyPolicy": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/"
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+ <style>
+    
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* content (privacy) */
+    .content-area { min-width: 300px; }
+    .policy-card{background:#fff;padding:28px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .policy-card h1{font-size:28px;color:var(--dark);margin-bottom:8px}
+    .policy-card p.lead{color:#6b7280;margin-bottom:18px}
+    .policy-section{margin-bottom:20px}
+    .policy-section h2{font-size:18px;color:var(--primary);margin-bottom:8px}
+    .policy-section p, .policy-section ul{color:#333;font-size:15px}
+    .policy-section ul{margin-left:18px;margin-top:8px}
+    .policy-note{font-size:13px;color:#6c757d;margin-top:12px;background:#fcfcfc;padding:12px;border-radius:6px;border:1px solid #f1f1f1}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile order fix (keep content first on small screens) */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Privacy Policy</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+  <div class="breaking-newss">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <span class="icon"><i class="fas fa-address-card"></i></span>
+      <span class="headline">Latest Govt Jobs 2025 - Apply Online</span>
+    </marquee>
+  </div>
+
+  <style>
+  .breaking-newss {
+    background: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 0;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+  }
+  .breaking-newss .icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .breaking-news .headline {
+    font-family: 'Arial', sans-serif;
+  }
+  </style>
+
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-bullhorn"></i></strong> &nbsp;Read our Privacy Policy below. For other queries email <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (privacy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Privacy policy main area">
+    <!-- Left Sidebar (unchanged) -->
+  <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: PRIVACY POLICY (replaces contact form) -->
+    <section class="content-area" aria-label="Privacy Policy content">
+      <div class="policy-card" role="region" aria-labelledby="contact-heading">
+        <div class="page-title">
+          <i class="fas fa-shield-alt" style="color:var(--primary);font-size:24px"></i>
+          <!-- Keeping id 'contact-heading' so existing anchors still work -->
+          <h1 id="contact-heading">Privacy Policy of WifiResult.com</h1>
+        </div>
+
+        <p class="lead">Last updated: September <strong>{{ today|date:"F j, Y" }}</strong>. This Privacy Policy describes how <strong>wifiresult.com</strong> ("we", "our", or "us") collects, uses, discloses, and protects information when you use our website and related services.</p>
+
+        <div class="policy-section">
+          <h2>1. Information We Collect</h2>
+          <p>We collect information to provide better services and to improve your experience on wifiresult.com. Information we collect includes:</p>
+          <ul>
+            <li><strong>Information you provide directly:</strong> name, email address, phone number, messages, and other information you submit through contact forms, registration forms, comments, or support requests.</li>
+            <li><strong>Technical information:</strong> IP address, browser type, operating system, device identifiers, screen resolution, and other diagnostics collected automatically via cookies and server logs.</li>
+            <li><strong>Usage information:</strong> pages visited, search queries, links clicked, time spent on pages, and interactions with site features.</li>
+            <li><strong>Third-party data:</strong> when you interact with embedded content (e.g., maps or social widgets) or sign in via third-party services, additional data may be shared with or collected by those third parties according to their policies.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>2. How We Use Your Information</h2>
+          <p>We use collected information for the following purposes:</p>
+          <ul>
+            <li>To respond to your inquiries and provide customer support.</li>
+            <li>To deliver, maintain and improve our website, features and services.</li>
+            <li>To send updates, newsletters, and promotional communications when you opt in.</li>
+            <li>To analyze usage trends and perform analytics to improve content and user experience.</li>
+            <li>To detect and prevent fraud, abuse, security incidents and to protect the rights and property of the site and users.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>3. Cookies and Tracking Technologies</h2>
+          <p>We use cookies, web beacons, and similar technologies to collect technical and usage information. Cookies help us:</p>
+          <ul>
+            <li>Remember your preferences and settings.</li>
+            <li>Authenticate sessions and secure the site.</li>
+            <li>Monitor site performance and understand usage patterns.</li>
+          </ul>
+          <p>You can control cookies through your browser settings. Disabling cookies may affect site functionality. We may also use third-party analytics services (e.g., Google Analytics) — see their privacy policies for details on how they process data.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>4. Data Sharing and Disclosure</h2>
+          <p>We do not sell your personal information. We may share information in the following limited circumstances:</p>
+          <ul>
+            <li><strong>Service providers:</strong> with trusted third parties who help us operate the website (hosting, email delivery, analytics, payment processors). These parties process data on our behalf and under our instructions.</li>
+            <li><strong>Legal compliance:</strong> when required by law, subpoena, court order, or to respond to lawful requests by public authorities.</li>
+            <li><strong>Protection of rights:</strong> to investigate, prevent, or take action regarding illegal activities, suspected fraud, or violations of our Terms of Use.</li>
+            <li><strong>Business transfers:</strong> if we merge, are acquired, or sell all or a portion of our assets, user information may be transferred as part of that transaction (with notice to affected users where required).</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>5. Data Retention</h2>
+          <p>We retain personal information only as long as necessary to fulfill the purposes described in this policy or to comply with legal obligations. When information is no longer needed, we securely delete or anonymize it.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>6. Your Rights</h2>
+          <p>Depending on your location and applicable law, you may have rights regarding your personal information, including:</p>
+          <ul>
+            <li>Access — request a copy of the personal information we hold about you.</li>
+            <li>Correction — request correction of inaccurate or incomplete information.</li>
+            <li>Deletion — request deletion of your personal information (subject to legal exceptions).</li>
+            <li>Restriction/Objection — request that we limit or object to certain processing activities.</li>
+          </ul>
+          <p>To exercise these rights, contact us at <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>. We may ask you to verify your identity before responding to requests.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>7. Security</h2>
+          <p>We implement reasonable administrative, technical, and physical safeguards designed to protect personal information. However, no method of transmission or storage is 100% secure — we cannot guarantee absolute security. If a data breach occurs that affects your personal information, we will take steps required by law, which may include notifying affected users and authorities.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>8. Children’s Privacy</h2>
+          <p>Our website is not intended for children under the age of 13 (or the applicable minimum age in your jurisdiction). We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us so we can delete it.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>9. Links to Other Websites</h2>
+          <p>Our site may contain links to third-party websites. We are not responsible for the content or privacy practices of external sites. Please review the privacy policies of those websites before providing personal information.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>10. International Transfer of Data</h2>
+          <p>We operate in India and may transfer personal data to servers and service providers located in other countries. By using our services, you consent to the transfer and processing of information in jurisdictions that may have different data protection laws.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>11. Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time. When we make changes, we will revise the "Last updated" date at the top of this page. Significant changes will be communicated via the website or email when required.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>12. How to Contact Us</h2>
+          <p>If you have questions or requests regarding this Privacy Policy, please contact:</p>
+          <p class="small"><strong>Email:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a><br><strong>Phone:</strong> +91 8755xxxxxx</p>
+        </div>
+
+        <div class="policy-note">
+          <strong>Note:</strong> This Privacy Policy is intended to help you understand how we collect and use information. It is not a contract. Nothing in this policy creates or confers any rights, third-party or otherwise, that are enforceable by any person.
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+    <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+  {% endblock content %}
+  

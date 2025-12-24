@@ -1,0 +1,905 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>परीक्षा तिथि – सरकारी परीक्षा शेड्यूल</title>
+  <meta name="description" content="सरकारी परीक्षा तिथि : नवीनतम सरकारी परीक्षा शेड्यूल, सीबीटी और पेन-पेपर तिथियां, शहर सूचना और SSC, UPSC आदि के अपडेटेड कैलेंडर WifiResult.com पर देखें">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/exam-dates/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/exam-dates/">
+  <meta property="og:title" content="परीक्षा तिथि – सरकारी परीक्षा शेड्यूल">
+  <meta property="og:description" content="सरकारी परीक्षा तिथि : नवीनतम सरकारी परीक्षा शेड्यूल, सीबीटी और पेन-पेपर तिथियां, शहर सूचना और SSC, UPSC आदि के अपडेटेड कैलेंडर WifiResult.com पर देखें">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/exam-dates/">
+  <meta name="twitter:title" content="परीक्षा तिथि – सरकारी परीक्षा शेड्यूल">
+  <meta name="twitter:description" content="सरकारी परीक्षा तिथि : नवीनतम सरकारी परीक्षा शेड्यूल, सीबीटी और पेन-पेपर तिथियां, शहर सूचना और SSC, UPSC आदि के अपडेटेड कैलेंडर WifiResult.com पर देखें">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="6 minutes" />
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/exam-dates/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+      { "@type": "ListItem", "position": 2, "name": "परीक्षा तिथियां", "item": "{{ request.scheme }}://{{ request.get_host }}/exam-dates/" }
+    ]
+  }
+  </script>
+
+  <!-- WebPage + CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["WebPage","CollectionPage"],
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/exam-dates/#webpage",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/exam-dates/",
+    "name": "परीक्षा तिथि – सरकारी परीक्षा शेड्यूल",
+    "headline": "सरकारी परीक्षा तिथि – नवीनतम सरकारी परीक्षा शेड्यूल",
+    "description": "सरकारी परीक्षा तिथि : नवीनतम सरकारी परीक्षा शेड्यूल, सीबीटी और पेन-पेपर तिथियां, शहर सूचना और SSC, UPSC आदि के अपडेटेड कैलेंडर WifiResult.com पर देखें",
+    "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "thumbnailUrl": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+    },
+    "inLanguage": "hi-IN",
+    "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/exam-dates/#breadcrumb" }
+  }
+  </script>
+
+ <!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "सरकारी रिजल्ट एडमिट कार्ड – सरकारी परीक्षा हॉल टिकट डाउनलोड",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>  
+
+
+<!-- SEO-Optimized FAQ Schema for /exam-dates/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "परीक्षा तिथि पेज पर मुझे क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको आगामी सरकारी परीक्षाओं की नवीनतम परीक्षा तिथियां, आधिकारिक शेड्यूल, संशोधित तिथि नोटिस, परीक्षा शहर अपडेट और एडमिट कार्ड रिलीज टाइमलाइन मिलती हैं। सभी अपडेट सत्यापित आधिकारिक अधिसूचनाओं से ही लिए जाते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या परीक्षा तिथि पेज पर दिया गया शेड्यूल आधिकारिक होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हां, परीक्षा तिथियां केवल तभी अपडेट की जाती हैं जब संबंधित विभाग या भर्ती बोर्ड उन्हें आधिकारिक रूप से घोषित कर देते हैं। सत्यापन के लिए हर परीक्षा के साथ आधिकारिक अधिसूचना PDF का लिंक दिया होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "अगर परीक्षा तिथि बदल जाए तो क्या यहां अपडेट मिलता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "बिल्कुल। यदि किसी परीक्षा की तिथि पुनर्निर्धारित होती है या नया नोटिस जारी होता है, तो हम तुरंत इस पेज पर अपडेटेड परीक्षा तिथि, संशोधित शेड्यूल और आधिकारिक नोटिस का लिंक जोड़ देते हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* Page Background */
+  body {
+    background: radial-gradient(circle at top left, #e3f2ff 0, #f8f9ff 35%, #ffffff 100%);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    background: linear-gradient(90deg, #001f4d, #003b88);
+    margin-bottom: 0;
+    color: #fff;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .breadcrumb a {
+    color: #cfe6ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 8px;
+    color: #9ec5ff;
+  }
+  .breadcrumb-current {
+    font-weight: 600;
+  }
+
+  /* Breaking News (Exam Highlights) */
+  .exam-breaking-wrap {
+    background: linear-gradient(90deg, #e3f2ff, #cfe2ff);
+    border-bottom: 1px solid #bfd6ff;
+  }
+  .exam-breaking {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    overflow: hidden;
+  }
+  .exam-breaking-icon {
+    font-size: 22px;
+  }
+  .exam-breaking-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: #004085;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #a5c9ff;
+    white-space: nowrap;
+  }
+  .exam-breaking-marquee {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+  .exam-breaking-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: exam-scroll 18s linear infinite;
+    font-size: 15px;
+    font-weight: 600;
+    color: #002b5c;
+  }
+  @keyframes exam-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Main Content Layout */
+  .main-content {
+    padding: 18px 0 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 310px;
+  }
+  .sidebar {
+    width: 320px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Section Title */
+  .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(0, 82, 204, 0.1);
+    color: #003b88;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .section-title i {
+    font-size: 16px;
+  }
+
+  /* Exam Listing Card New Design */
+  .exam-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+  }
+  .exam-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: linear-gradient(90deg, #004aad, #007bff);
+    color: #ffffff;
+  }
+  .exam-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .exam-card-header-left i {
+    font-size: 18px;
+  }
+  .exam-card-header-tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+  }
+  .job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    gap: 12px;
+    transition: background-color .25s ease, transform .12s ease;
+  }
+  .job-item:first-child {
+    border-top: none;
+  }
+  .job-item:hover {
+    background-color: #f3f7ff;
+    transform: translateY(-1px);
+  }
+  .job-title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .job-title {
+    flex: 1;
+    color: #0b1120;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .job-title:hover {
+    color: #004aad;
+  }
+  .job-meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: #64748b;
+  }
+  .job-date {
+    color: #1e40af;
+    font-size: 13px;
+    min-width: 110px;
+    text-align: right;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .job-item {
+      padding: 12px 14px;
+      align-items: flex-start;
+    }
+    .job-date {
+      font-size: 12px;
+      text-align: left;
+      min-width: auto;
+    }
+  }
+
+  .view-all {
+    display: block;
+    text-align: center;
+    padding: 11px 10px;
+    background: #f1f5f9;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    border-top: 1px solid #e2e8f0;
+    transition: background-color .25s ease;
+  }
+  .view-all i {
+    font-size: 13px;
+    margin-left: 4px;
+  }
+  .view-all:hover {
+    background-color: #dbeafe;
+  }
+
+  /* Sidebar Cards (Trending & Quick Alerts) */
+  .sidebar-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    margin-bottom: 20px;
+  }
+  .sidebar-card-header {
+    background: linear-gradient(90deg, #002b5c, #0052cc);
+    color: #ffffff;
+    padding: 12px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .sidebar-card-header i {
+    font-size: 16px;
+  }
+  .sidebar-card-body {
+    padding: 12px 16px 4px 16px;
+  }
+
+  .trending-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    gap: 10px;
+  }
+  .trending-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 17px;
+    font-weight: 700;
+    color: #64748b;
+    min-width: 24px;
+  }
+  .trending-item:nth-child(-n+3) .trending-number {
+    color: #0f766e;
+  }
+  .trending-content {
+    flex: 1;
+  }
+  .trending-content a {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .trending-content a:hover {
+    color: #004aad;
+  }
+  .trending-meta {
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  @media (max-width: 992px) {
+    .sidebar-card.mobile-bottom {
+      order: 99;
+      margin-top: 24px;
+    }
+  }
+
+  /* Website Information Section (Exam Date Page) */
+  .website-info {
+    background: linear-gradient(135deg, #0f172a 0, #020617 40%, #0b1120 100%);
+    padding: 32px 0 38px 0;
+    margin: 12px 0 0 0;
+    border-radius: 14px 14px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .website-info::before {
+    content: '';
+    position: absolute;
+    inset: -80px;
+    background:
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 55%),
+      radial-gradient(circle at top right, rgba(56, 189, 248, 0.23), transparent 55%),
+      radial-gradient(circle at bottom, rgba(34, 197, 94, 0.16), transparent 55%);
+    opacity: .9;
+    pointer-events: none;
+  }
+  .website-info-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .website-info h2 {
+    color: #e5f0ff;
+    text-align: center;
+    margin-bottom: 26px;
+    font-size: 26px;
+    position: relative;
+    padding-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: .01em;
+  }
+  .website-info h2 span {
+    color: #7dd3fc;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #38bdf8, #22c55e);
+  }
+
+  .info-subtext {
+    max-width: 760px;
+    margin: 0 auto 22px auto;
+    text-align: center;
+    font-size: 14px;
+    color: #cbd5f5;
+    line-height: 1.7;
+  }
+  .info-subtext strong {
+    color: #e5e7eb;
+    font-weight: 600;
+  }
+
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: rgba(15, 23, 42, 0.88);
+    padding: 18px 16px;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .info-point::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .info-point:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.9);
+    border-color: rgba(129, 230, 217, 0.8);
+    background: rgba(15, 23, 42, 0.95);
+  }
+  .info-point:hover::after {
+    opacity: 1;
+  }
+  .info-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    background: rgba(15, 118, 110, 0.18);
+    color: #a5f3fc;
+    margin-bottom: 7px;
+  }
+  .info-tag i {
+    font-size: 12px;
+  }
+  .info-point h3 {
+    color: #e5f0ff;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  .info-point p {
+    color: #cbd5f5;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+
+  .website-info-bottom-note {
+    margin-top: 22px;
+    text-align: center;
+    color: #cbd5f5;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+  .website-info-bottom-note strong {
+    color: #e5e7eb;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+    .info-subtext {
+      font-size: 13px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span class="breadcrumb-current">नवीनतम परीक्षा तिथियां</span>
+    </div>
+  </div>
+
+  <!-- Exam Headline Strip (modern marquee style) -->
+  <div class="exam-breaking-wrap">
+    <div class="container">
+      <div class="exam-breaking">
+        <div class="exam-breaking-icon">📅</div>
+        <div class="exam-breaking-label">परीक्षा कैलेंडर 2026</div>
+        <div class="exam-breaking-marquee">
+          <div class="exam-breaking-text">
+          <h1 style="font-size:17px;">सरकारी परीक्षा तिथि – नवीनतम सरकारी परीक्षा शेड्यूल</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+
+      <div class="section-title">
+        <i class="fas fa-calendar-alt"></i>
+        आगामी और नवीनतम सरकारी परीक्षा तिथियां
+      </div>
+
+      <!-- Exam Listing Box (New Look) -->
+      <div class="exam-card">
+        <div class="exam-card-header">
+          <div class="exam-card-header-left">
+            <i class="fas fa-bell"></i>
+            <span>नवीनतम परीक्षा तिथि अपडेट</span>
+          </div>
+          <span class="exam-card-header-tag">लाइव · ऑटो अपडेटेड</span>
+        </div>
+
+        <ul class="job-list-compact p-0">
+          {% for admitcard in page_obj %}
+            <li class="job-item">
+              <div class="job-title-box">
+                <a href="/admit-card/{{admitcard.slug}}/"  target="_blank" class="job-title">
+                  {{admitcard.title}}
+                </a>
+                <span class="job-meta-label">परीक्षा / एडमिट कार्ड अपडेट</span>
+              </div>
+              <span class="job-date">
+                {{ admitcard.published_date|date:"d M, Y"}}
+              </span>
+            </li>
+          {% endfor %}
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+        </ul>
+
+        {# Optional "View All" button if you want later #}
+        {# <a href="/exam-date/all/" class="view-all">पूरा परीक्षा कैलेंडर देखें <i class="fas fa-arrow-right"></i></a> #}
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+      <!-- Trending Job Topics -->
+      <div class="sidebar-card mobile-bottom">
+        <div class="sidebar-card-header">
+          <i class="fas fa-fire"></i>
+          <span>ट्रेंडिंग जॉब और रिजल्ट टॉपिक्स</span>
+        </div>
+        <div class="sidebar-card-body">
+
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter }}</div>
+                <div class="trending-content">
+                  <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" > {{ job.title }}</a>
+                  <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for result in latest_results %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+                <div class="trending-content">
+                  <a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a>
+                  <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+
+        </div>
+      </div>
+
+      <!-- Quick Alerts -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">
+          <i class="fas fa-bell"></i>
+          <span>त्वरित सरकारी अपडेट</span>
+        </div>
+        <div class="sidebar-card-body">
+          {% for govtupdate in latest_govtupdates %}
+            <div class="trending-item">
+              <div class="trending-number">{{ forloop.counter }}</div>
+              <div class="trending-content">
+                <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
+                <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Website Information Section (Exam Date Page) -->
+  <section class="website-info" id="examdate-info">
+    <div class="container website-info-inner">
+      <h2>
+        परीक्षा तिथि – <span>पूरा शेड्यूल और स्मार्ट प्लानिंग</span>
+      </h2>
+
+      <p class="info-subtext">
+        WifiResult.com के इस <strong>परीक्षा तिथि</strong> पेज पर आपको सभी महत्वपूर्ण
+        <strong>प्रिलिम्स, मेन्स, स्किल टेस्ट, PET / PST, इंटरव्यू</strong> तिथियां एक ही जगह पर मिलेंगी – जो सीधे
+        आधिकारिक सरकारी अधिसूचनाओं, वार्षिक परीक्षा कैलेंडर और प्रेस रिलीज से अपडेट की जाती हैं।
+      </p>
+
+      <div class="info-content">
+        <!-- All Upcoming Exams -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-calendar-check"></i> सभी आगामी परीक्षाएं
+          </div>
+          <h3>केंद्रीय और राज्य स्तर परीक्षा कैलेंडर</h3>
+          <p>
+            इस सेक्शन में SSC, UPSC, रेलवे, बैंक, पुलिस, रक्षा, राज्य PSC और अन्य बोर्डों की प्रमुख परीक्षाएं शामिल हैं। आप आसानी से देख सकते हैं कि आने वाले सप्ताहों और महीनों में कौन-सी परीक्षाएं निर्धारित हैं बिना कई वेबसाइट या PDF खोलें।
+          </p>
+        </div>
+
+        <!-- How We Update -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-sync-alt"></i> दैनिक अपडेट
+          </div>
+          <h3>परीक्षा तिथियां कैसे अपडेट की जाती हैं</h3>
+          <p>
+            परीक्षा तिथियां <strong>रोजाना</strong> अपडेट की जाती हैं आधिकारिक <strong>अधिसूचनाओं,
+            कॉरिजेंडम, कैलेंडर और नोटिस</strong> से सत्यापन के बाद। यदि कोई परीक्षा स्थगित, पुनर्निर्धारित या रद्द होती है, तो हम बदलाव को स्पष्ट रूप से हाइलाइट करते हैं ताकि आप नवीनतम अपडेट न चूकें।
+          </p>
+        </div>
+
+        <!-- Admit Card & Result Link -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-link"></i> वन-क्लिक नेविगेशन
+          </div>
+          <h3>एडमिट कार्ड, रिजल्ट और अधिसूचना लिंक</h3>
+          <p>
+            कई परीक्षाओं के लिए <strong>परीक्षा तिथि</strong> के साथ <strong>आधिकारिक अधिसूचना, एडमिट कार्ड, सिलेबस और रिजल्ट</strong> पेज के त्वरित लिंक भी जोड़े जाते हैं। इससे तैयारी या रिवीजन में समय बचता है।
+          </p>
+        </div>
+
+        <!-- State-wise Filters -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-map-marked-alt"></i> राज्य अनुसार दृश्य
+          </div>
+          <h3>राज्य-वार और बोर्ड-वार परीक्षा जानकारी</h3>
+          <p>
+            WifiResult <strong>अखिल भारतीय परीक्षाओं</strong> के साथ-साथ <strong>राज्य-वार सरकारी परीक्षाएं</strong> भी कवर करता है। परीक्षा शीर्षक और संक्षिप्त विवरण से आप आसानी से पहचान सकते हैं कि परीक्षा किसी विशेष राज्य, राष्ट्रीय स्तर या विभाग के लिए है।
+          </p>
+        </div>
+
+        <!-- Exam Mode / Shift -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-clock"></i> शिफ्ट विवरण
+          </div>
+          <h3>परीक्षा दिन, शिफ्ट और मोड विवरण</h3>
+          <p>
+            जहां उपलब्ध हो, हम <strong>परीक्षा दिन (शिफ्ट-1 / शिफ्ट-2), मोड (ऑनलाइन / ऑफलाइन),
+            अनुमानित समय या परीक्षा विंडो</strong> का भी उल्लेख करते हैं ताकि आप यात्रा और रिवीजन की रणनीति अधिक सटीकता से प्लान कर सकें।
+          </p>
+        </div>
+
+        <!-- Postponed / Rescheduled -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-exclamation-triangle"></i> बदलाव और अलर्ट
+          </div>
+          <h3>स्थगित, पुनर्निर्धारित और नई परीक्षा तिथियां</h3>
+          <p>
+            यदि कोई परीक्षा प्रशासनिक कारणों, प्राकृतिक आपदा या आधिकारिक आदेश से स्थगित होती है, तो हम इसे <strong>“स्थगित / नई तिथि घोषित”</strong> के रूप में मार्क करते हैं और नई परीक्षा तिथि प्रदान करते हैं ताकि आपकी तैयारी और यात्रा योजनाएं समय पर समायोजित हो सकें।
+          </p>
+        </div>
+
+        <!-- Planning Tips -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-tasks"></i> प्लानिंग मदद
+          </div>
+          <h3>स्मार्ट परीक्षा प्लानिंग और समय प्रबंधन</h3>
+          <p>
+            कई सरकारी परीक्षाओं के साथ, एक केंद्रीय <strong>परीक्षा कैलेंडर</strong> आपको तिथि टकराव से बचाने और <strong>मॉक टेस्ट, रिवीजन और आवेदन डेडलाइन</strong> प्लान करने में मदद करता है। इस पेज का उपयोग अपनी मासिक और साप्ताहिक अध्ययन शेड्यूल के लिए करें।
+          </p>
+        </div>
+
+        <!-- Official Source -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-university"></i> आधिकारिक स्रोत
+          </div>
+          <h3>डेटा स्रोत और प्रामाणिकता</h3>
+          <p>
+            हर परीक्षा तिथि अपडेट <strong>आधिकारिक वेबसाइटों, परीक्षा प्राधिकरणों और सरकारी पोर्टलों</strong> पर आधारित है। हम भर्ती बोर्ड का नाम स्पष्ट रूप से उल्लेख करते हैं ताकि आप आवश्यकता पड़ने पर स्रोत से आसानी से जानकारी क्रॉस-चेक कर सकें।
+          </p>
+        </div>
+
+        <!-- FAQ Exam Date -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-question-circle"></i> त्वरित FAQ
+          </div>
+          <h3>परीक्षा तिथि – सामान्य प्रश्न</h3>
+          <p>
+            क्या आपकी परीक्षा <strong>एक दिन या कई दिनों</strong> में होगी? <strong>प्रिलिम्स और मेन्स के बीच गैप</strong> जानना चाहते हैं? हम इन बिंदुओं को संक्षिप्त और सरल स्पष्टीकरण में सरल बनाते हैं जहां आधिकारिक विवरण उपलब्ध हैं।
+          </p>
+        </div>
+
+        <!-- Mobile & Alert Friendly -->
+        <div class="info-point">
+          <div class="info-tag">
+            <i class="fas fa-mobile-alt"></i> मोबाइल रेडी
+          </div>
+          <h3>मोबाइल फ्रेंडली और तेज लोडिंग पेज</h3>
+          <p>
+            यह परीक्षा तिथि पेज <strong>मोबाइल फ्रेंडली, तेज लोडिंग और साफ</strong> डिज़ाइन किया गया है, ताकि आप कम इंटरनेट स्पीड पर भी आगामी परीक्षाएं जल्दी चेक कर सकें। त्वरित दैनिक संदर्भ के लिए इस पेज को बुकमार्क करें।
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

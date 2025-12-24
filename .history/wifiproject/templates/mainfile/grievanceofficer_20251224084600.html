@@ -1,0 +1,347 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Grievance Officer | Contact & Compliance – WifiResult</title>
+<meta name="description" content="Official grievance redressal and compliance contact information for WifiResult. Users can reach out regarding content, copyright or data-related queries.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/grievance-officer/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/grievance-officer/">
+<meta property="og:title" content="Grievance Officer | Contact & Compliance – WifiResult">
+<meta property="og:description" content="Official grievance redressal and compliance contact information for WifiResult. Users can reach out regarding content, copyright or data-related queries.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/grievance-officer/">
+<meta name="twitter:title" content="Grievance Officer | Contact & Compliance – WifiResult">
+<meta name="twitter:description" content="Official grievance redressal and compliance contact information for WifiResult. Users can reach out regarding content, copyright or data-related queries.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 minutes" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Grievance Officer", "item": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/",
+  "name": "Grievance Officer | Contact & Compliance – WifiResult",
+  "headline": "Grievance Officer – WifiResult | Contact & Legal Information",
+  "description": "Official grievance redressal and compliance contact information for WifiResult. Users can reach out regarding content, copyright or data-related queries.",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "en",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/#breadcrumb" }
+}
+</script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* grievance center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:20px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+    footer{background:var(--dark);color:#fff;padding:36px 0;margin-top:30px}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .copyright{text-align:center;margin-top:18px;color:#cfcfcf;font-size:14px}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">Home</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>Grievance Officer</span>
+    </div>
+  </div>
+
+  <!-- Optional notice line under breadcrumb (kept same structure) -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+      <strong><i class="fas fa-info-circle"></i></strong> &nbsp;This page explains how to contact WifiResult's Grievance Officer and how your complaint will be handled.
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (grievance) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Grievance page main area">
+    <!-- Left Sidebar (unchanged) -->
+     <aside class="left-sidebar" aria-label="Left sidebar with state jobs and latest category">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> LATEST CATEGORY</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">All Category Govt Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">Banking Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">Railways Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">Teaching JOb</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">Defense Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> STATE JOBS</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">All State Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">UP Government Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">Bihar Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">Madhya Pradesh Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">Rajasthan Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">Maharashtra Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">Jharkhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">Gujarat Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">Andhra Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">Karnataka Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">Punjab Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">Arunachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">Uttarakhand Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">West Bengal Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">Haryana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">Assam Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">Chhattisgarh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">Goa Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">Himachal Pradesh Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">Kerala Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">Meghalaya Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">Tamil Nadu Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">Manipur Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">Mizoram Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">Nagaland Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">Odisha Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">Sikkim Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">Telangana Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">Tripura Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i>  GOVT UPDATES</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">All Govt update</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">Admission</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">Answerkey</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">Sarkari Yojna</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">Scholarship</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">Central Govt Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: GRIEVANCE OFFICER content (replaces editorial policy content only) -->
+    <section class="content-area" aria-label="Grievance officer and redressal details">
+      <div class="editorial-card" role="region" aria-labelledby="grievance-heading">
+        <div class="page-title">
+          <i class="fas fa-user-shield" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="grievance-heading">Grievance Officer – WifiResult | Contact & Legal Information</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>Purpose</h3>
+          <p>We take complaints, takedown requests, copyright issues, and correction requests seriously. This page provides the official channel to reach our Grievance Officer and explains timelines and process for redressal.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Grievance Officer Details</h3>
+          <ul class="policy-list">
+            <li><strong>Name:</strong> <span>Arvind Pal</span></li>
+            <li><strong>Email:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>Alternate Email:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>Phone:</strong> <span>+91 98xx-xx-xxxx</span></li>
+            <li><strong>Address:</strong> <span>WifiResult (Grievance Cell), New Moradabad, India</span></li>
+            <li><strong>Working Hours:</strong> Monday–Friday, 10:00–18:00 IST (excluding public holidays)</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>How to File a Grievance</h3>
+          <p>Please send an email to <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> with the following details. Incomplete complaints may take longer to process.</p>
+          <ol class="policy-list">
+            <li>Your full name and contact details (email and phone number).</li>
+            <li>URL(s) of the content you are reporting.</li>
+            <li>Nature of the issue (e.g., factual error, copyright, trademark, privacy, court order, other).</li>
+            <li>Detailed description of the grievance and what action you seek (correction, removal, clarification).</li>
+            <li>Supporting documents/links (e.g., official PDF, ID proof for personal data requests, authorization letters).</li>
+          </ol>
+        </div>
+
+        <div class="policy-section">
+          <h3>Acknowledgement &amp; Timelines</h3>
+          <ul class="policy-list">
+            <li>We acknowledge receipt of your grievance within <strong>24–48 hours</strong> on working days.</li>
+            <li>We endeavour to investigate and provide a resolution or update within <strong>15 working days</strong> (complex matters may require additional time; you will be informed).</li>
+            <li>For urgent legal notices (e.g., court orders), please mention <em>URGENT</em> in the subject line and attach the order copy.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Content Takedown / Corrections</h3>
+          <ul class="policy-list">
+            <li>If a factual error is confirmed, we will update the article with a correction note.</li>
+            <li>For copyright/trademark complaints, we may temporarily restrict access while verifying claims.</li>
+            <li>Where appropriate, we will provide clarifications or remove content that violates our policies or applicable law.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>Data &amp; Privacy Requests</h3>
+          <p>For requests related to your personal data appearing on our website, please write to <a href="mailto:wifiresult3@gmail.com">privacy@wifiresult.com</a> with verifiable identification and the exact URL. We will review and respond as per our Privacy Policy and applicable laws.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Escalation</h3>
+          <p>If you are not satisfied with the response, reply on the same email thread stating <em>Escalation</em>. Your request will be reviewed by a senior member of our team.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Disclaimer</h3>
+          <p>While we strive to resolve all grievances promptly, certain matters may require coordination with external authorities or official sources, which can extend the resolution time. Final reliance should always be placed on official government notifications.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>Quick Links</h3>
+          <ul class="policy-list">
+            <li><a href="mailto:wifiresult3@gmail.com">Submit a Grievance via Email</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/contact-us">Contact Us</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+       <aside class="right-sidebar" aria-label="Right sidebar with latest job and similar jobs">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> JOBS BY QUALIFICATION</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">All Education</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12th Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">Diploma Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">Apprentice Job</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">Any Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">Any Post Graduate Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">Medical Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">Engineering Jobs</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> LATEST RESULT</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> LATEST ADMID CARDS</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+
+  {% endblock content %}
+  
