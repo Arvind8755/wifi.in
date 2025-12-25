@@ -1,0 +1,410 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>DMCA नीति – WifiResult</title>
+<meta name="description" content="WifiResult की DMCA नीति पढ़ें जिसमें सामग्री हटाने के अनुरोध और कॉपीराइट अनुपालन के बारे में जानकारी है। डिजिटल मिलेनियम कॉपीराइट एक्ट (DMCA) के तहत कॉपीराइट उल्लंघन की रिपोर्ट कैसे करें, यह जानें।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/dmca/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/dmca/">
+<meta property="og:title" content="DMCA नीति – WifiResult">
+<meta property="og:description" content="WifiResult की DMCA नीति पढ़ें जिसमें सामग्री हटाने के अनुरोध और कॉपीराइट अनुपालन के बारे में जानकारी है। डिजिटल मिलेनियम कॉपीराइट एक्ट (DMCA) के तहत कॉपीराइट उल्लंघन की रिपोर्ट कैसे करें, यह जानें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/dmca/">
+<meta name="twitter:title" content="DMCA नीति – WifiResult">
+<meta name="twitter:description" content="WifiResult की DMCA नीति पढ़ें जिसमें सामग्री हटाने के अनुरोध और कॉपीराइट अनुपालन के बारे में जानकारी है। डिजिटल मिलेनियम कॉपीराइट एक्ट (DMCA) के तहत कॉपीराइट उल्लंघन की रिपोर्ट कैसे करें, यह जानें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 मिनट" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/dmca/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "DMCA नीति", "item": "{{ request.scheme }}://{{ request.get_host }}/dmca/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/dmca/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/dmca/",
+  "name": "DMCA नीति – WifiResult",
+  "headline": "DMCA कॉपीराइट नीति – WifiResult",
+  "description": "WifiResult की DMCA नीति पढ़ें जिसमें सामग्री हटाने के अनुरोध और कॉपीराइट अनुपालन के बारे में जानकारी है। डिजिटल मिलेनियम कॉपीराइट एक्ट (DMCA) के तहत कॉपीराइट उल्लंघन की रिपोर्ट कैसे करें, यह जानें।",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  },
+  "publisher": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+  },
+  "inLanguage": "hi-IN",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "breadcrumb": {
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/dmca/#breadcrumb"
+  }
+}
+</script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+    <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* policy center */
+    .policy-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:18px}
+    .policy-section h3{color:var(--primary);margin-bottom:8px}
+    .policy-section p, .policy-section li{color:#333;margin-bottom:10px}
+    .policy-list{margin-left:18px}
+    .code-box{background:#f8f9fa;border-left:4px solid var(--primary);padding:12px;border-radius:6px;font-family:monospace;font-size:14px;white-space:pre-wrap}
+
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile ordering (keep as before) */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+<!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>DMCA नीति</span>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (DMCA policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="DMCA पेज मुख्य क्षेत्र">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: DMCA Policy Content -->
+    <section class="content-area" aria-label="DMCA नीति और प्रक्रियाएँ">
+      <div class="policy-card" role="region" aria-labelledby="dmca-heading">
+        <div class="page-title">
+          <i class="fas fa-file-invoice" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="dmca-heading">DMCA कॉपीराइट नीति – WifiResult</h1>
+        </div>
+
+        <div class="policy-section">
+          <p><strong>प्रभावी तिथि:</strong>  {{ today|date:"F j, Y" }}</p>
+          <p>wifiresult.com अन्य के बौद्धिक संपदा अधिकारों का सम्मान करता है और उम्मीद करता है कि उसके उपयोगकर्ता भी ऐसा ही करें। यह DMCA नीति बताती है कि कॉपीराइट मालिक हमारी साइट पर कथित उल्लंघन की रिपोर्ट कैसे कर सकते हैं, हम नोटिस पर कैसे प्रतिक्रिया देते हैं, और यदि उपयोगकर्ता मानते हैं कि सामग्री गलती से हटाई गई है तो काउंटर-नोटिस कैसे जमा करें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>दायरा</h3>
+          <p>यह नीति wifiresult.com पर होस्ट या प्रदर्शित सामग्री (लेख, चित्र, वीडियो, अटैचमेंट, या अन्य उपयोगकर्ता-सबमिट सामग्री) पर लागू होती है। यह संयुक्त राज्य अमेरिका के डिजिटल मिलेनियम कॉपीराइट एक्ट ("DMCA") और अन्य क्षेत्रों में समान कानूनों का अनुपालन करने के लिए है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>DMCA टेकडाउन नोटिस कैसे जमा करें</h3>
+          <p>यदि आपको लगता है कि आपका कॉपीराइटेड कार्य wifiresult.com पर बिना अनुमति के पोस्ट किया गया है, तो कृपया हमारे नामित एजेंट को लिखित DMCA टेकडाउन नोटिस भेजें। आपका नोटिस लिखित संचार होना चाहिए जिसमें मुख्य रूप से निम्नलिखित जानकारी शामिल हो:</p>
+          <ol class="policy-list">
+            <li>कॉपीराइट मालिक या उनके behalf पर कार्य करने वाले व्यक्ति का भौतिक या इलेक्ट्रॉनिक हस्ताक्षर।</li>
+            <li>उस कॉपीराइटेड कार्य की पहचान जिसके उल्लंघन का दावा किया गया है। यदि कई कार्य शामिल हैं, तो प्रतिनिधि सूची प्रदान करें।</li>
+            <li>उस सामग्री की पहचान जिसे उल्लंघनकारी माना जा रहा है (उदाहरण: wifiresult.com पर URL(s) जहां सामग्री दिखाई देती है)।</li>
+            <li>wifiresult.com को आपसे संपर्क करने के लिए पर्याप्त जानकारी (नाम, पता, टेलीफोन नंबर, और ईमेल पता)।</li>
+            <li>एक बयान कि आपको अच्छा विश्वास है कि सामग्री का उपयोग कॉपीराइट मालिक, उसके एजेंट, या कानून द्वारा अधिकृत नहीं है।</li>
+            <li>एक बयान कि इस नोटिफिकेशन में जानकारी सटीक है, और perjury की सजा के तहत, आप कॉपीराइट मालिक हैं या मालिक की ओर से कार्य करने के लिए अधिकृत हैं।</li>
+          </ol>
+
+          <p>कृपया DMCA नोटिस निम्न ईमेल और डाक पते पर भेजें (इलेक्ट्रॉनिक सबमिशन पसंदीदा है):</p>
+
+          <div class="code-box">
+DMCA एजेंट: DMCA टीम, WifiResult
+ईमेल: wifiresult3@gmail.com
+डाक: WifiResult — DMCA एजेंट
+      कनॉट प्लेस, नई दिल्ली, भारत
+</div>
+
+          <p><em>नोट:</em> ईमेल सबसे तेज़ तरीका है। विषय में “DMCA Notice” लिखें और संदेश के मुख्य भाग में सभी आवश्यक तत्व प्रदान करें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>टेकडाउन नोटिस प्राप्त होने के बाद क्या होता है?</h3>
+          <p>अनुपालन नोटिस प्राप्त होने पर, हम निम्नलिखित करेंगे:</p>
+          <ul class="policy-list">
+            <li>कथित उल्लंघनकारी सामग्री को हटाएंगे या उस तक पहुँच अक्षम करेंगे।</li>
+            <li>सामग्री पोस्ट करने वाले उपयोगकर्ता को सूचित करेंगे और नोटिस की प्रति (या सारांश) और काउंटर-नोटिस जमा करने की जानकारी प्रदान करेंगे।</li>
+            <li>रिपोर्ट को लॉग करेंगे और उचित अवधि तक रिकॉर्ड रखेंगे।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>काउंटर-नोटिस कैसे जमा करें</h3>
+          <p>यदि आप सामग्री पोस्टर हैं और मानते हैं कि आपकी सामग्री गलती से या गलत पहचान के कारण हटाई गई है, तो आप काउंटर-नोटिफिकेशन जमा कर सकते हैं। आपका काउंटर-नोटिस में निम्नलिखित शामिल होना चाहिए:</p>
+          <ol class="policy-list">
+            <li>आपका नाम, पता, टेलीफोन नंबर, और ईमेल पता।</li>
+            <li>हटाई गई सामग्री की पहचान और हटाने से पहले उसका स्थान (उदाहरण: URL)।</li>
+            <li>perjury की सजा के तहत एक बयान कि आपको अच्छा विश्वास है कि सामग्री गलती या गलत पहचान के कारण हटाई गई थी।</li>
+            <li>एक बयान कि आप [आपके पते वाले जिले में स्थित उचित संघीय अदालत] के क्षेत्राधिकार के लिए सहमति देते हैं (या यदि आप अमेरिका के बाहर हैं, तो मूल DMCA नोटिस देने वाले व्यक्ति से प्रक्रिया की सेवा स्वीकार करेंगे), और आप अधिसूचनाकर्ता से प्रक्रिया की सेवा स्वीकार करेंगे।</li>
+            <li>आपका भौतिक या इलेक्ट्रॉनिक हस्ताक्षर।</li>
+          </ol>
+
+          <p>काउंटर-नोटिस <strong>wifiresult3@gmail.com</strong> पर विषय “DMCA Counter-Notice” के साथ भेजें।</p>
+
+          <p>उचित काउंटर-नोटिस प्राप्त होने पर, और जब तक मूल शिकायतकर्ता रोक आदेश के लिए अदालती कार्रवाई दाखिल न करे, हम लागू कानून के अनुसार हटाई गई सामग्री को पुनर्स्थापित कर सकते हैं (उदाहरण: 10–14 कार्य दिवसों के बाद), और दोनों पक्षों को हमारी कार्रवाई की सूचना देंगे।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>बार-बार उल्लंघनकर्ता नीति</h3>
+          <p>हमने उचित परिस्थितियों में बार-बार उल्लंघन करने वाले उपयोगकर्ताओं के खातों को समाप्त करने की नीति अपनाई और उचित रूप से लागू की है। हम विवेक से उन खातों को समाप्त कर सकते हैं जहां उपयोगकर्ता को कई उल्लंघन नोटिस मिले हैं या उल्लंघनकारी व्यवहार का पैटर्न है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>सद्भावना और गलत बयानी</h3>
+          <p>जो कोई जानबूझकर सामग्री को उल्लंघनकारी बताकर गलत बयान देता है, वह क्षतिपूर्ति (लागत और वकील शुल्क सहित) के लिए उत्तरदायी हो सकता है। यदि आप जानबूझकर दावा गलत बताते हैं, तो wifiresult.com उपलब्ध किसी भी उपाय का पीछा कर सकता है, जिसमें कानूनी उपाय शामिल हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>टेम्पलेट (कॉपी और पेस्ट करें)</h3>
+
+          <h4>टेकडाउन नोटिस टेम्पलेट</h4>
+          <div class="code-box">
+[आपका पूरा कानूनी नाम]
+[आपका पता]
+[आपका फोन नंबर]
+[आपका ईमेल पता]
+
+दिनांक: [तिथि डालें]
+
+प्रति: DMCA एजेंट, WifiResult (wifiresult3@gmail.com)
+
+मैं, हस्ताक्षरकर्ता, perjury की सजा के तहत घोषणा करता/करती हूँ कि:
+
+1. मैं नीचे वर्णित कॉपीराइटेड कार्य के विशेष अधिकारों का मालिक (या मालिक की ओर से कार्य करने के लिए अधिकृत एजेंट) हूँ।
+2. जिस सामग्री को मैं उल्लंघनकारी मान रहा/रही हूँ, वह यहाँ स्थित है: [wifiresult.in पर URL(s) डालें]।
+3. जिस कॉपीराइटेड कार्य का उल्लंघन हुआ है: [कॉपीराइटेड कार्य का वर्णन करें]।
+4. मुझे अच्छा विश्वास है कि शिकायत की गई तरीके से सामग्री का उपयोग कॉपीराइट मालिक, उसके एजेंट, या कानून द्वारा अधिकृत नहीं है।
+5. इस नोटिफिकेशन में जानकारी सटीक है, और perjury की सजा के तहत, मैं कॉपीराइट मालिक हूँ या मालिक की ओर से कार्य करने के लिए अधिकृत हूँ।
+
+हस्ताक्षर: ______________________
+नाम: [नाम प्रिंट करें]
+</div>
+
+          <h4>काउंटर-नोटिस टेम्पलेट</h4>
+          <div class="code-box">
+[आपका पूरा कानूनी नाम]
+[आपका पता]
+[आपका फोन नंबर]
+[आपका ईमेल पता]
+
+दिनांक: [तिथि डालें]
+
+प्रति: DMCA एजेंट, WifiResult (wifijobportal1@gmail.com)
+
+मैं perjury की सजा के तहत घोषणा करता/करती हूँ कि:
+
+1. मैं हटाई गई सामग्री का मालिक हूँ या मालिक की ओर से कार्य करने के लिए अधिकृत हूँ।
+2. सामग्री गलती या गलत पहचान के कारण हटाई गई थी।
+3. प्रभावित सामग्री यहाँ स्थित थी: [wifiresult.in पर मूल URL डालें]।
+4. मैं [आपके पते वाले जिले में स्थित उचित संघीय अदालत] के क्षेत्राधिकार के लिए सहमति देता/देती हूँ और मूल DMCA नोटिस देने वाले व्यक्ति से प्रक्रिया की सेवा स्वीकार करूँगा/करूँगी।
+
+हस्ताक्षर: ______________________
+नाम: [नाम प्रिंट करें]
+</div>
+        </div>
+
+        <div class="policy-section">
+          <h3>अतिरिक्त नोट्स</h3>
+          <ul class="policy-list">
+            <li>कुछ मामलों में हम स्वामित्व की पुष्टि माँग सकते हैं।</li>
+            <li>हम कानूनी सलाह नहीं देते—यदि आपको अपने अधिकारों के बारे में संदेह है, तो योग्य वकील से परामर्श लें।</li>
+            <li>यह नीति समय-समय पर अपडेट हो सकती है; ऊपर दी गई प्रभावी तिथि अंतिम संशोधन की तिथि दर्शाती है।</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Small footer-like note -->
+      <div style="margin-top:18px" class="policy-card">
+        <h4 style="color:var(--primary);margin-bottom:8px"><i class="fas fa-info-circle"></i> DMCA मुद्दों के लिए संपर्क</h4>
+        <p class="small">DMCA नोटिस या काउंटर-नोटिस के लिए ईमेल करें: <a href="mailto:wifijobportal1@gmail.com"> wifijobportal1@gmail.com</a>। सामान्य पूछताछ के लिए: <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a>।</p>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+      <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

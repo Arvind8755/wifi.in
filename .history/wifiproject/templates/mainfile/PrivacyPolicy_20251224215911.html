@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+<title>गोपनीयता नीति – WifiResult</title>
+<meta name="description" content="यह गोपनीयता नीति बताती है कि WifiResult अपने उपयोगकर्ताओं की व्यक्तिगत जानकारी कैसे एकत्र करता है, उपयोग करता है और उसकी सुरक्षा करता है। कुकीज़, डेटा हैंडलिंग और उपयोगकर्ता अधिकारों के बारे में जानें।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/privacy-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/privacy-policy/">
+<meta property="og:title" content="गोपनीयता नीति – WifiResult">
+<meta property="og:description" content="यह गोपनीयता नीति बताती है कि WifiResult अपने उपयोगकर्ताओं की व्यक्तिगत जानकारी कैसे एकत्र करता है, उपयोग करता है और उसकी सुरक्षा करता है। कुकीज़, डेटा हैंडलिंग और उपयोगकर्ता अधिकारों के बारे में जानें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/privacy-policy/">
+<meta name="twitter:title" content="गोपनीयता नीति – WifiResult">
+<meta name="twitter:description" content="यह गोपनीयता नीति बताती है कि WifiResult अपने उपयोगकर्ताओं की व्यक्तिगत जानकारी कैसे एकत्र करता है, उपयोग करता है और उसकी सुरक्षा करता है। कुकीज़, डेटा हैंडलिंग और उपयोगकर्ता अधिकारों के बारे में जानें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 मिनट" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "गोपनीयता नीति", "item": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/",
+  "name": "गोपनीयता नीति – WifiResult",
+  "headline": "WifiResult.com की गोपनीयता नीति",
+  "description": "यह गोपनीयता नीति बताती है कि WifiResult अपने उपयोगकर्ताओं की व्यक्तिगत जानकारी कैसे एकत्र करता है, उपयोग करता है और उसकी सुरक्षा करता है। कुकीज़, डेटा हैंडलिंग और उपयोगकर्ता अधिकारों के बारे में जानें।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "hi-IN",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/#breadcrumb" }
+}
+</script>
+
+<!--Legal + Contact Metadata (optional but recommended)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "provider": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "wifiresult3@gmail.com",
+      "availableLanguage": ["hi", "en"]
+    }
+  },
+  "areaServed": "IN",
+  "serviceType": "ऑनलाइन नौकरी और परीक्षा सूचना पोर्टल",
+  "termsOfService": "{{ request.scheme }}://{{ request.get_host }}/terms-and-conditions/",
+  "privacyPolicy": "{{ request.scheme }}://{{ request.get_host }}/privacy-policy/"
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+ <style>
+    
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* content (privacy) */
+    .content-area { min-width: 300px; }
+    .policy-card{background:#fff;padding:28px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .policy-card h1{font-size:28px;color:var(--dark);margin-bottom:8px}
+    .policy-card p.lead{color:#6b7280;margin-bottom:18px}
+    .policy-section{margin-bottom:20px}
+    .policy-section h2{font-size:18px;color:var(--primary);margin-bottom:8px}
+    .policy-section p, .policy-section ul{color:#333;font-size:15px}
+    .policy-section ul{margin-left:18px;margin-top:8px}
+    .policy-note{font-size:13px;color:#6c757d;margin-top:12px;background:#fcfcfc;padding:12px;border-radius:6px;border:1px solid #f1f1f1}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile order fix (keep content first on small screens) */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>गोपनीयता नीति</span>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (privacy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="गोपनीयता नीति मुख्य क्षेत्र">
+    <!-- Left Sidebar (unchanged) -->
+  <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: PRIVACY POLICY (replaces contact form) -->
+    <section class="content-area" aria-label="गोपनीयता नीति सामग्री">
+      <div class="policy-card" role="region" aria-labelledby="contact-heading">
+        <div class="page-title">
+          <i class="fas fa-shield-alt" style="color:var(--primary);font-size:24px"></i>
+          <!-- Keeping id 'contact-heading' so existing anchors still work -->
+          <h1 id="contact-heading">WifiResult.com की गोपनीयता नीति</h1>
+        </div>
+
+        <p class="lead">अंतिम अपडेट: सितंबर <strong>{{ today|date:"F j, Y" }}</strong>। यह गोपनीयता नीति बताती है कि <strong>wifiresult.com</strong> ("हम", "हमारा", या "हम") आपकी वेबसाइट और संबंधित सेवाओं का उपयोग करते समय जानकारी कैसे एकत्र करता है, उपयोग करता है, प्रकट करता है और उसकी सुरक्षा करता है।</p>
+
+        <div class="policy-section">
+          <h2>1. हम जो जानकारी एकत्र करते हैं</h2>
+          <p>हम बेहतर सेवाएँ प्रदान करने और आपके अनुभव को सुधारने के लिए जानकारी एकत्र करते हैं। हम जो जानकारी एकत्र करते हैं उसमें शामिल हैं:</p>
+          <ul>
+            <li><strong>आप द्वारा सीधे प्रदान की गई जानकारी:</strong> नाम, ईमेल पता, फोन नंबर, संदेश और अन्य जानकारी जो आप संपर्क फॉर्म, रजिस्ट्रेशन फॉर्म, टिप्पणियों या समर्थन अनुरोधों के माध्यम से सबमिट करते हैं।</li>
+            <li><strong>तकनीकी जानकारी:</strong> IP पता, ब्राउज़र प्रकार, ऑपरेटिंग सिस्टम, डिवाइस पहचानकर्ता, स्क्रीन रिज़ॉल्यूशन और कुकीज़ तथा सर्वर लॉग के माध्यम से स्वचालित रूप से एकत्र की गई अन्य डायग्नोस्टिक जानकारी।</li>
+            <li><strong>उपयोग जानकारी:</strong> देखे गए पेज, खोज क्वेरी, क्लिक किए गए लिंक, पेज पर बिताया गया समय और साइट फीचर्स के साथ इंटरैक्शन।</li>
+            <li><strong>तीसरे पक्ष का डेटा:</strong> जब आप एम्बेडेड सामग्री (जैसे मैप या सोशल विजेट) के साथ इंटरैक्ट करते हैं या तीसरे पक्ष की सेवाओं के माध्यम से साइन इन करते हैं, तो अतिरिक्त डेटा उन तीसरे पक्षों के साथ साझा या एकत्र किया जा सकता है, उनकी नीतियों के अनुसार।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>2. हम आपकी जानकारी का उपयोग कैसे करते हैं</h2>
+          <p>हम एकत्र की गई जानकारी का उपयोग निम्नलिखित उद्देश्यों के लिए करते हैं:</p>
+          <ul>
+            <li>आपकी पूछताछ का जवाब देने और ग्राहक सहायता प्रदान करने के लिए।</li>
+            <li>हमारी वेबसाइट, फीचर्स और सेवाओं को डिलीवर, बनाए रखने और सुधारने के लिए।</li>
+            <li>जब आप ऑप्ट-इन करते हैं तो अपडेट, न्यूज़लेटर और प्रचार संचार भेजने के लिए।</li>
+            <li>उपयोग ट्रेंड का विश्लेषण करने और सामग्री तथा उपयोगकर्ता अनुभव को बेहतर बनाने के लिए एनालिटिक्स करने के लिए।</li>
+            <li>धोखाधड़ी, दुरुपयोग, सुरक्षा घटनाओं का पता लगाने और रोकने तथा साइट और उपयोगकर्ताओं के अधिकारों और संपत्ति की रक्षा के लिए।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>3. कुकीज़ और ट्रैकिंग तकनीक</h2>
+          <p>हम तकनीकी और उपयोग जानकारी एकत्र करने के लिए कुकीज़, वेब बीकन और समान तकनीकों का उपयोग करते हैं। कुकीज़ हमें निम्नलिखित में मदद करती हैं:</p>
+          <ul>
+            <li>आपकी प्राथमिकताओं और सेटिंग्स को याद रखने में।</li>
+            <li>सत्रों को प्रमाणित करने और साइट को सुरक्षित करने में।</li>
+            <li>साइट के प्रदर्शन की निगरानी करने और उपयोग पैटर्न को समझने में।</li>
+          </ul>
+          <p>आप अपने ब्राउज़र सेटिंग्स के माध्यम से कुकीज़ को नियंत्रित कर सकते हैं। कुकीज़ को अक्षम करने से साइट की कार्यक्षमता प्रभावित हो सकती है। हम तीसरे पक्ष के एनालिटिक्स सेवाओं (जैसे Google Analytics) का भी उपयोग कर सकते हैं — उनके डेटा प्रोसेसिंग के विवरण के लिए उनकी गोपनीयता नीतियाँ देखें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>4. डेटा साझाकरण और प्रकटीकरण</h2>
+          <p>हम आपकी व्यक्तिगत जानकारी को बेचते नहीं हैं। हम जानकारी को निम्नलिखित सीमित परिस्थितियों में साझा कर सकते हैं:</p>
+          <ul>
+            <li><strong>सेवा प्रदाता:</strong> विश्वसनीय तीसरे पक्ष के साथ जो हमारी वेबसाइट चलाने में मदद करते हैं (होस्टिंग, ईमेल डिलीवरी, एनालिटिक्स, भुगतान प्रोसेसर)। ये पक्ष हमारे निर्देशों के अनुसार और हमारी ओर से डेटा प्रोसेस करते हैं।</li>
+            <li><strong>कानूनी अनुपालन:</strong> जब कानून, समन, अदालती आदेश या सार्वजनिक अधिकारियों के वैध अनुरोधों का जवाब देने की आवश्यकता हो।</li>
+            <li><strong>अधिकारों की रक्षा:</strong> अवैध गतिविधियों, संदिग्ध धोखाधड़ी या हमारी उपयोग शर्तों के उल्लंघन की जाँच, रोकथाम या कार्रवाई करने के लिए।</li>
+            <li><strong>व्यवसाय हस्तांतरण:</strong> यदि हम विलय करते हैं, अधिग्रहित होते हैं या अपनी संपत्ति का पूरा या हिस्सा बेचते हैं, तो उपयोगकर्ता जानकारी उस लेनदेन के हिस्से के रूप में हस्तांतरित हो सकती है (जहाँ आवश्यक हो प्रभावित उपयोगकर्ताओं को सूचना देकर)।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>5. डेटा प्रतिधारण</h2>
+          <p>हम व्यक्तिगत जानकारी को केवल इस नीति में वर्णित उद्देश्यों को पूरा करने या कानूनी दायित्वों का पालन करने के लिए आवश्यक समय तक रखते हैं। जब जानकारी की आवश्यकता नहीं रह जाती, तो हम उसे सुरक्षित रूप से हटा देते हैं या गुमनाम कर देते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>6. आपके अधिकार</h2>
+          <p>आपके स्थान और लागू कानून के आधार पर, आपके पास अपनी व्यक्तिगत जानकारी के संबंध में अधिकार हो सकते हैं, जिनमें शामिल हैं:</p>
+          <ul>
+            <li>पहुँच — आपके बारे में हमारी पास मौजूद व्यक्तिगत जानकारी की प्रति माँगना।</li>
+            <li>सुधार — गलत या अधूरी जानकारी को सुधारने का अनुरोध करना।</li>
+            <li>हटाना — अपनी व्यक्तिगत जानकारी को हटाने का अनुरोध करना (कानूनी अपवादों के अधीन)।</li>
+            <li>प्रतिबंध/आपत्ति — कुछ प्रोसेसिंग गतिविधियों को सीमित करने या आपत्ति करने का अनुरोध करना।</li>
+          </ul>
+          <p>इन अधिकारों का प्रयोग करने के लिए, कृपया <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> पर संपर्क करें। हम अनुरोधों का जवाब देने से पहले आपकी पहचान सत्यापित करने के लिए कह सकते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>7. सुरक्षा</h2>
+          <p>हम व्यक्तिगत जानकारी की सुरक्षा के लिए उचित प्रशासनिक, तकनीकी और भौतिक सुरक्षा उपाय लागू करते हैं। हालांकि, कोई भी ट्रांसमिशन या स्टोरेज विधि 100% सुरक्षित नहीं है — हम पूर्ण सुरक्षा की गारंटी नहीं दे सकते। यदि कोई डेटा उल्लंघन होता है जो आपकी व्यक्तिगत जानकारी को प्रभावित करता है, तो हम कानून द्वारा आवश्यक कदम उठाएंगे, जिसमें प्रभावित उपयोगकर्ताओं और अधिकारियों को सूचित करना शामिल हो सकता है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>8. बच्चों की गोपनीयता</h2>
+          <p>हमारी वेबसाइट 13 वर्ष से कम उम्र के बच्चों (या आपके क्षेत्र में लागू न्यूनतम आयु) के लिए नहीं है। हम जानबूझकर बच्चों से व्यक्तिगत जानकारी एकत्र नहीं करते। यदि आपको लगता है कि हमने किसी बच्चे से जानकारी एकत्र की है, तो कृपया हमसे संपर्क करें ताकि हम उसे हटा सकें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>9. अन्य वेबसाइटों के लिंक</h2>
+          <p>हमारी साइट में तीसरे पक्ष की वेबसाइटों के लिंक हो सकते हैं। हम बाहरी साइटों की सामग्री या गोपनीयता प्रथाओं के लिए जिम्मेदार नहीं हैं। व्यक्तिगत जानकारी प्रदान करने से पहले उन वेबसाइटों की गोपनीयता नीतियों की समीक्षा करें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>10. डेटा का अंतरराष्ट्रीय हस्तांतरण</h2>
+          <p>हम भारत में संचालित होते हैं और व्यक्तिगत डेटा को अन्य देशों में स्थित सर्वरों और सेवा प्रदाताओं को हस्तांतरित कर सकते हैं। हमारी सेवाओं का उपयोग करके, आप उन क्षेत्राधिकारों में जानकारी के हस्तांतरण और प्रोसेसिंग के लिए सहमति देते हैं जहाँ डेटा संरक्षण कानून अलग हो सकते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>11. इस नीति में परिवर्तन</h2>
+          <p>हम इस गोपनीयता नीति को समय-समय पर अपडेट कर सकते हैं। परिवर्तन करने पर हम इस पेज के शीर्ष पर "अंतिम अपडेट" तिथि को संशोधित करेंगे। महत्वपूर्ण परिवर्तनों की सूचना वेबसाइट या ईमेल के माध्यम से दी जाएगी जब आवश्यक हो।</p>
+        </div>
+
+        <div class="policy-section">
+          <h2>12. हमसे कैसे संपर्क करें</h2>
+          <p>यदि आपके पास इस गोपनीयता नीति के बारे में कोई प्रश्न या अनुरोध हैं, तो कृपया संपर्क करें:</p>
+          <p class="small"><strong>ईमेल:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a><br><strong>फोन:</strong> +91 8755xxxxxx</p>
+        </div>
+
+        <div class="policy-note">
+          <strong>नोट:</strong> यह गोपनीयता नीति आपको यह समझने में मदद करने के लिए है कि हम जानकारी कैसे एकत्र और उपयोग करते हैं। यह कोई अनुबंध नहीं है। इस नीति में कुछ भी ऐसा नहीं है जो कोई अधिकार बनाता या प्रदान करता हो, जो किसी भी व्यक्ति द्वारा प्रवर्तनीय हो।
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+    <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+  {% endblock content %}

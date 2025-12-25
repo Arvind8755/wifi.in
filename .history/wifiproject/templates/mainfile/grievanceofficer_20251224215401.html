@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>शिकायत अधिकारी | संपर्क और अनुपालन – WifiResult</title>
+<meta name="description" content="WifiResult के लिए आधिकारिक शिकायत निवारण और अनुपालन संपर्क जानकारी। उपयोगकर्ता सामग्री, कॉपीराइट या डेटा से संबंधित पूछताछ के लिए संपर्क कर सकते हैं।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/grievance-officer/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/grievance-officer/">
+<meta property="og:title" content="शिकायत अधिकारी | संपर्क और अनुपालन – WifiResult">
+<meta property="og:description" content="WifiResult के लिए आधिकारिक शिकायत निवारण और अनुपालन संपर्क जानकारी। उपयोगकर्ता सामग्री, कॉपीराइट या डेटा से संबंधित पूछताछ के लिए संपर्क कर सकते हैं।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/grievance-officer/">
+<meta name="twitter:title" content="शिकायत अधिकारी | संपर्क और अनुपालन – WifiResult">
+<meta name="twitter:description" content="WifiResult के लिए आधिकारिक शिकायत निवारण और अनुपालन संपर्क जानकारी। उपयोगकर्ता सामग्री, कॉपीराइट या डेटा से संबंधित पूछताछ के लिए संपर्क कर सकते हैं।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 मिनट" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "शिकायत अधिकारी", "item": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/",
+  "name": "शिकायत अधिकारी | संपर्क और अनुपालन – WifiResult",
+  "headline": "शिकायत अधिकारी – WifiResult | संपर्क और कानूनी जानकारी",
+  "description": "WifiResult के लिए आधिकारिक शिकायत निवारण और अनुपालन संपर्क जानकारी। उपयोगकर्ता सामग्री, कॉपीराइट या डेटा से संबंधित पूछताछ के लिए संपर्क कर सकते हैं।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "hi-IN",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/grievance-officer/#breadcrumb" }
+}
+</script>
+
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* grievance center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:20px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+    footer{background:var(--dark);color:#fff;padding:36px 0;margin-top:30px}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .copyright{text-align:center;margin-top:18px;color:#cfcfcf;font-size:14px}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid { display: flex !important; flex-direction: column; gap: 20px; }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>शिकायत अधिकारी</span>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (grievance) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="शिकायत अधिकारी मुख्य क्षेत्र">
+    <!-- Left Sidebar (unchanged) -->
+     <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: GRIEVANCE OFFICER content (replaces editorial policy content only) -->
+    <section class="content-area" aria-label="शिकायत अधिकारी और निवारण विवरण">
+      <div class="editorial-card" role="region" aria-labelledby="grievance-heading">
+        <div class="page-title">
+          <i class="fas fa-user-shield" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="grievance-heading">शिकायत अधिकारी – WifiResult | संपर्क और कानूनी जानकारी</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>उद्देश्य</h3>
+          <p>हम शिकायतों, टेकडाउन अनुरोधों, कॉपीराइट मुद्दों और सुधार अनुरोधों को गंभीरता से लेते हैं। यह पेज हमारे शिकायत अधिकारी तक पहुँचने का आधिकारिक चैनल प्रदान करता है और निवारण के समय-सीमा और प्रक्रिया को स्पष्ट करता है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>शिकायत अधिकारी विवरण</h3>
+          <ul class="policy-list">
+            <li><strong>नाम:</strong> <span>अरविंद पाल</span></li>
+            <li><strong>ईमेल:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>वैकल्पिक ईमेल:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>फोन:</strong> <span>+91 98xx-xx-xxxx</span></li>
+            <li><strong>पता:</strong> <span>WifiResult (शिकायत सेल), न्यू मुरादाबाद, भारत</span></li>
+            <li><strong>कार्य समय:</strong> सोमवार–शुक्रवार, 10:00–18:00 IST (सार्वजनिक अवकाश को छोड़कर)</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>शिकायत दर्ज कैसे करें</h3>
+          <p>कृपया निम्नलिखित विवरणों के साथ <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> पर ईमेल भेजें। अधूरी शिकायतों को प्रोसेस करने में अधिक समय लग सकता है।</p>
+          <ol class="policy-list">
+            <li>आपका पूरा नाम और संपर्क विवरण (ईमेल और फोन नंबर)।</li>
+            <li>जिन URL(s) की आप शिकायत कर रहे हैं।</li>
+            <li>समस्या की प्रकृति (उदाहरण: तथ्यात्मक त्रुटि, कॉपीराइट, ट्रेडमार्क, गोपनीयता, अदालती आदेश, अन्य)।</li>
+            <li>शिकायत का विस्तृत विवरण और आप किस कार्रवाई की मांग कर रहे हैं (सुधार, हटाना, स्पष्टीकरण)।</li>
+            <li>समर्थन दस्तावेज़/लिंक (उदाहरण: आधिकारिक PDF, व्यक्तिगत डेटा अनुरोध के लिए आईडी प्रमाण, अधिकृत पत्र)।</li>
+          </ol>
+        </div>
+
+        <div class="policy-section">
+          <h3>पावती और समय-सीमा</h3>
+          <ul class="policy-list">
+            <li>हम कार्य दिवसों पर आपकी शिकायत की पावती <strong>24–48 घंटों</strong> के भीतर देते हैं।</li>
+            <li>हम जाँच करने और समाधान या अपडेट देने का प्रयास <strong>15 कार्य दिवसों</strong> के भीतर करते हैं (जटिल मामलों में अतिरिक्त समय लग सकता है; आपको सूचित किया जाएगा)।</li>
+            <li>आपातकालीन कानूनी नोटिस (उदाहरण: अदालती आदेश) के लिए, विषय में <em>तत्काल</em> लिखें और आदेश की प्रति संलग्न करें।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>सामग्री टेकडाउन / सुधार</h3>
+          <ul class="policy-list">
+            <li>यदि तथ्यात्मक त्रुटि की पुष्टि होती है, तो हम लेख में सुधार नोट के साथ अपडेट करेंगे।</li>
+            <li>कॉपीराइट/ट्रेडमार्क शिकायतों के लिए, हम दावों की जाँच करते समय अस्थायी रूप से पहुँच प्रतिबंधित कर सकते हैं।</li>
+            <li>जहाँ उपयुक्त हो, हम स्पष्टीकरण प्रदान करेंगे या हमारी नीतियों या लागू कानून का उल्लंघन करने वाली सामग्री हटा देंगे।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>डेटा और गोपनीयता अनुरोध</h3>
+          <p>हमारी वेबसाइट पर दिखाई देने वाले आपके व्यक्तिगत डेटा से संबंधित अनुरोधों के लिए, कृपया <a href="mailto:wifijobportal1@gmail.com">wifijobportal1@gmail.com</a> पर सत्यापन योग्य पहचान और सटीक URL के साथ लिखें। हम हमारी गोपनीयता नीति और लागू कानूनों के अनुसार समीक्षा करेंगे और जवाब देंगे।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>एस्केलेशन</h3>
+          <p>यदि आप प्रतिक्रिया से संतुष्ट नहीं हैं, तो उसी ईमेल थ्रेड पर <em>एस्केलेशन</em> लिखकर जवाब दें। आपका अनुरोध हमारी टीम के वरिष्ठ सदस्य द्वारा समीक्षा किया जाएगा।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>डिस्क्लेमर</h3>
+          <p>हम सभी शिकायतों को शीघ्र हल करने का प्रयास करते हैं, लेकिन कुछ मामलों में बाहरी अधिकारियों या आधिकारिक स्रोतों के साथ समन्वय की आवश्यकता हो सकती है, जिससे समाधान समय बढ़ सकता है। अंतिम निर्भरता हमेशा आधिकारिक सरकारी नोटिफिकेशन पर होनी चाहिए।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>त्वरित लिंक्स</h3>
+          <ul class="policy-list">
+            <li><a href="mailto:wifijobportal1@gmail.com">ईमेल के माध्यम से शिकायत दर्ज करें</a></li>
+            <li><a href="/privacy-policy">गोपनीयता नीति</a></li>
+            <li><a href="/contact-us">हमसे संपर्क करें</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+       <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+
+  {% endblock content %}

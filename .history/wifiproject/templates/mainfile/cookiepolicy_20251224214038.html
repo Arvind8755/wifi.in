@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>कुकी नीति – WifiResult</title>
+<meta name="description" content="WifiResult की कुकी नीति पढ़ें ताकि समझ सकें कि कुकीज़, एनालिटिक्स और ट्रैकिंग तकनीकों का उपयोग आपकी ब्राउज़िंग अनुभव को बेहतर बनाने और सामग्री को व्यक्तिगत करने के लिए कैसे किया जाता है।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/cookie-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/cookie-policy/">
+<meta property="og:title" content="कुकी नीति – WifiResult">
+<meta property="og:description" content="WifiResult की कुकी नीति पढ़ें ताकि समझ सकें कि कुकीज़, एनालिटिक्स और ट्रैकिंग तकनीकों का उपयोग आपकी ब्राउज़िंग अनुभव को बेहतर बनाने और सामग्री को व्यक्तिगत करने के लिए कैसे किया जाता है।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/cookie-policy/">
+<meta name="twitter:title" content="कुकी नीति – WifiResult">
+<meta name="twitter:description" content="WifiResult की कुकी नीति पढ़ें ताकि समझ सकें कि कुकीज़, एनालिटिक्स और ट्रैकिंग तकनीकों का उपयोग आपकी ब्राउज़िंग अनुभव को बेहतर बनाने और सामग्री को व्यक्तिगत करने के लिए कैसे किया जाता है।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 मिनट" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "कुकी नीति", "item": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/",
+  "name": "कुकी नीति – WifiResult",
+  "headline": "कुकी नीति | WifiResult कुकीज़ और ट्रैकिंग तकनीकों का उपयोग कैसे करता है",
+  "description": "WifiResult की कुकी नीति पढ़ें ताकि समझ सकें कि कुकीज़, एनालिटिक्स और ट्रैकिंग तकनीकों का उपयोग आपकी ब्राउज़िंग अनुभव को बेहतर बनाने और सामग्री को व्यक्तिगत करने के लिए कैसे किया जाता है।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "hi-IN",
+  "about": {
+    "@type": "Thing",
+    "name": "कुकी नीति"
+  },
+  "mainEntity": {
+    "@type": "WebPageElement",
+    "name": "कुकी नीति विवरण",
+    "description": "कुकीज़ क्या हैं, WifiResult उनका उपयोग कैसे करता है, और आप अपनी कुकी प्राथमिकताएँ कैसे प्रबंधित कर सकते हैं, इसकी जानकारी।"
+  }
+}
+</script>
+
+<!--LegalDocument (for Transparency & Compliance)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Legislation",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/#legal",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/cookie-policy/",
+  "name": "कुकी नीति – WifiResult",
+  "description": "यह कुकी नीति बताती है कि WifiResult कुकीज़, एनालिटिक्स टूल्स और समान तकनीकों का उपयोग उपयोगकर्ता अनुभव और वेबसाइट प्रदर्शन को बेहतर बनाने के लिए कैसे करता है।",
+  "legislationType": "गोपनीयता और कुकी नीति",
+  "jurisdiction": "IN",
+  "legislationIdentifier": "WIFIRESULT-COOKIE-POLICY-2026",
+  "publisher": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  }
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* editorial center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+    
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  <!-- Optional breaking line -->
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>कुकी नीति</span>
+    </div>
+  </div>
+
+
+  <!-- Main Grid: left-sidebar | content (cookie policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="कुकी नीति मुख्य क्षेत्र">
+    <!-- Left Sidebar (same) -->
+     <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+           <li><a href="{% url 'policejobs' %}">पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+            <li><a href="{% url 'rajasthanpolice' %}">राजस्थान पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+              <li><a href="{% url 'uppolice' %}">यूपी पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'delhipolice' %}">दिल्ली पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: COOKIE POLICY content (only this part changed) -->
+    <section class="content-area" aria-label="कुकी नीति और विवरण">
+      <div class="editorial-card" role="region" aria-labelledby="cookie-heading">
+        <div class="page-title">
+          <i class="fas fa-cookie-bite" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="cookie-heading" style="font-size:18px;">कुकी नीति | WifiResult कुकीज़ और ट्रैकिंग तकनीकों का उपयोग कैसे करता है</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>कुकीज़ क्या हैं?</h3>
+          <p>कुकीज़ छोटी टेक्स्ट फाइलें होती हैं जो आपके वेब ब्राउज़र द्वारा आपके डिवाइस पर संग्रहीत की जाती हैं। वे वेबसाइटों को आपकी प्राथमिकताओं को याद रखने, साइट के उपयोग को समझने और आपके समग्र अनुभव को बेहतर बनाने में मदद करती हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>हम कुकीज़ का उपयोग कैसे करते हैं</h3>
+          <ul class="policy-list">
+            <li><strong>आवश्यक कुकीज़:</strong> पेज नेविगेशन और बेसिक सुरक्षा जैसी मुख्य सुविधाओं के लिए आवश्यक। इन कुकीज़ के बिना वेबसाइट ठीक से काम नहीं कर सकती।</li>
+            <li><strong>प्रदर्शन और एनालिटिक्स:</strong> हमें समझने में मदद करती हैं कि विज़िटर हमारी साइट का उपयोग कैसे करते हैं (उदाहरण: सबसे अधिक देखे गए पेज, पेज पर बिताया समय) ताकि हम सामग्री और नेविगेशन को बेहतर बना सकें।</li>
+            <li><strong>कार्यात्मक कुकीज़:</strong> आपकी प्राथमिकताओं (जैसे भाषा, अंतिम देखे गए पेज) को याद रखती हैं ताकि अधिक व्यक्तिगत अनुभव प्रदान किया जा सके।</li>
+            <li><strong>विज्ञापन/थर्ड-पार्टी:</strong> जब सक्षम हो, तो हमारे पार्टनर प्रासंगिक विज्ञापन देने और अभियानों की प्रभावशीलता मापने के लिए इनका उपयोग कर सकते हैं।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>हम जिन प्रकार की कुकीज़ सेट करते हैं</h3>
+          <ul class="policy-list">
+            <li><strong>सत्र कुकीज़:</strong> अस्थायी कुकीज़ जो ब्राउज़र बंद करने पर समाप्त हो जाती हैं।</li>
+            <li><strong>स्थायी कुकीज़:</strong> आपके डिवाइस पर एक निश्चित अवधि तक या हटाए जाने तक बनी रहती हैं।</li>
+            <li><strong>फर्स्ट-पार्टी कुकीज़:</strong> wifiresult.com द्वारा सेट की जाती हैं जो साइट की कार्यक्षमता और एनालिटिक्स का समर्थन करती हैं।</li>
+            <li><strong>थर्ड-पार्टी कुकीज़:</strong> हमारी साइट पर एकीकृत बाहरी सेवाओं (उदाहरण: एनालिटिक्स, एम्बेडेड मीडिया) द्वारा सेट की जाती हैं। ये संबंधित प्रदाताओं की नीतियों द्वारा नियंत्रित होती हैं।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>थर्ड-पार्टी कुकीज़ और सेवाएँ</h3>
+          <p>हम विश्वसनीय थर्ड-पार्टी सेवाओं (उदाहरण: एनालिटिक्स या एम्बेडेड सामग्री प्रदाता) का उपयोग कर सकते हैं जो अपनी खुद की कुकीज़ सेट करती हैं। हम इन कुकीज़ को सीधे नियंत्रित नहीं करते। अधिक जानकारी के लिए संबंधित प्रदाताओं की कुकी या गोपनीयता नीतियों की समीक्षा करें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>अपनी कुकी प्राथमिकताएँ प्रबंधित करना</h3>
+          <p>आप अपने ब्राउज़र सेटिंग्स के माध्यम से कुकीज़ को प्रबंधित या अक्षम कर सकते हैं। ध्यान दें कि कुछ कुकीज़ को ब्लॉक करने से साइट की कार्यक्षमता प्रभावित हो सकती है।</p>
+          <ul class="policy-list">
+            <li><strong>Chrome:</strong> सेटिंग्स > गोपनीयता और सुरक्षा > कुकीज़ और अन्य साइट डेटा</li>
+            <li><strong>Firefox:</strong> सेटिंग्स > गोपनीयता और सुरक्षा > कुकीज़ और साइट डेटा</li>
+            <li><strong>Edge:</strong> सेटिंग्स > कुकीज़ और साइट अनुमतियाँ</li>
+            <li><strong>Safari (macOS):</strong> प्राथमिकताएँ > गोपनीयता</li>
+            <li><strong>Android/iOS ब्राउज़र:</strong> ऐप में गोपनीयता/कुकी नियंत्रण देखें</li>
+          </ul>
+          <p>यदि हम कुकी बैनर या प्राथमिकता केंद्र लागू करते हैं, तो आप उस इंटरफेस से सीधे अपनी सहमति विकल्प अपडेट कर सकते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>सहमति</h3>
+          <p>wifiresult.com का उपयोग जारी रखकर, आप इस नीति में वर्णित अनुसार अपने डिवाइस पर कुकीज़ रखने के लिए सहमति देते हैं। जहाँ कानूनी रूप से आवश्यक हो, हम कुकी बैनर के माध्यम से आपकी स्पष्ट सहमति माँगेंगे।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>इस नीति में परिवर्तन</h3>
+          <p>हम तकनीक, कानून या हमारी प्रथाओं में परिवर्तन को दर्शाने के लिए इस कुकी नीति को समय-समय पर अपडेट कर सकते हैं। कोई भी अपडेट इस पेज पर संशोधित “प्रभावी तिथि” के साथ पोस्ट किए जाएंगे।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>संपर्क</h3>
+          <p>इस कुकी नीति के बारे में प्रश्नों के लिए, <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> पर हमसे संपर्क करें। यदि कुकी समस्या रिपोर्ट कर रहे हैं तो पेज URL और अपने ब्राउज़र/डिवाइस की जानकारी जैसे प्रासंगिक विवरण शामिल करें।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>प्रभावी तिथि</h3>
+          <p>यह कुकी नीति <strong>{% now "F j, Y" %}</strong> से प्रभावी है।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (same) -->
+       <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

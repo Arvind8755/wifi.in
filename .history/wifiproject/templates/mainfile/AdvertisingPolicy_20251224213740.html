@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>विज्ञापन नीति – WifiResult</title>
+<meta name="description" content="WifiResult की विज्ञापन नीति पढ़ें ताकि समझ सकें कि हम स्पॉन्सर्ड सामग्री, Google Ads, संबद्ध लिंक्स और थर्ड-पार्टी विज्ञापनों को पूर्ण पारदर्शिता के साथ कैसे प्रबंधित करते हैं।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/advertising-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/advertising-policy/">
+<meta property="og:title" content="विज्ञापन नीति – WifiResult">
+<meta property="og:description" content="WifiResult की विज्ञापन नीति पढ़ें ताकि समझ सकें कि हम स्पॉन्सर्ड सामग्री, Google Ads, संबद्ध लिंक्स और थर्ड-पार्टी विज्ञापनों को पूर्ण पारदर्शिता के साथ कैसे प्रबंधित करते हैं।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/advertising-policy/">
+<meta name="twitter:title" content="विज्ञापन नीति – WifiResult">
+<meta name="twitter:description" content="WifiResult की विज्ञापन नीति पढ़ें ताकि समझ सकें कि हम स्पॉन्सर्ड सामग्री, Google Ads, संबद्ध लिंक्स और थर्ड-पार्टी विज्ञापनों को पूर्ण पारदर्शिता के साथ कैसे प्रबंधित करते हैं।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 मिनट" />
+
+  <!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "विज्ञापन नीति", "item": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","AboutPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/",
+  "name": "विज्ञापन नीति – WifiResult",
+  "headline": "विज्ञापन नीति – पारदर्शिता और स्पॉन्सरशिप दिशानिर्देश",
+  "description": "WifiResult की विज्ञापन नीति पढ़ें ताकि समझ सकें कि हम स्पॉन्सर्ड सामग्री, Google Ads, संबद्ध लिंक्स और थर्ड-पार्टी विज्ञापनों को पूर्ण पारदर्शिता के साथ कैसे प्रबंधित करते हैं।",
+  "inLanguage": "hi-IN",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "datePublished": "2025-01-01",
+  "dateModified": "2025-11-11",
+  "mainEntity": {
+    "@type": "CreativeWork",
+    "name": "WifiResult विज्ञापन नीति",
+    "about": "ऑनलाइन विज्ञापनों में पारदर्शिता, Google AdSense और संबद्ध लिंक्स",
+    "text": "यह नीति बताती है कि WifiResult विज्ञापन कैसे प्रदर्शित करता है, संबद्ध साझेदारियों को कैसे संभालता है और संपादकीय तथा प्रचार सामग्री के बीच अलगाव कैसे बनाए रखता है।"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  }
+}
+</script>
+
+<!--FAQPage — (optional)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/advertising-policy/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "क्या WifiResult Google Ads प्रदर्शित करता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हाँ। WifiResult Google AdSense के माध्यम से संदर्भ-आधारित विज्ञापन प्रदर्शित करता है, यह सुनिश्चित करता है कि वे उपयोगकर्ता अनुभव में बाधा न डालें या भ्रामक न हों।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या विज्ञापन संपादकीय सामग्री को प्रभावित करते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "नहीं। विज्ञापन और संपादकीय सामग्री पूरी तरह अलग हैं। हम विज्ञापनदाताओं को कभी भी हमारे पोस्ट या भर्ती अपडेट को प्रभावित करने की अनुमति नहीं देते।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या WifiResult संबद्ध लिंक्स का उपयोग करता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "कभी-कभी हम उन उत्पादों या सेवाओं के लिए संबद्ध लिंक्स का उपयोग कर सकते हैं जिनकी हम सिफारिश करते हैं। ऐसे लिंक्स हमारी निष्पक्षता या रैंकिंग को प्रभावित नहीं करते।"
+      }
+    }
+  ]
+}
+</script>
+
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* policy center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>विज्ञापन नीति</span>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content (policy) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="विज्ञापन नीति मुख्य क्षेत्र">
+    <!-- Left Sidebar (same) -->
+    <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+           <li><a href="{% url 'policejobs' %}">पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+            <li><a href="{% url 'rajasthanpolice' %}">राजस्थान पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+              <li><a href="{% url 'uppolice' %}">यूपी पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'delhipolice' %}">दिल्ली पुलिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: ADVERTISING POLICY content -->
+    <section class="content-area" aria-label="विज्ञापन नीति और विवरण">
+      <div class="editorial-card" role="region" aria-labelledby="advertising-heading">
+        <div class="page-title">
+          <i class="fas fa-rectangle-ad" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="advertising-heading" style="font-size:18px;">विज्ञापन नीति – पारदर्शिता और स्पॉन्सरशिप दिशानिर्देश</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>उद्देश्य</h3>
+          <p>WifiResult पर विज्ञापन हमें सेवा को मुफ्त रखने में मदद करते हैं साथ ही सरकारी नौकरी अपडेट की उच्च सटीकता मानकों को बनाए रखते हैं। यह विज्ञापन नीति बताती है कि हम विज्ञापन कैसे प्रदर्शित करते हैं, उन्हें कैसे लेबल करते हैं, क्या अनुमति नहीं देते, और Google AdSense तथा उद्योग मानकों का अनुपालन कैसे करते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>विज्ञापन लेबलिंग और अलगाव</h3>
+          <ul class="policy-list">
+            <li>सभी विज्ञापनों को स्पष्ट रूप से <strong>“विज्ञापन”</strong>, <strong>“Ad”</strong>, या <strong>“Sponsored”</strong> के रूप में लेबल किया जाता है।</li>
+            <li>विज्ञापनों को संपादकीय सामग्री से स्पेसिंग और/या बॉर्डर के माध्यम से दृश्य रूप से अलग किया जाता है ताकि उपयोगकर्ता आसानी से अंतर समझ सकें।</li>
+            <li>हम विज्ञापनों को हैडलाइन के अंदर या उपयोगकर्ताओं को क्लिक करने के लिए भ्रामक तरीके से नहीं रखते।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>प्लेसमेंट और घनत्व</h3>
+          <ul class="policy-list">
+            <li>हम <strong>Better Ads Standards</strong> का पालन करते हैं (कोई घुसपैठ करने वाले पॉप-अप जो सामग्री को ब्लॉक न करें, कोई ऑटो-प्ले ऑडियो विज्ञापन नहीं)।</li>
+            <li>विज्ञापन घनत्व को अच्छे पढ़ने के अनुभव के लिए नियंत्रित किया जाता है; हम ऊपर-फोल्ड में अत्यधिक विज्ञापन से बचते हैं।</li>
+            <li>क्लिक करने योग्य क्षेत्रों को सामग्री के रूप में छिपाया नहीं जाता। हम कभी भी आकस्मिक क्लिक को प्रोत्साहित नहीं करते (“यहाँ क्लिक करें”, भ्रामक तीर आदि)।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>निषिद्ध सामग्री (शून्य-सहनशीलता)</h3>
+          <ul class="policy-list">
+            <li>अवैध गतिविधियों, वयस्क सामग्री, नफरत भरे भाषण, या भ्रामक वित्तीय योजनाओं से संबंधित कोई विज्ञापन नहीं।</li>
+            <li>कोई मैलवेयर, जबरन डाउनलोड, या सिस्टम/एंटीवायरस चेतावनियों की नकल करने वाले विज्ञापन नहीं।</li>
+            <li>ऐसे विज्ञापन नहीं जो अत्यधिक, विघटनकारी या भ्रामक अनुभव वाली पेजों पर ले जाएँ।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>थर्ड-पार्टी नेटवर्क और कुकीज़</h3>
+          <ul class="policy-list">
+            <li>हम विज्ञापन परोसने के लिए <strong>Google AdSense</strong> जैसे थर्ड-पार्टी विज्ञापन नेटवर्क का उपयोग कर सकते हैं।</li>
+            <li>ये पार्टनर अधिक प्रासंगिक विज्ञापन दिखाने के लिए कुकीज़ या समान तकनीकों का उपयोग कर सकते हैं। उपयोगकर्ता <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a> और ब्राउज़र नियंत्रणों से प्राथमिकताएँ प्रबंधित कर सकते हैं।</li>
+            <li>कुकीज़ और व्यक्तिगत डेटा का उपयोग हमारी <a href="{% url "PrivacyPolicy" %}">गोपनीयता नीति</a> में कवर किया गया है।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>बच्चों की नीति</h3>
+          <ul class="policy-list">
+            <li>WifiResult सामान्य दर्शकों के लिए है। हम 13 वर्ष से कम उम्र के बच्चों को लक्षित विज्ञापन जानबूझकर नहीं करते।</li>
+            <li>जहाँ लागू हो, हम बच्चों की गोपनीयता कानूनों (जैसे COPPA-समान सिद्धांत) का अनुपालन करने के लिए <strong>सीमित विज्ञापन</strong> लागू करते हैं या व्यक्तिगत विज्ञापन अक्षम करते हैं।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>संबद्ध और स्पॉन्सर्ड प्रकटीकरण</h3>
+          <ul class="policy-list">
+            <li>समय-समय पर हम संबद्ध लिंक्स या स्पॉन्सर्ड प्लेसमेंट शामिल कर सकते हैं। ऐसी सामग्री को स्पष्ट रूप से <strong>“Sponsored”</strong> या <strong>“Affiliate”</strong> के रूप में प्रकट किया जाता है।</li>
+            <li>संपादकीय स्वतंत्रता बनाए रखी जाती है — विज्ञापन हमारी भर्ती कवरेज या निष्कर्षों को प्रभावित नहीं करते।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>उपयोगकर्ता गोपनीयता और डेटा</h3>
+          <ul class="policy-list">
+            <li>हम विज्ञापन परोसने के लिए डेटा संग्रह को न्यूनतम रखते हैं और लागू गोपनीयता कानूनों का अनुपालन करते हैं।</li>
+            <li>उपयोगकर्ता विज्ञापन सेटिंग्स या सहमति टूल्स (जहाँ लागू) के माध्यम से व्यक्तिगत विज्ञापनों से ऑप्ट-आउट कर सकते हैं।</li>
+            <li>डेटा, संग्रहण और उपयोगकर्ता अधिकारों के विवरण के लिए हमारी <a href="{% url "PrivacyPolicy" %}">गोपनीयता नीति</a> देखें।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>नीति अनुपालन और खराब विज्ञापन रिपोर्टिंग</h3>
+          <ul class="policy-list">
+            <li>हम विज्ञापन प्लेसमेंट और प्रदर्शन की निरंतर निगरानी नीति अनुपालन के लिए करते हैं।</li>
+            <li>यदि आपको कोई भ्रामक या हानिकारक विज्ञापन मिले, तो कृपया स्क्रीनशॉट और URL के साथ रिपोर्ट करें।</li>
+            <li><strong>रिपोर्ट करें:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a> (विषय: “विज्ञापन शिकायत”)।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>इस नीति में परिवर्तन</h3>
+          <p>हम Google AdSense आवश्यकताओं या उद्योग मानकों में अपडेट को दर्शाने के लिए इस विज्ञापन नीति को संशोधित कर सकते हैं। महत्वपूर्ण परिवर्तन इस पेज पर अपडेटेड प्रभावी तिथि के साथ पोस्ट किए जाएंगे।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>संपर्क</h3>
+          <ul class="policy-list">
+            <li><strong>ईमेल:</strong> <a href="mailto:wifiresult3@gmail.com"> wifijobportal1@gmail.com</a></li>
+            <li><strong>कार्य समय:</strong> सोमवार–शनिवार, 10:00 AM – 6:00 PM IST</li>
+            <li><strong>पता:</strong> न्यू मुरादाबाद, भारत</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Right Sidebar (same) -->
+       <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

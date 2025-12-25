@@ -1,0 +1,372 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>डिस्क्लेमर – WifiResult</title>
+<meta name="description" content="WifiResult का आधिकारिक डिस्क्लेमर पढ़ें। हम किसी भी सरकारी संस्था से संबद्ध नहीं हैं और केवल आधिकारिक स्रोतों से एकत्रित जानकारी प्रदान करते हैं।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/disclaimer/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/disclaimer/">
+<meta property="og:title" content="डिस्क्लेमर – WifiResult">
+<meta property="og:description" content="WifiResult का आधिकारिक डिस्क्लेमर पढ़ें। हम किसी भी सरकारी संस्था से संबद्ध नहीं हैं और केवल आधिकारिक स्रोतों से एकत्रित जानकारी प्रदान करते हैं।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/disclaimer/">
+<meta name="twitter:title" content="डिस्क्लेमर – WifiResult">
+<meta name="twitter:description" content="WifiResult का आधिकारिक डिस्क्लेमर पढ़ें। हम किसी भी सरकारी संस्था से संबद्ध नहीं हैं और केवल आधिकारिक स्रोतों से एकत्रित जानकारी प्रदान करते हैं।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="5 मिनट" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/disclaimer/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "डिस्क्लेमर", "item": "{{ request.scheme }}://{{ request.get_host }}/disclaimer/" }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/disclaimer/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/disclaimer/",
+  "name": "डिस्क्लेमर – WifiResult",
+  "headline": "वेबसाइट डिस्क्लेमर – WifiResult.com",
+  "description": "WifiResult का आधिकारिक डिस्क्लेमर पढ़ें। हम किसी भी सरकारी संस्था से संबद्ध नहीं हैं और केवल आधिकारिक स्रोतों से एकत्रित जानकारी प्रदान करते हैं।",
+  "inLanguage": "hi-IN",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "about": {
+    "@type": "Organization",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "mainEntity": {
+    "@type": "CreativeWork",
+    "name": "डिस्क्लेमर नोटिस",
+    "text": "WifiResult एक निजी शैक्षिक सूचना वेबसाइट है जो सरकारी नौकरियों, रिजल्ट, एडमिट कार्ड और आधिकारिक नोटिसों के बारे में अपडेट प्रदान करती है। हम किसी सरकारी संस्था से संबद्ध नहीं हैं और दी गई जानकारी केवल जागरूकता के उद्देश्य से है।"
+  }
+}
+</script>
+
+<!--AboutPage Type (Recommended)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/disclaimer/#about",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/disclaimer/",
+  "name": "WifiResult डिस्क्लेमर पेज",
+  "inLanguage": "hi-IN",
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "mainEntity": {
+    "@type": "WebPageElement",
+    "name": "डिस्क्लेमर स्टेटमेंट",
+    "text": "WifiResult सरकारी परीक्षाओं, रिजल्ट और नोटिफिकेशन के बारे में आधिकारिक स्रोतों से एकत्रित जानकारी प्रदान करता है। हम किसी भी संबद्धता या प्राधिकार का दावा नहीं करते। उपयोगकर्ताओं को विवरण आधिकारिक वेबसाइटों से सत्यापित करने की सलाह दी जाती है।"
+  }
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+ 
+  <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+
+.breaking-newss {
+    background: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 0;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+}
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* disclaimer center */
+    .disclaimer-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:26px;color:var(--dark)}
+    .disclaimer-section{margin-bottom:18px}
+    .disclaimer-section h2{color:var(--primary);margin-bottom:10px;font-size:18px}
+    .disclaimer-section p, .disclaimer-section ul{color:#333;font-size:15px;margin-bottom:8px}
+    .disclaimer-section ul{padding-left:18px}
+    .disclaimer-section li{margin-bottom:6px}
+
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* MOBILE ORDER FIX */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>डिस्क्लेमर</span>
+    </div>
+  </div>
+
+
+  <!-- Main Grid: left-sidebar | content (disclaimer) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="डिस्क्लेमर पेज मुख्य क्षेत्र">
+    <!-- Left Sidebar (unchanged) -->
+    <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+    <!-- Center: DISCLAIMER Content (replaces contact form) -->
+    <section class="content-area" aria-label="डिस्क्लेमर सामग्री">
+      <div class="disclaimer-card" role="region" aria-labelledby="disclaimer-heading">
+        <div class="page-title">
+          <i class="fas fa-exclamation-triangle" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="disclaimer-heading">वेबसाइट डिस्क्लेमर – WifiResult.com</h1>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="disclaimer-overview">
+          <h2 id="disclaimer-overview">अवलोकन</h2>
+          <p>
+            <strong>wifiresult.com</strong> (इस "साइट") पर प्रदान की गई जानकारी केवल सामान्य सूचनात्मक उद्देश्यों के लिए है। हम सामग्री को सटीक और अद्यतित रखने का प्रयास करते हैं, लेकिन साइट और इसकी सामग्री "जैसी है" प्रदान की जाती है बिना किसी प्रकार की स्पष्ट या निहित वारंटी के।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="no-guarantee">
+          <h2 id="no-guarantee">सटीकता की कोई गारंटी नहीं</h2>
+          <p>
+            हम साइट पर प्रकाशित जानकारी (नौकरी नोटिफिकेशन, परीक्षा तिथियाँ, रिजल्ट और अन्य नोटिस सहित) को सत्यापित करने के लिए उचित प्रयास करते हैं। हालांकि, हम यह गारंटी नहीं देते कि सभी जानकारी पूर्ण, सटीक या वर्तमान है। उपयोगकर्ताओं को महत्वपूर्ण विवरण आधिकारिक स्रोतों (उदाहरण के लिए भर्ती बोर्डों, विभागों या संगठनों की आधिकारिक वेबसाइटों) पर सत्यापित करने चाहिए।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="external-links">
+          <h2 id="external-links">बाहरी लिंक्स</h2>
+          <p>
+            साइट में सुविधा और संदर्भ के लिए तृतीय-पक्ष वेबसाइटों के लिंक हो सकते हैं। ये लिंक जुड़ी साइटों या उनकी सामग्री के समर्थन का तात्पर्य नहीं देते। हम किसी भी तृतीय-पक्ष वेबसाइटों की सामग्री, नीतियों या प्रथाओं के लिए जिम्मेदार नहीं हैं। बाहरी लिंक्स पर क्लिक करना आपके अपने जोखिम पर है।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="no-liability">
+          <h2 id="no-liability">दायित्व की सीमा</h2>
+          <p>
+            किसी भी परिस्थिति में <strong>wifiresult.</strong>, इसके मालिक, योगदानकर्ता या सहयोगी साइट तक पहुँच या उपयोग, या इसमें निहित किसी भी सामग्री से उत्पन्न किसी प्रत्यक्ष, अप्रत्यक्ष, आकस्मिक, परिणामी, विशेष या दंडात्मक क्षति के लिए उत्तरदायी नहीं होंगे। इसमें सामग्री में त्रुटियाँ, चूक या अशुद्धियाँ, या साइट पर जानकारी के उपयोग या निर्भरता से होने वाली किसी भी हानि या क्षति शामिल है, लेकिन यह सीमित नहीं है।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="no-professional-advice">
+          <h2 id="no-professional-advice">आधिकारिक या पेशेवर सलाह का विकल्प नहीं</h2>
+          <p>
+            इस साइट पर सामग्री आधिकारिक नोटिफिकेशन, कानूनी सलाह या पेशेवर मार्गदर्शन के स्थानापन्न नहीं है। भर्ती, रिजल्ट, एडमिट कार्ड या कानूनी मामलों के बारे में प्रामाणिक जानकारी के लिए कृपया आधिकारिक भर्ती प्राधिकरण या योग्य पेशेवर से परामर्श लें।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="user-responsibility">
+          <h2 id="user-responsibility">उपयोगकर्ता की जिम्मेदारी</h2>
+          <ul>
+            <li>नोटिस में सूचीबद्ध आधिकारिक वेबसाइटों पर नौकरी नोटिफिकेशन और तिथियों की जाँच करें।</li>
+            <li>भर्ती प्राधिकरण द्वारा प्रदान की गई पात्रता मानदंडों को पूरा करें; केवल सारांशों पर निर्भर न रहें।</li>
+            <li>व्यक्तिगत जानकारी और क्रेडेंशियल्स को सुरक्षित रखें। हम साइट के माध्यम से पूर्ण बैंक विवरण जैसी संवेदनशील जानकारी नहीं माँगते।</li>
+          </ul>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="copyright">
+          <h2 id="copyright">कॉपीराइट और सामग्री का उपयोग</h2>
+          <p>
+            जब तक अन्यथा न कहा गया हो, इस साइट पर सामग्री (पाठ, चित्र, लेआउट) <strong>wifiresult.com</strong> या इसके सामग्री प्रदाताओं की संपत्ति है। आप व्यक्तिगत, गैर-वाणिज्यिक उपयोग के लिए सामग्री देख और प्रिंट कर सकते हैं। पूर्व लिखित अनुमति के बिना वाणिज्यिक उद्देश्यों के लिए पुनरुत्पादन, पुनर्प्रकाशन या पुनर्वितरण निषिद्ध है।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="changes">
+          <h2 id="changes">डिस्क्लेमर में परिवर्तन</h2>
+          <p>
+            हम इस डिस्क्लेमर को किसी भी समय पूर्व सूचना के बिना संशोधित या अपडेट कर सकते हैं। अपडेट संस्करण इस पेज पर संशोधन तिथि के साथ पोस्ट किए जाएंगे। परिवर्तनों के बाद साइट का निरंतर उपयोग संशोधित डिस्क्लेमर की आपकी स्वीकृति दर्शाता है।
+          </p>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="contact-for-issues">
+          <h2 id="contact-for-issues">त्रुटियों या प्रश्नों के लिए संपर्क</h2>
+          <p>
+            यदि आपको इस साइट पर सामग्री में कोई त्रुटि मिलती है या कोई प्रश्न है, तो कृपया हमसे संपर्क करें:
+          </p>
+          <ul>
+            <li>ईमेल: <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li>फोन: +91 8755xxxxxx</li>
+            <li>पता: न्यू मुरादाबाद, भारत</li>
+          </ul>
+        </div>
+
+        <div class="disclaimer-section" aria-labelledby="effective-date">
+          <h2 id="effective-date">प्रभावी तिथि</h2>
+          <p>
+            यह डिस्क्लेमर पेज पर प्रदर्शित तिथि से प्रभावी है और संशोधित होने तक लागू रहता है।
+          </p>
+        </div>
+
+        <!-- Optional: small map kept in right column as before; no change required here -->
+      </div>
+    </section>
+
+    <!-- Right Sidebar (unchanged) -->
+      <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

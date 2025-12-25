@@ -1,0 +1,430 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>तथ्य-जाँच और सुधार नीति – WifiResult</title>
+<meta name="description" content="WifiResult पर प्रकाशन से पहले जानकारी कैसे सत्यापित की जाती है और सुधार या अपडेट का अनुरोध करने की प्रक्रिया जानें। हम सभी सरकारी नौकरी और परीक्षा डेटा की सटीक और पारदर्शी रिपोर्टिंग सुनिश्चित करते हैं।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/">
+<meta property="og:title" content="तथ्य-जाँच और सुधार नीति – WifiResult">
+<meta property="og:description" content="WifiResult पर प्रकाशन से पहले जानकारी कैसे सत्यापित की जाती है और सुधार या अपडेट का अनुरोध करने की प्रक्रिया जानें। हम सभी सरकारी नौकरी और परीक्षा डेटा की सटीक और पारदर्शी रिपोर्टिंग सुनिश्चित करते हैं।">
+<meta name="keywords" content="WiFiResult, सरकारी रिजल्ट, सरकारी नौकरी, सरकारी जॉब्स, एडमिट कार्ड, उत्तर कुंजी, सरकारी परीक्षा, सरकारी रिजल्ट 2025, सरकारी जॉब पोर्टल, wifiresult.xyz">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/">
+<meta name="twitter:title" content="तथ्य-जाँच और सुधार नीति – WifiResult">
+<meta name="twitter:description" content="WifiResult पर प्रकाशन से पहले जानकारी कैसे सत्यापित की जाती है और सुधार या अपडेट का अनुरोध करने की प्रक्रिया जानें। हम सभी सरकारी नौकरी और परीक्षा डेटा की सटीक और पारदर्शी रिपोर्टिंग सुनिश्चित करते हैं।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 मिनट" />
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "तथ्य-जाँच और सुधार नीति",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/"
+    }
+  ]
+}
+</script>
+
+  <!--WebPage Schema-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/#webpage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/",
+  "name": "तथ्य-जाँच और सुधार नीति – WifiResult",
+  "headline": "WifiResult तथ्य-जाँच और सुधार नीति",
+  "description": "WifiResult पर प्रकाशन से पहले जानकारी कैसे सत्यापित की जाती है और सुधार या अपडेट का अनुरोध करने की प्रक्रिया जानें। हम सभी सरकारी नौकरी और परीक्षा डेटा की सटीक और पारदर्शी रिपोर्टिंग सुनिश्चित करते हैं।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "inLanguage": "hi-IN",
+  "about": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "mainEntity": {
+    "@type": "Article",
+    "headline": "तथ्य-जाँच और सुधार नीति",
+    "author": { "@type": "Organization", "name": "WifiResult संपादकीय टीम" },
+    "datePublished": "{% now 'c' %}",
+    "dateModified": "{% now 'c' %}",
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" }
+  }
+}
+</script>
+
+<!--FAQPage — optional but recommended (adds transparency + E-E-A-T score)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/fact-checking-and-corrections-policy/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "WifiResult प्रकाशन से पहले जानकारी कैसे सत्यापित करता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हर अपडेट को प्रकाशित करने से पहले आधिकारिक सरकारी नोटिफिकेशन, प्रेस रिलीज़ और सत्यापित स्रोतों से क्रॉस-चेक किया जाता है। हमारी संपादकीय टीम डेटा की सटीकता की समीक्षा करती है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "उपयोगकर्ता सुधार का अनुरोध कैसे कर सकते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यदि आपको कोई तथ्यात्मक त्रुटि मिलती है, तो आप wifiresult3@gmail.com पर प्रासंगिक प्रमाण या आधिकारिक संदर्भ के साथ ईमेल कर सकते हैं। सुधारों की समीक्षा की जाती है और 24–48 घंटों के भीतर अपडेट किया जाता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "सुधार किए जाने पर क्या होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जब सुधार या स्पष्टीकरण जारी किया जाता है, तो हम लेख को अपडेट करते हैं, नीचे बदलाव का उल्लेख करते हैं और संशोधन की तिथि दर्ज करते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या WifiResult तथ्य-जाँच आचार संहिता का पालन करता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हाँ। WifiResult सटीकता, पारदर्शिता और जवाबदेही के नैतिक मानकों का पालन करता है, यह सुनिश्चित करता है कि सभी जानकारी आधिकारिक दस्तावेज़ों या स्रोतों से सत्यापित हो।"
+      }
+    }
+  ]
+}
+</script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+
+
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:250px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);font-size: 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* editorial center */
+    .editorial-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .page-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .page-title h1{font-size:20px;color:var(--dark)}
+    .policy-section{margin-bottom:20px}
+    .policy-section h3{color:var(--primary);margin-bottom:10px}
+    .policy-section p, .policy-section li{color:#333;font-size:15px;margin-bottom:10px;line-height:1.6}
+    .policy-list{margin-left:18px}
+    .map-container { margin-top:12px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .map-container iframe { width:100%; height:260px; border:0; display:block; }
+
+    footer{background:var(--dark);color:#fff;padding:36px 0;margin-top:30px}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .copyright{text-align:center;margin-top:18px;color:#cfcfcf;font-size:14px}
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* mobile order fix */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card,
+      .right-sidebar .sidebar-card { padding: 16px; }
+    }
+
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>तथ्य-जाँच और सुधार नीति</span>
+    </div>
+  </div>
+
+  <!-- Main Grid: left-sidebar | content | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="तथ्य-जाँच और सुधार मुख्य क्षेत्र">
+    <!-- Left Sidebar (same) -->
+    <aside class="left-sidebar" aria-label="बाएँ साइडबार जिसमें राज्य नौकरियाँ और नवीनतम श्रेणी">
+<div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">एडमिशन</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">सिलेबस</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">स्कॉलरशिप</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Center: FACT-CHECKING & CORRECTIONS POLICY -->
+    <section class="content-area" aria-label="तथ्य-जाँच और सुधार नीति सामग्री">
+      <div class="editorial-card" role="region" aria-labelledby="policy-heading">
+        <div class="page-title">
+          <i class="fas fa-check-circle" style="color:var(--primary);font-size:24px"></i>
+          <h1 id="policy-heading">WifiResult तथ्य-जाँच और सुधार नीति</h1>
+        </div>
+
+        <div class="policy-section">
+          <h3>उद्देश्य</h3>
+          <p>WifiResult का लक्ष्य है कि हर पोस्ट में दी गई जानकारी <strong>सटीक, समय पर</strong> और <strong>आधिकारिक स्रोतों</strong> पर आधारित हो। यह नीति बताती है कि हम जानकारी कैसे सत्यापित करते हैं, अपडेट कैसे करते हैं और त्रुटि मिलने पर पारदर्शी तरीके से सुधार कैसे प्रकाशित करते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>तथ्य-जाँच मानक</h3>
+          <ul class="policy-list">
+            <li><strong>प्राथमिक स्रोत पहले:</strong> आधिकारिक वेबसाइट/नोटिफिकेशन (जैसे <em>ssc.nic.in</em>, <em>ibps.in</em>, राज्य PSC/विभागीय पोर्टल) को प्राथमिकता।</li>
+            <li><strong>दो-बिंदु सत्यापन:</strong> किसी भी महत्वपूर्ण जानकारी (तिथियाँ, रिक्तियाँ, पात्रता, लिंक) को कम से कम 2 विश्वसनीय स्रोतों से मिलान।</li>
+            <li><strong>सीधा लिंकिंग:</strong> जहाँ संभव हो, “आधिकारिक नोटिफिकेशन” PDF/वेबपेज का सीधा लिंक दिया जाता है।</li>
+            <li><strong>टाइमस्टैम्प और अपडेट:</strong> पोस्ट के शीर्ष/तल पर “अंतिम अपडेट” समय दिखाया जा सकता है ताकि परिवर्तन स्पष्ट रहें।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>स्रोत क्रम (विश्वसनीयता स्तर)</h3>
+          <ol class="policy-list">
+            <li>आधिकारिक नोटिफिकेशन PDF / गजट / भर्ती पोर्टल</li>
+            <li>मंत्रालय/एजेंसी की प्रेस रिलीज़ या साइट अपडेट</li>
+            <li>आधिकारिक सोशल हैंडल (जब आधिकारिक साइट/PDF से क्रॉस-लिंक हो)</li>
+            <li>प्रतिष्ठित सरकारी रिपॉजिटरी/आर्काइव</li>
+          </ol>
+          <p>यदि किसी सूचना का <strong>आधिकारिक पुष्टिकरण लंबित</strong> हो, तो उसे स्पष्ट रूप से अस्थायी के रूप में चिह्नित किया जाता है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>प्रकाशन-पूर्व कार्यप्रवाह</h3>
+          <ol class="policy-list">
+            <li>आधिकारिक स्रोत से नोटिफिकेशन/नोटिस प्राप्त करना</li>
+            <li>मुख्य तथ्य निकालना: महत्वपूर्ण तिथियाँ, रिक्तियाँ, शुल्क, पात्रता, चयन प्रक्रिया, लिंक्स</li>
+            <li>क्रॉस-वेरिफाई (दो जगह से मिलान) + टाइपो/संख्या/तिथि की जाँच</li>
+            <li>“आधिकारिक लिंक्स” जोड़ना और ड्राफ्ट को संपादक समीक्षा के लिए भेजना</li>
+            <li>प्रकाशित करते समय schema/SEO meta और पहुंचनीयता जाँच</li>
+          </ol>
+        </div>
+
+        <div class="policy-section">
+          <h3>प्रकाशन-पश्चात निगरानी</h3>
+          <ul class="policy-list">
+            <li>आधिकारिक साइटों पर अपडेट/सुधार के लिए नियमित जाँच</li>
+            <li>उपयोगकर्ता रिपोर्ट्स के आधार पर पुनः-सत्यापन</li>
+            <li>महत्वपूर्ण परीक्षाओं के लिए ऑटो-रिमाइंडर (एडमिट कार्ड/रिजल्ट रिलीज़ विंडो) ताकि समय पर अपडेट हो</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>सुधार नीति</h3>
+          <p>त्रुटि पाई जाने पर हम पारदर्शी तरीके से सुधार करते हैं:</p>
+          <ul class="policy-list">
+            <li><strong>छोटे सुधार (टाइपो/फॉर्मैट):</strong> तुरंत ठीक किए जाते हैं, सामान्यतः सुधार नोट की आवश्यकता नहीं।</li>
+            <li><strong>महत्वपूर्ण बदलाव (तिथि/संख्या/लिंक):</strong> पोस्ट में <em>“अपडेटेड ऑन: DD MMM YYYY — सुधार:”</em> नोट जोड़ा जाता है।</li>
+            <li><strong>वापसी/हटाना:</strong> यदि सूचना आधिकारिक रूप से बदल दी गई/रद्द है, तो आर्टिकल में प्रमुख नोटिस + कारण + आधिकारिक संदर्भ दिया जाता है।</li>
+          </ul>
+          <p><strong>समय-सीमा:</strong> कामकाजी दिनों में सुधार का लक्ष्य <strong>24–48 घंटे</strong> के भीतर। आपातकालीन आइटम (परीक्षा तिथि/एडमिट कार्ड लिंक) को <strong>प्राथमिकता</strong> दी जाती है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>सुधार का अनुरोध कैसे करें</h3>
+          <p>किसी भी गलती/मिसिंग आधिकारिक लिंक की सूचना दें:</p>
+          <ul class="policy-list">
+            <li><strong>ईमेल:</strong> <a href="mailto:wifiresult3@gmail.com">wifiresult3@gmail.com</a></li>
+            <li><strong>शामिल करें:</strong> आर्टिकल URL, समस्या का संक्षिप्त विवरण, आधिकारिक स्रोत लिंक/ PDF (यदि उपलब्ध)।</li>
+          </ul>
+          <p>हम आपकी रिपोर्ट प्राप्त होने के <strong>24–48 घंटे</strong> में कार्रवाई/उत्तर देने का प्रयास करते हैं।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>पारदर्शिता प्रथाएँ</h3>
+          <ul class="policy-list">
+            <li>महत्वपूर्ण अपडेट के लिए सुधार नोट/चेंजलॉग शामिल किया जा सकता है।</li>
+            <li>संबद्ध/प्रायोजित सामग्री को स्पष्ट रूप से “Sponsored”/“Advertisement” के रूप में चिह्नित किया जाता है।</li>
+            <li>संपादकीय निर्णय विज्ञापनदाताओं से स्वतंत्र हैं (हितों के टकराव का प्रकटीकरण लागू)।</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>उपयोगकर्ता-जनित सामग्री और सुरक्षा</h3>
+          <p>टिप्पणियाँ/सबमिशन में दिए गए दावे प्रकाशित होने से पहले मॉडरेशन से गुजरते हैं। किसी भी संवेदनशील/भ्रामक सामग्री को प्रकाशित नहीं किया जाता।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>कानूनी और सीमाएँ</h3>
+          <p>हम सटीकता का सर्वोत्तम प्रयास करते हैं, किंतु आधिकारिक दस्तावेज़/वेबसाइट ही अंतिम एवं बाध्यकारी स्रोत हैं। उपयोगकर्ता को आवेदन/फीस/पात्रता के अंतिम निर्णय हेतु हमेशा <strong>आधिकारिक नोटिफिकेशन</strong> देखने की सलाह दी जाती है।</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>त्वरित आधिकारिक लिंक्स</h3>
+          <ul class="policy-list">
+            <li><strong>उदाहरण:</strong> <a href="https://ssc.gov.in/" target="_blank" rel="noopener">ssc.nic.in</a>, <a href="https://ibps.in" target="_blank" rel="noopener">ibps.in</a>, <a href="https://www.india.gov.in" target="_blank" rel="noopener">india.gov.in</a></li>
+            <li><strong>सुधार संपर्क:</strong> <a href="mailto:wifijobportal1@gmail.com">wifijobportal1@gmail.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Right Sidebar (same) -->
+        <aside class="right-sidebar" aria-label="दाएँ साइडबार जिसमें नवीनतम नौकरी और समान नौकरियाँ">
+      <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">आईटीआई नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी पोस्ट ग्रेजुएट नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+
+  {% endblock content %}
+  

@@ -1,0 +1,1312 @@
+  {% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>All PSC in India – UPSC & All State Public Service Commissions List</title>
+  <meta name="description" content="All PSC in India - Complete list of UPSC and all State Public Service Commissions like BPSC, RPSC, MPPSC, UPPSC, TNPSC, WBPSC, TSPSC, APPSC, GPSC & others.">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/">
+  <meta property="og:title" content="All PSC in India – UPSC & State Public Service Commissions List">
+  <meta property="og:description" content="All PSC in India - Complete list of UPSC and all State Public Service Commissions like BPSC, RPSC, MPPSC, UPPSC, TNPSC, WBPSC, TSPSC, APPSC, GPSC & others.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/">
+  <meta name="twitter:title" content="All PSC in India – UPSC & State PSC List">
+  <meta name="twitter:description" content="All PSC in India - Complete list of UPSC and all State Public Service Commissions like BPSC, RPSC, MPPSC, UPPSC, TNPSC, WBPSC, TSPSC, APPSC, GPSC & others.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta name="twitter:site" content="@WifiResult">
+  <meta name="twitter:creator" content="@arvindpal">
+  <meta name="twitter:label1" content="Written by">
+  <meta name="twitter:data1" content="Arvind Pal">
+  <meta name="twitter:label2" content="Time to read">
+  <meta name="twitter:data2" content="8 minutes">
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+      {"@type":"ListItem","position":2,"name":"All PSC in India","item":"{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/"}
+    ]
+  }
+  </script>
+
+  <!-- WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/#webpage",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/all-psc-in-india/",
+    "name":"All PSC in India – UPSC & State Public Service Commissions List",
+    "headline":"All PSC in India – UPSC & State PSCs (Full List)",
+    "description":"All PSC in India - Complete list of UPSC and all State Public Service Commissions like BPSC, RPSC, MPPSC, UPPSC, TNPSC, WBPSC, TSPSC, APPSC, GPSC & others.",
+    "inLanguage":"en",
+    "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+    "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is PSC in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PSC (Public Service Commission) ek constitutional body hai jo central ya state government ke liye officers aur higher level posts ke recruitment exams conduct karti hai. Central level par UPSC hai, jabki har state ka apna State Public Service Commission hota hai."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many PSCs are there in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "India me ek central PSC hai jise Union Public Service Commission (UPSC) kehte hain, aur har state/UT ke liye alag State Public Service Commission ya State PSC hota hai jo us state ke civil services aur anya group A/B posts ke exams organise karta hai."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which exams are conducted by PSCs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Public Service Commissions mainly civil services, police, forest, engineering, medical, education, administrative aur anya gazetted posts ke liye written exam, interview aur selection process handle karte hain. Exact exams har state PSC ke notification ke according change hote hain."
+        }
+      }
+    ]
+  }
+  </script>
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  :root {
+    --psc-bg: #f3f4f6;
+    --psc-card-bg: #ffffff;
+    --psc-primary: #2563eb;
+    --psc-primary-soft: #e0edff;
+    --psc-accent: #0ea5e9;
+    --psc-text-main: #111827;
+    --psc-text-sub: #4b5563;
+    --psc-border: #e5e7eb;
+    --psc-radius-lg: 16px;
+    --psc-radius-md: 12px;
+  }
+
+  /* Breadcrumb – minimal clean */
+  .breadcrumb {
+    padding: 10px 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--psc-border);
+    font-size: 13px;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a {
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 6px;
+    color: #9ca3af;
+  }
+
+  /* Hero section – soft, SEO friendly */
+  .psc-hero {
+    background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+    border-bottom: 1px solid #dbeafe;
+    padding: 22px 0 18px;
+  }
+  .psc-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.1fr);
+    gap: 20px;
+    align-items: center;
+  }
+  @media (max-width: 992px) {
+    .psc-hero-inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .psc-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #dbeafe;
+    border: 1px solid #bfdbfe;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #1d4ed8;
+    margin-bottom: 8px;
+  }
+  .psc-hero-badge span.icon {
+    font-size: 13px;
+  }
+
+  .psc-hero h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--psc-text-main);
+    margin-bottom: 6px;
+  }
+  .psc-hero p {
+    font-size: 14px;
+    color: var(--psc-text-sub);
+    line-height: 1.7;
+    max-width: 620px;
+  }
+  .psc-hero p strong {
+    color: #1d4ed8;
+  }
+
+  .psc-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .psc-chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    color: #1e40af;
+  }
+
+  .psc-hero-box {
+    background: #ffffff;
+    border-radius: var(--psc-radius-lg);
+    border: 1px solid #dbeafe;
+    box-shadow: 0 14px 35px rgba(148, 163, 184, 0.35);
+    padding: 14px 16px 12px;
+  }
+  .psc-hero-box h2 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--psc-text-main);
+  }
+  .psc-hero-box p {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .psc-hero-box ul {
+    font-size: 12px;
+    color: var(--psc-text-sub);
+    margin: 6px 0 0;
+    padding-left: 18px;
+  }
+  .psc-hero-box li {
+    margin-bottom: 4px;
+  }
+
+  /* Main layout */
+  .psc-main {
+    background: var(--psc-bg);
+    padding: 20px 0 30px;
+  }
+  .psc-main-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(260px, 1.3fr);
+    gap: 22px;
+  }
+  @media (max-width: 992px) {
+    .psc-main-inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* PSC grid */
+  .psc-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--psc-text-main);
+    margin-bottom: 4px;
+  }
+  .psc-section-sub {
+    font-size: 13px;
+    color: var(--psc-text-sub);
+    margin-bottom: 14px;
+  }
+
+  .psc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+  }
+
+  .psc-card {
+    background: var(--psc-card-bg);
+    border-radius: var(--psc-radius-md);
+    border: 1px solid var(--psc-border);
+    padding: 10px 11px 9px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .15s ease;
+  }
+  .psc-card:hover {
+    border-color: var(--psc-primary);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .psc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .psc-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 0, #bfdbfe, #1d4ed8);
+    color: #eff6ff;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .psc-card-header-text {
+    flex: 1;
+  }
+  .psc-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--psc-text-main);
+    line-height: 1.4;
+  }
+  .psc-state {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: .06em;
+  }
+
+  .psc-desc {
+    font-size: 12px;
+    color: var(--psc-text-sub);
+    line-height: 1.6;
+  }
+
+  .psc-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .psc-badge {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--psc-primary-soft);
+    color: #1d4ed8;
+    font-weight: 500;
+  }
+  .psc-link {
+    text-decoration: none;
+    color: var(--psc-primary);
+    font-weight: 500;
+  }
+  .psc-link span {
+    font-size: 10px;
+  }
+  .psc-link:hover {
+    text-decoration: underline;
+  }
+
+  /* SEO table section */
+  .psc-table-section {
+    margin-top: 20px;
+  }
+  .psc-table-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--psc-text-main);
+    margin-bottom: 6px;
+  }
+  .psc-table-note {
+    font-size: 12px;
+    color: var(--psc-text-sub);
+    margin-bottom: 8px;
+  }
+  .psc-table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--psc-border);
+    background: #ffffff;
+  }
+  table.psc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .psc-table th,
+  .psc-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+  }
+  .psc-table th {
+    background: #eff6ff;
+    font-weight: 600;
+    color: #1f2933;
+    text-align: left;
+  }
+  .psc-table tr:nth-child(even) td {
+    background: #f9fafb;
+  }
+  .psc-table a {
+    color: var(--psc-primary);
+    text-decoration: none;
+  }
+  .psc-table a:hover {
+    text-decoration: underline;
+  }
+
+  /* Sidebar cards */
+  .psc-sidebar-card {
+    background: #ffffff;
+    border-radius: var(--psc-radius-lg);
+    border: 1px solid var(--psc-border);
+    padding: 12px 14px 10px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    margin-bottom: 16px;
+  }
+  .psc-sidebar-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--psc-text-main);
+  }
+  .psc-sidebar-text {
+    font-size: 12px;
+    color: var(--psc-text-sub);
+    line-height: 1.7;
+  }
+  .psc-sidebar-text strong {
+    color: var(--psc-text-main);
+  }
+  .psc-bullet-list {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    font-size: 12px;
+    color: var(--psc-text-sub);
+  }
+  .psc-bullet-list li {
+    margin-bottom: 4px;
+  }
+
+  .psc-faq-item {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--psc-border);
+  }
+  .psc-faq-q {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--psc-text-main);
+    margin-bottom: 3px;
+  }
+  .psc-faq-a {
+    font-size: 12px;
+    color: var(--psc-text-sub);
+    line-height: 1.6;
+  }
+
+  .psc-small-note {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 576px) {
+    .psc-hero h1 {
+      font-size: 20px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>&gt;</span>
+      <span>All PSC in India</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="psc-hero">
+    <div class="container">
+      <div class="psc-hero-inner">
+        <div>
+          <div class="psc-hero-badge">
+            <span class="icon">🏛️</span>
+            <span>UPSC & State PSC Reference</span>
+          </div>
+          <h1>All PSC in India – UPSC & State PSCs (Full List)</h1>
+          <p>
+            Is page par aapko <strong>Union Public Service Commission (UPSC)</strong> ke saath–saath
+            sabhi important <strong>State Public Service Commissions (PSC)</strong> ki list milegi –
+            jisme unka full name, state/UT aur basic exam role short description ke saath diya gaya hai.
+          </p>
+          <div class="psc-hero-meta">
+            <span class="psc-chip">Central + State PSC Directory</span>
+            <span class="psc-chip">Civil Services, Technical & Other Posts</span>
+            <span class="psc-chip">Quick reference for aspirants</span>
+          </div>
+        </div>
+        <div>
+          <div class="psc-hero-box">
+            <h2>Why this “All PSC in India” page?</h2>
+            <p>
+              Jab aap competitive exams ki tayari kar rahe hote hain, to aksar confusion hota hai ki
+              <strong>kaun sa exam kaun si body conduct karti hai</strong>. Ye page usi confusion ko clear karta hai.
+            </p>
+            <ul>
+              <li>UPSC + sabhi major State PSC ek hi view me</li>
+              <li>PSC ka short role & example exams ka idea</li>
+              <li>Future me alag–alag PSC jobs pages ko link karne ke liye perfect hub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <section class="psc-main">
+    <div class="container">
+      <div class="psc-main-inner">
+
+        <!-- LEFT: GRID + TABLE -->
+        <div>
+          <header>
+            <h2 class="psc-section-title">List of All Public Service Commissions (PSC) in India</h2>
+            <p class="psc-section-sub">
+              Neeche diya gaya section ek <strong>visual grid</strong> hai jahan aap har PSC ka naam,
+              state aur basic role fast way me samajh sakte hain. Neeche table section me same info
+              SEO–friendly tabular format me bhi diya gaya hai.
+            </p>
+          </header>
+
+          <!-- PSC GRID -->
+          <div class="psc-grid">
+
+            <!-- UPSC -->
+              
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-landmark"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'upscjob' %}" class="text-decoration-none">    <div class="psc-name">Union Public Service Commission (UPSC)</div>
+                  <div class="psc-state">Central – All India</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                All India Civil Services (IAS, IPS, IFS), defence services, engineering, medical
+                & central govt higher posts ke liye sabse bada recruitment body hai.
+              </p>
+              </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">Central PSC</span>
+                <a href="/upsc-jobs/" class="psc-link">UPSC Jobs <span>↗</span></a>
+              </div>
+            </article> 
+            
+
+            <!-- Andhra Pradesh -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-university"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'appsc' %}" class="text-decoration-none">   <div class="psc-name">Andhra Pradesh Public Service Commission (APPSC)</div>
+                  <div class="psc-state">State – Andhra Pradesh</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Andhra Pradesh state services, group–I/II posts, technical, engineering & administrative
+                cadres ke liye competitive exams organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/andhra-pradesh-appsc-jobs/" class="psc-link">APPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Arunachal Pradesh -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-mountain"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'arunachal_appsc_jobs' %}" class="text-decoration-none">   <div class="psc-name">Arunachal Pradesh Public Service Commission</div>
+                  <div class="psc-state">State – Arunachal Pradesh</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                State civil services, police, engineering, administrative & anya group posts ke liye
+                recruitment exams conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/arunachal-pradesh-psc-jobs/" class="psc-link">Arunachal PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Assam -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-water"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'apsc' %}" class="text-decoration-none">    <div class="psc-name">Assam Public Service Commission (APSC)</div>
+                  <div class="psc-state">State – Assam</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Assam Civil Services, allied services, engineering, lecturer & various state cadre posts
+                ke liye recruitment APSC ke through hota hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/assam-apsc-jobs/" class="psc-link">APSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Bihar -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-city"></i></div>
+                <div class="psc-card-header-text">
+              <a href="{% url 'bpsc' %}" class="text-decoration-none">      <div class="psc-name">Bihar Public Service Commission (BPSC)</div>
+                  <div class="psc-state">State – Bihar</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Bihar civil services, police, revenue, education, engineering & anya gazetted posts ke liye
+                BPSC sabse important exam body hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/bihar-bpsc-jobs/" class="psc-link">BPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Chhattisgarh -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-tree"></i></div>
+                <div class="psc-card-header-text">
+               <a href="{% url 'cgpsc' %}" class="text-decoration-none">     <div class="psc-name">Chhattisgarh Public Service Commission (CGPSC)</div>
+                  <div class="psc-state">State – Chhattisgarh</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                CG state services, forest, engineering, medical, education & anya state level posts ke liye
+                combined competitive exams conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/chhattisgarh-cgpsc-jobs/" class="psc-link">CGPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Goa -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-umbrella-beach"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'goapsc' %}" class="text-decoration-none">    <div class="psc-name">Goa Public Service Commission</div>
+                  <div class="psc-state">State – Goa</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Goa ke group “A” & “B” level posts – especially administrative, medical, education, technical
+                services ke liye recruitment notifications jari karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/goa-psc-jobs/" class="psc-link">Goa PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Gujarat -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-industry"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'gpsc' %}" class="text-decoration-none">    <div class="psc-name">Gujarat Public Service Commission (GPSC)</div>
+                  <div class="psc-state">State – Gujarat</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Gujarat civil services, engineering services, class–I/II posts & anya state services ke liye
+                GPSC exams organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/gujarat-gpsc-jobs/" class="psc-link">GPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Haryana -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-road"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'hpsc' %}" class="text-decoration-none">    <div class="psc-name">Haryana Public Service Commission (HPSC)</div>
+                  <div class="psc-state">State – Haryana</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                HCS (Ex. Br.), allied services, medical, engineering & lecturer posts ke liye state level
+                recruitment exams HPSC conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/haryana-hpsc-jobs/" class="psc-link">HPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Himachal Pradesh -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-mountain-city"></i></div>
+                <div class="psc-card-header-text">
+              <a href="{% url 'hppsc' %}" class="text-decoration-none">     <div class="psc-name">Himachal Pradesh Public Service Commission (HPPSC)</div>
+                  <div class="psc-state">State – Himachal Pradesh</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                HPAS & allied services, lecturer, engineering, medical & anya gazetted posts ke liye recruitment
+                exams HPPSC ke through hote hain.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/himachal-pradesh-hppsc-jobs/" class="psc-link">HPPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Jammu & Kashmir -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-snowflake"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'jkpsc' %}" class="text-decoration-none">    <div class="psc-name">Jammu & Kashmir Public Service Commission (JKPSC)</div>
+                  <div class="psc-state">UT – J&K</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                JKAS (CCE), medical officer, lecturer, AE/JE & anya state services ke liye competitive exams
+                JKPSC conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/jkpsc-jobs/" class="psc-link">JKPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Jharkhand -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-hammer"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'jpsc' %}" class="text-decoration-none">    <div class="psc-name">Jharkhand Public Service Commission (JPSC)</div>
+                  <div class="psc-state">State – Jharkhand</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Jharkhand civil services, police, finance, education & anya gazetted posts ke liye JPSC exams
+                important hote hain.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/jharkhand-jpsc-jobs/" class="psc-link">JPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Karnataka -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-building-columns"></i></div>
+                <div class="psc-card-header-text">
+              <a href="{% url 'kpsc' %}" class="text-decoration-none">      <div class="psc-name">Karnataka Public Service Commission (KPSC)</div>
+                  <div class="psc-state">State – Karnataka</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                KAS, group–A/B services, technical, engineering, administrative & anya state posts ke liye
+                KPSC recruitment process handle karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/karnataka-kpsc-jobs/" class="psc-link">KPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Kerala -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-water-ladder"></i></div>
+                <div class="psc-card-header-text">
+               <a href="{% url 'kerala_job' %}" class="text-decoration-none">     <div class="psc-name">Kerala Public Service Commission (Kerala PSC)</div>
+                  <div class="psc-state">State – Kerala</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Kerala PSC state departments ke liye clerical, technical, teaching, police, health & anya
+                bahut saari posts ke recruitment ke liye known hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/kerala-psc-jobs/" class="psc-link">Kerala PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Madhya Pradesh -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-monument"></i></div>
+                <div class="psc-card-header-text">
+               <a href="{% url 'mppsc_jobs' %}" class="text-decoration-none">     <div class="psc-name">Madhya Pradesh Public Service Commission (MPPSC)</div>
+                  <div class="psc-state">State – Madhya Pradesh</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                MP state services, forest services, engineering, medical, education & anya posts ke liye
+                MPPSC competitive exams conduct karta hai.
+              </p>  </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/madhya-pradesh-mppsc-jobs/" class="psc-link">MPPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Maharashtra -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-city"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'mpsc_jobs' %}" class="text-decoration-none">    <div class="psc-name">Maharashtra Public Service Commission (MPSC)</div>
+                  <div class="psc-state">State – Maharashtra</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Maharashtra state services, engineering, agriculture, police & anya group posts ke liye
+                MPSC important recruitment body hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/maharashtra-mpsc-jobs/" class="psc-link">MPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Manipur -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-leaf"></i></div>
+                <div class="psc-card-header-text">
+               <a href="{% url 'manipur_jobs' %}" class="text-decoration-none">     <div class="psc-name">Manipur Public Service Commission</div>
+                  <div class="psc-state">State – Manipur</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Manipur state civil services, police, medical, engineering & anya administrative posts ke liye
+                recruitment exams organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/manipur-psc-jobs/" class="psc-link">Manipur PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Meghalaya -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-cloud"></i></div>
+                <div class="psc-card-header-text">
+             <a href="{% url 'meghalaya_jobs' %}" class="text-decoration-none">       <div class="psc-name">Meghalaya Public Service Commission</div>
+                  <div class="psc-state">State – Meghalaya</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                State services, police, teaching, health & technical posts ke liye competitive exams
+                conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/meghalaya-psc-jobs/" class="psc-link">Meghalaya PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Mizoram -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-hill-rockslide"></i></div>
+                <div class="psc-card-header-text">
+                  <a href="{% url 'mizoram_jobs' %}" class="text-decoration-none">  <div class="psc-name">Mizoram Public Service Commission</div>
+                  <div class="psc-state">State – Mizoram</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Mizoram state civil services & allied posts, lecturer, medical & anya services ke liye
+                PSC exams conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/mizoram-psc-jobs/" class="psc-link">Mizoram PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Nagaland -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-tree-city"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'nagaland_jobs' %}" class="text-decoration-none">   <div class="psc-name">Nagaland Public Service Commission</div>
+                  <div class="psc-state">State – Nagaland</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                NCS/NPS & anya state services, technical & administrative posts ke liye recruitment exams
+                NPSC organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/nagaland-psc-jobs/" class="psc-link">Nagaland PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Odisha -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-fish"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'opsc_jobs' %}" class="text-decoration-none">   <div class="psc-name">Odisha Public Service Commission (OPSC)</div>
+                  <div class="psc-state">State – Odisha</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Odisha civil services, forest services, engineering, medical, education & anya state posts
+                ke liye OPSC exams conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/odisha-opsc-jobs/" class="psc-link">OPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Punjab -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-tractor"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'punjab_jobs' %}" class="text-decoration-none">    <div class="psc-name">Punjab Public Service Commission (PPSC)</div>
+                  <div class="psc-state">State – Punjab</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Punjab civil services, Naib Tehsildar, Inspector, ADO, medical, engineering & anya group posts
+                ke liye recruitment PPSC handle karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/punjab-ppsc-jobs/" class="psc-link">PPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Rajasthan -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-fort-awesome"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'rpsc_jobs' %}" class="text-decoration-none">    <div class="psc-name">Rajasthan Public Service Commission (RPSC)</div>
+                  <div class="psc-state">State – Rajasthan</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                RAS/RTS, school & college lecturer, assistant engineer & anya state level posts ke liye
+                RPSC recruitment exams organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/rajasthan-rpsc-jobs/" class="psc-link">RPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Sikkim -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-mountain-sun"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'sikkim_jobs' %}" class="text-decoration-none">    <div class="psc-name">Sikkim Public Service Commission</div>
+                  <div class="psc-state">State – Sikkim</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Sikkim state civil services, medical, engineering & anya departments me recruitment exams
+                SPSC ke through hote hain.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/sikkim-psc-jobs/" class="psc-link">Sikkim PSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Tamil Nadu -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-bridge"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'tnpsc_jobs' %}" class="text-decoration-none">   <div class="psc-name">Tamil Nadu Public Service Commission (TNPSC)</div>
+                  <div class="psc-state">State – Tamil Nadu</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Group–I to Group–IV services, VAO, engineering, medical & anya state posts ke liye TNPSC
+                sabse important exam body hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/tamil-nadu-tnpsc-jobs/" class="psc-link">TNPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Telangana -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-bolt"></i></div>
+                <div class="psc-card-header-text">
+                <a href="{% url 'telangana_jobs' %}" class="text-decoration-none">    <div class="psc-name">Telangana State Public Service Commission (TSPSC)</div>
+                  <div class="psc-state">State – Telangana</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Group–I, II, III, IV, AEE/AE, teacher, JL, DL & anya Telangana state services ke liye
+                recruitment exams TSPSC organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/telangana-tspsc-jobs/" class="psc-link">TSPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Tripura -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-feather-pointed"></i></div>
+                <div class="psc-card-header-text">
+               <a href="{% url 'tripura_jobs' %}" class="text-decoration-none">     <div class="psc-name">Tripura Public Service Commission (TPSC)</div>
+                  <div class="psc-state">State – Tripura</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                Tripura Civil Services (TCS), Tripura Police Service (TPS), JE, assistant professor,
+                medical & anya state services ke liye exams TPSC conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/tripura-tpsc-jobs/" class="psc-link">TPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Uttar Pradesh -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-gopuram"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'uppsc_jobs' %}" class="text-decoration-none">   <div class="psc-name">Uttar Pradesh Public Service Commission (UPPSC)</div>
+                  <div class="psc-state">State – Uttar Pradesh</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                UP PCS, ACF/RFO, medical officer, lecturer, AE & numerous anya state cadre posts ke liye
+                UPPSC exams conduct karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/uppsc-jobs/" class="psc-link">UPPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- Uttarakhand -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-mountain"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'ukpsc_jobs' %}" class="text-decoration-none">   <div class="psc-name">Uttarakhand Public Service Commission (UKPSC)</div>
+                  <div class="psc-state">State – Uttarakhand</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                UKPSC state services, forest services, JE/AE, lecturer & anya state department posts ke liye
+                recruitment exams organise karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/uttarakhand-ukpsc-jobs/" class="psc-link">UKPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+            <!-- West Bengal -->
+            <article class="psc-card">
+              <div class="psc-card-header">
+                <div class="psc-icon"><i class="fas fa-ship"></i></div>
+                <div class="psc-card-header-text">
+                 <a href="{% url 'wbpsc_jobs' %}" class="text-decoration-none">   <div class="psc-name">West Bengal Public Service Commission (WBPSC)</div>
+                  <div class="psc-state">State – West Bengal</div>
+                </div>
+              </div>
+              <p class="psc-desc">
+                WBCS (Exe.), Miscellaneous Services, clerkship, Food SI, AE, lecturer & anya state posts ke liye
+                WBPSC recruitment notifications jari karta hai.
+              </p> </a>
+              <div class="psc-card-footer">
+                <span class="psc-badge">State PSC</span>
+                <a href="/west-bengal-wbpsc-jobs/" class="psc-link">WBPSC Jobs <span>↗</span></a>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- TABLE SECTION (SEO helpful) -->
+          <section class="psc-table-section">
+            <h3 class="psc-table-title">All PSC in India – Quick Reference Table</h3>
+            <p class="psc-table-note">
+              Neeche wali table unhi PSCs ka quick reference hai jo upar grid me diye gaye hain.
+              Aap isko exam preparation ke time ek short note ki tarah bhi use kar sakte hain.
+            </p>
+            <div class="psc-table-wrapper">
+              <table class="psc-table">
+                <thead>
+                  <tr>
+                    <th>PSC Name</th>
+                    <th>Short Code</th>
+                    <th>State / Level</th>
+                    <th>Example Exams</th>
+                    <th>Jobs Page</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Union Public Service Commission</td>
+                    <td>UPSC</td>
+                    <td>Central</td>
+                    <td>IAS, IPS, IFS, CDS, ESE</td>
+                    <td><a href="{% url 'upscjob' %}">UPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Andhra Pradesh Public Service Commission</td>
+                    <td>APPSC</td>
+                    <td>Andhra Pradesh</td>
+                    <td>Group-I, Group-II, Technical Posts</td>
+                    <td><a href="{% url 'appsc' %}">APPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Assam Public Service Commission</td>
+                    <td>APSC</td>
+                    <td>Assam</td>
+                    <td>Assam Civil Services, Allied Services</td>
+                    <td><a href="{% url 'apsc' %}">APSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Bihar Public Service Commission</td>
+                    <td>BPSC</td>
+                    <td>Bihar</td>
+                    <td>Bihar PCS, Assistant, Lecturer</td>
+                    <td><a href="{% url 'bpsc' %}">BPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Chhattisgarh Public Service Commission</td>
+                    <td>CGPSC</td>
+                    <td>Chhattisgarh</td>
+                    <td>State Services, Forest Services</td>
+                    <td><a href="{% url 'cgpsc' %}">CGPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Gujarat Public Service Commission</td>
+                    <td>GPSC</td>
+                    <td>Gujarat</td>
+                    <td>Class I/II Services, Engineering</td>
+                    <td><a href="{% url 'gpsc' %}">GPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Punjab Public Service Commission</td>
+                    <td>PPSC</td>
+                    <td>Punjab</td>
+                    <td>Punjab Civil Services, ADO, Inspector</td>
+                    <td><a href="{% url 'punjab_jobs' %}">PPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Rajasthan Public Service Commission</td>
+                    <td>RPSC</td>
+                    <td>Rajasthan</td>
+                    <td>RAS/RTS, Lecturer, AE</td>
+                    <td><a href="{% url 'rpsc_jobs' %}">RPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Tamil Nadu Public Service Commission</td>
+                    <td>TNPSC</td>
+                    <td>Tamil Nadu</td>
+                    <td>Group-I to IV, VAO, Technical</td>
+                    <td><a href="{% url 'tnpsc_jobs' %}">TNPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Telangana State Public Service Commission</td>
+                    <td>TSPSC</td>
+                    <td>Telangana</td>
+                    <td>Group-I, II, III, IV, AEE/AE</td>
+                    <td><a href="{% url 'telangana_jobs' %}">TSPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Tripura Public Service Commission</td>
+                    <td>TPSC</td>
+                    <td>Tripura</td>
+                    <td>TCS/TPS, JE, Assistant Professor</td>
+                    <td><a href="{% url 'tripura_jobs' %}">TPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Uttar Pradesh Public Service Commission</td>
+                    <td>UPPSC</td>
+                    <td>Uttar Pradesh</td>
+                    <td>PCS, ACF/RFO, Medical, AE</td>
+                    <td><a href="{% url 'uppsc_jobs' %}">UPPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>Uttarakhand Public Service Commission</td>
+                    <td>UKPSC</td>
+                    <td>Uttarakhand</td>
+                    <td>State Services, Forest, JE/AE</td>
+                    <td><a href="{% url 'ukpsc_jobs' %}">UKPSC Jobs</a></td>
+                  </tr>
+                  <tr>
+                    <td>West Bengal Public Service Commission</td>
+                    <td>WBPSC</td>
+                    <td>West Bengal</td>
+                    <td>WBCS, Misc, Clerkship, Food SI</td>
+                    <td><a href="{% url 'wbpsc_jobs' %}">WBPSC Jobs</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="psc-small-note">
+              Note: Example exams sirf understanding ke liye diye gaye hain. Exact post list har
+              latest notification ke according change ho sakti hai.
+            </p>
+          </section>
+        </div>
+
+        <!-- RIGHT: SIDEBAR -->
+        <aside>
+          <div class="psc-sidebar-card">
+            <h3 class="psc-sidebar-title">PSC kya hota hai? (Short Explanation)</h3>
+            <p class="psc-sidebar-text">
+              <strong>PSC (Public Service Commission)</strong> ek constitutional ya statutory body hoti hai
+              jo government ke liye <strong>officers & higher level posts</strong> ka selection process handle karti hai.
+              Central level par <strong>UPSC</strong> hai, jabki har state ke liye alag–alag
+              <strong>State PSC</strong> hota hai.
+            </p>
+            <ul class="psc-bullet-list">
+              <li>Written exam + interview + document verification</li>
+              <li>Reservation & eligibility government rules ke according</li>
+              <li>Final recommendation state/central government ko bheja jata hai</li>
+            </ul>
+          </div>
+
+          <div class="psc-sidebar-card">
+            <h3 class="psc-sidebar-title">Who should follow PSC exams?</h3>
+            <p class="psc-sidebar-text">
+              Jo students <strong>graduate ya professional degree (B.Tech, MBBS, LLB, B.Ed, etc.)</strong>
+              complete kar chuke hain, unke liye PSC exams bahut strong career option ho sakte hain –
+              specially agar aapko:
+            </p>
+            <ul class="psc-bullet-list">
+              <li><strong>Civil services</strong> ya administrative work pasand ho</li>
+              <li><strong>Engineering, medical, education, police, forest</strong> field me govt job chahiye</li>
+              <li>Long–term secure career + social respect chahiye</li>
+            </ul>
+          </div>
+
+          <div class="psc-sidebar-card">
+            <h3 class="psc-sidebar-title">FAQ – PSC Related Common Doubts</h3>
+
+            <div class="psc-faq-item">
+              <div class="psc-faq-q">PSC aur SSC me kya difference hai?</div>
+              <div class="psc-faq-a">
+                PSC generally <strong>Group A & B (officer level)</strong> posts ke liye responsible hota hai,
+                jabki SSC / state subordinate boards mostly <strong>clerical, assistant, constable, group C</strong>
+                level posts ke liye exams conduct karte hain. Yeh state–to–state thoda vary bhi kar sakta hai.
+              </div>
+            </div>
+
+            <div class="psc-faq-item">
+              <div class="psc-faq-q">Ek hi candidate multiple PSC exams de sakta hai?</div>
+              <div class="psc-faq-a">
+                Haan, agar aap eligibility condition (age limit, qualification, domicile etc.)
+                fulfill karte hain to aap <strong>multiple states ke PSC exams</strong> me apply kar sakte hain.
+                Bas notification me di gayi conditions dhyan se padna zaroori hai.
+              </div>
+            </div>
+
+            <div class="psc-faq-item">
+              <div class="psc-faq-q">WifiResult par PSC related kya–kya milega?</div>
+              <div class="psc-faq-a">
+                Hum koshish karte hain ki aapko <strong>latest PSC notifications, online form links, exam dates,
+                admit cards, syllabus PDF, answer keys & results</strong> ek hi portal par mil jayein – jisse
+                aapko alag–alag websites search na karni pade.
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}  
+
+
+
+
