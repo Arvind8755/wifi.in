@@ -1,0 +1,940 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+    {% block seo %} 
+<title>WifiResult — सरकारी नौकरियाँ, एडमिट कार्ड और सरकारी रिजल्ट अपडेट</title>
+<meta name="description" content="सरकारी नौकरियों, एडमिट कार्ड, उत्तर कुंजी और भर्ती समाचार की नवीनतम जानकारी प्राप्त करें। WifiResult पर त्वरित अलर्ट, आधिकारिक लिंक और परीक्षा अपडेट।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.in">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta property="og:title" content="WifiResult — सरकारी नौकरियाँ, एडमिट कार्ड और सरकारी रिजल्ट अपडेट">
+<meta property="og:description" content="सरकारी नौकरियों, एडमिट कार्ड, उत्तर कुंजी और भर्ती समाचार की नवीनतम जानकारी प्राप्त करें। WifiResult पर त्वरित अलर्ट, आधिकारिक लिंक और परीक्षा अपडेट।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/">
+<meta name="twitter:title" content="WifiResult — सरकारी नौकरियाँ, एडमिट कार्ड और सरकारी रिजल्ट अपडेट">
+<meta name="twitter:description" content="सरकारी नौकरियों, एडमिट कार्ड, उत्तर कुंजी और भर्ती समाचार की नवीनतम जानकारी प्राप्त करें। WifiResult पर त्वरित अलर्ट, आधिकारिक लिंक और परीक्षा अपडेट।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult"/>
+<meta name="twitter:creator" content="@arvindpal"/>
+<meta name="twitter:label1" content="लेखक"/>
+<meta name="twitter:data1" content="अरविंद पाल"/>
+<meta name="twitter:label2" content="पढ़ने का समय"/>
+<meta name="twitter:data2" content="6 मिनट"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage","CollectionPage"],
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/#homepage",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/",
+  "name": "WifiResult — सरकारी नौकरियाँ, एडमिट कार्ड और सरकारी रिजल्ट अपडेट",
+  "headline": "WifiResult – सरकारी रिजल्ट, सरकारी नौकरियाँ, आज का एडमिट कार्ड",
+  "description": "सरकारी नौकरियों, एडमिट कार्ड, उत्तर कुंजी और भर्ती समाचार की नवीनतम जानकारी प्राप्त करें। WifiResult पर त्वरित अलर्ट, आधिकारिक लिंक और परीक्षा अपडेट।",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#breadcrumb" }
+}
+</script>
+
+
+<!--BreadcrumbList Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/#breadcrumb",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "मुखपृष्ठ",
+    "item": "{{ request.scheme }}://{{ request.get_host }}/"
+  }]
+}
+</script>
+
+<!--FAQ (Schema)-->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "क्या WifiResult एक आधिकारिक सरकारी वेबसाइट है?",
+        "acceptedAnswer": {"@type":"Answer","text":"नहीं। WifiResult एक निजी सूचना और समाचार वेबसाइट है जो सरकारी भर्तियों, एडमिट कार्ड, उत्तर कुंजी और परिणामों के अपडेट प्रदान करती है।"}
+      },
+      {
+        "@type": "Question",
+        "name": "मैं आधिकारिक अधिसूचनाएं या परिणाम कैसे डाउनलोड कर सकता हूँ?",
+        "acceptedAnswer": {"@type":"Answer","text":"हर पोस्ट में 'आधिकारिक लिंक' या 'PDF डाउनलोड करें' अनुभाग होता है जो संबंधित विभाग की आधिकारिक वेबसाइट पर रीडायरेक्ट करता है।"}
+      },
+      {
+        "@type": "Question",
+        "name": "क्या WifiResult पर प्रकाशित तिथियाँ और अंतिम तिथियाँ सत्यापित हैं?",
+        "acceptedAnswer": {"@type":"Answer","text":"हम आधिकारिक अधिसूचना के अनुसार तिथियाँ प्रकाशित करते हैं, लेकिन पुष्टि के लिए संबंधित विभाग की वेबसाइट से जाँच करने की सलाह देते हैं।"}
+      },
+      {
+        "@type": "Question",
+        "name": "क्या मैं सीधे WifiResult के माध्यम से आवेदन कर सकता हूँ?",
+        "acceptedAnswer": {"@type":"Answer","text":"नहीं। WifiResult केवल निर्देश और 'ऑनलाइन आवेदन करें' लिंक प्रदान करता है जो आधिकारिक पोर्टल पर रीडायरेक्ट करते हैं।"}
+      },
+      {
+        "@type": "Question",
+        "name": "WifiResult पर जानकारी कितनी बार अपडेट की जाती है?",
+        "acceptedAnswer": {"@type":"Answer","text":"जब भी कोई नई अधिसूचना, परिणाम या आधिकारिक अपडेट जारी होता है, हमारी टीम इसे साइट पर अपडेट करती है।"}
+      },
+      {
+        "@type": "Question",
+        "name": "क्या मुझे WifiResult से ईमेल अलर्ट मिल सकते हैं?",
+        "acceptedAnswer": {"@type":"Answer","text":"यदि सदस्यता/न्यूज़लेटर सुविधा उपलब्ध है, तो उपयोगकर्ता ईमेल अलर्ट के लिए साइन अप कर सकते हैं।"}
+      },
+      {
+        "@type": "Question",
+        "name": "मैंने एक पद के लिए आवेदन किया था लेकिन मेरा परिणाम दिखाई नहीं दे रहा है — मुझे क्या करना चाहिए?",
+        "acceptedAnswer": {"@type":"Answer","text":"विसंगतियों के लिए, कृपया संबंधित विभाग की हेल्पलाइन से संपर्क करें। WifiResult का चयन पर कोई अधिकार नहीं है।"}
+      },
+      {
+        "@type": "Question",
+        "name": "क्या WifiResult की सामग्री हिंदी और अंग्रेजी दोनों में उपलब्ध है?",
+        "acceptedAnswer": {"@type":"Answer","text":"वर्तमान में, वेबसाइट मुख्य रूप से अंग्रेजी में सामग्री प्रदान करती है। कुछ अधिसूचनाएँ स्रोत के आधार पर हिंदी में भी उपलब्ध हो सकती हैं।"}
+      },
+      {
+        "@type": "Question",
+        "name": "मैं एक अधिसूचना के आधिकारिक स्रोत का पता कैसे लगा सकता हूँ?",
+        "acceptedAnswer": {"@type":"Answer","text":"प्रत्येक पोस्ट में 'महत्वपूर्ण लिंक' या 'डाउनलोड' अनुभाग होता है जिसमें आधिकारिक PDF/वेबसाइट के लिंक होते हैं।"}
+      },
+        {
+        "@type": "Question",
+        "name": "मैं WifiResult पर अपना एडमिट कार्ड कैसे देख सकता हूँ?",
+        "acceptedAnswer": {"@type":"Answer","text":"अपना एडमिट कार्ड देखने के लिए, WifiResult पर 'एडमिट कार्ड' अनुभाग पर जाएँ और अपनी संबंधित परीक्षा के लिंक पर क्लिक करें। आपको आधिकारिक डाउनलोड लिंक, परीक्षा तिथि और महत्वपूर्ण निर्देश स्पष्ट रूप से दिखाई देंगे।"}
+      }
+    ]
+  }
+  </script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+    
+   <style>
+
+    /* Hero Section - Completely redesigned */
+    .hero {
+      background: linear-gradient(135deg, #8b0dfd 0%, #dc3535 50%, #5007ff 100%);
+      padding: 0px 0;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      transform: rotate(30deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .quick-links-container {
+      width: 100%;
+      overflow-x: auto;
+      padding: 0px 0;
+      margin: 10px 0;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    .quick-links-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+
+    .quick-links {
+      display: inline-flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 10px;
+      padding: 0 10px;
+      min-width: min-content;
+    }
+
+    .quick-link {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 15px;
+    }
+
+    .quick-link i {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+     .quick-link a {
+      text-decoration: none;
+    color: inherit;
+    }
+    .quick-link a:hover {
+    text-decoration: underline;
+}
+
+    .quick-link:hover {
+      background-color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accept);
+      color: var(--dark);
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button:hover {
+      background-color: #e0a800;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 10px 0;
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    .card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+
+    .card {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      background-color: #9C0D0D;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-header i {
+      margin-right: 10px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .job-list {
+      list-style: none;
+    }
+
+    .job-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .job-list li:last-child {
+      border-bottom: none;
+    }
+
+    .job-list a {
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .job-list a:hover {
+      color: var(--primary);
+    }
+    
+  
+       /* Detailed Info Section Styling */
+    .detailed-info-section {
+      padding: 30px 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin: 30px 0;
+    }
+
+    .detailed-info-section h2 {
+      text-align: center;
+      color: #9C0D0D;
+      margin-bottom: 30px;
+      font-size: 28px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 0 15px;
+    }
+
+    .info-item {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .info-item h3 {
+      color: #9C0D0D;
+      margin-bottom: 15px;
+      font-size: 18px;
+      border-bottom: 2px solid var(--accept);
+      padding-bottom: 8px;
+    }
+
+    .info-item p {
+      color: #444;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 4px;
+    }
+
+    .highlight h4 {
+      color: #9C0D0D;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .detailed-info-section h2 {
+        font-size: 24px;
+      }
+    }
+ 
+
+   /* Redesigned Website Info (no icons) */
+    .website-info { background: linear-gradient(180deg,#ffffff,#f7f9fc); padding: 28px 0; margin: 26px 0; border-radius: 10px; }
+    .website-info h2 { color: var(--primary); text-align:center; margin-bottom: 18px; font-size:22px; }
+    .info-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .info-point { background: white; padding: 18px; border-radius: 8px; box-shadow: 0 6px 16px rgba(6,6,6,0.04); }
+    .info-point h3 { color: var(--dark); margin-bottom: 8px; font-size:16px; }
+    .info-point p { color:#5b6b73; font-size:14px; line-height:1.6; }
+ 
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      
+      .quick-link {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+      
+      .quick-link i {
+        font-size: 14px;
+        margin-right: 5px;
+      }
+        .website-info h2 {
+      font-size: 18px;
+    
+    }
+
+    }
+    
+    /* Mobile-specific styles for 2 cards per row */
+    @media (max-width: 600px) {
+      .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .card-header {
+        padding: 10px;
+        font-size: 12px;
+      }
+      
+      .card-container {
+        gap: 5px;
+        margin-bottom: 20px;
+      }
+      
+      .card-body {
+        padding: 5px;
+      }
+      
+      .job-list li {
+        padding: 8px 0;
+      }
+      
+      .job-list a {
+        font-size: 12px;
+      }
+      
+      /* Further adjustments for very small screens */
+      .search-box button {
+        padding: 0 10px;
+        font-size: 12px;
+      }
+      
+      .hero h1 {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Special adjustments for screens <= 576px */
+    @media (max-width: 576px) {
+      .quick-links-container {
+        overflow-x: visible;
+      }
+      
+      .quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .quick-link {
+        flex-basis: calc(50% - 10px);
+        justify-content: center;
+        text-align: center;
+        padding: 8px 10px;
+        border-radius: 4px;
+      }
+      
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 380px) {
+      .search-box input {
+        font-size: 11px;
+      }
+      
+      .search-box button {
+        font-size: 11px;
+        padding: 0 7px;
+      }
+      
+      .quick-link {
+        padding: 5px 9px;
+        font-size: 10px;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+
+  <!---FAQs SECTION -->
+    <style>
+  
+  
+ 
+
+    #faq{margin-top:20px}
+    .faq-wrapper{margin-top:22px}
+    .faq-card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.04);}
+    .faq-list{list-style:none;padding:0;margin:0}
+    .faq-item{border-bottom:1px dashed #ececec;padding:12px 0}
+    .faq-item:last-child{border-bottom:0}
+    .question{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .question h3{font-size:16px;margin:0;color:#0f172a}
+    .toggle{width:36px;height:36px;border-radius:8px;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;background:#fff}
+    .answer{margin-top:10px;display:none;color:#374151}
+    .answer p{margin:0}
+    @media (max-width:720px){.container{padding:1px}.faq-card{padding:14px}}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  {% endblock style %}
+
+  {% block content %}
+ <!-- Hero Section - Redesigned -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1 class="p-1">WifiResult – सरकारी रिजल्ट, सरकारी नौकरियाँ, आज का एडमिट कार्ड</h1> 
+      
+      <div class="quick-links-container">
+        <div class="quick-links">
+
+          {% for boxname in boxnames %}
+    <div class="quick-link ck-content">
+        {{ boxname.box1|safe }}
+    </div>
+{% endfor %}
+
+        </div>
+      </div>
+       
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-landmark"></i> नवीनतम नौकरियाँ
+        </div>
+        <div class="card-body">
+          <ul class="job-list p-0">
+            {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank">{{ job.title }}</a></li>
+            {% endfor %}
+            
+            <li><a href="{% url 'job' %}" target="_blank" >सभी नौकरियाँ देखें <i class="fas fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-chalkboard-teacher"></i> नवीनतम परिणाम
+        </div>
+        <div class="card-body">
+          <ul class="job-list p-0">
+            {% for result in results %}
+            <li><a href="/results/{{result.slug}}/" target="_blank"> {{result.title}}</a></li>
+            {% endfor %}
+            
+            <li><a href="{% url 'result' %}" target="_blank">सभी परिणाम देखें <i class="fas fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-id-card"></i> एडमिट कार्ड
+        </div>
+        <div class="card-body">
+          <ul class="job-list p-0">
+            {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{admitcard.slug}}/" target="_blank">{{admitcard.title}}</a></li>
+            {% endfor %}
+            
+            <li><a href="{% url 'admitcard' %}" target="_blank">सभी एडमिट कार्ड देखें <i class="fas fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    
+
+      <div class="card">
+        <div class="card-header">
+        <i class="fas fa-bell"></i>सरकारी अपडेट
+        </div>
+        <div class="card-body">
+          <ul class="job-list p-0">
+            {% for govtupdate in govtupdates %}
+            <li><a href="govt-updates/{{govtupdate.slug}}/" target="_blank">{{govtupdate.title}}</a></li>
+            {% endfor %}
+            
+            <li><a href="{% url 'govtupdates' %}" target="_blank">सभी सरकारी अपडेट देखें <i class="fas fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  <!-- Detailed Information Section -->
+<section class="detailed-info-section">
+  <div class="container">
+    <h2>सरकारी रिजल्ट और सरकारी नौकरियों के बारे में संपूर्ण जानकारी</h2>
+
+    <div class="highlight">
+      <h4>सरकारी रिजल्ट 2026 की नवीनतम जानकारी</h4>
+      <p>सभी सरकारी परीक्षाओं के लिए सरकारी रिजल्ट 2025 की सबसे ताज़ा और विश्वसनीय अपडेट यहां प्राप्त करें। हम आगामी परीक्षाओं, रिजल्ट घोषणाओं, भर्ती प्रक्रियाओं और महत्वपूर्ण तिथियों की समय पर जानकारी प्रदान करते हैं। wifiresult.in के माध्यम से केंद्र तथा राज्य सरकार की सभी सरकारी नौकरियों और उनके परिणामों से हमेशा अपडेटेड रहें।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>विभिन्न क्षेत्रों में सरकारी रिजल्ट 2025</h4>
+      <p>बैंकिंग, रक्षा, रेलवे, सिविल सेवाएं और अन्य सरकारी सेक्टर्स के लिए सरकारी रिजल्ट 2025 की पूरी जानकारी यहां उपलब्ध है। हम रिजल्ट अपडेट, कट-ऑफ मार्क्स, मेरिट लिस्ट और सिलेक्शन प्रक्रिया के विस्तृत विवरण प्रदान करते हैं।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>सरकारी परीक्षा परिणाम अपडेट</h4>
+      <p>सभी कैटेगरी की सरकारी परीक्षाओं के रिजल्ट की व्यापक जानकारी खोजें। रिजल्ट घोषणा की तारीखें, ऑफिशियल वेबसाइट के डायरेक्ट लिंक, टॉपर्स लिस्ट और कैटेगरी-वाइज कट-ऑफ की सटीक सूचना हम तुरंत उपलब्ध कराते हैं।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>सिविल सेवा परीक्षाओं के सरकारी रिजल्ट</h4>
+      <p>UPSC IAS, IPS, IFS और अन्य सेंट्रल सिविल सर्विसेज की परीक्षाओं के लिए विशेष अपडेट। प्रीलिम्स रिजल्ट, मेन्स रिजल्ट, इंटरव्यू शेड्यूल और फाइनल सिलेक्शन लिस्ट की नवीनतम जानकारी यहां मिलेगी।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>रक्षा सेवाओं के सरकारी रिजल्ट</h4>
+      <p>भारतीय सेना, नौसेना, वायुसेना, तटरक्षक और पैरामिलिट्री फोर्सेस की भर्तियों के रिजल्ट की पूरी कवरेज। लिखित परीक्षा, फिजिकल टेस्ट, मेडिकल परीक्षा और फाइनल मेरिट लिस्ट के अपडेट से जुड़े रहें।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>बैंकिंग सेक्टर के सरकारी रिजल्ट</h4>
+      <p>IBPS, SBI, RBI और अन्य पब्लिक सेक्टर बैंकों की भर्ती परीक्षाओं के रिजल्ट की विस्तृत जानकारी। PO, क्लर्क, स्पेशलिस्ट ऑफिसर जैसे पदों के रिजल्ट और एनालिसिस यहां उपलब्ध हैं।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>रेलवे भर्तियों के सरकारी रिजल्ट</h4>
+      <p>RRB NTPC, ग्रुप D, JE और अन्य टेक्निकल एवं नॉन-टेक्निकल पदों के लिए भारतीय रेलवे के सभी जोन के रिजल्ट अपडेट। हर रेलवे रिक्रूटमेंट बोर्ड की घोषणाओं से अवगत रहें।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>12वीं पास उम्मीदवारों के लिए सरकारी नौकरियां और रिजल्ट</h4>
+      <p>डिफेंस, रेलवे, बैंकिंग और राज्य सरकारों में 12वीं पास कैंडिडेट्स के लिए उपलब्ध सरकारी जॉब्स की जानकारी। एलिजिबिलिटी, एप्लीकेशन प्रोसेस और एग्जाम पैटर्न के बारे में पूरी डिटेल्स यहां मिलेंगी।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>10वीं पास उम्मीदवारों के लिए सरकारी नौकरियां</h4>
+      <p>विभिन्न सरकारी डिपार्टमेंट्स में 10वीं पास कैंडिडेट्स के लिए मौजूद ढेर सारी वैकेंसीज की खोज करें। वैकेंसी डिटेल्स, एलिजिबिलिटी क्राइटेरिया, सैलरी स्ट्रक्चर और करियर ग्रोथ की पूरी जानकारी हम देते हैं।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>सरकारी नौकरियां: छात्रों के लिए अनगिनत करियर ऑप्शन्स</h4>
+      <p>सरकारी सेक्टर एडमिनिस्ट्रेटिव सर्विसेज से लेकर टेक्निकल पोस्ट्स तक हर क्षेत्र में विविध और स्थिर करियर अवसर प्रदान करता है। इन फायदेमंद करियर विकल्पों की पूरी रेंज जानें।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>wifiresult.in क्यों चुनें सरकारी रिजल्ट 2025 के लिए?</h4>
+      <p>wifiresult.in सटीकता, समय पर अपडेट और व्यापक कवरेज के लिए जाना जाता है, इसलिए यह भारत का सबसे विश्वसनीय सरकारी रिजल्ट प्लेटफॉर्म है। हम ऑफिशियल सोर्स से वेरिफाइड जानकारी देते हैं, ताकि आप कोई महत्वपूर्ण अपडेट मिस न करें। यूजर-फ्रेंडली इंटरफेस, कस्टमाइज्ड अलर्ट और डिटेल्ड एनालिसिस हमें लाखों सरकारी जॉब एस्पिरेंट्स की पहली पसंद बनाता है।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>आपकी सफलता हमारा मिशन!</h4>
+      <p>wifiresult.in पर हम सरकारी सेक्टर में आपके करियर गोल्स को हासिल करने में पूरी मदद करते हैं। सबसे सटीक और टाइमली जानकारी, एग्जाम प्रिपरेशन रिसोर्सेज और करियर गाइडेंस प्रदान करने के लिए हमारी टीम लगातार कार्यरत रहती है।</p>
+    </div>
+
+    <div class="highlight">
+      <h4>wifiresult.in की टॉप कंटेंट और फीचर्स</h4>
+      <p>हमारा प्लेटफॉर्म लेटेस्ट जॉब नोटिफिकेशन्स, एग्जाम शेड्यूल, एडमिट कार्ड अपडेट, आंसर की, सिलेबस डिटेल्स, पिछले साल के पेपर्स, एग्जाम पैटर्न एनालिसिस, प्रिपरेशन टिप्स और विभिन्न सरकारी डिपार्टमेंट्स की भर्ती प्रक्रियाओं की पूरी जानकारी प्रदान करता है।</p>
+    </div>
+  </div>
+</section>
+
+    <!---FAQs section ---->
+
+      <section id="faq" aria-labelledby="faq-heading">
+        <div class="faq-wrapper">
+          <div class="faq-card">
+            <h2 id="faq-heading" style="color:#9C0D0D;">अक्सर पूछे जाने वाले प्रश्न (FAQs)</h2>
+            <p style="color:#9C0D0D;margin:8px 0 18px">WifiResult से संबंधित 10 सामान्य प्रश्न और उत्तर यहां दिए गए हैं।</p>
+
+            <ul class="faq-list" id="faq-list">
+
+              <li class="faq-item">
+                <div class="question" data-index="1" tabindex="0">
+                  <h3>1. क्या WifiResult एक आधिकारिक सरकारी वेबसाइट है?</h3>
+                  <div class="toggle" aria-hidden="true">+</div>
+                </div>
+                <div class="answer">
+                  <p>नहीं। WifiResult एक निजी सूचना और समाचार वेबसाइट है जो सरकारी भर्तियों, एडमिट कार्ड, उत्तर कुंजी और परिणामों के अपडेट प्रदान करती है। आधिकारिक घोषणाएं हमेशा संबंधित विभाग/बोर्ड की वेबसाइटों पर प्रकाशित की जाती हैं।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="2" tabindex="0">
+                  <h3>2. मैं आधिकारिक अधिसूचनाएं या परिणाम कैसे डाउनलोड कर सकता हूँ?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>हर पोस्ट में "आधिकारिक लिंक" या "PDF डाउनलोड करें" अनुभाग होता है। वह लिंक आपको संबंधित विभाग की आधिकारिक वेबसाइट पर पुनर्निर्देशित करेगा जहां आप दस्तावेज़ डाउनलोड कर सकते हैं।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="3" tabindex="0">
+                  <h3>3. क्या WifiResult पर प्रकाशित तिथियाँ और अंतिम तिथियाँ सत्यापित हैं?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>हम आधिकारिक PDF/अधिसूचना के अनुसार तिथियाँ प्रकाशित करते हैं। हालाँकि, अंतिम पुष्टि के लिए आधिकारिक विभाग वेबसाइट से जाँच करने की सलाह देते हैं।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="4" tabindex="0">
+                  <h3>4. क्या मैं सीधे WifiResult के माध्यम से आवेदन कर सकता हूँ?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>नहीं। हमारी साइट केवल निर्देश और "ऑनलाइन आवेदन करें" लिंक प्रदान करती है जो आपको संबंधित विभाग/बैंक/सेवा के आधिकारिक आवेदन पोर्टल पर पुनर्निर्देशित करते हैं।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="5" tabindex="0">
+                  <h3>5. WifiResult पर जानकारी कितनी बार अपडेट की जाती है?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>जब भी कोई नई अधिसूचना, परिणाम या आधिकारिक अपडेट जारी होता है, हमारी टीम इसकी समीक्षा करती है और साइट पर अपडेट करती है। अपडेट की आवृत्ति भर्ती कैलेंडर पर निर्भर करती है।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="6" tabindex="0">
+                  <h3>6. क्या मुझे WifiResult से ईमेल अलर्ट मिल सकते हैं?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>यदि साइट पर सदस्यता/न्यूज़लेटर विकल्प है, तो हाँ - आप ईमेल अलर्ट के लिए साइन अप कर सकते हैं। यदि वर्तमान में दिखाई नहीं दे रहा है, तो हम मुखपृष्ठ पर एक अधिसूचना/सदस्यता अनुभाग जोड़ने की सलाह देते हैं।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="7" tabindex="0">
+                  <h3>7. मैंने एक पद के लिए आवेदन किया था लेकिन मेरा परिणाम दिखाई नहीं दे रहा है — मुझे क्या करना चाहिए?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>विसंगतियों या परिणामों से संबंधित मुद्दों के लिए, कृपया संबंधित विभाग की हेल्पलाइन/संपर्क जानकारी से संपर्क करें। WifiResult का चयन या अयोग्यता पर कोई अधिकार नहीं है।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="8" tabindex="0">
+                  <h3>8. क्या WifiResult की सामग्री हिंदी और अंग्रेजी दोनों में उपलब्ध है?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>वर्तमान में, वेबसाइट मुख्य रूप से अंग्रेजी में सामग्री प्रदान करती है। कुछ अधिसूचनाएँ स्रोत के आधार पर हिंदी में भी उपलब्ध हो सकती हैं।</p>
+                </div>
+              </li>
+
+              <li class="faq-item">
+                <div class="question" data-index="9" tabindex="0">
+                  <h3>9. मैं एक अधिसूचना के आधिकारिक स्रोत का पता कैसे लगा सकता हूँ?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>प्रत्येक पोस्ट में "महत्वपूर्ण लिंक" या "डाउनलोड" अनुभाग होता है जिसमें आधिकारिक PDF/वेबसाइट के लिंक होते हैं। यदि आप इसे नहीं ढूंढ पा रहे हैं, तो कृपया हमें संपर्क पृष्ठ के माध्यम से सूचित करें।</p>
+                </div>
+              </li>
+
+               <li class="faq-item">
+                <div class="question" data-index="9" tabindex="0">
+                  <h3>10. मैं WifiResult पर अपना एडमिट कार्ड कैसे देख सकता हूँ?</h3>
+                  <div class="toggle">+</div>
+                </div>
+                <div class="answer">
+                  <p>अपना एडमिट कार्ड देखने के लिए, WifiResult पर "एडमिट कार्ड" अनुभाग पर जाएँ और अपनी संबंधित परीक्षा के लिंक पर क्लिक करें। आपको आधिकारिक डाउनलोड लिंक, परीक्षा तिथि और महत्वपूर्ण निर्देश स्पष्ट रूप से दिखाई देंगे। सभी एडमिट कार्ड डायरेक्ट लिंक सत्यापित स्रोतों (आधिकारिक वेबसाइटों) से लिए गए हैं।</p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </section>
+   
+  </main>
+
+    <script>
+    (function(){
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const q = item.querySelector('.question');
+        const toggle = item.querySelector('.toggle');
+        const ans = item.querySelector('.answer');
+        q.addEventListener('click', () => {
+          const isOpen = ans.style.display === 'block';
+          document.querySelectorAll('.faq-item .answer').forEach(a => a.style.display = 'none');
+          document.querySelectorAll('.faq-item .toggle').forEach(t => t.textContent = '+');
+          if(!isOpen){ ans.style.display = 'block'; toggle.textContent = '−'; }
+        });
+        q.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); } });
+      });
+    })();
+  </script>
+
+
+  {% endblock content %}

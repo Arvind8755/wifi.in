@@ -1,0 +1,761 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>यूपी पुलिस</title>
+  <meta name="description" content="यूपी पुलिस वैकेंसी: यूपीपीआरपीबी द्वारा नवीनतम यूपी पुलिस कांस्टेबल, SI, ASI, हेड कांस्टेबल और अन्य भर्ती अपडेट। पात्रता, शारीरिक मानक और ऑनलाइन फॉर्म आवेदन लिंक चेक करें।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/up-police/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/up-police/">
+  <meta property="og:title" content="यूपी पुलिस">
+  <meta property="og:description" content="यूपी पुलिस वैकेंसी: नवीनतम यूपी पुलिस कांस्टेबल, SI, ASI, हेड कांस्टेबल और अन्य भर्ती अपडेट यूपीपीआरपीबी द्वारा। पात्रता, शारीरिक मानक और ऑनलाइन फॉर्म आवेदन लिंक चेक करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/up-police/">
+  <meta name="twitter:title" content="यूपी पुलिस">
+  <meta name="twitter:description" content="यूपी पुलिस वैकेंसी: नवीनतम यूपी पुलिस कांस्टेबल, SI, ASI, हेड कांस्टेबल और अन्य भर्ती अपडेट यूपीपीआरपीबी द्वारा। पात्रता, शारीरिक मानक और ऑनलाइन फॉर्म लिंक चेक करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="7 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/up-police/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+      { "@type": "ListItem", "position": 2, "name": "पुलिस नौकरियां", "item": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/" },
+      { "@type": "ListItem", "position": 3, "name": "यूपी पुलिस वैकेंसी", "item": "{{ request.scheme }}://{{ request.get_host }}/up-police/" }
+    ]
+  }
+  </script>
+
+  <!--WebPage + CollectionPage-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "CollectionPage"],
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/up-police/#webpage",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/up-police/",
+    "name": "यूपी पुलिस",
+    "headline": "यूपी पुलिस वैकेंसी – कांस्टेबल, SI, जेल वार्डर भर्ती अपडेट",
+    "description": "यूपी पुलिस वैकेंसी: नवीनतम यूपी पुलिस कांस्टेबल, SI, ASI, हेड कांस्टेबल और अन्य भर्ती अपडेट यूपीपीआरपीबी द्वारा। पात्रता, शारीरिक मानक और ऑनलाइन फॉर्म आवेदन लिंक चेक करें।",
+    "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+    "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/up-police/#breadcrumb" }
+  }
+  </script>
+
+<!-- SEO-Optimized FAQ Schema for /up-police/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "यूपी पुलिस पेज पर मुझे क्या-क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको यूपी पुलिस कांस्टेबल, SI, जेल वार्डर, रेडियो ऑपरेटर, क्लर्क, PAC, फायरमैन और अन्य यूपीपीआरपीबी भर्तियों की नवीनतम अधिसूचनाएं, पात्रता विवरण, शारीरिक मानक, परीक्षा तिथियां और आधिकारिक आवेदन लिंक मिलते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या यूपी पुलिस की अधिसूचनाएं यहां आधिकारिक होती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, यहां सूचीबद्ध सभी यूपी पुलिस नौकरी अपडेट आधिकारिक यूपी पुलिस भर्ती और प्रमोशन बोर्ड (यूपीपीआरपीबी) की अधिसूचनाओं, प्रेस रिलीज और सरकारी पोर्टल पर आधारित होते हैं। हर लिस्टिंग के साथ आधिकारिक PDF लिंक दिया होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "यूपी पुलिस नौकरियों के लिए शारीरिक पात्रता कैसे चेक करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हर पोस्ट के लिए आवश्यक ऊंचाई, छाती माप, दौड़ परीक्षा, मेडिकल मानक और आयु सीमा जॉब लिस्टिंग में उल्लेख होती है। पूरी जानकारी के लिए आधिकारिक अधिसूचना PDF डाउनलोड करना सबसे अच्छा है।"
+      }
+    }
+  ]
+}
+</script>
+
+
+
+  <!-- ItemList — Latest UP Police Jobs (based on latest_posts) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "यूपी पुलिस",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "JobPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "title": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePosted": "{{ post.published_date|date:'c' }}",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड (यूपीपीआरपीबी)"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %}
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* ===== New Police Theme Breadcrumb ===== */
+  .breadcrumb-police {
+    padding: 12px 0;
+    background: linear-gradient(90deg, #020617, #0f172a);
+    color: #e5e7eb;
+  }
+  .breadcrumb-police .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 14px;
+  }
+  .breadcrumb-police a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb-police a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb-police span.sep {
+    color: #6b7280;
+  }
+  .breadcrumb-police span.current {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  /* ===== Breaking / Highlight Bar ===== */
+  .breaking-news-police {
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+    color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 2px solid #0f172a;
+  }
+  .breaking-news-police .container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .breaking-news-police .icon {
+    font-size: 20px;
+  }
+  .breaking-news-police .headline {
+    font-family: 'Arial', sans-serif;
+    white-space: nowrap;
+  }
+  .breaking-news-police marquee {
+    width: 100%;
+  }
+
+  /* ===== Main Layout ===== */
+  .main-content-police {
+    padding: 18px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 320px;
+  }
+  .sidebar {
+    width: 310px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* ===== Section Header ===== */
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .section-heading span.icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+    color: #f9fafb;
+  }
+  .section-subtext {
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  /* ===== Police Job Listing Box (New Look) ===== */
+  .job-listing-container {
+    background: radial-gradient(circle at top left, #eff6ff 0, #ffffff 40%, #e0f2fe 100%);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(15,23,42,0.14);
+    border: 1px solid #e5e7eb;
+  }
+  .job-listing-header {
+     background: #9C0D0D;
+    color: white;
+    padding: 11px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .job-listing-header i {
+    font-size: 15px;
+    color: #38bdf8;
+  }
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .job-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 8px 14px;
+    transition: background 0.2s ease, transform 0.06s ease;
+  }
+  .job-item:last-child {
+    border-bottom: none;
+  }
+  .job-item:nth-child(odd) {
+    background: rgba(248,250,252,0.9);
+  }
+  .job-item:nth-child(even) {
+    background: rgba(239,246,255,0.9);
+  }
+  .job-item:hover {
+    background: #dbeafe;
+    transform: translateY(-1px);
+  }
+
+  .job-main {
+    min-width: 0;
+  }
+  .job-title {
+    flex: 1;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .job-title:hover {
+    color: #1d4ed8;
+  }
+
+  .job-meta {
+    font-size: 11px;
+    color: #6b7280;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .badge-police {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .job-date {
+    color: #4b5563;
+  }
+
+  .job-right {
+    text-align: right;
+  }
+  .job-pill-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: 1px solid #cbd5f5;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    color: #0f172a;
+    gap: 4px;
+  }
+  .job-pill-link:hover {
+    background: #e0f2fe;
+    border-color: #1d4ed8;
+  }
+
+  @media (max-width: 768px) {
+    .job-item {
+      grid-template-columns: 1fr;
+      align-items: flex-start;
+    }
+    .job-right {
+      text-align: left;
+    }
+  }
+
+  /* ===== Pagination (New Chip Style) ===== */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 8px;
+  }
+  .pagination-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+  }
+  .page-btn {
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .page-btn:hover {
+    background: #e5e7eb;
+  }
+  .page-current {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ===== Sidebar Widgets ===== */
+  .trending-topics,
+  .quick-alerts {
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    margin-bottom: 18px;
+    border: 1px solid #e5e7eb;
+  }
+  .trending-header,
+  .quick-header {
+   background: #9C0D0D;
+    color: white;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .trending-header i,
+  .quick-header i {
+    font-size: 14px;
+    color: #38bdf8;
+  }
+  .trending-list,
+  .quick-list {
+    padding: 10px 14px 12px;
+  }
+  .trending-item,
+  .quick-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border, #e5e7eb);
+  }
+  .trending-item:last-child,
+  .quick-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1d4ed8;
+    margin-right: 8px;
+    min-width: 22px;
+    text-align: center;
+  }
+  .trending-content,
+  .quick-content {
+    flex: 1;
+  }
+  .trending-content a,
+  .quick-content a {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .trending-content a:hover,
+  .quick-content a:hover {
+    color: #1d4ed8;
+  }
+  .trending-meta,
+  .quick-meta {
+    font-size: 11px;
+    color: #6c757d;
+  }
+
+  @media (max-width: 992px) {
+    .trending-topics.mobile-bottom {
+      order: 99;
+      margin-top: 20px;
+    }
+  }
+
+  /* ===== Info Section – UP Police Focus ===== */
+  .website-info {
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+      color: #9C0D0D;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    border-radius: 999px;
+    background: #9C0D0D;
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #9C0D0D;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #9C0D0D;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <a href="/police-jobs/">पुलिस नौकरियां</a>
+      <span>&gt;</span>
+      <span>यूपी पुलिस वैकेंसी</span> 
+    </div>
+  </div>
+
+  <!-- Breaking / Highlight Bar -->
+  <div class="breaking-news-police">
+    <div class="container">
+      <span class="icon">🚨</span>
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        <span class="headline">
+        <h1 style="font-size:18px;" style="display: flex; justify-content: center; text-align: center;" >यूपी पुलिस वैकेंसी – कांस्टेबल, SI, जेल वार्डर भर्ती अपडेट</h1>
+        </span>
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content-police container">
+    <div class="content-area">
+      
+      <div class="section-header">
+        <div class="section-heading">
+          <span class="icon">🛡️</span>
+          <span>यूपी पुलिस वैकेंसी 2026 – नवीनतम अपडेट</span>
+        </div>
+        <div class="section-subtext">
+          यूपीपीआरपीबी • कांस्टेबल • SI • जेल वार्डर • PAC • रेडियो ऑपरेटर और अन्य पद
+        </div>
+      </div>
+
+      <!-- UP Police Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bullhorn"></i> यूपी पुलिस भर्ती अधिसूचनाएं
+        </div>
+        <ul class="job-list-compact">
+          {% for post in page_obj %}
+            <li class="job-item">
+              <div class="job-main">
+                <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>
+                <div class="job-meta">
+                  <span class="badge-police">यूपी पुलिस</span>
+                  <span class="job-date">📅 {{ post.published_date|date:"d M Y" }}</span>
+                </div>
+              </div>
+              <div class="job-right">
+                <a href="{% url 'job_detail' post.slug %}" target="_blank" class="job-pill-link">
+                  विवरण देखें
+                  <span>➜</span>
+                </a>
+              </div>
+            </li>
+          {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई यूपी पुलिस वैकेंसी लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई <strong>यूपी पुलिस कांस्टेबल / SI / जेल वार्डर भर्ती</strong> आएगी, इस पेज पर तुरंत अपडेट कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Pagination -->
+        {% if page_obj.paginator.num_pages > 1 %}
+        <div class="pagination-wrapper">
+          <div class="pagination-inner">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">← पिछला</a>
+            {% endif %}
+
+            <span class="page-current">
+              पेज {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="page-btn">अगला →</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Trending Topics Box (Dynamic) -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग सरकारी नौकरियां
+        </div>
+        <div class="trending-list">
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter }}</div>
+                <div class="trending-content">
+                  <a href="/latest-jobs/{{ job.slug }}/"  target="_blank" >{{ job.title }}</a>
+                  <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+                <div class="trending-content">
+                  <a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a>
+                  <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+      
+      <!-- Quick Alerts (Dynamic Govt Updates) -->
+      <div class="quick-alerts">
+        <div class="quick-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="quick-list">
+          {% for govtupdate in latest_govtupdates %}
+            <div class="quick-item">
+              <div class="quick-content">
+                <a href="/govt-updates/{{ govtupdate.slug }}/"  target="_blank" >{{ govtupdate.title }}</a>
+                <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>यूपी पुलिस वैकेंसी 2026 – कांस्टेबल, SI, जेल वार्डर और PAC भर्ती विवरण</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>यूपीपीआरपीबी द्वारा आयोजित यूपी पुलिस भर्ती</h3>
+          <p><strong>उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड (यूपीपीआरपीबी)</strong> समय-समय पर यूपी पुलिस में <strong>कांस्टेबल, हेड कांस्टेबल, सब इंस्पेक्टर (SI), जेल वार्डर, PAC</strong> और अन्य पदों पर भर्ती निकालता है। WifiResult पर आपको <strong>यूपी पुलिस भर्ती</strong> से जुड़ी सभी नवीनतम अधिसूचनाएं एक ही जगह पर मिलती हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>कवर किए गए पद – कांस्टेबल, SI, जेल वार्डर और अन्य</h3>
+          <p>इस पेज पर हम <strong>यूपी पुलिस कांस्टेबल, SI, ASI, जेल वार्डर, फायरमैन, रेडियो ऑपरेटर, क्लर्क, कंप्यूटर ऑपरेटर, PAC</strong> और स्पेशल फोर्स से जुड़ी सभी भर्तियों की जानकारी देते हैं, ताकि यूपी पुलिस में नौकरी चाहने वाले उम्मीदवार किसी भी अवसर को मिस न करें।</p>
+        </div>
+        <div class="info-point">
+          <h3>पात्रता, आयु सीमा और श्रेणी-वार छूट</h3>
+          <p>हर यूपी पुलिस वैकेंसी के साथ हम <strong>शैक्षणिक योग्यता (10वीं / 12वीं / स्नातक), आयु सीमा, OBC/SC/ST/EWS छूट</strong> और डोमिसाइल शर्तें स्पष्ट रूप से उल्लेख करते हैं, ताकि यूपी के सभी जिलों के उम्मीदवार आसानी से अपनी पात्रता स्थिति समझ सकें।</p>
+        </div>
+        <div class="info-point">
+          <h3>शारीरिक मानक, PET और PST विवरण</h3>
+          <p>यूपी पुलिस में चयन के लिए <strong>ऊंचाई, छाती, दौड़, लंबी कूद, ऊंची कूद</strong> जैसे शारीरिक टेस्ट बहुत महत्वपूर्ण होते हैं। WifiResult पर हम <strong>लिंग-वार और श्रेणी-वार शारीरिक मानक और PET/PST पैटर्न</strong> विस्तार से बताते हैं, जिससे आपकी तैयारी सही दिशा में हो सके।</p>
+        </div>
+        <div class="info-point">
+          <h3>परीक्षा पैटर्न, सिलेबस और तैयारी सहायता</h3>
+          <p>लिखित परीक्षा के लिए हम <strong>यूपी पुलिस सिलेबस PDF, विषय-वार अंक वितरण, नेगेटिव मार्किंग</strong> और पिछले वर्ष के प्रश्न पत्रों के लिंक प्रदान करते हैं। इससे उम्मीदवारों को परीक्षा पैटर्न समझने और रणनीति बनाने में काफी मदद मिलती है।</p>
+        </div>
+        <div class="info-point">
+          <h3>एडमिट कार्ड, उत्तर कुंजी, रिजल्ट और कटऑफ</h3>
+          <p>फॉर्म भरने के बाद उम्मीदवारों को <strong>एडमिट कार्ड डाउनलोड लिंक, परीक्षा शहर, परीक्षा तिथि, उत्तर कुंजी, रिजल्ट</strong> और आधिकारिक कटऑफ की हमेशा तलाश रहती है। इस यूपी पुलिस पेज पर हम हर चरण पर <strong>सीधे लिंक और आधिकारिक अपडेट</strong> सबसे तेज़ तरीके से शेयर करते हैं।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+
+ 

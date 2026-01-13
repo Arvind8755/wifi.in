@@ -1,0 +1,765 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>पुलिस नौकरियां – नवीनतम कांस्टेबल, SI, ASI और रक्षा रिक्तियां</title>
+  <meta name="description" content="पुलिस नौकरियां 2026: राज्य पुलिस, CAPF, BSF, CRPF, CISF, ITBP और अन्य बलों में कांस्टेबल, SI, ASI, हेड कांस्टेबल, ड्राइवर, जेल वार्डर और रक्षा पदों की नवीनतम भर्ती। पात्रता, आयु सीमा और ऑनलाइन आवेदन लिंक चेक करें।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/police-jobs/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/police-jobs/">
+  <meta property="og:title" content="पुलिस नौकरियां – नवीनतम कांस्टेबल, SI, ASI और रक्षा रिक्तियां">
+  <meta property="og:description" content="पुलिस नौकरियां 2026: राज्य पुलिस, CAPF और अन्य बलों में नवीनतम कांस्टेबल, SI, ASI और रक्षा रिक्तियां। पात्रता, आयु सीमा, सिलेबस और ऑनलाइन आवेदन लिंक चेक करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/police-jobs/">
+  <meta name="twitter:title" content="पुलिस नौकरियां – नवीनतम कांस्टेबल, SI, ASI और रक्षा रिक्तियां">
+  <meta name="twitter:description" content="पुलिस नौकरियां 2025: राज्य पुलिस, CAPF, BSF, CRPF, CISF, ITBP और रक्षा रिक्तियां पात्रता, आयु सीमा और ऑनलाइन आवेदन लिंक के साथ।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Arvind Pal" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="6 minutes" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "होम", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+      { "@type": "ListItem", "position": 2, "name": "पुलिस नौकरियां", "item": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/" }
+    ]
+  }
+  </script>
+
+  <!--WebPage + CollectionPage-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "CollectionPage"],
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/#webpage",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/",
+    "name": "पुलिस नौकरियां – नवीनतम कांस्टेबल, SI, ASI और रक्षा रिक्तियां",
+    "headline": "नवीनतम पुलिस नौकरियां 2026 – कांस्टेबल, SI, ASI और रक्षा भर्ती",
+    "description": "पुलिस नौकरियां 2026: राज्य पुलिस, CAPF, BSF, CRPF, CISF, ITBP और अन्य बलों में कांस्टेबल, SI, ASI, हेड कांस्टेबल, ड्राइवर, जेल वार्डर और रक्षा रिक्तियां पात्रता और ऑनलाइन आवेदन लिंक के साथ।",
+    "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+    "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+    },
+    "inLanguage": "hi-IN",
+    "breadcrumb": { "@id": "{{ request.scheme }}://{{ request.get_host }}/police-jobs/#breadcrumb" }
+  }
+  </script>
+
+<!--SEO-Optimized FAQ Schema for /police-jobs/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "पुलिस नौकरियां पेज पर मुझे क्या-क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको सभी राज्यों की नवीनतम पुलिस भर्तियां जैसे कांस्टेबल, SI, जेल वार्डर, होम गार्ड, ड्राइवर, आर्म्ड पुलिस और स्पेशल फोर्स रिक्तियों की अधिसूचनाएं, पात्रता, शारीरिक मानक और आवेदन लिंक मिलते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या पुलिस नौकरियां पेज पर सूचीबद्ध अधिसूचनाएं आधिकारिक होती हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, यहां प्रकाशित सभी पुलिस नौकरी अधिसूचनाएं आधिकारिक राज्य पुलिस विभागों, भर्ती बोर्डों और सरकारी पोर्टल पर आधारित होती हैं। हर लिस्टिंग के साथ आधिकारिक PDF लिंक भी दिया होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "पुलिस नौकरियों के लिए शारीरिक पात्रता कैसे चेक करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हर नौकरी लिस्टिंग में ऊंचाई, छाती माप, दौड़ समय, वजन जैसे शारीरिक मानकों का विस्तृत मानदंड उल्लेख होता है। पूरी जानकारी के लिए आधिकारिक अधिसूचना PDF देखना सबसे अच्छा होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "पुलिस नौकरियां पेज कितनी बार अपडेट होता है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह पेज रोजाना अपडेट होता है। जैसे ही किसी राज्य पुलिस विभाग की नई रिक्ति जारी होती है, उसका आधिकारिक लिंक तुरंत पुलिस नौकरियां सेक्शन में जोड़ दिया जाता है।"
+      }
+    }
+  ]
+}
+}
+</script>
+
+
+  <!-- ItemList — Latest Police Jobs (based on latest_posts) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "पुलिस नौकरियां – नवीनतम कांस्टेबल, SI, ASI और रक्षा रिक्तियां",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "JobPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "title": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePosted": "{{ post.published_date|date:'c' }}",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "राज्य पुलिस / CAPF / भारत सरकार"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %}
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* ===== New Police Theme Breadcrumb ===== */
+  .breadcrumb-police {
+    padding: 12px 0;
+    background: linear-gradient(90deg, #020617, #0f172a);
+    color: #e5e7eb;
+  }
+  .breadcrumb-police .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 14px;
+  }
+  .breadcrumb-police a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb-police a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb-police span.sep {
+    color: #6b7280;
+  }
+  .breadcrumb-police span.current {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  /* ===== Breaking / Highlight Bar ===== */
+  .breaking-news-police {
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+    color: #f9fafb;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 2px solid #0f172a;
+  }
+  .breaking-news-police .container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .breaking-news-police .icon {
+    font-size: 20px;
+  }
+  .breaking-news-police .headline {
+    font-family: 'Arial', sans-serif;
+    white-space: nowrap;
+  }
+  .breaking-news-police marquee {
+    width: 100%;
+  }
+
+  /* ===== Main Layout ===== */
+  .main-content-police {
+    padding: 18px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 320px;
+  }
+  .sidebar {
+    width: 310px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* ===== Section Header ===== */
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .section-heading span.icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+    color: #f9fafb;
+  }
+  .section-subtext {
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  /* ===== Police Job Listing Box (New Look) ===== */
+  .job-listing-container {
+    background: radial-gradient(circle at top left, #eff6ff 0, #ffffff 40%, #e0f2fe 100%);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(15,23,42,0.14);
+    border: 1px solid #e5e7eb;
+  }
+  .job-listing-header {
+     background: #9C0D0D;
+    color: white;
+    padding: 11px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .job-listing-header i {
+    font-size: 15px;
+    color: #38bdf8;
+  }
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .job-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 8px 14px;
+    transition: background 0.2s ease, transform 0.06s ease;
+  }
+  .job-item:last-child {
+    border-bottom: none;
+  }
+  .job-item:nth-child(odd) {
+    background: rgba(248,250,252,0.9);
+  }
+  .job-item:nth-child(even) {
+    background: rgba(239,246,255,0.9);
+  }
+  .job-item:hover {
+    background: #dbeafe;
+    transform: translateY(-1px);
+  }
+
+  .job-main {
+    min-width: 0;
+  }
+  .job-title {
+    flex: 1;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .job-title:hover {
+    color: #1d4ed8;
+  }
+
+  .job-meta {
+    font-size: 11px;
+    color: #6b7280;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .badge-police {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .job-date {
+    color: #4b5563;
+  }
+
+  .job-right {
+    text-align: right;
+  }
+  .job-pill-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: 1px solid #cbd5f5;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    color: #0f172a;
+    gap: 4px;
+  }
+  .job-pill-link:hover {
+    background: #e0f2fe;
+    border-color: #1d4ed8;
+  }
+
+  @media (max-width: 768px) {
+    .job-item {
+      grid-template-columns: 1fr;
+      align-items: flex-start;
+    }
+    .job-right {
+      text-align: left;
+    }
+  }
+
+  /* ===== Pagination (New Chip Style) ===== */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 8px;
+  }
+  .pagination-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+  }
+  .page-btn {
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .page-btn:hover {
+    background: #e5e7eb;
+  }
+  .page-current {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ===== Sidebar Widgets ===== */
+  .trending-topics,
+  .quick-alerts {
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    margin-bottom: 18px;
+    border: 1px solid #e5e7eb;
+  }
+  .trending-header,
+  .quick-header {
+    background: #9C0D0D;
+    color: white;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .trending-header i,
+  .quick-header i {
+    font-size: 14px;
+    color: #38bdf8;
+  }
+  .trending-list,
+  .quick-list {
+    padding: 10px 14px 12px;
+  }
+  .trending-item,
+  .quick-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border, #e5e7eb);
+  }
+  .trending-item:last-child,
+  .quick-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1d4ed8;
+    margin-right: 8px;
+    min-width: 22px;
+    text-align: center;
+  }
+  .trending-content,
+  .quick-content {
+    flex: 1;
+  }
+  .trending-content a,
+  .quick-content a {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .trending-content a:hover,
+  .quick-content a:hover {
+    color: #1d4ed8;
+  }
+  .trending-meta,
+  .quick-meta {
+    font-size: 11px;
+    color: #6c757d;
+  }
+
+  @media (max-width: 992px) {
+    .trending-topics.mobile-bottom {
+      order: 99;
+      margin-top: 20px;
+    }
+  }
+
+  /* ===== Info Section – Defence + Police Focus ===== */
+  .website-info {
+    padding: 20px 0 24px;
+    margin: 10px 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  }
+  .website-info h2 {
+      color: #9C0D0D;;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #9C0D0D;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+  }
+  .info-point h3 {
+    color: #9C0D0D;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .info-point p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .website-info p.bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #374151;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+    <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <a href="{% url 'job' %}">नौकरियां</a>
+      <span>&gt;</span>
+      <span>पुलिस नौकरियां</span> 
+    </div>
+  </div>
+
+  <!-- Breaking / Highlight Bar -->
+  <div class="breaking-news-police">
+    <div class="container">
+      <span class="icon">🚔</span>
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        <span class="headline">
+          <h1 style="font-size:18px;">नवीनतम पुलिस नौकरियां 2026 – कांस्टेबल, SI, ASI और रक्षा भर्ती</h1>
+        </span>
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content-police container">
+    <div class="content-area">
+      
+      <div class="section-header">
+        <div class="section-heading">
+          <span class="icon">🛡️</span>
+          <span>नवीनतम पुलिस नौकरी अपडेट 2026</span>
+        </div>
+        <div class="section-subtext">
+          राज्य पुलिस • CAPF • जेल वार्डर • रक्षा और केंद्रीय पुलिस बल
+        </div>
+      </div>
+
+      <!-- New Police Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bullhorn"></i> पुलिस भर्ती अधिसूचनाएं
+        </div>
+        <ul class="job-list-compact">
+          {% for post in page_obj %}
+            <li class="job-item">
+              <div class="job-main">
+                <a href="{% url 'job_detail' post.slug %}" class="job-title">{{ post.title }}</a>
+                <div class="job-meta">
+                  <span class="badge-police">पुलिस नौकरी</span>
+                  <span class="job-date">📅 {{ post.published_date|date:"d M Y" }}</span>
+                </div>
+              </div>
+              <div class="job-right">
+                <a href="{% url 'job_detail' post.slug %}" class="job-pill-link">
+                  विवरण देखें
+                  <span>➜</span>
+                </a>
+              </div>
+            </li>
+          {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई पुलिस नौकरी लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई पुलिस / रक्षा भर्ती आएगी, इस पेज पर तुरंत अपडेट कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Pagination -->
+        {% if page_obj.paginator.num_pages > 1 %}
+        <div class="pagination-wrapper">
+          <div class="pagination-inner">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" target="_blank" class="page-btn">← पिछला</a>
+            {% endif %}
+
+            <span class="page-current">
+              पेज {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="page-btn">अगला →</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Trending Topics Box (Dynamic) -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग सरकारी नौकरियां
+        </div>
+        <div class="trending-list">
+          {% with latest_jobs|length as job_count %}
+            {% for job in latest_jobs %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter }}</div>
+                <div class="trending-content">
+                  <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+                  <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+              <div class="trending-item">
+                <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+                <div class="trending-content">
+                  <a href="/admit-card/{{ admitcard.slug }}/" target="_blank">{{ admitcard.title }}</a>
+                  <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+      
+      <!-- Quick Alerts (Dynamic Govt Updates) -->
+      <div class="quick-alerts">
+        <div class="quick-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="quick-list">
+          {% for govtupdate in latest_govtupdates %}
+            <div class="quick-item">
+              <div class="quick-content">
+                <a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a>
+                <div class="quick-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>पुलिस नौकरियां और रक्षा भर्ती – उम्मीदवारों के लिए पूरी जानकारी</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>राज्य पुलिस और जिला स्तर भर्ती</h3>
+          <p>हर राज्य समय-समय पर अपनी <strong>पुलिस कांस्टेबल, हेड कांस्टेबल, सब इंस्पेक्टर (SI)</strong> और अन्य पदों पर भर्ती करता है। WifiResult पर आपको <strong>UP पुलिस, बिहार पुलिस, MP पुलिस, राजस्थान पुलिस</strong> और अन्य राज्यों की पुलिस भर्ती की जानकारी एक ही जगह पर मिलती है।</p>
+        </div>
+        <div class="info-point">
+          <h3>CAPF, BSF, CRPF, CISF, ITBP और अन्य बल</h3>
+          <p><strong>केंद्रीय सशस्त्र पुलिस बल (CAPF)</strong> जैसे BSF, CRPF, CISF, ITBP, SSB आदि में भी कांस्टेबल, SI, ASI और ट्रेड्समैन की रिक्तियां आती रहती हैं। हम आधिकारिक अधिसूचना के साथ-साथ <strong>रिक्ति विवरण, PET/PST मानदंड</strong> और परीक्षा पैटर्न भी स्पष्ट तरीके से बताते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>पात्रता, आयु सीमा और शारीरिक मानक</h3>
+          <p>पुलिस नौकरियों में <strong>आयु सीमा, ऊंचाई, छाती, दौड़ समय, वजन</strong> जैसे शारीरिक मानक बहुत महत्वपूर्ण होते हैं। हर रिक्ति के साथ हम न्यूनतम योग्यता, आयु छूट और श्रेणी-वार शारीरिक मानदंड स्पष्ट रूप से उल्लेख करते हैं, ताकि आप पहले से योजना बना सकें।</p>
+        </div>
+        <div class="info-point">
+          <h3>परीक्षा पैटर्न, सिलेबस और पिछले पेपर</h3>
+          <p>लिखित परीक्षा के लिए हम <strong>सिलेबस PDF, परीक्षा पैटर्न</strong> और पिछले वर्ष के पेपरों के लिंक प्रदान करते हैं। इससे पुलिस भर्ती की तैयारी करने वाले उम्मीदवारों को सही दिशा और सही स्तर का आईडिया मिलता है।</p>
+        </div>
+        <div class="info-point">
+          <h3>एडमिट कार्ड, उत्तर कुंजी और रिजल्ट अपडेट</h3>
+          <p>फॉर्म भरने के बाद उम्मीदवारों को <strong>एडमिट कार्ड, परीक्षा शहर, परीक्षा तिथि, उत्तर कुंजी, रिजल्ट और कटऑफ</strong> अपडेट की जरूरत होती है। WifiResult पर हम इन सभी चरणों पर समय पर अपडेट और सीधे लिंक शेयर करते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>दस्तावेज सत्यापन और जॉइनिंग प्रक्रिया</h3>
+          <p>पुलिस भर्ती में दस्तावेज सत्यापन (DV) और मेडिकल टेस्ट के लिए <strong>पहचान प्रमाण, जाति प्रमाणपत्र, डोमिसाइल, चरित्र प्रमाणपत्र, NCC / खेल प्रमाणपत्र</strong> जैसे दस्तावेज जरूरी होते हैं। हम हर अधिसूचना के साथ आवश्यक दस्तावेज और DV निर्देश भी समझाते हैं।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

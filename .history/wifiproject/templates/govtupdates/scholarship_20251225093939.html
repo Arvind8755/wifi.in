@@ -1,0 +1,1653 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>स्कॉलरशिप | राष्ट्रीय, राज्य और छात्र स्कॉलरशिप अपडेट</title>
+  <meta name="description" content="स्कॉलरशिप : नवीनतम राष्ट्रीय और राज्य स्कॉलरशिप, प्री/पोस्ट मैट्रिक, मेरिट आधारित, सरकारी और प्राइवेट स्कॉलरशिप खोजें। पात्रता विवरण के साथ ऑनलाइन आवेदन करें।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/scholarship/">
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/scholarship/">
+<meta property="og:title" content="स्कॉलरशिप | राष्ट्रीय, राज्य और छात्र स्कॉलरशिप अपडेट">
+<meta property="og:description" content="स्कॉलरशिप : नवीनतम राष्ट्रीय और राज्य स्कॉलरशिप, प्री/पोस्ट मैट्रिक, मेरिट आधारित, सरकारी और प्राइवेट स्कॉलरशिप खोजें। पात्रता विवरण के साथ ऑनलाइन आवेदन करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/scholarship/">
+<meta name="twitter:title" content="स्कॉलरशिप | राष्ट्रीय, राज्य और छात्र स्कॉलरशिप अपडेट">
+<meta name="twitter:description" content="स्कॉलरशिप : नवीनतम राष्ट्रीय और राज्य स्कॉलरशिप, प्री/पोस्ट मैट्रिक, मेरिट आधारित, सरकारी और प्राइवेट स्कॉलरशिप। पात्रता के साथ ऑनलाइन आवेदन करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/scholarship/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"स्कॉलरशिप","item":"{{ request.scheme }}://{{ request.get_host }}/scholarship/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/scholarship/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/scholarship/",
+  "name":"स्कॉलरशिप | राष्ट्रीय, राज्य और छात्र स्कॉलरशिप अपडेट",
+  "headline":"नवीनतम स्कॉलरशिप – राष्ट्रीय, राज्य और छात्र स्कॉलरशिप योजनाएं",
+  "description":"स्कॉलरशिप : नवीनतम राष्ट्रीय और राज्य स्कॉलरशिप, प्री/पोस्ट मैट्रिक, मेरिट आधारित, सरकारी और प्राइवेट स्कॉलरशिप खोजें। पात्रता विवरण के साथ ऑनलाइन आवेदन करें।",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/scholarship/#breadcrumb"}
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /scholarship/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "स्कॉलरशिप पेज पर मुझे क्या-क्या जानकारी मिलती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको केंद्र सरकार, राज्य सरकार, अल्पसंख्यक, SC/ST/OBC, छात्र कल्याण और कॉलेज स्तर की स्कॉलरशिप की नवीनतम अपडेट, लाभ, पात्रता, आवश्यक दस्तावेज और आधिकारिक आवेदन लिंक मिलते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं स्कॉलरशिप के लिए आवेदन कैसे करूं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जिस स्कॉलरशिप के लिए आप पात्र हैं, उसके आधिकारिक लिंक पर क्लिक करके ऑनलाइन रजिस्ट्रेशन कर सकते हैं। आवेदन फॉर्म में बेसिक डिटेल्स, दस्तावेज अपलोड और बैंक वेरिफिकेशन स्टेप्स पूरे करने होते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या स्कॉलरशिप जानकारी यहां आधिकारिक होती है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हां, यहां सूचीबद्ध सभी स्कॉलरशिप की डिटेल्स आधिकारिक पोर्टल जैसे NSP (नेशनल स्कॉलरशिप पोर्टल), राज्य सरकारी पोर्टल, यूनिवर्सिटी वेबसाइट और सत्यापित अधिसूचनाओं पर आधारित होती हैं।"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "स्कॉलरशिप | राष्ट्रीय, राज्य और छात्र स्कॉलरशिप अपडेट",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+       background: #9C0D0D;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #9C0D0D;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+       color: #9C0D0D;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #9C0D0D;
+  }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+  .info-point h3 {
+    color: #1565c0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+       <span>&gt;</span>
+      <a href="{% url 'job' %}">नौकरियां</a>
+      <span>&gt;</span>
+      <span>स्कॉलरशिप</span>
+    </div>
+  </div>
+
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline" style="display: flex; justify-content: center; text-align: center;">नवीनतम स्कॉलरशिप – राष्ट्रीय, राज्य और छात्र स्कॉलरशिप योजनाएं</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> स्कॉलरशिप
+        </div>
+        <ul class="job-list-compact">  
+
+ {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई स्कॉलरशिप लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई स्कॉलरशिप आएगी, इस पेज पर तुरंत अपडेट कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}   
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+
+        </ul>
+        
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग जॉब टॉपिक्स
+        </div>
+        <div class="trending-list">
+          {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+         {% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+ <!-- Website Information Section (Scholarship Page) -->
+<section class="website-info" id="scholarship-info">
+  <div class="container">
+    <h2>स्कॉलरशिप – छात्रों के लिए राष्ट्रीय और राज्य स्कॉलरशिप</h2>
+
+    <div class="info-content">
+
+      <!-- Latest Scholarship Updates -->
+      <div class="info-point">
+        <h3>नवीनतम स्कॉलरशिप योजनाएं 2026</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको सभी महत्वपूर्ण
+          <strong>राष्ट्रीय · राज्य · केंद्र सरकार स्कॉलरशिप</strong> की जानकारी
+          एक ही जगह मिलती है — ताकि योग्य छात्रों को 
+          <strong>शिक्षा के लिए वित्तीय सहायता</strong> समय पर प्राप्त हो सके।
+        </p>
+      </div>
+
+      <!-- Scholarship Types -->
+      <div class="info-point">
+        <h3>सभी श्रेणी के छात्रों के लिए</h3>
+        <p>
+          यहां स्कॉलरशिप उपलब्ध हैं — 
+          <strong>स्कूल छात्र (प्री-मैट्रिक), कॉलेज छात्र (पोस्ट-मैट्रिक),
+          उच्च शिक्षा, तकनीकी, मेडिकल, प्रोफेशनल कोर्स,
+          SC / ST / OBC / EWS / अल्पसंख्यक / PwD छात्रों</strong> के लिए।
+        </p>
+      </div>
+
+      <!-- Apply & Registration -->
+      <div class="info-point">
+        <h3>ऑनलाइन आवेदन कैसे करें?</h3>
+        <p>
+          हम बताते हैं <strong>स्टेप-बाय-स्टेप ऑनलाइन आवेदन प्रक्रिया</strong> —
+          <strong>रजिस्ट्रेशन, दस्तावेज अपलोड, स्कॉलरशिप चयन,
+          बैंक खाता सत्यापन</strong> और फॉर्म सबमिशन तक।
+          जिससे छात्र बिना किसी गलती के आवेदन कर सकें।
+        </p>
+      </div>
+
+      <!-- Amount & Financial Benefits -->
+      <div class="info-point">
+        <h3>स्कॉलरशिप राशि और लाभ</h3>
+        <p>
+          हर स्कॉलरशिप पोस्ट में आप पढ़ सकते हैं —
+          <strong>स्कॉलरशिप राशि, ट्यूशन फीस माफी, हॉस्टल भत्ता,
+          किताब स्टाइपेंड और वार्षिक नवीनीकरण विवरण</strong> — आधिकारिक जानकारी के साथ।
+        </p>
+      </div>
+
+      <!-- Official Portals -->
+      <div class="info-point">
+        <h3>आधिकारिक स्कॉलरशिप पोर्टल</h3>
+        <p>
+          यहां कवर किया जाता है — 
+          <strong>नेशनल स्कॉलरशिप पोर्टल (NSP), राज्य स्कॉलरशिप पोर्टल,
+          PFMS, AICTE, UGC, अल्पसंख्यक स्कॉलरशिप</strong> और कई अन्य योजनाएं —
+          सीधे आधिकारिक लिंक के साथ।
+        </p>
+      </div>
+
+      <!-- Eligibility + Documents -->
+      <div class="info-point">
+        <h3>पात्रता और आवश्यक दस्तावेज</h3>
+        <p>
+          पात्रता में उल्लेख किया जाता है —
+          <strong>आय प्रमाणपत्र सीमा, प्रतिशत मानदंड, कोर्स प्रकार,
+          संस्थान मान्यता</strong> आदि।
+          दस्तावेज सूची में — <strong>आधार, मार्कशीट, बैंक पासबुक,
+          जाति प्रमाणपत्र, डोमिसाइल, आय प्रमाणपत्र</strong> शामिल होते हैं।
+        </p>
+      </div>
+
+      <!-- Status Check & Renewal -->
+      <div class="info-point">
+        <h3>आवेदन स्थिति और नवीनीकरण</h3>
+        <p>
+          छात्र आसानी से —
+          <strong>आवेदन स्थिति, सत्यापन स्थिति और PFMS भुगतान स्थिति</strong>
+          चेक कर सकते हैं।  
+          नवीनीकरण के नियम और डेडलाइन भी स्पष्ट रूप से बताए जाते हैं।
+        </p>
+      </div>
+
+      <!-- One Stop Scholarship Hub -->
+      <div class="info-point">
+        <h3>आपका वन-स्टॉप स्कॉलरशिप पोर्टल</h3>
+        <p>
+          <strong>स्कॉलरशिप</strong> पेज छात्रों की मदद करने के लिए बनाया गया है —
+          ताकि वित्तीय समस्याएं पढ़ाई में बाधा न बनें।  
+          यहां हर अपडेट <strong>सत्यापित, समय पर और छात्र-मैत्रीपूर्ण</strong> तरीके से दिया जाता है।
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  {% endblock content %}
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>Scholarship | National, State & Student Scholarship Updates</title>
+<meta name="description" content="Scholarship : Find latest national & state scholarships, pre/post matric, merit-based, government & private scholarships. Apply online with eligibility details.">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/scholarship/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/scholarship/">
+<meta property="og:title" content="Scholarship | National, State & Student Scholarship Updates">
+<meta property="og:description" content="Scholarship : Find latest national & state scholarships, pre/post matric, merit-based, government & private scholarships. Apply online with eligibility details.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – Sarkari Result & Govt Job Updates">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/scholarship/">
+<meta name="twitter:title" content="Scholarship | National, State & Student Scholarship Updates">
+<meta name="twitter:description" content="Scholarship : Find latest national & state scholarships, pre/post matric, merit-based, government & private scholarships. Apply online with eligibility details.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Arvind Pal" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="6 minutes" />
+
+
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/scholarship/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Scholarships","item":"{{ request.scheme }}://{{ request.get_host }}/scholarship/"}
+  ]
+}
+</script>
+
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/scholarship/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/scholarship/",
+  "name":"Scholarship | National, State & Student Scholarship Updates",
+  "headline":"Latest Scholarship – National, State & Student Scholarship Schemess",
+  "description":"Scholarship : Find latest national & state scholarships, pre/post matric, merit-based, government & private scholarships. Apply online with eligibility details.",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "en-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/scholarship/#breadcrumb"}
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /scholarship/ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Scholarship page par mujhe kya-kya information milti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Is page par aapko Central Government, State Government, minority, SC/ST/OBC, student welfare aur college-level scholarships ki latest updates, benefits, eligibility, required documents aur official application links milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Main scholarship ke liye apply kaise karoon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aap jis scholarship ke liye eligible hain, uske official link par click karke online registration kar sakte hain. Application form me basic details, documents upload aur bank verification steps complete karne hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya scholarship information yahan official hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ji haan, yahan listed sabhi scholarships ki details official portals jaise NSP (National Scholarship Portal), राज्य सरकारी portals, university websites aur verified notifications par based hoti hain."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ItemList — Latest Mixed Updates (Job, Result, Admit Card, Govtupdate) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "Scholarship | National, State & Student Scholarship Updates",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %}
+          , "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+  <style>
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 15px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 0px;
+    }
+    
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb span {
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .content-area {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .sidebar {
+      width: 300px;
+    }
+    
+    @media (max-width: 992px) {
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(to right, var(--primary), #c82333);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title i {
+      margin-right: 10px;
+    }
+
+    /* Job Listings - New Style */
+    .job-listing-container {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: -30px;
+    }
+    
+    .job-listing-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .job-list-compact {
+      list-style: none;
+    }
+    
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s;
+    }
+    
+    .job-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-item:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .job-title {
+      flex: 1;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+    }
+    
+    .job-title:hover {
+      color: var(--primary);
+    }
+    
+    .job-date {
+      color: #6c757d;
+      font-size: 14px;
+      min-width: 110px;
+      text-align: right;
+    }
+    
+    /* Hide date on mobile */
+    @media (max-width: 768px) {
+      .job-date {
+        display: none;
+      }
+      
+      .job-item {
+        padding: 12px 15px;
+      }
+    }
+    
+    .view-all {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .view-all:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Trending Topics Box */
+    .trending-topics {
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .trending-header {
+      background: #dc3545;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .trending-list {
+      padding: 15px;
+    }
+    
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .trending-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trending-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c757d;
+      margin-right: 10px;
+      min-width: 25px;
+    }
+    
+    .trending-item:nth-child(-n+3) .trending-number {
+      color: var(--primary);
+    }
+    
+    .trending-content {
+      flex: 1;
+    }
+    
+    .trending-content a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .trending-content a:hover {
+      color: var(--primary);
+    }
+    
+    .trending-meta {
+      font-size: 10px;
+      color: #6c757d;
+    }
+    
+    /* Mobile view for trending topics */
+    @media (max-width: 992px) {
+      .trending-topics.mobile-bottom {
+        order: 99; /* Moves to the bottom on mobile */
+        margin-top: 30px;
+      }
+    }
+
+    /* Website Info Section */
+    .website-info {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      padding: 20px 0;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-info h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .website-info h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+
+    .info-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-point {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .info-point:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-point i {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-point h3 {
+      color: #dc3545;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .info-point p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .main-nav a {
+        padding: 10px 15px;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, var(--primary), #c82333);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .main-nav li {
+        width: 100%;
+      }
+
+      .main-nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Search box adjustments for mobile */
+      .search-box {
+        flex-direction: row; /* Keep row layout on mobile */
+        flex-wrap: nowrap; /* Prevent wrapping */
+      }
+      
+      .search-box input {
+        border-radius: 4px 0 0 4px;
+        margin-bottom: 0;
+        font-size: 14px;
+        min-width: 0; /* Allow input to shrink */
+      }
+      
+      .search-box button {
+        border-radius: 0 4px 4px 0;
+        padding: 0 15px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-top-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+         .website-info h2 {
+      
+      font-size: 18px;
+    }
+      
+      .header-top-right a {
+        margin: 0 5px;
+      }
+      
+      .date-time {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  {% endblock style %}
+
+  {% block content %}
+
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+       <span>&gt;</span>
+      <a href="{% url 'job' %}">Jobs</a>
+      <span>&gt;</span>
+      <span>scholarship</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb के नीचे Breaking News Marquee -->
+<div class="breaking-news">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <span class="icon">📢</span>  
+    <h1 class="headline"> Latest Scholarship – National, State & Student Scholarship Schemes</h1>
+  </marquee>
+</div>
+<style>
+.breaking-news {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      
+      
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> scholarship
+        </div>
+        <ul class="job-list-compact">  
+
+ {% for post in page_obj %}
+          <li class="job-item">
+            <a href="{% url 'govt-update-detail' post.slug %}" target="_blank" class="job-title">{{ post.title }}a</a>  
+            <span class="job-date">{{ post.published_date|date:"d M Y" }}</span>
+          </li>
+            {% empty %}
+            <li class="job-item">
+              <div class="job-main">
+                <strong>अभी कोई Scholarship लिस्टेड नहीं है।</strong>
+                <div class="job-meta">
+                  जैसे ही नई Scholarship भर्ती आएगी, इस पेज पर तुरंत update कर दिया जाएगा।
+                </div>
+              </div>
+            </li>
+  {% endfor %}   
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← Previous
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      Next →
+    </a>
+    {% endif %}
+
+        </ul>
+        
+      </div>
+      
+      <!-- Rest of your existing job cards would go here -->
+      
+    </div>
+    
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> Trending Job Topics
+        </div>
+        <div class="trending-list">
+          {% with latest_jobs|length as job_count %}
+  {% for job in latest_jobs %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter }}</div>
+      <div class="trending-content">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a>
+        <div class="trending-meta">{{ job.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% for result in latest_results %}
+    <div class="trending-item">
+      <div class="trending-number">{{ forloop.counter|add:job_count }}</div>
+      <div class="trending-content">
+        <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+        <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+      </div>
+    </div>
+  {% endfor %}
+{% endwith %}
+        </div>
+      </div>
+      
+      <!-- Additional sidebar content can go here -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> Quick Alerts
+        </div>
+        <div class="trending-list">
+         {% for admitcard in latest_admitcards %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+            <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+ <!-- Website Information Section (Scholarship Page) -->
+<section class="website-info" id="scholarship-info">
+  <div class="container">
+    <h2>Scholarship – National & State Scholarships for Students</h2>
+
+    <div class="info-content">
+
+      <!-- Latest Scholarship Updates -->
+      <div class="info-point">
+        <h3>Latest Scholarship Schemes 2026</h3>
+        <p>
+          <strong>wifiresult.com</strong> पर आपको सभी महत्वपूर्ण
+          <strong>National · State · Central Govt Scholarships</strong> की जानकारी
+          एक ही जगह मिलती है — ताकि deserving students को 
+          <strong>education financial support</strong> समय पर प्राप्त हो सके।
+        </p>
+      </div>
+
+      <!-- Scholarship Types -->
+      <div class="info-point">
+        <h3>For All Categories of Students</h3>
+        <p>
+          यहां scholarships उपलब्ध हैं — 
+          <strong>School Students (Pre-Matric), College Students (Post-Matric),
+          Higher Education, Technical, Medical, Professional Courses,
+          SC / ST / OBC / EWS / Minorities / PwD Students</strong> के लिए।
+        </p>
+      </div>
+
+      <!-- Apply & Registration -->
+      <div class="info-point">
+        <h3>How to Apply Online?</h3>
+        <p>
+          हम बताते हैं <strong>step-by-step online application process</strong> —
+          <strong>registration, document upload, scholarship selection,
+          bank account verification</strong> और form submission तक।
+          जिससे students बिना किसी गलती के apply कर सकें।
+        </p>
+      </div>
+
+      <!-- Amount & Financial Benefits -->
+      <div class="info-point">
+        <h3>Scholarship Amount & Benefits</h3>
+        <p>
+          हर scholarship पोस्ट में आप पढ़ सकते हैं —
+          <strong>scholarship amount, tuition fee waiver, hostel allowance,
+          book stipend & yearly renewal details</strong> — official info के साथ।
+        </p>
+      </div>
+
+      <!-- Official Portals -->
+      <div class="info-point">
+        <h3>Official Scholarship Portals</h3>
+        <p>
+          यहां cover किया जाता है — 
+          <strong>National Scholarship Portal (NSP), State Scholarship Portals,
+          PFMS, AICTE, UGC, Minority Scholarships</strong> और कई अन्य schemes —
+          direct official links के साथ।
+        </p>
+      </div>
+
+      <!-- Eligibility + Documents -->
+      <div class="info-point">
+        <h3>Eligibility & Required Documents</h3>
+        <p>
+          Eligibility में mention किया जाता है —
+          <strong>income certificate limit, percentage criteria, course type,
+          institute recognition</strong> आदि।
+          Documents list में — <strong>Aadhaar, marksheet, bank passbook,
+          caste certificate, domicile, income certificate</strong> शामिल होते हैं।
+        </p>
+      </div>
+
+      <!-- Status Check & Renewal -->
+      <div class="info-point">
+        <h3>Application Status & Renewal</h3>
+        <p>
+          Students आसानी से —
+          <strong>application status, verification status & PFMS payment status</strong>
+          check कर सकते हैं।  
+          Renewal के rules और deadlines भी clearly बताए जाते हैं।
+        </p>
+      </div>
+
+      <!-- One Stop Scholarship Hub -->
+      <div class="info-point">
+        <h3>Your One-Stop Scholarship Portal</h3>
+        <p>
+          <strong>scholarship</strong> page students की मदद करने के लिए बनाया गया है —
+          ताकि financial problems पढ़ाई में बाधा न बनें।  
+          यहां हर update <strong>verified, timely और student-friendly</strong> तरीके से दिया जाता है।
+        </p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center; color:#555; line-height:1.8;">
+      यदि आप 2026 में पढ़ाई कर रहे हैं और scholarship apply करना चाहते हैं,
+      तो इस <strong>scholarship</strong> पेज को रोज़ाना visit करें।  
+      यहां मिलते हैं <strong>असली और fast scholarship alerts</strong> —  
+      ताकि आपकी पढ़ाई हमेशा जारी रहे! 📚🎯
+    </p>
+  </div>
+</section>
+
+
+
+
+  {% endblock content %}
+   {% endcomment %}

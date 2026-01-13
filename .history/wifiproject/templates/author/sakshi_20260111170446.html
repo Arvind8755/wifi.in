@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block seo %} 
+<title>प्रिया पटेल – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट लेखिका</title>
+<meta name="description" content="WifiResult.com पर विशेषज्ञ लेखिका प्रिया पटेल द्वारा नवीनतम सरकारी रिजल्ट, सरकारी नौकरियाँ, एडमिट कार्ड एवं शिक्षा समाचार अपडेट अंग्रेजी में साझा किए जा रहे हैं।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/authors/priya-patel/">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/authors/priya-patel/">
+<meta property="og:title" content="प्रिया पटेल – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट लेखिका">
+<meta property="og:description" content="WifiResult.com पर विशेषज्ञ लेखिका प्रिया पटेल द्वारा नवीनतम सरकारी रिजल्ट, सरकारी नौकरियाँ, एडमिट कार्ड एवं शिक्षा समाचार अपडेट अंग्रेजी में साझा किए जा रहे हैं।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="प्रिया पटेल"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/authors/priya-patel/">
+<meta name="twitter:title" content="प्रिया पटेल – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट लेखिका">
+<meta name="twitter:description" content="WifiResult.com पर विशेषज्ञ लेखिका प्रिया पटेल द्वारा नवीनतम सरकारी रिजल्ट, सरकारी नौकरियाँ, एडमिट कार्ड एवं शिक्षा समाचार अपडेट अंग्रेजी में साझा किए जा रहे हैं।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:creator" content="@arvindpal" />
+<meta name="twitter:label1" content="लिखने वाली" />
+<meta name="twitter:data1" content="अरविंद पाल" />
+<meta name="twitter:label2" content="पढ़ने में समय" />
+<meta name="twitter:data2" content="5 मिनट" />
+
+<!--BreadcrumbList — /authors/rohan-sharma/-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/authors/rohan-sharma/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "लेखक",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/authors/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "प्रिया पटेल",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/authors/priya-patel/"
+    }
+  ]
+}
+</script>
+
+<!--Structured Data (JSON-LD) — Author Page के लिए-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}/authors/priya-patel/#author",
+  "name": "प्रिया पटेल",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/authors/priya-patel/",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/images/Priya-Patel-Content-Writer.webp",
+    "height": 932,
+    "width": 886
+  },
+  "description": "WifiResult.com पर विशेषज्ञ लेखिका प्रिया पटेल द्वारा नवीनतम सरकारी रिजल्ट, सरकारी नौकरियाँ, एडमिट कार्ड एवं शिक्षा समाचार अपडेट अंग्रेजी में साझा किए जा रहे हैं।",
+  "sameAs": [
+    "https://www.linkedin.com/in/arvind-pal-740537373/",
+    "https://x.com/ARVIND883250",
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Wifi Result",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/"
+  }
+}
+</script>
+
+ 
+
+  {% endblock seo %}
+
+  {% block style %}    
+  
+
+  <style>
+    .breadcrumb{background:#f8f9fa;padding:12px 0;margin-top:10px}
+    .breaking-news{background:#fff3f3;border:1px solid #ffdede;padding:10px;margin-top:10px;border-radius:6px}
+    .breaking-newss { background: #f8d7da; color: #721c24; font-weight: bold; font-size: 18px; padding: 8px 0; border: 1px solid #f5c6cb; margin-bottom: 15px; }
+    .breaking-newss .icon { margin-right: 10px; font-size: 20px; }
+
+    /* GRID layout */
+    .layout-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:18px 0}
+    @media(min-width:992px){ .layout-grid{grid-template-columns:230px 1fr 300px;align-items:start} }
+
+    /* sidebars */
+    .sidebar-card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px}
+    .sidebar-card h4{color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .sidebar-list{list-style:none;padding:0;margin:0}
+    .sidebar-list li{padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sidebar-list li a{color:#222;text-decoration:none}
+    .sidebar-meta{font-size:13px;color:#6c757d;white-space:nowrap}
+
+    /* author center */
+    .author-card{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .author-top{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .author-photo{width:180px;height:180px;border-radius:10px;overflow:hidden;flex:0 0 180px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    .author-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .author-meta{flex:1;min-width:200px}
+    .author-meta h1{font-size:24px;margin-bottom:6px;color:var(--dark)}
+    .author-meta p.role{color:var(--primary);font-weight:700;margin-bottom:8px}
+    .author-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .badge{background:#f1f5f9;border:1px solid var(--border);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:#374151}
+
+    .author-bio{margin-top:18px;color:#374151;line-height:1.6}
+    .author-stats{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap}
+    .stat{background:#fff;border:1px solid var(--border);padding:12px;border-radius:8px;min-width:120px;text-align:center}
+    .stat strong{display:block;font-size:18px;color:var(--primary)}
+    .stat span{display:block;color:#6b7280;font-size:13px}
+
+    .author-links{display:flex;gap:12px;margin-top:16px;align-items:center}
+    .author-links a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid var(--border);color:var(--dark);background:#fff}
+    .author-section-title{background:linear-gradient(90deg,var(--primary),#c82333);color:#fff;padding:10px 14px;border-radius:6px;margin-top:24px;display:inline-block;font-weight:700}
+
+    .recent-posts{margin-top:14px}
+    .post-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .post-item a{font-weight:600;color:var(--dark);text-decoration:none}
+    .post-meta{color:#6c757d;font-size:13px}
+
+    /* contact / follow CTA */
+    .contact-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(90deg,var(--primary),#c82333);color:#fff;padding:10px 14px;border-radius:8px;border:none;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+
+
+    /* responsive tweaks */
+    @media(max-width:991px){
+      .logo-container{flex-direction:column;align-items:flex-start;gap:8px}
+      .search-container{margin-left:0;width:100%}
+      .author-top{flex-direction:column;align-items:flex-start}
+      .author-photo{width:100%;height:260px;flex:unset;border-radius:8px}
+    }
+    @media(max-width:576px){
+      .date-time{display:none}
+    }
+
+    /* MOBILE ORDER FIX (unchanged) */
+    @media (max-width: 991px) {
+      .layout-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content-area { order: 0 !important; width: 100%; }
+      .left-sidebar { order: 1 !important; width: 100%; }
+      .right-sidebar { order: 2 !important; width: 100%; }
+      .left-sidebar .sidebar-card, .right-sidebar .sidebar-card { padding: 16px; }
+    }
+  </style>
+
+
+  {% endblock style %}
+
+  {% block content %}
+
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/" style="color:#0d6efd;text-decoration:none">होम</a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <a href="{% url 'MeetTeam' %}" style="color:#0d6efd;text-decoration:none"> लेखक </a> <span style="margin:0 8px;color:#6c757d">&gt;</span>
+      <span>साक्षी</span>
+    </div>
+  </div>
+
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news" style="display: flex; justify-content: center; text-align: center;" >
+   लेखिका के बारे में – प्रिया पटेल (WifiResult पर सामग्री लेखिका) 
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+ 
+
+  <!-- Main Grid: left-sidebar | content (author) | right-sidebar -->
+  <main class="layout-grid container" role="main" aria-label="Author profile main area">
+    <!-- Left Sidebar -->
+    <aside class="left-sidebar" aria-label="Left sidebar">
+      <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'government_teacher_jobs' %}">शिक्षक नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="state-jobs-card">
+        <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+
+          <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+        <div class="sidebar-card" id="latest-category-card">
+        <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'admission' %}">प्रवेश</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'syllabus' %}">पाठ्यक्रम</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a> <span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'scholarship' %}">छात्रवृत्ति</a><span class="sidebar-meta" style='font-size: 20px;'>›</span> </li>
+          <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Center: AUTHOR PROFILE -->
+    <section class="content-area" aria-label="Author profile and details">
+      <div class="author-card" role="region" aria-labelledby="author-heading">
+        <div class="author-top">
+
+
+<style>
+.author-photo {
+  width: 320px;            /* चाहें तो 100/120/150px */
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;        /* गोल कट */
+}
+.author-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* सेंเตอร์ से सही crop */
+  display: block;
+}
+</style>
+
+<div class="author-photo">
+  <img src="{% static 'images/Priya-Patel-Content-Writer.webp' %}"
+       alt="प्रिया पटेल"
+       loading="lazy"
+       decoding="async"
+       width="320" height="320">
+</div>
+
+          <div class="author-meta">
+            <h1 id="author-heading">प्रिया पटेल</h1>
+            <p class="role">सामग्री लेखिका</p>
+
+            <div class="author-badges" aria-hidden="false">
+              <div class="badge"><i class="fas fa-briefcase"></i>&nbsp; 10+ वर्ष अनुभव</div>
+              <div class="badge"><i class="fas fa-users"></i>&nbsp; 1M+ मासिक पाठक</div>
+              <div class="badge"><i class="fas fa-award"></i>&nbsp; 2020 से लेखिका</div>
+            </div>
+
+            <div class="author-links" style="margin-top:12px">
+              <a href="mailto:arvindpal87554@gmail.com"><i class="fas fa-envelope"></i> ईमेल</a>
+              <a href="https://x.com/ARVIND883250" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> ट्विटर</a>
+              <a href="https://www.linkedin.com/in/arvind-pal-740537373/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> लिंक्डइन</a>
+            </div>
+
+            <div class="contact-cta">
+              <a class="btn-primary" href="mailto:arvindpal87554@gmail.com"><i class="fas fa-paper-plane"></i> प्रिया से संपर्क करें</a>
+              <a class="btn-primary" href="{% url 'sakshi'  %}"><i class="fas fa-book-open"></i> सभी लेख देखें</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="author-bio">
+          <p><strong>प्रिया के बारे में:</strong> प्रिया पटेल WifiResult पर समर्पित सामग्री लेखिका हैं, जो भारत भर में सरकारी नौकरी अधिसूचनाओं, भर्ती अपडेट और परीक्षा रिजल्ट समाचार में विशेषज्ञ हैं। डिजिटल सामग्री लेखन में कई वर्षों के अनुभव के साथ, उन्होंने उम्मीदवारों को सूचित और परीक्षा के लिए तैयार रखने में मदद करने वाले कई लेख लिखे हैं।</p>
+
+          <p>प्रिया SSC, UPSC, बैंकिंग, रेलवे और राज्य स्तर की सरकारी परीक्षाओं से संबंधित सटीक, तेज़ और आसानी से समझने योग्य जानकारी प्रदान करने पर ध्यान केंद्रित करती हैं। उनकी चरणबद्ध गाइड आधिकारिक अधिसूचनाओं, आवेदन प्रक्रियाओं और सिलेबस विवरणों को उम्मीदवारों के लिए सरल बनाती हैं।</p>
+
+          <p>WifiResult संपादकीय टीम की महत्वपूर्ण सदस्य के रूप में, प्रिया सुनिश्चित करती हैं कि साइट पर प्रकाशित हर लेख प्रामाणिक, अच्छी तरह से शोधित और छात्रों एवं नौकरी चाहने वालों के लिए उपयोगी हो जो प्रतियोगी परीक्षाओं की तैयारी कर रहे हैं।</p>
+
+        </div>
+
+         <div style="margin-top:20px" class="author-section-title">त्वरित तथ्य</div>
+        <ul style="margin-top:12px;color:#374151;line-height:1.6">
+          <li><strong>शिक्षा:</strong> पत्रकारिता में स्नातकोत्तर (एम.ए.) दिल्ली विश्वविद्यालय से।</li>
+          <li><strong>विशेषज्ञता के क्षेत्र:</strong> बैंकिंग, SSC, रेलवे, UPSC और राज्य स्तर की सरकारी भर्ती पर लेखन और रिपोर्टिंग में विशेषज्ञ।</li>
+          <li><strong>संपर्क:</strong> संपादकीय पूछताछ या सहयोग के लिए, wifiresult3@gmail.com पर ईमेल करें।</li>
+        </ul>
+
+        <div class="author-section-title">प्रिया द्वारा नवीनतम लेख</div>
+        <div class="recent-posts" aria-live="polite">
+           
+{% for post in page_obj %}
+          <div class="post-item">
+            <a href="{% url 'govt-update-detail' post.slug %}">{{ post.title }}</a>
+            <div class="post-meta">{{ post.published_date|date:"d M Y" }}</div>
+          </div>
+{% endfor %} 
+
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 7px 0;">
+  <div style="display: inline-flex; gap: 12px; align-items: center; padding: 10px 16px; 
+              border-radius: 50px; background: #ffffff; border: 2px solid #e5e7eb; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+              
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      ← पिछला
+    </a>
+    {% endif %}
+
+    <span style="padding: 10px 20px; border-radius: 999px; 
+                 background: linear-gradient(90deg, #4f46e5, #06b6d4); 
+                 color: #ffffff; font-weight: 700; box-shadow: 0 3px 8px rgba(79,70,229,0.3);">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" 
+       style="text-decoration: none; padding: 10px 20px; border-radius: 999px; 
+              background: linear-gradient(90deg, #f0f0f0, #fafafa); 
+              border: 1px solid #d1d5db; color: #1e293b; font-weight: 600; 
+              transition: all 0.3s ease;">
+      अगला →
+    </a>
+    {% endif %}
+  </div>
+</div>
+        </div>
+
+        
+      </div>
+
+      <!-- Optional: small privacy/info card -->
+      <div style="margin-top:18px" class="author-card">
+        <h4 style="color:var(--primary);margin-bottom:8px"><i class="fas fa-user-check"></i> लेखक पेज के बारे में</h4>
+        <p class="small">WifiResult पर लेखिका की आधिकारिक प्रोफाइल पेज में आपका स्वागत है। यहां आप लेखिका की पृष्ठभूमि, विशेषज्ञता और भारत भर में बैंकिंग, SSC, UPSC, रेलवे और अन्य सरकारी नौकरी परीक्षाओं पर नवीनतम अपडेट कवर करने वाले प्रकाशित लेखों के बारे में विस्तृत जानकारी का अन्वेषण कर सकते हैं। <br>
+
+WifiResult पर प्रत्येक लेखक उम्मीदवारों के लिए सटीक, आसानी से समझने योग्य और सत्यापित भर्ती जानकारी प्रदान करने के लिए प्रतिबद्ध है। <br>
+
+किसी भी संपादकीय प्रतिक्रिया, लेख सुधार, या सहयोग पूछताछ के लिए, ऊपर दिए गए “लेखिका से संपर्क करें” लिंक का उपयोग करें।</p>
+      </div>
+    </section>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar" aria-label="Right sidebar">
+       <div class="sidebar-card" id="latest-job-card">
+        <h4><i class="fas fa-bolt"></i> योग्यता के अनुसार नौकरियाँ</h4>
+        <ul class="sidebar-list">
+          <li><a href="{% url 'all_education' %}">सभी शिक्षा</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'tenthjob' %}">10वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'twellthjob' %}">12वीं नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'itigovtjobs' %}">ITI नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'graduationjob' %}">किसी भी स्नातक नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'postgraduaionjob' %}">किसी भी स्नातकोत्तर नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+          <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियाँ</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+        <ul class="sidebar-list">
+         {% for result in latest_results %}
+          <li><a href="/results/{{ result.slug }}/"  target="_blank" >{{ result.title }}</a><span class="sidebar-meta">{{ result.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+          
+          
+        </ul>
+      </div>
+
+<div class="sidebar-card" id="similar-jobs-card">
+        <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+        <ul class="sidebar-list">
+ {% for admitcard in latest_admitcards %}
+          <li><a href="/admit-card/{{ admitcard.slug }}/"  target="_blank" >{{ admitcard.title }}</a><span class="sidebar-meta">{{ admitcard.published_date|date:"d M, Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </aside>
+  </main>
+
+  
+
+
+
+  {% endblock content %}
+  

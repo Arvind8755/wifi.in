@@ -1,0 +1,562 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %} 
+  <title>सरकारी नौकरियाँ आज</title>
+  <meta name="description" content="सरकारी नौकरियाँ आज: SSC, UPSC, रेलवे, पुलिस, बैंकिंग, शिक्षण एवं राज्य PSC की आज की नवीनतम सरकारी नौकरी अपडेट प्राप्त करें।">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="WifiResult.com">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/">
+  <meta property="og:title" content="सरकारी नौकरियाँ आज">
+  <meta property="og:description" content="सरकारी नौकरियाँ आज: SSC, UPSC, रेलवे, पुलिस, बैंकिंग, शिक्षण एवं राज्य PSC की आज की नवीनतम सरकारी नौकरी अपडेट प्राप्त करें।">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट">
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:updated_time" content="{% now 'c' %}" />
+  <meta property="article:published_time" content="{% now 'c' %}">
+  <meta property="article:modified_time" content="{% now 'c' %}">
+  <meta property="article:author" content="@Wifiresult"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/">
+  <meta name="twitter:title" content="सरकारी नौकरियाँ आज">
+  <meta name="twitter:description" content="सरकारी नौकरियाँ आज: SSC, UPSC, रेलवे, पुलिस, बैंकिंग, शिक्षण एवं राज्य PSC की आज की नवीनतम सरकारी नौकरी अपडेट प्राप्त करें।">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+  <meta name="twitter:site" content="@WifiResult" />
+  <meta name="twitter:creator" content="@arvindpal" />
+  <meta name="twitter:label1" content="लिखने वाले" />
+  <meta name="twitter:data1" content="अरविंद पाल" />
+  <meta name="twitter:label2" content="पढ़ने में समय" />
+  <meta name="twitter:data2" content="6 मिनट" />
+
+  <!--BreadcrumbList-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+      {"@type":"ListItem","position":2,"name":"सरकारी नौकरियाँ आज","item":"{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/"}
+    ]
+  }
+  </script>
+
+  <!--WebPage + CollectionPage-->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":["WebPage","CollectionPage"],
+    "@id":"{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/#webpage",
+    "url":"{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/",
+    "name":"सरकारी नौकरियाँ आज",
+    "headline":"सरकारी नौकरियाँ आज – नवीनतम सरकारी नौकरी अपडेट (रोज़ाना नई रिक्तियाँ 2025)",
+    "description":"सरकारी नौकरियाँ आज: SSC, UPSC, रेलवे, पुलिस, बैंकिंग, शिक्षण एवं राज्य PSC की आज की नवीनतम सरकारी नौकरी अपडेट प्राप्त करें।",
+    "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+    "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+      "width": 1200,
+      "height": 675
+    },
+    "inLanguage": "hi-IN",
+    "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/govt-jobs-today/#breadcrumb"}
+  }
+  </script>
+
+  <!-- FAQ (Schema) for /govt-jobs-today/ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "सरकारी नौकरियाँ आज पेज पर क्या मिलता है?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "इस पेज पर आज जारी हुई नवीनतम सरकारी नौकरी अधिसूचनाएँ, नई रिक्तियाँ, ऑनलाइन आवेदन लिंक, पात्रता, महत्वपूर्ण तिथियाँ और आधिकारिक PDF सूचीबद्ध किए जाते हैं।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ये नौकरियाँ रोज़ाना अपडेट होती हैं क्या?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "हाँ, सरकारी नौकरियाँ आज पेज दिन भर में कई बार अपडेट होता है जब भी कोई नई सरकारी रिक्ति जारी होती है। सभी अपडेट सत्यापित आधिकारिक अधिसूचनाओं पर आधारित होते हैं।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "क्या मैं सरकारी नौकरियाँ आज पेज से सीधे आवेदन कर सकता/सकती हूँ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WifiResult पर केवल जानकारी और आधिकारिक लिंक प्रदान किए जाते हैं। आवेदन करने के लिए आपको हमेशा संबंधित विभाग के आधिकारिक पोर्टल पर रीडायरेक्ट किया जाता है।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "योग्यता के हिसाब से नौकरियाँ कैसे खोजें?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "आप पेज पर सूचीबद्ध नौकरियों को श्रेणी, योग्यता (10वीं, 12वीं, डिप्लोमा, ग्रेजुएट, पोस्ट ग्रेजुएट), विभाग या राज्य के हिसाब से फ़िल्टर/खोज सकते हैं। हर नौकरी के पास पात्रता स्पष्ट रूप से उल्लेखित होती है।"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ItemList — Latest Mixed Updates -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+    "name": "सरकारी नौकरियाँ आज",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": {{ latest_posts|length }},
+    "itemListElement": [
+      {% for post in latest_posts %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.counter }},
+        "item": {
+          "@type": "BlogPosting",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+          "headline": "{{ post.title|escapejs }}",
+          "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+          "datePublished": "{{ post.published_date|date:'c' }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ post.author|striptags|escapejs }}"
+          }{% if post.image %},
+          "image": {
+            "@type": "ImageObject",
+            "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+            "width": {{ post.image.width }},
+            "height": {{ post.image.height }}
+          }{% endif %},
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock seo %}
+
+{% block style %}    
+<style>
+  /* Breadcrumb – New Soft Blue Style */
+  .breadcrumb {
+    padding: 14px 0;
+    background: linear-gradient(90deg, #e3f2fd, #f5f9ff);
+    margin-bottom: 0;
+    border-bottom: 1px solid #d0e2ff;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .breadcrumb a {
+    color: #0d47a1;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 8px;
+    color: #6c757d;
+  }
+
+  
+
+  /* Main Content Layout */
+  .main-content {
+    padding: 15px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 300px;
+  }
+  .sidebar {
+    width: 320px;
+  }
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+
+  /* Job Listings – New Card Design */
+  .job-listing-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 35, 52, 0.08);
+    margin-bottom: 25px;
+    border: 1px solid #e3f2fd;
+  }
+  .job-listing-header {
+    background: #9C0D0D;
+    color: #ffffff;
+    padding: 14px 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .job-listing-header i {
+    font-size: 18px;
+  }
+  .job-list-compact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 16px;
+    border-bottom: 1px solid #edf2fb;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+  }
+  .job-item:last-child {
+    border-bottom: none;
+  }
+  .job-item:hover {
+    background-color: #f5f9ff;
+    transform: translateY(-1px);
+  }
+  .job-title {
+    flex: 1;
+    color: #102a43;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    font-size: 14px;
+  }
+  .job-title:hover {
+    color: #1565c0;
+  }
+  .job-date {
+    color: #6c757d;
+    font-size: 13px;
+    min-width: 110px;
+    text-align: right;
+  }
+  @media (max-width: 768px) {
+    .job-date {
+      display: none;
+    }
+    .job-item {
+      padding: 11px 13px;
+    }
+  }
+
+  /* Sidebar – Trending / Quick Alerts New Look */
+  .trending-topics {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 35, 52, 0.06);
+    margin-bottom: 22px;
+    border: 1px solid #e6ecff;
+  }
+  .trending-header {
+    background: #9C0D0D;
+    color: #ffffff;
+    padding: 13px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+  }
+  .trending-header i {
+    font-size: 17px;
+  }
+  .trending-list {
+    padding: 12px 14px;
+  }
+  .trending-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f3ff;
+  }
+  .trending-item:last-child {
+    border-bottom: none;
+  }
+  .trending-number {
+    font-size: 16px;
+    font-weight: 700;
+    color: #b0bec5;
+    margin-right: 10px;
+    min-width: 24px;
+  }
+  .trending-item:nth-child(-n+3) .trending-number {
+    color: #1565c0;
+  }
+  .trending-content {
+    flex: 1;
+  }
+  .trending-content a {
+    color: #102a43;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .trending-content a:hover {
+    color: #0d47a1;
+  }
+  .trending-meta {
+    font-size: 10px;
+    color: #78909c;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  @media (max-width: 992px) {
+    .trending-topics.mobile-bottom {
+      order: 99;
+      margin-top: 20px;
+    }
+  }
+
+  /* Website Info Section – Soft Grey/Blue */
+  .website-info {
+    background: linear-gradient(120deg, #f5f7fb, #e8f0ff);
+    padding: 25px 0 30px;
+    margin: 5px 0 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(15, 35, 52, 0.05);
+  }
+  .website-info h2 {
+    color: #9C0D0D;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .website-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #9C0D0D;
+    border-radius: 999px;
+  }
+  .info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .info-point {
+    background: #ffffff;
+    padding: 18px 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(15, 35, 52, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid #9C0D0D;
+  }
+  .info-point:nth-child(2n) {
+    border-left-color: #9C0D0D;
+  }
+  .info-point:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15, 35, 52, 0.08);
+  }
+  .info-point h3 {
+    color: #9C0D0D;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .info-point p {
+    color: #546e7a;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  @media (max-width: 576px) {
+    .website-info h2 {
+      font-size: 18px;
+    }
+  }
+ 
+</style>
+{% endblock style %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>सरकारी नौकरियाँ आज</span>
+    </div>
+  </div>
+
+  <!-- Breaking News Marquee -->
+  <div class="breaking-news">
+    <marquee behavior="scroll" direction="left" scrollamount="6"> 
+      <h1 class="headline">सरकारी नौकरियाँ आज – नवीनतम सरकारी नौकरी अपडेट (रोज़ाना नई रिक्तियाँ 2025)</h1>
+    </marquee>
+  </div>
+  <!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline" style="display: flex; justify-content: center; text-align: center;">एडमिट कार्ड 2026 – नवीनतम सरकारी परीक्षा हॉल टिकट</h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <div class="content-area">
+      <!-- New Job Listing Box -->
+      <div class="job-listing-container">
+        <div class="job-listing-header">
+          <i class="fas fa-bell"></i> सरकारी नौकरियाँ आज
+        </div>
+        <ul class="job-list-compact">
+          {% for job in jobs %}
+          <li class="job-item">
+            <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="job-title">{{ job.title }}</a>
+            <span class="job-date">{{ job.published_date|date:"d M, Y" }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <!-- Trending Topics Box -->
+      <div class="trending-topics mobile-bottom">
+        <div class="trending-header">
+          <i class="fas fa-fire"></i> ट्रेंडिंग टॉपिक
+        </div>
+        <div class="trending-list">
+          {% with latest_results|length as result_count %}
+            {% for result in latest_results %}
+            <div class="trending-item">
+              <div class="trending-number">{{ forloop.counter }}</div>
+              <div class="trending-content">
+                <a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a>
+                <div class="trending-meta">{{ result.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+            {% endfor %}
+
+            {% for admitcard in latest_admitcards %}
+            <div class="trending-item">
+              <div class="trending-number">{{ forloop.counter|add:result_count }}</div>
+              <div class="trending-content">
+                <a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a>
+                <div class="trending-meta">{{ admitcard.published_date|date:"d M, Y" }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          {% endwith %}
+        </div>
+      </div>
+
+      <!-- Quick Alerts -->
+      <div class="trending-topics">
+        <div class="trending-header">
+          <i class="fas fa-bell"></i> त्वरित अलर्ट
+        </div>
+        <div class="trending-list">
+          {% for govtupdate in latest_govtupdates %}
+          <div class="trending-item">
+            <div class="trending-number">{{ forloop.counter }}</div>
+            <div class="trending-content">
+              <a href="/govt-updates/{{ govtupdate.slug }}/">{{ govtupdate.title }}</a>
+              <div class="trending-meta">{{ govtupdate.published_date|date:"d M, Y" }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Website Information Section -->
+  <section class="website-info">
+    <div class="container">
+      <h2>सरकारी नौकरियाँ आज – नवीनतम सरकारी नौकरी अपडेट</h2>
+      <div class="info-content">
+        <div class="info-point">
+          <h3>नवीनतम नौकरी अधिसूचनाएँ</h3>
+          <p><strong>wifiresult.com</strong> पर आपको UPSC, SSC, IBPS, रेलवे भर्ती बोर्ड, रक्षा बल, पुलिस विभाग और विभिन्न राज्य सरकारों द्वारा प्रकाशित सबसे हाल की और प्रामाणिक सरकारी नौकरी अधिसूचनाएँ मिलेंगी। हम रोज़ाना अपडेट देते हैं ताकि आप कोई महत्वपूर्ण अवसर न चूकें।</p>
+        </div>
+        <div class="info-point">
+          <h3>परीक्षा तिथियाँ एवं एडमिट कार्ड</h3>
+          <p>आगामी <strong>सरकारी परीक्षा तिथियों</strong>, एडमिट कार्ड जारी होने और महत्वपूर्ण शेड्यूल के साथ अपडेट रहें। चाहे SSC CGL हो, रेलवे NTPC, IBPS क्लर्क या UPSC सिविल सेवा — हम समय पर अलर्ट और एडमिट कार्ड, टाइम टेबल के लिए सीधे डाउनलोड लिंक प्रदान करते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>पाठ्यक्रम एवं उत्तर कुंजी</h3>
+          <p>हमारी नौकरी पेज पर पूरा परीक्षा <strong>पाठ्यक्रम PDF, पिछले वर्ष के पेपर</strong> और परीक्षा के बाद जारी आधिकारिक उत्तर कुंजी भी उपलब्ध हैं। इससे अभ्यर्थी सही संसाधनों और रणनीति के साथ प्रभावी तैयारी कर सकते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>फ्रेशर्स एवं अनुभवी दोनों के लिए</h3>
+          <p>हम <strong>10वीं पास, 12वीं पास, ग्रेजुएट, डिप्लोमा धारक, इंजीनियर, MBA और अनुभवी पेशेवरों</strong> के लिए उपयुक्त नौकरियाँ सूचीबद्ध करते हैं। आपकी योग्यता चाहे जो भी हो, आप आसानी से अपनी प्रोफाइल के अनुरूप अवसर देख सकते हैं।</p>
+        </div>
+        <div class="info-point">
+          <h3>एक ही जगह पर सरकारी नौकरी पोर्टल</h3>
+          <p><strong>wifiresult.com</strong> <strong>नवीनतम सरकारी नौकरियाँ 2025</strong> के लिए आपका एकमात्र गंतव्य है। अधिसूचना से लेकर रिजल्ट, एडमिट कार्ड, कट-ऑफ और मेरिट लिस्ट तक — सब कुछ एक ही जगह पर उपलब्ध है, कई पोर्टल पर जाने की जरूरत नहीं।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

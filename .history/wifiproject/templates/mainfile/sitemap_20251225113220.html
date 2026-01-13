@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo %}
+<title>HTML साइटमैप – WifiResult.com</title>
+<meta name="description" content="WifiResult.com का पूरा HTML साइटमैप देखें। सरकारी नौकरियाँ, रिजल्ट, एडमिट कार्ड, उत्तर कुंजी, सिलेबस, एडमिशन, स्कॉलरशिप और अन्य सभी पेज एक जगह।">
+
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:title" content="HTML साइटमैप – WifiResult.com">
+<meta property="og:description" content="WifiResult.com का पूरा HTML साइटमैप – सभी पेज एक जगह।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-og-1200x675.webp' %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HTML साइटमैप – WifiResult.com">
+<meta name="twitter:description" content="WifiResult.com का पूरा HTML साइटमैप – सभी पेज एक जगह।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'logo/wifiresult-og-1200x675.webp' %}">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "{{ request.scheme }}://{{ request.get_host }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "HTML साइटमैप",
+      "item": "{{ request.build_absolute_uri }}"
+    }
+  ]
+}
+</script>
+
+<!-- WebPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ request.build_absolute_uri }}#webpage",
+  "url": "{{ request.build_absolute_uri }}",
+  "name": "HTML साइटमैप – WifiResult.com",
+  "description": "WifiResult.com का पूरा HTML साइटमैप – सभी सरकारी नौकरी और रिजल्ट पेज एक जगह।",
+  "inLanguage": "hi-IN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}/#website"
+  }
+}
+</script>
+{% endblock seo %}
+
+{% block style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --primary:#9C0D0D;
+  --secondary:#0d6efd;
+  --dark:#212529;
+  --light:#f8f9fa;
+  --border:#dee2e6;
+  --radius:12px;
+  --muted:#6c757d;
+}
+
+body{background:#f5f5f5;color:#333;font-family:Segoe UI,Tahoma}
+.container{max-width:1200px;margin:auto;padding:0 15px}
+
+.breadcrumb{background:#f8f9fa;padding:12px 0}
+.breadcrumb a{text-decoration:none;color:var(--secondary)}
+
+.section{background:#fff;border-radius:var(--radius);box-shadow:0 2px 10px rgba(0,0,0,.08);padding:20px;margin:20px 0}
+.section-title{background:linear-gradient(to right,var(--primary),#c82333);color:#fff;padding:10px 15px;margin:-20px -20px 15px;border-radius:var(--radius) var(--radius) 0 0}
+
+.sitemap-list{list-style:none;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.sitemap-list li{display:flex;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
+.sitemap-list li:last-child{border-bottom:none}
+.sitemap-list a{text-decoration:none;color:var(--dark);font-weight:500}
+.sitemap-list a:hover{color:var(--primary)}
+.meta{font-size:13px;color:var(--muted)}
+
+.columns{display:grid;grid-template-columns:repeat(1,1fr);gap:18px}
+@media(min-width:768px){.columns{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.columns{grid-template-columns:repeat(3,1fr)}}
+
+.top-hero{background:#fff;border-radius:var(--radius);padding:20px;display:flex;gap:15px;align-items:center}
+.logo img{max-width:180px}
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">होम</a> &gt; HTML साइटमैप
+  </div>
+</div>
+
+<div class="container">
+  <div class="top-hero">
+    <div class="logo">
+      <img src="{% static 'logo/wifiresult-logo.png' %}" alt="WifiResult Logo">
+    </div>
+    <div>
+      <h1>HTML साइटमैप</h1>
+      <p class="meta">WifiResult.com के सभी महत्वपूर्ण पेज एक जगह</p>
+    </div>
+  </div>
+
+  <!-- Important Pages -->
+  <section class="section">
+    <div class="section-title"><i class="fa fa-link"></i> महत्वपूर्ण पेज</div>
+    <ul class="sitemap-list">
+      <li><a href="{% url 'home' %}">होम</a><span class="meta">मुख्य</span></li>
+      <li><a href="{% url 'job' %}">सरकारी नौकरियाँ</a></li>
+      <li><a href="{% url 'result' %}">रिजल्ट</a></li>
+      <li><a href="{% url 'admitcard' %}">एडमिट कार्ड</a></li>
+      <li><a href="{% url 'govtupdates' %}">सरकारी अपडेट</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+  </section>
+
+  <!-- Latest URLs -->
+  <section class="section">
+    <div class="section-title"><i class="fa fa-clock"></i> नवीनतम अपडेट</div>
+    <ul class="sitemap-list">
+      {% for job in jobs %}
+      <li>
+        <a href="{% url 'job_detail' job.slug %}" target="_blank" rel="noopener noreferrer">
+          {{ job.title }}
+        </a>
+        <span class="meta">नौकरी</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+    <!-- Latest URLs -->
+  <section class="section">
+    <div class="section-title"><i class="fa fa-clock"></i> नवीनतम अपडेट</div>
+    <ul class="sitemap-list">
+      {% for result in results %}
+      <li>
+        <a href="{% url 'result_detail' result.slug %}" target="_blank" rel="noopener noreferrer">
+          {{ result.title }}
+        </a>
+        <span class="meta">नौकरी</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+      <!-- Latest URLs -->
+  <section class="section">
+    <div class="section-title"><i class="fa fa-clock"></i> नवीनतम अपडेट</div>
+    <ul class="sitemap-list">
+      {% for  in jobs %}
+      <li>
+        <a href="{% url 'job_detail' job.slug %}" target="_blank" rel="noopener noreferrer">
+          {{ job.title }}
+        </a>
+        <span class="meta">नौकरी</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+      <!-- Latest URLs -->
+  <section class="section">
+    <div class="section-title"><i class="fa fa-clock"></i> नवीनतम अपडेट</div>
+    <ul class="sitemap-list">
+      {% for job in jobs %}
+      <li>
+        <a href="{% url 'job_detail' job.slug %}" target="_blank" rel="noopener noreferrer">
+          {{ job.title }}
+        </a>
+        <span class="meta">नौकरी</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>
+
+
+
+{% endblock content %}

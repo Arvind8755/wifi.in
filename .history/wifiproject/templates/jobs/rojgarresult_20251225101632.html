@@ -1,0 +1,504 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block seo %}
+<title>रोजगार रिजल्ट – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड</title>
+<meta name="description" content="रोजगार रिजल्ट – सभी नवीनतम सरकारी परीक्षा परिणाम, सरकारी नौकरी अलर्ट, एडमिट कार्ड, उत्तर कुंजी और परीक्षा अपडेट एक ही जगह प्राप्त करें।">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
+<meta property="og:title" content="रोजगार रिजल्ट – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड">
+<meta property="og:description" content="रोजगार रिजल्ट – सभी नवीनतम सरकारी परीक्षा परिणाम, सरकारी नौकरी अलर्ट, एडमिट कार्ड, उत्तर कुंजी और परीक्षा अपडेट एक ही जगह प्राप्त करें।">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट एवं सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+<meta property="og:updated_time" content="{% now 'c' %}" />
+<meta property="article:published_time" content="{% now 'c' %}">
+<meta property="article:modified_time" content="{% now 'c' %}">
+<meta property="article:author" content="@Wifiresult"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}/rojgar-result/">
+<meta name="twitter:title" content="रोजगार रिजल्ट – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड">
+<meta name="twitter:description" content="रोजगार रिजल्ट – सभी नवीनतम सरकारी परीक्षा परिणाम, सरकारी नौकरी अलर्ट, एडमिट कार्ड, उत्तर कुंजी और परीक्षा अपडेट एक ही जगह प्राप्त करें।">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta name="twitter:site" content="@WifiResult">
+<meta name="twitter:creator" content="@WifiResult">
+<meta name="twitter:label1" content="लिखने वाले">
+<meta name="twitter:data1" content="अरविंद पाल">
+<meta name="twitter:label2" content="पढ़ने में समय">
+<meta name="twitter:data2" content="6 मिनट">
+<meta name="twitter:label3" content="श्रेणी">
+<meta name="twitter:data3" content="रोजगार रिजल्ट">
+
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#breadcrumb",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"रोजगार रिजल्ट","item":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/"}
+  ]
+}
+</script>
+
+<!--WebPage + CollectionPage-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["WebPage","CollectionPage"],
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/",
+  "name":"रोजगार रिजल्ट – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड",
+  "headline":"रोजगार रिजल्ट – नवीनतम सरकारी नौकरियाँ एवं सरकारी रिजल्ट अपडेट",
+  "description":"रोजगार रिजल्ट – सभी नवीनतम सरकारी परीक्षा परिणाम, सरकारी नौकरी अलर्ट, एडमिट कार्ड, उत्तर कुंजी और परीक्षा अपडेट एक ही जगह प्राप्त करें।",
+  "isPartOf":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#website"},
+  "publisher":{"@id":"{{ request.scheme }}://{{ request.get_host }}/#organization"},
+  "primaryImageOfPage":{
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  "inLanguage": "hi-IN",
+  "breadcrumb":{"@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#breadcrumb"}
+}
+</script>
+
+<!-- SEO-Optimized FAQ Schema for /rojgar-result/ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "रोजगार रिजल्ट पेज पर मुझे क्या-क्या रिजल्ट मिलते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "इस पेज पर आपको नवीनतम सरकारी परीक्षा परिणाम, स्कोरकार्ड, मेरिट लिस्ट, कट-ऑफ अपडेट और आधिकारिक रिजल्ट अधिसूचनाएँ मिलती हैं। यह पेज केंद्रीय, राज्य और विभागीय परीक्षाओं के सभी रिजल्ट को कवर करता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "मैं अपना रोजगार रिजल्ट कैसे चेक करूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "आप अपने परीक्षा के सामने दिए गए 'Check Result' या 'View Scorecard' लिंक पर क्लिक करें। यह आपको आधिकारिक रिजल्ट पोर्टल पर रीडायरेक्ट करेगा जहाँ रोल नंबर या रजिस्ट्रेशन नंबर डालकर आप अपना रिजल्ट देख सकते हैं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या रोजगार रिजल्ट पेज पर सूचीबद्ध रिजल्ट लिंक आधिकारिक होते हैं?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "जी हाँ, रोजगार रिजल्ट सेक्शन में प्रकाशित सभी लिंक आधिकारिक सरकारी पोर्टल, भर्ती बोर्ड और परीक्षा आयोजक संस्थाओं से सत्यापित करके ही जोड़े जाते हैं। हर रिजल्ट लिस्टिंग के साथ आधिकारिक PDF लिंक भी दिया जाता है।"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ItemList — Latest Mixed Updates -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#list",
+  "name": "रोजगार रिजल्ट – नवीनतम सरकारी रिजल्ट, नौकरियाँ एवं एडमिट कार्ड",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": {{ latest_posts|length }},
+  "itemListElement": [
+    {% for post in latest_posts %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.counter }},
+      "item": {
+        "@type": "BlogPosting",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}",
+        "headline": "{{ post.title|escapejs }}",
+        "description": "{% if post.description %}{{ post.description|striptags|truncatechars:180|escapejs }}{% else %}{{ post.title|escapejs }}{% endif %}",
+        "datePublished": "{{ post.published_date|date:'c' }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ post.author|striptags|escapejs }}"
+        }{% if post.image %}
+        , "image": {
+          "@type": "ImageObject",
+          "url": "{{ request.scheme }}://{{ request.get_host }}/media/{{ post.image }}",
+          "width": {{ post.image.width }},
+          "height": {{ post.image.height }}
+        }{% endif %},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}#webpage"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"
+        }
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}/rojgar-result/#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"रोजगार रिजल्ट पेज पर क्या दिखाया जाता है?",
+      "acceptedAnswer":{"@type":"Answer","text":"यह पेज नवीनतम सरकारी नौकरी अधिसूचनाएँ, परीक्षा परिणाम, एडमिट कार्ड और आधिकारिक सरकारी अपडेट एक ही जगह पर सूचीबद्ध करता है।"}
+    },
+    {
+      "@type":"Question",
+      "name":"रोजगार रिजल्ट पेज कितनी बार अपडेट होता है?",
+      "acceptedAnswer":{"@type":"Answer","text":"नई आधिकारिक अधिसूचना जारी होते ही दिन में कई बार अपडेट किया जाता है।"}
+    },
+    {
+      "@type":"Question",
+      "name":"क्या WifiResult से सीधे आवेदन कर सकते हैं?",
+      "acceptedAnswer":{"@type":"Answer","text":"हाँ। हर आइटम में आवेदन करने, PDF डाउनलोड करने या रिजल्ट चेक करने के लिए सीधे आधिकारिक लिंक दिए जाते हैं।"}
+    }
+  ]
+}
+</script>
+
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Palette tweak for Rojgar Result */
+  :root{
+    --rr-primary:#6610f2; /* purple */
+    --rr-accent:#20c997;  /* teal */
+    --rr-warm:#ff6b6b;    /* coral */
+  }
+
+  /* Hero */
+  .hero-rr{background:linear-gradient(120deg,var(--rr-primary),var(--rr-accent));color:#fff;padding:24px 0;position:relative;overflow:hidden;border-radius:10px}
+  .hero-rr:after{content:'';position:absolute;inset:-40%;background:radial-gradient(closest-side,rgba(255,255,255,.12),transparent 60%);transform:rotate(18deg)}
+  .hero-rr .wrap{position:relative;z-index:1}
+  .hero-rr h1{font-size:1.9rem;margin:0 0 10px}
+  .hero-rr p{margin:0;color:#f8f9fa}  
+  .hero-rr .quick-link.ck-content a {margin:0;color:#6610f2;}  
+
+  /* Quick Links (kept same logic) */
+  .quick-links-container{width:100%;overflow-x:auto;padding:8px 0;margin:10px 0;scrollbar-width:none}
+  .quick-links-container::-webkit-scrollbar{display:none}
+  .quick-links{display:inline-flex;gap:10px;padding:0 10px;min-width:min-content}
+  .quick-link{background:#ffffff; padding:10px 14px; border-radius:10px; text-decoration:none; color:#111; font-weight:600; box-shadow:0 6px 18px rgba(16,24,40,.08); transition:.25s; display:flex; align-items:center; white-space:nowrap}
+  .quick-link:hover{transform:translateY(-2px)}
+  .quick-link.ck-content a{color:inherit;text-decoration:none}
+  .quick-link.ck-content a:hover{text-decoration:underline}
+
+  /* Cards */
+  .section-title{background:linear-gradient(90deg,var(--rr-primary),var(--rr-warm));color:#fff;padding:10px 14px;border-radius:8px;margin:16px 0;display:flex;align-items:center;gap:8px}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px}
+  .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(16,24,40,.06);transition:transform .25s}
+  .card:hover{transform:translateY(-4px)}
+  .card-header{background:linear-gradient(90deg,var(--rr-primary),var(--rr-accent));color:#fff;padding:12px 14px;font-weight:700}
+  .card-body{padding:14px}
+  .job-list{list-style:none;margin:0;padding:0}
+  .job-list li{padding:10px 0;border-bottom:1px solid #f1f3f5}
+  .job-list li:last-child{border-bottom:0}
+  .job-list a{color:#212529;text-decoration:none}
+  .job-list a:hover{color:var(--rr-primary)}
+
+  /* Info blocks */
+  .info-wrap{padding:20px 0}
+  .highlight{background:linear-gradient(180deg,#ffffff,#f7f9fc);border-left:4px solid var(--rr-accent);padding:16px;border-radius:10px;margin:16px 0;box-shadow:0 6px 16px rgba(6,6,6,.04)}
+  .highlight h4{margin:0 0 8px;color:var(--rr-primary)}
+
+  /* FAQ */
+  #faq{margin-top:10px}
+  .faq-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+  .faq-list{list-style:none;margin:0;padding:0}
+  .faq-item{border-bottom:1px dashed #ececec;padding:12px 0}
+  .faq-item:last-child{border-bottom:0}
+  .question{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+  .question h3{font-size:16px;margin:0;color:#0f172a}
+  .toggle{width:32px;height:32px;border-radius:8px;border:1px solid #e6e9ef;display:flex;align-items:center;justify-content:center;background:#fff}
+  .answer{margin-top:8px;display:none;color:#374151}
+
+  /* PAGE BOTTOM INFO – Rojgar Result (WifiResult) */
+  .rr-footer-info{
+    margin:16px 0 24px;
+    padding:18px 16px 16px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#f3f0ff,#e6fffa);
+    border:1px solid rgba(102,16,242,.16);
+    box-shadow:0 16px 32px rgba(15,23,42,.08);
+    font-size:13px;
+  }
+  .rr-footer-info h2{
+    margin:0 0 8px;
+    font-size:20px;
+    font-weight:800;
+    color:#1f2937;
+  }
+  .rr-footer-info h3{
+    margin:12px 0 6px;
+    font-size:15px;
+    font-weight:700;
+    color:#6610f2;
+  }
+  .rr-footer-info p{
+    margin:4px 0 6px;
+    line-height:1.6;
+    color:#374151;
+  }
+  .rr-footer-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1.4fr;
+    gap:16px;
+    margin-top:6px;
+  }
+  .rr-footer-info ul{
+    margin:0;
+    padding-left:18px;
+    line-height:1.6;
+  }
+  .rr-footer-tagline{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed rgba(0,0,0,.12);
+    font-size:12px;
+    color:#111827;
+  }
+  .rr-footer-disclaimer{
+    font-size:12px;
+    margin-top:6px;
+    color:#4b5563;
+  }
+  .rr-highlight{
+    font-weight:700;
+    color:#ff6b6b;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width:768px){
+    .hero-rr h1{font-size:1.4rem}
+    .rr-footer-grid{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .rr-footer-info{
+      padding:14px 12px;
+      border-radius:14px;
+    }
+    .rr-footer-info h2{
+      font-size:18px;
+    }
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">होम</a>
+      <span>&gt;</span>
+      <span>रोजगार रिजल्ट</span>
+    </div>
+  </div>
+
+<section class="hero-rr">
+  <div class="container wrap">
+    <h1>रोजगार रिजल्ट – नवीनतम सरकारी नौकरियाँ एवं सरकारी रिजल्ट अपडेट</h1>
+    <p>सरकारी नौकरियों, परीक्षा तिथियों, उत्तर कुंजी और परिणामों के लिए रोज़ाना अपडेट। WifiResult द्वारा क्यूरेटेड।</p>
+
+    <div class="quick-links-container">
+      <div class="quick-links">
+        {% for boxname in boxnames %}
+          <div class="quick-link ck-content">{{ boxname.box1|safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:14px 0;">
+  <!-- Lists (logic unchanged) -->
+  <div class="section-title"><span>ट्रेंडिंग अपडेट</span></div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header">नवीनतम नौकरियाँ</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for job in jobs %}
+            <li><a href="/latest-jobs/{{ job.slug }}/" target="_blank" >{{ job.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'job' %}" target="_blank" >सभी नौकरियाँ देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">नवीनतम रिजल्ट</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for result in results %}
+            <li><a href="/results/{{ result.slug }}/" target="_blank" >{{ result.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'result' %}">सभी रिजल्ट देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">एडमिट कार्ड</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for admitcard in admitcards %}
+            <li><a href="/admit-card/{{ admitcard.slug }}/" target="_blank" >{{ admitcard.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'admitcard' %}" target="_blank" >सभी एडमिट कार्ड देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">सरकारी अपडेट</div>
+      <div class="card-body">
+        <ul class="job-list">
+          {% for govtupdate in govtupdates %}
+            <li><a href="/govt-updates/{{ govtupdate.slug }}/" target="_blank" >{{ govtupdate.title }}</a></li>
+          {% endfor %}
+          <li><a href="{% url 'govtupdates' %}" target="_blank" >सभी सरकारी अपडेट देखें →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Informational copy -->
+<section class="info-wrap">
+  <div class="highlight">
+    <h4>रोजगार रिजल्ट 2026 – यहां क्या मिलेगा</h4>
+    <p>बैंकिंग, रेलवे, रक्षा, SSC, UPSC, राज्य PSC और अन्य सरकारी परीक्षाओं के <strong>नवीनतम रिजल्ट, एडमिट कार्ड, उत्तर कुंजी और नौकरी अधिसूचनाएं</strong> तुरंत अपडेट। अधिसूचना PDF, पात्रता, महत्वपूर्ण तिथियां, सिलेबस और फाइनल रिजल्ट यहां चेक करें।</p>
+  </div>
+  <div class="highlight">
+    <h4>WifiResult.in के रोजगार रिजल्ट को क्यों चुनें?</h4>
+    <p>हम आधिकारिक स्रोतों से सत्यापित लिंक देते हैं, स्पष्ट और सरल वर्गीकरण रखते हैं तथा SEO-अनुकूल पेज बनाते हैं ताकि आपको जरूरी जानकारी सबसे जल्दी और आसानी से मिल सके। सटीकता और समय पर अपडेट हमारी प्राथमिकता है।</p>
+  </div>
+  <div class="highlight">
+    <h4>लोकप्रिय श्रेणियां</h4>
+    <p>10वीं पास नौकरियां, 12वीं पास नौकरियां, ग्रेजुएट नौकरियां, बैंक जॉब्स, रेलवे जॉब्स, रक्षा नौकरियां, राज्य सरकारी नौकरियां, एडमिट कार्ड, उत्तर कुंजी, रिजल्ट और कट-ऑफ।</p>
+  </div>
+</section>
+
+<!-- FAQs (interactive) -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="faq-card">
+    <h2 id="faq-heading">रोजगार रिजल्ट – अक्सर पूछे जाने वाले सवाल</h2>
+    <ul class="faq-list" id="faq-list">
+      <li class="faq-item">
+        <div class="question" data-index="1" tabindex="0">
+          <h3>क्या यह सरकारी की आधिकारिक वेबसाइट है?</h3>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="answer"><p>नहीं। wifiresult.in एक स्वतंत्र सूचनात्मक वेबसाइट है। हम केवल आधिकारिक वेबसाइटों के डायरेक्ट लिंक और सत्यापित जानकारी प्रदान करते हैं।</p></div>
+      </li>
+      <li class="faq-item">
+        <div class="question" data-index="2" tabindex="0">
+          <h3>आधिकारिक अधिसूचनाएं और PDF कहां मिलेंगे?</h3>
+          <div class="toggle">+</div>
+        </div>
+        <div class="answer"><p>किसी भी पोस्ट को खोलें और <strong>महत्वपूर्ण लिंक</strong> सेक्शन तक स्क्रॉल करें – वहां आपको संबंधित विभाग की आधिकारिक वेबसाइट या नोटिफिकेशन PDF का डायरेक्ट लिंक मिलेगा।</p></div>
+      </li>
+      <li class="faq-item">
+        <div class="question" data-index="3" tabindex="0">
+          <h3>यह पेज कितनी बार अपडेट होता है?</h3>
+          <div class="toggle">+</div>
+        </div>
+        <div class="answer"><p>जैसे ही कोई नई अधिसूचना, एडमिट कार्ड, उत्तर कुंजी या रिजल्ट जारी होता है, हम उसे तुरंत अपडेट करते हैं – अक्सर रोजाना कई बार।</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- PAGE BOTTOM INFORMATION – About Rojgar Result page on WifiResult -->
+<section class="rr-footer-info">
+  <h2>रोजगार रिजल्ट – WifiResult.in पर आपका भरोसेमंद सरकारी रिजल्ट पेज</h2>
+  <p>
+    <span class="rr-highlight">रोजगार रिजल्ट</span> सेक्शन पर हमारा मकसद है कि 
+    <strong>नवीनतम सरकारी नौकरियां, परीक्षा रिजल्ट, एडमिट कार्ड और उत्तर कुंजी</strong> 
+    आपको एक ही जगह पर सरल और स्पष्ट भाषा में मिलें। अगर आप रोज कई वेबसाइट्स खोलकर 
+    <strong>सरकारी रिजल्ट / रोजगार रिजल्ट</strong> चेक करते थक गए हैं, तो wifiresult.in का यह पेज आपके लिए 
+    <strong>वन-स्टॉप सॉल्यूशन</strong> है।
+  </p>
+
+  <div class="rr-footer-grid">
+    <div>
+      <h3>इस रोजगार रिजल्ट पेज पर क्या मिलेगा?</h3>
+      <ul>
+        <li><strong>नवीनतम सरकारी नौकरी अधिसूचनाएं</strong> – पद नाम, विभाग, योग्यता, आयु सीमा और आवेदन शुल्क के साथ।</li>
+        <li><strong>परीक्षा रिजल्ट और मेरिट लिस्ट</strong> – संक्षिप्त विवरण और आधिकारिक रिजल्ट/स्कोरकार्ड डाउनलोड लिंक के साथ।</li>
+        <li><strong>एडमिट कार्ड और परीक्षा तिथि अपडेट</strong> – नई रिलीज के साथ डायरेक्ट डाउनलोड लिंक।</li>
+        <li><strong>उत्तर कुंजी और ऑब्जेक्शन नोटिस</strong> – आधिकारिक PDF और ऑब्जेक्शन तिथियों की जानकारी।</li>
+        <li>सभी अपडेट <strong>आधिकारिक भर्ती बोर्ड/आयोग की वेबसाइट</strong> से सत्यापित करके दिए जाते हैं।</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>महत्वपूर्ण सूचना और अस्वीकरण</h3>
+      <p>
+        wifiresult.in किसी सरकारी विभाग, आयोग या संस्था की <strong>आधिकारिक वेबसाइट नहीं</strong> है। 
+        हम एक स्वतंत्र सूचनात्मक पोर्टल हैं जो <strong>आधिकारिक अधिसूचनाओं और पोर्टल</strong> के आधार पर जानकारी प्रकाशित करते हैं।
+      </p>
+      <ul>
+        <li>किसी भी फॉर्म भरने या फीस जमा करने से पहले <strong>आधिकारिक नोटिफिकेशन PDF</strong> को अच्छे से पढ़ें।</li>
+        <li>अंतिम और कानूनी रूप से वैध जानकारी के लिए हमेशा संबंधित <strong>आधिकारिक वेबसाइट</strong> पर जाएं।</li>
+        <li>किसी भी संभावित त्रुटि, अपडेट में देरी या डेटा अंतर के लिए wifiresult.in जिम्मेदार नहीं होगा।</li>
+      </ul>
+      <p class="rr-footer-disclaimer">
+        अगर आपको इस पेज पर कोई जानकारी गलत, पुरानी या अधूरी लगे, तो संपर्क पेज के जरिए हमें बताएं – 
+        हम उसे जल्द से जल्द ठीक कर देंगे।
+      </p>
+    </div>
+  </div>
+
+  <p class="rr-footer-tagline">
+    🔔 <strong>टिप:</strong> इस <span class="rr-highlight">रोजगार रिजल्ट</span> पेज को बुकमार्क कर लें – 
+    ताकि सरकारी नौकरियां, रिजल्ट, एडमिट कार्ड और उत्तर कुंजी चेक करने के लिए 
+    हर बार <strong>नई वेबसाइट सर्च करने की जरूरत न पड़े</strong>।
+  </p>
+</section>
+
+</main>
+
+<script>
+  (function(){
+    const items=document.querySelectorAll('.faq-item');
+    items.forEach(item=>{
+      const q=item.querySelector('.question');
+      const toggle=item.querySelector('.toggle');
+      const ans=item.querySelector('.answer');
+      q.addEventListener('click',()=>{
+        const isOpen=ans.style.display==='block';
+        document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
+        document.querySelectorAll('.faq-item .toggle').forEach(t=>t.textContent='+');
+        if(!isOpen){ans.style.display='block';toggle.textContent='−';}
+      });
+      q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+    });
+  })();
+</script>
+{% endblock content %}
