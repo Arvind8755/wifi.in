@@ -1,0 +1,998 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% load static %}
+{% load html_filters %}
+{% block seo %}
+<title>{{ jobs.title }}</title>
+<meta name="description" content="{{ jobs.description }}">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="WifiResult.com">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}">
+<meta property="og:title" content="{{ jobs.title }}">
+<meta property="og:description" content="{{ jobs.description }}">
+<meta itemprop="name" content="{{ jobs.title }}"/>
+<meta itemprop="description" content="{{ jobs.description }}"/>
+{% if jobs.image %}
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}">
+<meta property="og:image:width" content="{{ jobs.image.width }}">
+<meta property="og:image:height" content="{{ jobs.image.height }}">
+<meta property="og:image:alt" content="{{ jobs.image_alt }}">
+<meta property="og:image:type" content="image/webp">
+{% else %}
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+<meta property="og:image:alt" content="WifiResult – सरकारी रिजल्ट और सरकारी नौकरी अपडेट">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:type" content="image/webp">
+{% endif %}
+<meta property="og:updated_time" content="{{ jobs.published_date|date:'c' }}">
+<meta property="article:published_time" content="{{ jobs.published_date|date:'c' }}">
+<meta property="article:modified_time" content="{{ jobs.published_date|date:'c' }}">
+<meta property="article:author" content="{{ jobs.author|striptags }}"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}">
+<meta name="twitter:title" content="{{ jobs.title }}">
+<meta name="twitter:description" content="{{ jobs.description }}">
+{% if jobs.image %}
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}">
+{% else %}
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp">
+{% endif %}
+<meta name="twitter:site" content="@WifiResult" />
+<meta name="twitter:label2" content="पढ़ने का समय" />
+<meta name="twitter:data2" content="7 मिनट" />
+<meta name="twitter:label3" content="श्रेणी">
+<meta name="twitter:data3" content="{{ jobs.tag }}">
+<!--BreadcrumbList-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}#breadcrumb",
+  "itemListElement":[
+    { "@type":"ListItem","position":1,"name":"होम","item":"{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type":"ListItem","position":2,"name":"नवीनतम नौकरियां","item":"{{ request.scheme }}://{{ request.get_host }}/latest-jobs/" },
+    { "@type":"ListItem","position":3,"name": "{{ jobs.title|escapejs }}","item":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}" }
+  ]
+}
+</script>
+<!--WebPage — job detail-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}#webpage",
+  "url":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}",
+  "name": "{{ jobs.title }}",
+  "headline": "{{ jobs.h1|striptags|escapejs }}",
+  "description": "{{ jobs.description|truncatechars:300 }}",
+  "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+  "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+  {% if jobs.image %}
+  "primaryImageOfPage": {
+    "@type":"ImageObject",
+    "url":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}",
+    "width": {{ jobs.image.width }},
+    "height": {{ jobs.image.height }}
+  },
+  {% else %}
+  "primaryImageOfPage": {
+    "@type":"ImageObject",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+    "width": 1200,
+    "height": 675
+  },
+  {% endif %}
+  "inLanguage":"hi-IN"
+}
+</script>
+<!--JobPosting — मुख्य schema (Google Jobs)-->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"JobPosting",
+  "@id":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}#job",
+  "title": "{{ jobs.title|escapejs }}",
+  "description": "{{ jobs.description }}",
+  "datePosted":"{{ jobs.published_date|date:'c' }}",
+  "dateModified":"{{ jobs.published_date|date:'c' }}",
+  {% if jobs.published_date %}"validThrough": "{{ jobs.published_date|add_days:75|date:'c' }}",{% endif %}
+  "employmentType":"FULL_TIME",
+  "hiringOrganization":{
+    "@type":"Organization",
+    "name": "{{ jobs.title }}",
+    "sameAs":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}",
+    "logo":{
+      "@type":"ImageObject",
+      {% if jobs.image %}
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}",
+      "width": {{ jobs.image.width }},
+      "height": {{ jobs.image.height }}
+      {% else %}
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-og-1200x675.webp",
+      "width": 1200,
+      "height": 675
+      {% endif %}
+    }
+  },
+  "jobLocationType":"ON_SITE",
+  "applicantLocationRequirements": { "@type":"Country","name":"IN" },
+  "jobLocation":[
+    {
+      "@type":"Place",
+      "address":{
+        "@type":"PostalAddress",
+        "addressCountry":"IN",
+        "addressLocality":"India",
+        "addressRegion":"All India"
+      }
+    }
+  ],
+  "baseSalary":{
+    "@type":"MonetaryAmount",
+    "currency":"INR",
+    "value":{
+      "@type":"QuantitativeValue",
+      "minValue": 21700,
+      "maxValue": 69100,
+      "unitText":"MONTH"
+    }
+  },
+  "directApply": true,
+  "applicationContact":{
+    "@type":"ContactPoint",
+    "url":"{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}"
+  },
+  "identifier":{
+    "@type":"PropertyValue",
+    "name": "{{ jobs.title }}",
+    "value": "{{ jobs.tag }}"
+  }
+}
+</script>
+<!--NewsArticle Schema-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.scheme }}://{{ request.get_host }}{{ jobs.get_absolute_url }}"
+  },
+  "headline": "{{ jobs.clean_h1|escapejs }}",
+  "description": "{{ jobs.description }}",
+  "image": [
+    "{{ request.scheme }}://{{ request.get_host }}{{ jobs.image.url }}"
+  ],
+  "datePublished": "{{ jobs.published_date|date:'c' }}",
+  "dateModified": "{{ jobs.published_date|date:'c' }}",
+  "author": {
+  "@type": "Person",
+  "name": "{{ jobs.author|striptags }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WifiResult",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/static/logo/wifiresult-logo-600x120.webp",
+      "width": 600,
+      "height": 120
+    }
+  },
+  "articleSection": "सरकारी नौकरियां",
+  "inLanguage": "hi-IN",
+  "isAccessibleForFree": true
+}
+</script>
+<!--faq-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% if jobs.faq_q1 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q1 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a1 }}" }
+    }{% if jobs.faq_q2 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q2 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q2 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a2 }}" }
+    }{% if jobs.faq_q3 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q3 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q3 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a3 }}" }
+    }{% if jobs.faq_q4 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q4 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q4 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a4 }}" }
+    }{% if jobs.faq_q5 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q5 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q5 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a5 }}" }
+    }{% if jobs.faq_q6 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q6 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q6 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a6 }}" }
+    }{% if jobs.faq_q7 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q7 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q7 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a7 }}" }
+    }{% if jobs.faq_q8 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q8 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q8 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a8 }}" }
+    }{% if jobs.faq_q9 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q9 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q9 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a9 }}" }
+    }{% if jobs.faq_q10 %},{% endif %}
+    {% endif %}
+    {% if jobs.faq_q10 %}
+    {
+      "@type": "Question",
+      "name": "{{ jobs.faq_q10 }}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{ jobs.faq_a10 }}" }
+    }
+    {% endif %}
+  ]
+}
+</script>
+{% endblock seo %}
+
+{% block style %}
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 15px 0;
+    background-color: #f8f9fa;
+    margin-bottom: 0px;
+  }
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb span {
+    margin: 0 10px;
+    color: #6c757d;
+  }
+  /* Breaking News */
+  .breaking-news {
+ background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  color: #f9fafb;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 0;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+  }
+  .breaking-news .icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .breaking-news .headline {
+    font-family: 'Arial', sans-serif;
+  }
+  /* Main Content Layout - GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 5px 0;
+  }
+  @media (min-width: 992px) {
+    .layout-grid {
+      grid-template-columns: 220px 1fr 280px;
+      align-items: start;
+    }
+    .left-sidebar { order: 0; }
+    .content-area { order: 1; }
+    .right-sidebar { order: 2; }
+  }
+  @media (max-width: 991px) {
+    .content-area { order: 0; }
+    .left-sidebar { order: 1; }
+    .right-sidebar { order: 2; }
+  }
+  .content-area {
+    min-width: 300px;
+  }
+  .left-sidebar, .right-sidebar {
+    display: block;
+  }
+  /* Sidebar card styles (re-usable) */
+  .sidebar-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 18px;
+    margin-bottom: 5px;
+  }
+  .sidebar-card h4 {
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sidebar-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .sidebar-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .sidebar-list li a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    flex: 1;
+  }
+  .sidebar-list li:last-child {
+    border-bottom: none;
+  }
+  .sidebar-meta {
+    color: #6c757d;
+    font-size: 13px;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+  .section-title {
+    background: linear-gradient(to right, var(--primary), #c82333);
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+  }
+  .section-title i {
+    margin-right: 10px;
+  }
+  /* Job Article Styles */
+  .job-article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+  .job-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+  }
+  .job-title {
+    color: var(--dark);
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    color: #6c757d;
+    font-size: 14px;
+  }
+  .meta-item i {
+    margin-right: 8px;
+    color: #ff1434;
+  }
+  .apply-button {
+    display: inline-block;
+    background: linear-gradient(to right, var(--success), #0f6e3f);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s;
+  }
+  .apply-button:hover {
+    background: linear-gradient(to right, #0f6e3f, var(--success));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .job-content {
+    margin-bottom: 25px;
+  }
+  .content-section {
+    margin-bottom: 25px;
+  }
+  .content-section h3 {
+    color: #ff1434;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size:20px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  .info-table th, .info-table td {
+    border: 1px solid var(--border);
+    padding: 12px 15px;
+    text-align: left;
+  }
+  .info-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    width: 30%;
+  }
+  .highlight-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary);
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .steps-list {
+    list-style-type: none;
+    counter-reset: step-counter;
+  }
+  .steps-list li {
+    margin-bottom: 15px;
+    padding-left: 40px;
+    position: relative;
+  }
+  .steps-list li:before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  /* Related Jobs */
+  .related-jobs {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .related-job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .related-job-item:last-child {
+    border-bottom: none;
+  }
+  .related-job-title {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .related-job-title:hover {
+    color: var(--primary);
+  }
+  .related-job-date {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .mobile-toggle { display: block; }
+    .main-nav ul { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; z-index: 1000; background: linear-gradient(to right, var(--primary), #c82333); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+    .main-nav ul.active { display: flex; }
+    .main-nav li { width: 100%; }
+    .main-nav a { padding: 12px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .search-box { flex-direction: row; flex-wrap: nowrap; }
+    .search-box input { border-radius: 4px 0 0 4px; margin-bottom: 0; font-size: 14px; min-width: 0; }
+    .search-box button { border-radius: 0 4px 4px 0; padding: 0 15px; font-size: 14px; white-space: nowrap; }
+    .job-meta { flex-direction: column; gap: 10px; }
+    .info-table { display: block; overflow-x: auto; }
+  }
+  @media (max-width: 576px) {
+    .header-top-right { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .header-top-right a { margin: 0 5px; }
+    .date-time { margin: 5px 0; width: 100%; text-align: center; }
+    .job-title { font-size: 24px; }
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  /* CKEditor highlight fixes */
+  mark.marker-yellow { background-color: #FFF59D; }
+  mark.marker-green { background-color: #B9F6CA; }
+  mark.marker-pink { background-color: #F8BBD0; }
+  mark.marker-blue { background-color: #BBDEFB; }
+  mark.marker-red { background-color: #FFCDD2; }
+  span.pen-red { color: #D32F2F; text-decoration: underline; text-decoration-thickness: 3px; }
+  span.pen-green { color: #2E7D32; text-decoration: underline; text-decoration-thickness: 3px; }
+  .ck-content mark.marker-yellow { background-color: #FFF59D; }
+  .ck-content mark.marker-green { background-color: #B9F6CA; }
+  .ck-content mark.marker-pink { background-color: #F8BBD0; }
+  .ck-content mark.marker-blue { background-color: #BBDEFB; }
+  .ck-content mark.marker-red { background-color: #FFCDD2; }
+  .ck-content span.pen-red { color: #D32F2F; text-decoration: underline; text-decoration-thickness: 3px; }
+  .ck-content span.pen-green { color: #2E7D32; text-decoration: underline; text-decoration-thickness: 3px; }
+</style>
+{% endblock style %}
+
+{% block content %}
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">होम</a>
+    <span>&gt;</span>
+    <a href="{% url 'job' %}">नौकरियां</a>
+    <span>&gt;</span>
+    <span>{{ jobs.tag }}</span>
+  </div>
+</div>
+<!-- Optional breaking line -->
+  <div class="container" style="margin-top:12px;">
+    <div class="breaking-news">
+    <h1 class="headline" style="display: flex; justify-content: center; text-align: center;">{{ jobs.title }} </h1>
+    </div>
+  </div>
+<style>
+.breaking-news {
+background: #077822;
+  color: #f9fafb;
+  padding: 10px 06px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f1e3a2;}
+.breaking-news .icon {
+  margin-right: 8px;}
+.breaking-news .headline {
+  display: inline;
+  font-size: 16px;   /* वही size रखा */
+  font-weight: 600;  /* थोड़ा bold look */
+  margin: 0;}
+</style>
+
+
+<!-- Main Content Grid: Left Sidebar | Content | Right Sidebar -->
+<main class="layout-grid container" role="main" aria-label="मुख्य सामग्री और साइडबार">
+  <!-- Left Sidebar -->
+  <aside class="left-sidebar" aria-label="बायां साइडबार - राज्य नौकरियां और नवीनतम श्रेणी">
+    <div class="sidebar-card" id="latest-category-card">
+      <h4><i class="fas fa-layer-group"></i> नवीनतम श्रेणी</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'allcategoryjobs' %}">सभी श्रेणी की सरकारी नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'bankjob' %}">बैंकिंग नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'sscjob' %}">SSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'railwayjob' %}">रेलवे नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'government_teacher_jobs' %}">शिक्षण नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'defensejob' %}">रक्षा नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'upscjob' %}">UPSC नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+    <div class="sidebar-card" id="state-jobs-card">
+      <h4><i class="fas fa-map-marker-alt"></i> राज्य नौकरियां</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'all-state-govt-job' %}">सभी राज्य नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'upjob' %}">उत्तर प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Bihar' %}">बिहार सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'MadhyaPradesh' %}">मध्य प्रदेश नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Rajasthan' %}">राजस्थान नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Maharashtra' %}">महाराष्ट्र सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Jharkhand' %}">झारखंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Gujarat' %}">गुजरात सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'AndhraPradesh' %}">आंध्र प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Karnataka' %}">कर्नाटक सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Punjab' %}">पंजाब सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'ArunachalPradesh' %}">अरुणाचल प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Uttarakhand' %}">उत्तराखंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'WestBengal' %}">पश्चिम बंगाल सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Haryana' %}">हरियाणा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Assam' %}">असम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Chhattisgarh' %}">छत्तीसगढ़ सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Goa' %}">गोवा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'HimachalPradesh' %}">हिमाचल प्रदेश सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Kerala' %}">केरल सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Meghalaya' %}">मेघालय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'TamilNadu' %}">तमिलनाडु सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Manipur' %}">मणिपुर सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Mizoram' %}">मिजोरम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Nagaland' %}">नागालैंड सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Odisha' %}">ओडिशा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Sikkim' %}">सिक्किम सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Telangana' %}">तेलंगाना सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'Tripura' %}">त्रिपुरा सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+    <div class="sidebar-card" id="latest-category-card">
+      <h4><i class="fas fa-bell"></i> सरकारी अपडेट</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'govtupdates' %}">सभी सरकारी अपडेट</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'admission' %}">प्रवेश</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'answerkey' %}">उत्तर कुंजी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'syllabus' %}">पाठ्यक्रम</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'sarkariyojna' %}">सरकारी योजना</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'scholarship' %}">छात्रवृत्ति</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'CentralGovtjob' %}">केंद्रीय सरकारी नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+    <div class="sidebar-card" id="latest-category-card">
+      <h4><i class="fas fa-landmark"></i> राज्य PSC</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'psc_all_states' %}">सभी राज्य PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'appsc' %}">आंध्र प्रदेश PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'arunachal_appsc_jobs' %}">अरुणाचल प्रदेश PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'apsc' %}">असम PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'bpsc' %}">बिहार PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'cgpsc' %}">छत्तीसगढ़ PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'goapsc' %}">गोवा PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'gpsc' %}">गुजरात PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'hpsc' %}">हरियाणा PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'hppsc' %}">हिमाचल प्रदेश PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'jkpsc' %}">जम्मू और कश्मीर PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'jpsc' %}">झारखंड PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'kpsc' %}">कर्नाटक PSC</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content Area (center) -->
+  <div class="content-area">
+    <article class="job-article" aria-labelledby="job-title">
+      <div class="job-header ck-content">
+        <h1 id="job-title" class="job-title" style='font-size:18px; color:#c82333;'>{{ jobs.h1|safe|cut:"<p>"|cut:"</p>" }}</h1>
+        <div class="job-meta">
+          <div class="meta-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Publish Date: {{ jobs.published_date|date:"d M, Y" }}</span> &nbsp;
+            लेखक:&nbsp;{{ jobs.author|safe|cut:"<p>"|cut:"</p>" }} <i style="color:#0D6EFD;" class="fas fa-check-circle text-primary" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="job-content">
+        {% if jobs.extra_information|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.extra_information|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.overview|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.overview|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.important_dates|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.important_dates|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.application_fee|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.application_fee|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.vacancy_details|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.vacancy_details|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.salary_structure|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.salary_structure|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.eligibillity_criteria|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.eligibillity_criteria|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.selection_process|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.selection_process|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.How_to_appply|is_not_empty %}
+        <div class="content-section ck-content">
+          {{ jobs.How_to_appply|safe }}
+        </div>
+        {% endif %}
+        {% if jobs.important_link|is_not_empty %}
+        <div class="highlight-box ck-content">
+          {{ jobs.important_link|safe }}
+        </div>
+        {% endif %}
+
+        <div class="content-section" id="faq">
+          <style>
+            @media (max-width:576px) {
+              .faq-item h5, p{ font-size: 12px; }
+            }
+            .content-section#faq .faq-item {
+              background-color: #f8f9fa;
+              border-radius: 6px;
+              padding: 12px 15px;
+              margin-bottom: 12px;
+              box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+            }
+          </style>
+          {% if jobs.faq_q1|is_not_empty %}
+          <h3 style="text-align:center; color:#FF1434;font-weight:bold;">अक्सर पूछे जाने वाले प्रश्न (FAQs)</h3>
+          <div class="faq-item">
+            <h5>Q1: {{jobs.faq_q1}}</h5>
+            <p>A1: {{ jobs.faq_a1}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q2|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q2: {{jobs.faq_q2}}</h5>
+            <p>A2: {{ jobs.faq_a2}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q3|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q3: {{jobs.faq_q3}}</h5>
+            <p>A3: {{ jobs.faq_a3}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q4|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q4: {{jobs.faq_q4}}</h5>
+            <p>A4: {{ jobs.faq_a4}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q5|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q5: {{jobs.faq_q5}}</h5>
+            <p>A5: {{ jobs.faq_a5}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q6|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q6: {{jobs.faq_q6}}</h5>
+            <p>A6: {{ jobs.faq_a6}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q7|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q7: {{jobs.faq_q7}}</h5>
+            <p>A7: {{ jobs.faq_a7}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q8|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q8: {{jobs.faq_q8}}</h5>
+            <p>A8: {{ jobs.faq_a8}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q9|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q9: {{jobs.faq_q9}}</h5>
+            <p>A9: {{ jobs.faq_a9}}</p>
+          </div>
+          {% endif %}
+          {% if jobs.faq_q10|is_not_empty %}
+          <div class="faq-item">
+            <h5>Q10: {{jobs.faq_q10}}</h5>
+            <p>A10: {{ jobs.faq_a10}}</p>
+          </div>
+          {% endif %}
+          <br>
+          {% if jobs.image %}
+          <div class="post-image">
+            <img src="{{ jobs.image.url }}"
+                 alt="{{ jobs.image_alt|default:jobs.title }}"
+                 loading="lazy"
+                 style="max-width:100%; height:auto; display:block; margin:0 auto;">
+          </div>
+          <div style="text-align:center; color:#ff1434; font-weight:bold;">WiFiResult.Com</div>
+          {% endif %}
+
+          <!-- Modern Comment Section -->
+          <div class="comments-area modern-comments">
+            <div class="comments-header">
+              <div class="ch-left">
+                <h4 class="comment-title">टिप्पणियाँ <span class="count">({{ comment_count }})</span></h4>
+              </div>
+            </div>
+            {% if comments %}
+            <div class="comments-list">
+              {% for comment in comments %}
+              <article class="comment-card" role="article" aria-label="comment by {{ comment.user }}">
+                <div class="comment-content">
+                  <header class="comment-head">
+                    <strong class="comment-user">{{ comment.user }}</strong>
+                    <time class="comment-time" datetime="{{ comment.created_at }}">{{ comment.created_at|timesince }} पहले</time>
+                  </header>
+                  <div class="comment-body">
+                    <p class="comment-text">{{ comment.comment }}</p>
+                  </div>
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+            {% else %}
+            <p class="no-comment">अभी कोई टिप्पणी नहीं — अपनी राय सबसे पहले साझा करें।</p>
+            {% endif %}
+            <div class="comment-form-container modern-form">
+              {% if user.is_authenticated %}
+              <form action="" method="POST" class="comment-form">
+                {% csrf_token %}
+                <label class="sr-only" for="comment-input">अपनी टिप्पणी लिखें</label>
+                <textarea id="comment-input" name="comment" class="comment-input" placeholder="एक उपयोगी टिप्पणी लिखें..." required></textarea>
+                <div class="form-row">
+                  <button type="submit" class="comment-btn">टिप्पणी पोस्ट करें</button>
+                </div>
+              </form>
+              {% else %}
+              <div class="signup-prompt">
+                <p>टिप्पणी लिखने के लिए कृपया <strong>साइनअप</strong> करें!</p><br>
+                <a href="{% url 'signup' %}" class="signup-btn">अकाउंट बनाएं</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <style>
+            /* MODERN COMMENT UI STYLES (unchanged) */
+            .modern-comments { --bg: linear-gradient(135deg, #fff7f9 0%, #f0f8ff 100%); --accent: #ff2e63; --accent2: #6a5af9; --accent3: #2ec4b6; --muted: #6b7280; --glass-border: rgba(0,0,0,0.06); font-family: "Inter", sans-serif; margin: 20px 0; padding: 4px; border-radius: 18px; background: var(--bg); border: 1px solid #f3e8ff; box-shadow: 0 8px 35px rgba(90, 70, 220, 0.12), 0 4px 12px rgba(0,0,0,0.05); }
+            .comment-title { margin: 0; font-size: 22px; font-weight: 800; display: flex; gap: 8px; align-items: center; background: linear-gradient(90deg, #ff2e63, #6a5af9, #2ec4b6); -webkit-background-clip: text; color: transparent; }
+            .comment-title .count { background: #ffe3ec; color: #ff2e63; padding: 2px 8px; border-radius: 6px; font-size: 14px; }
+            .comments-list { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+            .comment-card { display: flex; padding: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.5); background: linear-gradient(120deg, rgba(255, 228, 230, 0.7), rgba(219, 234, 254, 0.7), rgba(209, 250, 229, 0.7)); backdrop-filter: blur(6px); box-shadow: 0 12px 30px rgba(0,0,0,0.04); transition: transform .2s ease, box-shadow .2s ease, background .3s; }
+            .comment-card:hover { transform: translateY(-5px); background: linear-gradient(120deg, rgba(255, 215, 229, 0.85), rgba(194, 222, 255, 0.85), rgba(175, 255, 227, 0.85)); box-shadow: 0 20px 45px rgba(0,0,0,0.08); }
+            .comment-content { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+            .comment-user { font-weight: 700; font-size: 16px; background: linear-gradient(90deg, #ff2e63, #6a5af9); -webkit-background-clip: text; color: transparent; }
+            .comment-time { font-size: 13px; color: #6b7280; }
+            .comment-text { margin: 6px 0 0 0; line-height: 1.6; font-size: 15px; color: #1e293b; }
+            .no-comment { text-align: center; padding: 15px 0; font-size: 15px; color: #6b7280; background: rgba(255, 228, 230, 0.6); border-radius: 12px; }
+            .modern-form { margin-top: 22px; padding: 20px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,244,247,0.9), rgba(240,249,255,0.9)); border: 1px solid #fbd5e3; box-shadow: 0 6px 22px rgba(90,60,200,0.08); }
+            .comment-input { width: 100%; min-height: 120px; border-radius: 12px; border: 1px solid #ffd6e9; padding: 12px 14px; font-size: 15px; outline: none; background: #ffffff; transition: border .2s, box-shadow .2s, background .3s; }
+            .comment-input:focus { border-color: #ff2e63; background: #fff7fa; box-shadow: 0 8px 18px rgba(255, 66, 99, 0.15); }
+            .comment-btn { background: linear-gradient(90deg, #ff2e63, #6a5af9); border: none; padding: 10px 20px; color: white; font-weight: 700; border-radius: 10px; cursor: pointer; box-shadow: 0 10px 25px rgba(255,46,99,0.25); transition: transform .15s ease, box-shadow .15s ease; }
+            .comment-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 32px rgba(90,70,240,0.32); }
+            .signup-btn { display: inline-block; padding: 10px 18px; border-radius: 12px; background: linear-gradient(90deg, #6a5af9, #2ec4b6); color: white; font-weight: 700; text-decoration: none; box-shadow: 0 10px 24px rgba(108,92,255,0.25); transition: transform .15s ease; }
+            .signup-btn:hover { transform: translateY(-3px); }
+            @media (max-width: 720px) { .comment-card { padding: 12px; } .comment-btn { width: 100%; } }
+          </style>
+        </div>
+      </div>
+    </article>
+
+    <!-- Similar Jobs -->
+    <div class="related-jobs">
+      <div class="section-title">
+        <i class="fas fa-briefcase"></i> समान नौकरियां
+      </div>
+      {% for job in latest_jobs %}
+      <div class="related-job-item">
+        <a href="/latest-jobs/{{ job.slug }}/" target="_blank" class="related-job-title">{{ job.title }}</a>
+        <span class="related-job-date">{{ job.published_date|date:"d M, Y" }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <aside class="right-sidebar" aria-label="दायां साइडबार - योग्यता अनुसार नौकरियां और नवीनतम रिजल्ट">
+    <div class="sidebar-card" id="latest-job-card">
+      <h4><i class="fas fa-bolt"></i> योग्यता अनुसार नौकरियां</h4>
+      <ul class="sidebar-list">
+        <li><a href="{% url 'all_education' %}">सभी योग्यता</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'tenthjob' %}">10वीं पास नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'twellthjob' %}">12वीं पास नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'diploma_jobs' %}">डिप्लोमा नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'itigovtjobs' %}">ITI नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'apprenticejob' %}">अप्रेंटिस नौकरी</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'graduationjob' %}">ग्रेजुएट नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'postgraduaionjob' %}">पोस्ट ग्रेजुएट नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'medical_jobs' %}">मेडिकल नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+        <li><a href="{% url 'engineering_jobs' %}">इंजीनियरिंग नौकरियां</a><span class="sidebar-meta" style='font-size: 20px;'>›</span></li>
+      </ul>
+    </div>
+    <div class="sidebar-card" id="similar-jobs-card">
+      <h4><i class="fas fa-users"></i> नवीनतम रिजल्ट</h4>
+      <ul class="sidebar-list">
+        {% for result in latest_results %}
+        <li><a href="/results/{{ result.slug }}/" target="_blank">{{ result.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="sidebar-card" id="similar-jobs-card">
+      <h4><i class="fas fa-id-card" aria-hidden="true" title="Admit Card"></i> नवीनतम एडमिट कार्ड</h4>
+      <ul class="sidebar-list">
+        {% for admitcard in latest_admitcards %}
+        <li><a href="/admitcard/{{ admitcard.slug }}/" target="_blank">{{ admitcard.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+     
+
+  </aside>
+</main>
+
+<!-- Disclaimer Note -->
+<div class="site-note site-note--disclaimer">
+  <div class="site-note__accent">
+    <svg class="site-note__icon" viewBox="0 0 24 24">
+      <path d="M12 2L2 22h20L12 2zm1 16h-2v-2h2v2zm0-4h-2V8h2v6z"/>
+    </svg>
+  </div>
+  <div class="site-note__body">
+    <p>
+      <strong>डिस्क्लेमर:</strong> WifiResult केवल आधिकारिक सरकारी अधिसूचनाओं के आधार पर जानकारी प्रदान करता है।
+      हम कोई भर्ती या परीक्षा आयोजित नहीं करते। आवेदन करने से पहले कृपया <strong>मूल आधिकारिक अधिसूचना</strong> ध्यान से पढ़ें।
+      इस पेज पर जानकारी नियमित रूप से अपडेट की जाती है, लेकिन वेबसाइट किसी त्रुटि या परिवर्तन के लिए जिम्मेदार नहीं होगी।
+    </p>
+  </div>
+</div>
+
+<style>
+  .site-note--disclaimer { background: #fff5f5; border-left: 5px solid #e63946; border-radius: 10px; padding: 14px; display: flex; gap: 14px; box-shadow: 0 6px 18px rgba(230, 57, 70, 0.12); }
+  .site-note--disclaimer .site-note__accent { flex: 0 0 46px; height: 46px; border-radius: 8px; background: linear-gradient(135deg, #e63946, #b91c1c); display: flex; align-items: center; justify-content: center; }
+  .site-note--disclaimer .site-note__icon { width: 22px; height: 22px; fill: #fff; }
+  .site-note--disclaimer .site-note__body { color: #b91c1c; font-size: 15px; line-height: 1.6; }
+</style>
+
+{% endblock content %}
